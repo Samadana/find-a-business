@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Find-a-Business · Opportunités détectées</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💡</text></svg>">
+<style>
+  :root {
+    --bg: #f6f7f9; --panel: #ffffff; --text: #16181d; --muted: #646b78; --line: #e3e6eb;
+    --accent: #2f6fde; --good: #1f9d55; --mid: #2f6fde; --warn: #d9822b; --bad: #c2413a;
+    --track: #eceff3; --chip: #eef2f8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1115; --panel: #171a21; --text: #e7e9ee; --muted: #9aa1ae; --line: #262b35;
+      --accent: #6b9cf0; --good: #3fbf7a; --mid: #6b9cf0; --warn: #e8a15a; --bad: #e0675f;
+      --track: #232833; --chip: #1f2530;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); }
+  header { padding: 24px 28px 8px; max-width: 1280px; margin: 0 auto; }
+  h1 { margin: 0; font-size: 24px; letter-spacing: -0.01em; }
+  .sub { color: var(--muted); font-size: 14px; margin-top: 4px; }
+  main { max-width: 1280px; margin: 0 auto; padding: 0 28px 48px; }
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin: 18px 0; }
+  .kpi { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; }
+  .kpi .v { font-size: 24px; font-weight: 650; font-variant-numeric: tabular-nums; }
+  .kpi .l { color: var(--muted); font-size: 13px; }
+  .tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); margin-bottom: 16px; }
+  .tab { background: none; border: 0; padding: 10px 14px; font: inherit; color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent; }
+  .tab.on { color: var(--text); border-bottom-color: var(--accent); font-weight: 600; }
+  .filters { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 16px; }
+  .filters input[type=search], .filters select { background: var(--panel); color: var(--text); border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; font: inherit; }
+  .filters input[type=search] { min-width: 220px; flex: 1; }
+  .filters label { color: var(--muted); font-size: 14px; display: flex; align-items: center; gap: 6px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 14px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+  .card.target { outline: 2px solid var(--accent); }
+  .card.hidden-idea { opacity: .55; }
+  .top { display: flex; gap: 12px; align-items: flex-start; }
+  .score { flex: none; width: 54px; height: 54px; border-radius: 12px; display: grid; place-items: center; color: #fff; font-weight: 700; font-size: 19px; font-variant-numeric: tabular-nums; }
+  .title { font-weight: 650; font-size: 16px; line-height: 1.3; }
+  .meta { color: var(--muted); font-size: 13px; margin-top: 3px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .chip { background: var(--chip); border-radius: 999px; padding: 1px 9px; font-size: 12px; color: var(--text); }
+  .chip.new { background: var(--good); color: #fff; }
+  .chip.arch { background: var(--track); color: var(--muted); }
+  .pitch { margin: 0; }
+  .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; font-size: 13px; }
+  .facts div { background: var(--bg); border-radius: 8px; padding: 6px 8px; }
+  .facts b { display: block; font-size: 14px; font-variant-numeric: tabular-nums; }
+  .facts span { color: var(--muted); }
+  .bars { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 16px; }
+  .bar { display: grid; grid-template-columns: 82px 1fr 22px; gap: 8px; align-items: center; font-size: 12.5px; }
+  .bar .n { color: var(--muted); }
+  .bar .t { display: block; height: 7px; background: var(--track); border-radius: 4px; overflow: hidden; }
+  .bar .f { display: block; height: 100%; border-radius: 4px; }
+  .bar .x { text-align: right; font-variant-numeric: tabular-nums; }
+  .actions { display: flex; gap: 8px; margin-top: auto; }
+  .btn { background: var(--chip); border: 1px solid var(--line); color: var(--text); border-radius: 8px; padding: 5px 10px; font: inherit; font-size: 13px; cursor: pointer; }
+  .btn.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+  details.more { border-top: 1px solid var(--line); padding-top: 8px; }
+  details.more summary { cursor: pointer; color: var(--accent); font-size: 14px; }
+  details.more h4 { margin: 12px 0 4px; font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+  details.more ul, details.more ol { margin: 0; padding-left: 20px; }
+  .steps li { list-style: none; margin-left: -20px; }
+  .steps label { display: flex; gap: 8px; align-items: flex-start; }
+  .steps input:checked + span { text-decoration: line-through; color: var(--muted); }
+  a { color: var(--accent); }
+  .empty { text-align: center; color: var(--muted); padding: 48px 0; }
+  table { width: 100%; border-collapse: collapse; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; font-size: 13.5px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+  th { color: var(--muted); font-weight: 600; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .legend { color: var(--muted); font-size: 13px; margin: -6px 0 14px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>💡 Find-a-Business</h1>
+  <div class="sub" id="sub">Chargement…</div>
+</header>
+<main>
+  <div class="kpis" id="kpis"></div>
+  <nav class="tabs">
+    <button class="tab on" data-tab="ideas">Idées</button>
+    <button class="tab" data-tab="rejected">Écartées (éthique / budget)</button>
+    <button class="tab" data-tab="activity">Activité</button>
+  </nav>
+
+  <section id="tab-ideas">
+    <div class="filters">
+      <input type="search" id="q" placeholder="Rechercher (titre, pays, mot-clé…)">
+      <select id="cat"><option value="">Tous les types</option></select>
+      <select id="sort">
+        <option value="note_globale">Tri : note globale</option>
+        <option value="recent">Tri : plus récentes</option>
+        <option value="potentiel">Tri : potentiel</option>
+        <option value="cout">Tri : coût le plus faible</option>
+        <option value="travail">Tri : moins de travail</option>
+        <option value="urgence">Tri : urgence</option>
+        <option value="durabilite">Tri : durabilité</option>
+        <option value="fiabilite">Tri : fiabilité</option>
+        <option value="risque">Tri : risque le plus faible</option>
+      </select>
+      <label>Note min <input type="range" id="min" min="0" max="10" step="0.5" value="0"> <b id="minv">0</b></label>
+      <label><input type="checkbox" id="fav"> Favoris</label>
+      <label><input type="checkbox" id="showHidden"> Masquées</label>
+      <label><input type="checkbox" id="showArch"> Archivées</label>
+    </div>
+    <p class="legend">Toutes les notes vont de 0 à 10, <b>10 = favorable</b> (ex. coût 10 = presque gratuit, risque 10 = très faible risque, urgence 10 = à lancer tout de suite).</p>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section id="tab-rejected" hidden>
+    <p class="legend">Idées proposées par l'analyse puis écartées automatiquement (filtre éthique, budget, absence de source). Gardées pour transparence.</p>
+    <div id="rejected"></div>
+  </section>
+
+  <section id="tab-activity" hidden>
+    <div id="activity"></div>
+  </section>
+</main>
+
+<script>
+const LABELS = { potentiel: "Potentiel", cout: "Coût", travail: "Travail", risque: "Risque",
+  urgence: "Urgence", durabilite: "Durabilité", fiabilite: "Fiabilité", concurrence: "Concurrence" };
+const store = {
+  get(k, d) { try { return JSON.parse(localStorage.getItem("fab:" + k)) ?? d; } catch { return d; } },
+  set(k, v) { localStorage.setItem("fab:" + k, JSON.stringify(v)); },
+};
+let IDEAS = [], REJECTED = [], STATS = {};
+const favs = new Set(store.get("favs", []));
+const hidden = new Set(store.get("hidden", []));
+const done = store.get("done", {});
+
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const safeUrl = u => /^https?:\/\//i.test(u || "") ? esc(u) : "#";
+const color = v => v >= 8 ? "var(--good)" : v >= 6.5 ? "var(--mid)" : v >= 4.5 ? "var(--warn)" : "var(--bad)";
+const fmtEur = n => new Intl.NumberFormat("fr-FR").format(n) + " €";
+function ago(iso) {
+  if (!iso) return "—";
+  const m = Math.round((Date.now() - new Date(iso)) / 60000);
+  if (m < 60) return `il y a ${m} min`;
+  const h = Math.round(m / 60);
+  if (h < 48) return `il y a ${h} h`;
+  return `il y a ${Math.round(h / 24)} j`;
+}
+
+async function load() {
+  const get = async (f, d) => { try { const r = await fetch(`data/${f}?t=${Date.now()}`); return r.ok ? await r.json() : d; } catch { return d; } };
+  [IDEAS, REJECTED, STATS] = await Promise.all([get("ideas.json", []), get("rejected.json", []), get("stats.json", {})]);
+  const cats = [...new Set(IDEAS.map(i => i.categorie))].sort();
+  document.getElementById("cat").insertAdjacentHTML("beforeend", cats.map(c => `<option>${esc(c)}</option>`).join(""));
+  header(); render(); renderRejected(); renderActivity();
+  if (location.hash) focusIdea(location.hash.slice(1));
+}
+
+function header() {
+  const active = IDEAS.filter(i => i.statut === "active");
+  const day = Date.now() - 86400000;
+  const fresh = active.filter(i => new Date(i.cree_le) > day).length;
+  const best = active.reduce((m, i) => Math.max(m, i.note_globale), 0);
+  const last = (STATS.historique || [])[0];
+  document.getElementById("sub").textContent = STATS.derniere_execution
+    ? `Dernière analyse ${ago(STATS.derniere_execution)} · ${last?.statut ?? ""} · modèle ${STATS.modele ?? "?"}`
+    : "Aucune analyse encore effectuée.";
+  const k = [
+    [active.length, "idées actives"], [fresh, "nouvelles (24 h)"], [best ? best.toFixed(1) : "—", "meilleure note"],
+    [(STATS.cout_aujourdhui_usd ?? 0).toFixed(2) + " $", "coût API aujourd'hui"],
+  ];
+  document.getElementById("kpis").innerHTML = k.map(([v, l]) => `<div class="kpi"><div class="v">${v}</div><div class="l">${l}</div></div>`).join("");
+}
+
+function filtered() {
+  const q = document.getElementById("q").value.trim().toLowerCase();
+  const cat = document.getElementById("cat").value;
+  const min = +document.getElementById("min").value;
+  const onlyFav = document.getElementById("fav").checked;
+  const showHidden = document.getElementById("showHidden").checked;
+  const showArch = document.getElementById("showArch").checked;
+  const sort = document.getElementById("sort").value;
+  let list = IDEAS.filter(i =>
+    (showArch || i.statut === "active") && (!cat || i.categorie === cat) && i.note_globale >= min &&
+    (!onlyFav || favs.has(i.id)) && (showHidden || !hidden.has(i.id)) &&
+    (!q || JSON.stringify([i.titre, i.pitch, i.pays_cibles, i.mots_cles, i.evenement_declencheur, i.cible]).toLowerCase().includes(q)));
+  const key = sort === "recent" ? i => new Date(i.cree_le).getTime() : sort === "note_globale" ? i => i.note_globale : i => i.notes[sort];
+  return list.sort((a, b) => key(b) - key(a) || b.note_globale - a.note_globale);
+}
+
+function card(i) {
+  const isNew = Date.now() - new Date(i.cree_le) < 86400000;
+  const bars = Object.entries(LABELS).map(([k, l]) =>
+    `<div class="bar"><span class="n">${l}</span><span class="t"><span class="f" style="width:${i.notes[k] * 10}%;background:${color(i.notes[k])}"></span></span><span class="x">${i.notes[k]}</span></div>`).join("");
+  const steps = (i.etapes || []).map((s, n) => {
+    const key = `${i.id}:${n}`;
+    return `<li><label><input type="checkbox" data-step="${esc(key)}" ${done[key] ? "checked" : ""}><span>${esc(s)}</span></label></li>`;
+  }).join("");
+  const sources = (i.sources || []).map(s => `<li><a href="${safeUrl(s.url)}" target="_blank" rel="noopener">${esc(s.titre)}</a> <span class="meta">· ${esc(s.source)} · ${esc(s.langue)}</span></li>`).join("");
+  const hist = (i.historique || []).map(h => `<li>${esc(new Date(h.date).toLocaleString("fr-FR"))} — ${esc(h.note)}</li>`).join("");
+  return `<article class="card ${hidden.has(i.id) ? "hidden-idea" : ""}" id="${esc(i.id)}">
+    <div class="top">
+      <div class="score" style="background:${color(i.note_globale)}" title="Note globale">${i.note_globale.toFixed(1)}</div>
+      <div>
+        <div class="title">${esc(i.titre)}</div>
+        <div class="meta">
+          <span class="chip">${esc(i.categorie)}</span>
+          ${isNew ? '<span class="chip new">nouveau</span>' : ""}
+          ${i.statut !== "active" ? '<span class="chip arch">archivée</span>' : ""}
+          <span>${ago(i.cree_le)}</span>
+          ${i.signaux > 1 ? `<span title="Nombre d'actualités qui confirment l'idée">· ${i.signaux} signaux</span>` : ""}
+        </div>
+      </div>
+    </div>
+    <p class="pitch">${esc(i.pitch)}</p>
+    <div class="facts">
+      <div><b>${fmtEur(i.budget_estime_eur)}</b><span>budget estimé</span></div>
+      <div><b>~${i.delai_lancement_jours} j</b><span>pour lancer</span></div>
+      <div><b>${esc(i.duree_opportunite)}</b><span>fenêtre</span></div>
+    </div>
+    <div class="bars">${bars}</div>
+    <details class="more">
+      <summary>Plan d'action et détails</summary>
+      <h4>Déclencheur</h4><p>${esc(i.evenement_declencheur)}</p>
+      <h4>Cible</h4><p>${esc(i.cible)} · ${esc((i.pays_cibles || []).join(", "))} · langues : ${esc((i.langues || []).join(", "))}</p>
+      <h4>Modèle de revenus</h4><p>${esc(i.modele_revenus)}</p>
+      <h4>Analyse</h4><p>${esc(i.analyse)}</p>
+      <h4>Travail à accomplir</h4><ol class="steps">${steps}</ol>
+      <h4>Risques</h4><ul>${(i.risques || []).map(r => `<li>${esc(r)}</li>`).join("")}</ul>
+      <h4>Éthique</h4><p>${esc(i.ethique?.raison)}</p>
+      <h4>Sources</h4><ul>${sources}</ul>
+      ${hist ? `<h4>Historique</h4><ul>${hist}</ul>` : ""}
+    </details>
+    <div class="actions">
+      <button class="btn ${favs.has(i.id) ? "on" : ""}" data-fav="${esc(i.id)}">★ Favori</button>
+      <button class="btn" data-hide="${esc(i.id)}">${hidden.has(i.id) ? "Afficher" : "Masquer"}</button>
+      <button class="btn" data-link="${esc(i.id)}">Lien</button>
+    </div>
+  </article>`;
+}
+
+function render() {
+  const list = filtered();
+  document.getElementById("grid").innerHTML = list.length ? list.map(card).join("")
+    : `<div class="empty">Aucune idée ne correspond${IDEAS.length ? " aux filtres" : " pour l'instant : le système analyse l'actualité toutes les 30 minutes"}.</div>`;
+}
+
+function renderRejected() {
+  document.getElementById("rejected").innerHTML = REJECTED.length ? `<table><thead><tr><th>Date</th><th>Idée</th><th>Raison</th></tr></thead><tbody>${
+    REJECTED.map(r => `<tr><td>${esc(new Date(r.date).toLocaleString("fr-FR"))}</td><td><b>${esc(r.titre)}</b><br><span class="meta">${esc(r.pitch)}</span></td><td>${esc(r.raison)}</td></tr>`).join("")
+  }</tbody></table>` : '<div class="empty">Aucune idée écartée.</div>';
+}
+
+function renderActivity() {
+  const rows = (STATS.historique || []).slice(0, 100);
+  document.getElementById("activity").innerHTML = rows.length ? `<table><thead><tr><th>Date</th><th>Statut</th><th class="num">Articles</th><th class="num">Nouveaux</th><th class="num">Sujets analysés</th><th class="num">Idées</th><th class="num">Écartées</th><th class="num">Coût $</th></tr></thead><tbody>${
+    rows.map(r => `<tr><td>${esc(new Date(r.date).toLocaleString("fr-FR"))}</td><td>${esc(r.statut)}</td><td class="num">${r.articles_collectes ?? "—"}</td><td class="num">${r.articles_nouveaux ?? "—"}</td><td class="num">${r.sujets_analyses ?? "—"}</td><td class="num">${r.idees_nouvelles ?? "—"}</td><td class="num">${r.idees_ecartees ?? "—"}</td><td class="num">${r.cout_usd != null ? r.cout_usd.toFixed(3) : "—"}</td></tr>`).join("")
+  }</tbody></table>` : '<div class="empty">Pas encore d\'activité.</div>';
+}
+
+function focusIdea(id) {
+  const show = () => document.getElementById(id);
+  let el = show();
+  if (!el) { document.getElementById("showArch").checked = true; document.getElementById("showHidden").checked = true; render(); el = show(); }
+  if (!el) return;
+  el.classList.add("target");
+  el.querySelector("details").open = true;
+  el.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+document.addEventListener("input", e => { if (e.target.closest(".filters")) { document.getElementById("minv").textContent = document.getElementById("min").value; render(); } });
+document.addEventListener("change", e => {
+  const key = e.target.dataset?.step;
+  if (key) { done[key] = e.target.checked; store.set("done", done); }
+});
+document.addEventListener("click", e => {
+  const t = e.target;
+  if (t.dataset.tab) {
+    document.querySelectorAll(".tab").forEach(b => b.classList.toggle("on", b === t));
+    ["ideas", "rejected", "activity"].forEach(n => document.getElementById("tab-" + n).hidden = n !== t.dataset.tab);
+  } else if (t.dataset.fav) {
+    favs.has(t.dataset.fav) ? favs.delete(t.dataset.fav) : favs.add(t.dataset.fav); store.set("favs", [...favs]); render();
+  } else if (t.dataset.hide) {
+    hidden.has(t.dataset.hide) ? hidden.delete(t.dataset.hide) : hidden.add(t.dataset.hide); store.set("hidden", [...hidden]); render();
+  } else if (t.dataset.link) {
+    const url = location.href.split("#")[0] + "#" + t.dataset.link;
+    navigator.clipboard?.writeText(url); t.textContent = "Copié ✓"; setTimeout(() => t.textContent = "Lien", 1500);
+  }
+});
+window.addEventListener("hashchange", () => focusIdea(location.hash.slice(1)));
+load();
+</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+[
+ {"id": "a1", "title": "Popular photo-sharing service PixNest to shut down on December 31", "summary": "Millions of users must export their photo libraries before the closure.", "url": "https://example.com/pixnest-shutdown", "source": "TechCrunch", "lang": "en", "published": "2026-10-31T10:00:00+00:00", "country": ""},
+ {"id": "a2", "title": "PixNest shutting down: users scramble to save their photos", "summary": "", "url": "https://example.org/pixnest-users", "source": "The Verge", "lang": "en", "published": "2026-10-31T10:30:00+00:00", "country": ""},
+ {"id": "a3", "title": "Nouvelle loi : les commerçants devront émettre des factures électroniques dès 2027", "summary": "Toutes les TPE sont concernées par la réforme de la facturation électronique.", "url": "https://example.fr/facture-electronique", "source": "Le Monde Économie", "lang": "fr", "published": "2026-10-31T09:00:00+00:00", "country": "FR"},
+ {"id": "a4", "title": "Engpass bei Fahrradersatzteilen: Werkstätten warten wochenlang", "summary": "Händler melden Lieferzeiten von bis zu drei Monaten.", "url": "https://example.de/fahrrad-engpass", "source": "Tagesschau", "lang": "de", "published": "2026-10-31T08:00:00+00:00", "country": "DE"},
+ {"id": "a5", "title": "Inondations massives dans le sud : des milliers de foyers sinistrés", "summary": "Les assureurs s'attendent à un afflux de déclarations.", "url": "https://example.fr/inondations", "source": "Franceinfo", "lang": "fr", "published": "2026-10-31T07:00:00+00:00", "country": "FR"},
+ {"id": "a6", "title": "Escasez de aceite de oliva dispara los precios en España", "summary": "", "url": "https://example.es/aceite", "source": "El País", "lang": "es", "published": "2026-10-31T06:00:00+00:00", "country": "ES"},
+ {"id": "a7", "title": "Local football team wins regional cup", "summary": "", "url": "https://example.com/football", "source": "BBC World", "lang": "en", "published": "2026-10-31T05:00:00+00:00", "country": ""}
+]

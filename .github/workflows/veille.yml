@@ -1,0 +1,79 @@
+name: Veille des opportunités
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"   # toutes les 30 minutes (GitHub peut décaler de quelques minutes)
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Mode test (sans appel à Claude, données d'exemple)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: veille
+  cancel-in-progress: false
+
+jobs:
+  veille:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Installer les dépendances
+        run: pip install -r requirements.txt
+
+      - name: Analyser l'actualité
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          FAB_DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
+          # Réglages optionnels : Settings > Secrets and variables > Actions > onglet « Variables »
+          FAB_MODEL: ${{ vars.FAB_MODEL }}
+          FAB_EFFORT: ${{ vars.FAB_EFFORT }}
+          FAB_MIN_SCORE_NOTIFY: ${{ vars.FAB_MIN_SCORE_NOTIFY }}
+          FAB_MAX_ARTICLES: ${{ vars.FAB_MAX_ARTICLES }}
+          FAB_DAILY_COST_LIMIT_USD: ${{ vars.FAB_DAILY_COST_LIMIT_USD }}
+          FAB_MAX_BUDGET_EUR: ${{ vars.FAB_MAX_BUDGET_EUR }}
+          DASHBOARD_URL: ${{ vars.DASHBOARD_URL }}
+        run: python -m fab.main
+
+      - name: Sauvegarder les résultats dans le dépôt
+        if: ${{ !inputs.dry_run }}
+        run: |
+          git config user.name "find-a-business-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data data
+          if git diff --cached --quiet; then
+            echo "Aucun changement."
+            exit 0
+          fi
+          git commit -q -m "Veille $(date -u +'%Y-%m-%d %H:%M') UTC"
+          for i in 1 2 3 4; do
+            git pull -q --rebase origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && exit 0
+            sleep $((i * 5))
+          done
+          echo "Échec du push" && exit 1
+
+      - name: Préparer le tableau de bord
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+      - name: Publier le tableau de bord (GitHub Pages)
+        id: deploy
+        uses: actions/deploy-pages@v4
