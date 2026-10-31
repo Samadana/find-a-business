@@ -515,7 +515,10 @@ document.addEventListener("change", async e => {
   if (t.dataset.statut) saveSuivi(t.dataset.statut, { statut: t.value });
   if (t.id === "auto") {
     const on = t.checked;
-    if (on && !confirm("Activer le bilan automatique ?\n\nChaque matin vers 9 h (heure de Paris), le système analysera l'actualité et t'enverra le bilan sur Discord.\nCoût estimé : 0,40 à 0,70 $ par jour avec Opus (0,20 à 0,35 $ avec Sonnet), dans la limite du plafond quotidien.")) { t.checked = false; return; }
+    const sonnet = (D.settings.FAB_MODEL || "").includes("sonnet");
+    const modele = sonnet ? "Claude Sonnet 5.5" : "Claude Opus 5.5";
+    const cout = sonnet ? "0,20 à 0,35 $" : "0,40 à 0,70 $";
+    if (on && !confirm(`Activer le bilan automatique ?\n\nChaque matin vers 9 h (heure de Paris), le système analysera l'actualité avec ${modele} (modèle choisi dans Réglages) et t'enverra le bilan sur Discord.\nCoût estimé : ${cout} par jour, dans la limite du plafond de ${D.settings.FAB_DAILY_COST_LIMIT_USD} $ par jour.`)) { t.checked = false; return; }
     try { await api("/api/auto", { enabled: on }); D.auto = on; header(); toast(on ? "Bilan automatique activé ✓" : "Bilan automatique désactivé ✓"); }
     catch (err) { t.checked = !on; toast("Échec : " + err.message, 6000); }
   }
