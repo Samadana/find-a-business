@@ -94,6 +94,13 @@
   .chart .c { flex: 1; background: var(--accent); border-radius: 3px 3px 0 0; min-height: 1px; position: relative; }
   .chart .c:hover::after { content: attr(data-t); position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); background: var(--text); color: var(--bg); font-size: 12px; padding: 3px 6px; border-radius: 4px; white-space: nowrap; }
   .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--text); color: var(--bg); padding: 10px 16px; border-radius: 10px; font-size: 14px; display: none; max-width: 90vw; }
+  .info { background: var(--chip); border: 1px solid var(--line); padding: 10px 14px; border-radius: 10px; margin: 10px 0; }
+  .info a { color: var(--accent); }
+  dialog { border: 1px solid var(--line); border-radius: 14px; padding: 22px; max-width: 460px; background: var(--panel); color: var(--text); }
+  dialog::backdrop { background: rgba(0,0,0,.35); }
+  dialog h3 { margin: 0 0 10px; }
+  dialog p { margin: 8px 0; font-size: 14px; line-height: 1.5; }
+  dialog .row { display: flex; gap: 8px; justify-content: flex-end; flex-wrap: wrap; margin-top: 16px; }
   .alert { background: #fff4e5; color: #6b3d00; border: 1px solid #f3c98b; padding: 10px 14px; border-radius: 10px; margin: 10px 0; }
   @media (prefers-color-scheme: dark) { .alert { background: #3a2a12; color: #f5d7a8; border-color: #6b4a1a; } }
   #setup { max-width: 640px; margin: 40px auto; }
@@ -109,7 +116,7 @@
     <li>Ouvre <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">github.com/settings/personal-access-tokens/new</a></li>
     <li><b>Token name</b> : <code>find-a-business-app</code> · <b>Expiration</b> : 1 an (366 days)</li>
     <li><b>Repository access</b> : <i>Only select repositories</i> → choisis <code>find-a-business</code></li>
-    <li><b>Permissions</b> → <b>+ Add permissions</b> → coche <b>Contents</b> et <b>Variables</b>, puis passe chacune de <i>Read-only</i> à <b>Read and write</b></li>
+    <li><b>Permissions</b> → <b>+ Add permissions</b> → coche <b>Actions</b>, <b>Contents</b> et <b>Variables</b>, puis passe chacune de <i>Read-only</i> à <b>Read and write</b></li>
     <li><b>Generate token</b>, copie la clé (elle commence par <code>github_pat_</code>) et colle-la ci-dessous.</li>
   </ol>
   <div class="field"><label>Dépôt</label><input type="text" id="setupRepo"></div>
@@ -127,10 +134,12 @@
     <label class="switch" title="Bilan automatique chaque matin à 9 h (heure de Paris)">
       <input type="checkbox" id="auto"> <span id="autoLabel">Bilan automatique de 9 h</span>
     </label>
+    <button class="btn primary" id="runBtn">▶ Lancer un bilan</button>
     <button class="btn" id="refresh">↻ Actualiser</button>
   </header>
   <main>
     <div id="alert"></div>
+    <div id="runStatus"></div>
     <div class="kpis" id="kpis"></div>
     <nav class="tabs">
       <button class="tab on" data-tab="ideas">Idées</button>
@@ -210,6 +219,17 @@
     </section>
   </main>
 </div>
+<dialog id="runDialog">
+  <h3>▶ Lancer un bilan maintenant</h3>
+  <p><b>Bilan complet</b> : analyse l'actualité des dernières 24 h et t'envoie le résultat sur Discord, comme le bilan de 9 h.
+    Coût estimé : <b id="runCost">0,40 à 0,70 $</b> (dans la limite du plafond quotidien). Durée : 5 à 10 minutes.</p>
+  <p><b>Test gratuit</b> : n'appelle pas Claude ; envoie deux idées fictives sur Discord pour vérifier que tout est branché.</p>
+  <div class="row">
+    <button class="btn" id="runCancel">Annuler</button>
+    <button class="btn" id="runTest">Test gratuit</button>
+    <button class="btn primary" id="runReal">Lancer le bilan complet</button>
+  </div>
+</dialog>
 <div class="toast" id="toast"></div>
 
 <script>
@@ -268,9 +288,61 @@ async function load() {
     $("cat").innerHTML = '<option value="">Tous les types</option>' + cats.map(c => `<option>${esc(c)}</option>`).join("");
     header(); render(); renderRejected(); renderCosts(); fillSettings();
     if (location.hash) focusIdea(location.hash.slice(1));
+    if (!checkRun.waiting) checkRun(true);
   } catch (e) {
     $("alert").innerHTML = `<div class="alert">${esc(e.message)}</div>`;
   } finally { $("refresh").disabled = false; }
+}
+
+let runTimer = null;
+async function checkRun(quiet) {
+  clearTimeout(runTimer);
+  let j;
+  try { j = await api("/api/run"); }
+  catch (e) { if (!quiet) $("runStatus").innerHTML = `<div class="alert">${esc(e.message)}</div>`; return; }
+  const r = j.run;
+  if (checkRun.since && (!r || new Date(r.created_at) < checkRun.since - 60000)) {
+    // GitHub met quelques secondes à faire apparaître le bilan qui vient d'être lancé
+    if (Date.now() - checkRun.since < 180000) { runTimer = setTimeout(() => checkRun(true), 5000); return; }
+    checkRun.since = 0; checkRun.waiting = false; $("runBtn").disabled = false;
+    $("runStatus").innerHTML = '<div class="alert">Le bilan n\'apparaît pas encore sur GitHub. Clique sur Actualiser dans quelques minutes.</div>';
+    return;
+  }
+  checkRun.since = 0;
+  if (!r) { $("runStatus").innerHTML = ""; return; }
+  const link = `<a href="${esc(r.html_url)}" target="_blank" rel="noopener">voir le détail sur GitHub</a>`;
+  if (r.status !== "completed") {
+    $("runBtn").disabled = true;
+    $("runStatus").innerHTML = `<div class="info">⏳ Bilan en cours (démarré ${ago(r.created_at)}). Les résultats s'afficheront ici automatiquement à la fin. · ${link}</div>`;
+    runTimer = setTimeout(() => checkRun(true), 15000);
+    checkRun.waiting = true;
+    return;
+  }
+  $("runBtn").disabled = false;
+  if (checkRun.waiting) {
+    checkRun.waiting = false;
+    if (r.conclusion === "success") { toast("Bilan terminé ✓", 4000); await load(); }
+  }
+  const recent = Date.now() - new Date(r.updated_at) < 6 * 3600000;
+  if (r.conclusion === "failure" && recent)
+    $("runStatus").innerHTML = `<div class="alert">Le dernier bilan a échoué (${ago(r.updated_at)}) · ${link}</div>`;
+  else if (r.conclusion === "success" && recent && r.event === "workflow_dispatch")
+    $("runStatus").innerHTML = `<div class="info">✓ Dernier bilan lancé à la main terminé ${ago(r.updated_at)} · ${link}</div>`;
+  else $("runStatus").innerHTML = "";
+}
+async function startRun(test) {
+  $("runDialog").close();
+  $("runBtn").disabled = true;
+  try {
+    await api("/api/run", { test });
+    toast(test ? "Test lancé : message Discord dans 1 à 2 minutes." : "Bilan lancé : résultat sur Discord dans 5 à 10 minutes.", 5000);
+    $("runStatus").innerHTML = `<div class="info">⏳ Démarrage du ${test ? "test" : "bilan"}…</div>`;
+    checkRun.waiting = true; checkRun.since = Date.now();
+    runTimer = setTimeout(() => checkRun(true), 5000);
+  } catch (e) {
+    $("runBtn").disabled = false;
+    $("runStatus").innerHTML = `<div class="alert">${esc(e.message)}</div>`;
+  }
 }
 
 function header() {
@@ -459,6 +531,13 @@ document.addEventListener("click", async e => {
     const box = document.querySelector(`[data-notebox="${CSS.escape(t.dataset.savenote)}"]`);
     saveSuivi(t.dataset.savenote, { note: box.querySelector("textarea").value });
   } else if (t.id === "refresh") { load(); }
+  else if (t.id === "runBtn") {
+    $("runCost").textContent = (D.settings.FAB_MODEL || "").includes("sonnet") ? "0,20 à 0,35 $" : "0,40 à 0,70 $";
+    $("runDialog").showModal();
+  }
+  else if (t.id === "runCancel") $("runDialog").close();
+  else if (t.id === "runTest") startRun(true);
+  else if (t.id === "runReal") startRun(false);
   else if (t.id === "saveSettings") {
     try {
       await api("/api/settings", { FAB_MIN_SCORE_NOTIFY: $("sScore").value, FAB_MODEL: $("sModel").value, FAB_DAILY_COST_LIMIT_USD: $("sCap").value });

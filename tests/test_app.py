@@ -41,3 +41,18 @@ def test_update_json_retries_on_conflict(monkeypatch):
     monkeypatch.setattr(serveur.time, "sleep", lambda s: None)
     result = gh.update_json("data/suivi.json", lambda cur: {**cur, "a": 1}, "msg")
     assert result == {"a": 1} and calls["put"] == 2
+
+
+def test_last_run_ignores_skipped_schedules(monkeypatch):
+    gh = serveur.GitHub("t", "o/r")
+    runs = {"workflow_runs": [
+        {"id": 3, "event": "schedule", "status": "completed", "conclusion": "skipped"},
+        {"id": 2, "event": "workflow_dispatch", "status": "in_progress", "conclusion": None},
+    ]}
+    monkeypatch.setattr(gh, "request", lambda *a, **k: runs)
+    assert gh.last_run()["id"] == 2
+
+
+def test_explain_actions_permission():
+    msg = serveur.explain(serveur.GitHubError(403, "Resource not accessible"), actions=True)
+    assert "Actions" in msg

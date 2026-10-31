@@ -52,7 +52,7 @@ Les secrets sont chiffrés par GitHub : personne ne peut les lire, pas même toi
 
 ## Étape 5 · L'application sur ton ordinateur (tableau de bord)
 
-L'application affiche toutes les idées en détail et te permet de les piloter : statut de chaque idée (à étudier, en cours, lancée, abandonnée), notes perso, interrupteur du bilan de 9 h, réglages (note minimale, modèle Claude, plafond de dépense) et coûts jour par jour. Elle tourne uniquement sur ton ordinateur et lit ton dépôt privé.
+L'application affiche toutes les idées en détail et te permet de les piloter : bouton **▶ Lancer un bilan** (bilan complet ou test gratuit), statut de chaque idée (à étudier, en cours, lancée, abandonnée), notes perso, interrupteur du bilan de 9 h, réglages (note minimale, modèle Claude, plafond de dépense) et coûts jour par jour. Elle tourne uniquement sur ton ordinateur et lit ton dépôt privé.
 
 **A. Récupérer l'application**
 
@@ -67,7 +67,7 @@ L'application affiche toutes les idées en détail et te permet de les piloter :
 1. Ouvre <https://github.com/settings/personal-access-tokens/new>.
 2. **Token name** : `find-a-business-app` · **Expiration** : 1 an.
 3. **Repository access** : *Only select repositories* → choisis `find-a-business`.
-4. **Permissions** → **+ Add permissions** (section *Repositories*) → coche **Contents** et **Variables**. Chacune s'ajoute en *Read-only* : clique sur ce menu et choisis **Read and write**, pour les deux. (*Metadata* passe seul en *Read-only*, c'est normal.) Ne touche à rien d'autre.
+4. **Permissions** → **+ Add permissions** (section *Repositories*) → coche **Actions**, **Contents** et **Variables**. Chacune s'ajoute en *Read-only* : clique sur ce menu et choisis **Read and write**, pour les trois. (*Metadata* passe seul en *Read-only*, c'est normal.) Ne touche à rien d'autre.
 5. **Generate token**, copie la clé (`github_pat_…`) et colle-la dans l'écran d'accueil de l'application → **Enregistrer et continuer**.
 
 Cette clé ne donne accès qu'à ce dépôt. Elle est enregistrée uniquement sur ton ordinateur (`%APPDATA%\FindABusiness`). Si un jour elle expire, crée-en une nouvelle et colle-la dans **Réglages → Clé GitHub**.
@@ -77,9 +77,9 @@ Cette clé ne donne accès qu'à ce dépôt. Elle est enregistrée uniquement su
 ## Étape 6 · Premier lancement
 
 1. Onglet **Actions** du dépôt. Si GitHub demande d'activer les workflows, clique sur le bouton vert.
-2. Clique sur **Bilan quotidien des opportunités** → **Run workflow**.
-3. **Premier essai conseillé : coche « Mode test »** → **Run workflow**. Ce mode n'appelle pas Claude et ne coûte rien ; il vérifie que tout est bien branché. Tu dois recevoir sur Discord un message marqué 🧪 **TEST** avec deux idées fictives détaillées. *(Ces idées fictives ne sont pas sauvegardées.)*
-4. Relance ensuite **sans** cocher le mode test. Au bout de 3 à 10 minutes, tu reçois le bilan sur Discord, puis les idées apparaissent dans l'application (bouton **Actualiser**).
+2. Le plus simple : dans l'application, bouton **▶ Lancer un bilan**. (Sinon, sur GitHub : **Bilan quotidien des opportunités** → **Run workflow**.)
+3. **Premier essai conseillé : choisis « Test gratuit »** (sur GitHub : coche « Mode test »). Ce mode n'appelle pas Claude et ne coûte rien ; il vérifie que tout est bien branché. Tu dois recevoir sur Discord un message marqué 🧪 **TEST** avec deux idées fictives détaillées. *(Ces idées fictives ne sont pas sauvegardées.)*
+4. Relance ensuite en choisissant **Lancer le bilan complet**. L'application affiche « Bilan en cours » ; au bout de 5 à 10 minutes, tu reçois le bilan sur Discord et les idées apparaissent toutes seules dans l'application.
 5. **Activer le bilan automatique de 9 h** (désactivé par défaut) : dans l'application, clique sur l'interrupteur **Bilan automatique de 9 h** en haut à droite. Le bilan arrive alors seul **chaque matin vers 9 h** (heure de Paris, été comme hiver ; GitHub peut le décaler de quelques minutes), sans que ton ordinateur soit allumé. Le même interrupteur l'arrête.
 
 ### Ce que contient le bilan Discord
@@ -143,6 +143,6 @@ Les sources d'actualité sont dans `config/sources.json` : tu peux ajouter un fl
 | Message « crédit épuisé » | Recharge tes crédits dans **Billing** sur platform.claude.com |
 | Aucune notification | Normal si aucune idée ne dépasse la note minimale. Regarde l'application, ou baisse la note minimale dans **Réglages** |
 | Le bilan de 9 h n'arrive pas | Vérifie que l'interrupteur **Bilan automatique** est activé dans l'application. Sinon : GitHub met en pause les tâches planifiées d'un dépôt inactif depuis 60 jours ; ici chaque passage enregistre ses résultats, donc ça ne devrait pas arriver. Sinon : onglet Actions → **Enable workflow** |
-| L'application dit « Accès refusé par GitHub » | La clé n'a pas les bons droits : recrée-la (étape 5 B) avec Contents et Variables en *Read and write* sur `find-a-business` |
+| L'application dit « Accès refusé par GitHub » ou « ne permet pas encore de lancer un bilan » | La clé n'a pas les bons droits : sur <https://github.com/settings/personal-access-tokens>, clique sur ta clé → **Edit**, et mets **Actions**, **Contents** et **Variables** en *Read and write* sur `find-a-business` (la clé reste la même, rien à recoller) |
 | Le `.bat` se ferme tout de suite | Clic droit → Modifier pour vérifier qu'il est bien dans le dossier extrait (à côté du dossier `app`), puis relance |
 | Un passage est en rouge dans Actions | Clique dessus pour voir le journal ; les erreurs sont en français |

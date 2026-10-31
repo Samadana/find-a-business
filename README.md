@@ -9,7 +9,7 @@ Veille automatique de l'actualité mondiale qui détecte des **opportunités de 
 - **Filtre éthique** : les idées qui exploitent la détresse des victimes (prix abusifs, fausses cagnottes, désinformation…) sont écartées et listées à part, pour transparence.
 - **Déduplication** : une idée déjà proposée n'est jamais renvoyée ; si de nouvelles actualités la confirment, elle gagne des « signaux » et un petit bonus de note.
 - **Discord** : un bilan chaque matin. Chaque idée est détaillée en 4 cartes : le projet, l'événement déclencheur et son contexte, les 8 notes expliquées, le travail à accomplir (étapes, budget poste par poste, concurrents, risques).
-- **Application locale (Windows)** : un double-clic sur `Lancer Find-a-Business.bat` ouvre le tableau de bord dans le navigateur. Statut et notes perso pour chaque idée, interrupteur du bilan de 9 h, réglages (note minimale, modèle, plafond de dépense), coûts jour par jour.
+- **Application locale (Windows)** : un double-clic sur `Lancer Find-a-Business.bat` ouvre le tableau de bord dans le navigateur. Bouton pour lancer un bilan à la demande, statut et notes perso pour chaque idée, interrupteur du bilan de 9 h, réglages (note minimale, modèle, plafond de dépense), coûts jour par jour.
 
 👉 **Mise en route : [GUIDE_INSTALLATION.md](GUIDE_INSTALLATION.md)**
 

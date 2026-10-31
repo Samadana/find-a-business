@@ -27,6 +27,7 @@ CONFIG_FILE = CONFIG_DIR / "config.json"
 CACHE_FILE = CONFIG_DIR / "derniere_copie.json"
 DEFAULT_REPO = "Samadana/find-a-business"
 API = "https://api.github.com"
+WORKFLOW = "veille.yml"
 
 STATUTS = ["nouvelle", "a_etudier", "en_cours", "lancee", "abandonnee"]
 SETTINGS = {
@@ -120,6 +121,20 @@ class GitHub:
                     raise
                 time.sleep(1)
         raise GitHubError(409, "le fichier a changé pendant l'enregistrement, réessaie")
+
+    # --- bilans (workflow GitHub Actions)
+    def run_workflow(self, test: bool) -> None:
+        branch = self.request("GET", f"/repos/{self.repo}").get("default_branch") or "main"
+        self.request("POST", f"/repos/{self.repo}/actions/workflows/{WORKFLOW}/dispatches",
+                     {"ref": branch, "inputs": {"dry_run": bool(test)}})
+
+    def last_run(self) -> dict | None:
+        res = self.request("GET", f"/repos/{self.repo}/actions/workflows/{WORKFLOW}/runs?per_page=30")
+        for run in res.get("workflow_runs", []):
+            if run.get("event") == "schedule" and run.get("conclusion") == "skipped":
+                continue  # passages planifiés ignorés quand le bilan auto est désactivé
+            return {k: run.get(k) for k in ("id", "status", "conclusion", "event", "created_at", "updated_at", "html_url")}
+        return None
 
     # --- variables GitHub Actions (réglages)
     def get_variables(self) -> dict:
@@ -236,6 +251,11 @@ class Handler(BaseHTTPRequestHandler):
         elif self.path == "/api/config":
             cfg = load_config()
             self._json(200, {"configured": bool(cfg.get("token")), "repo": cfg.get("repo") or DEFAULT_REPO})
+        elif self.path == "/api/run":
+            try:
+                self._json(200, {"run": github().last_run()})
+            except GitHubError as exc:
+                self._json(502, {"erreur": explain(exc, actions=True), "status": exc.status})
         elif self.path == "/api/data":
             try:
                 self._json(200, fetch_all())
@@ -279,6 +299,13 @@ class Handler(BaseHTTPRequestHandler):
                 for name, value in validate_settings(body).items():
                     gh.set_variable(name, value)
                 return self._json(200, {"ok": True})
+            if self.path == "/api/run":
+                gh = github()
+                try:
+                    gh.run_workflow(bool(body.get("test")))
+                except GitHubError as exc:
+                    return self._json(502, {"erreur": explain(exc, actions=True), "status": exc.status})
+                return self._json(200, {"ok": True})
             if self.path == "/api/auto":
                 github().set_variable("FAB_AUTO", "true" if body.get("enabled") else "false")
                 return self._json(200, {"ok": True})
@@ -289,9 +316,12 @@ class Handler(BaseHTTPRequestHandler):
             return self._json(400, {"erreur": str(exc)})
 
 
-def explain(exc: GitHubError) -> str:
+def explain(exc: GitHubError, actions: bool = False) -> str:
     if exc.status == 401:
         return "Clé GitHub invalide ou expirée : recrée-la (onglet Réglages)."
+    if actions and exc.status in (403, 404):
+        return ("Ta clé GitHub ne permet pas encore de lancer un bilan : modifie-la sur "
+                "github.com/settings/personal-access-tokens et ajoute la permission Actions = Read and write.")
     if exc.status in (403, 404):
         return ("Accès refusé par GitHub : vérifie que la clé donne accès au dépôt "
                 "avec les droits Contents et Variables en lecture et écriture.")
