@@ -6,19 +6,75 @@
    "evenement_declencheur": "Fermeture annoncée de PixNest le 31 décembre.",
    "categorie": "outil-web",
    "cible": "Utilisateurs de PixNest qui ne veulent pas perdre leurs photos",
-   "pays_cibles": ["Monde"],
-   "langues": ["en", "fr", "es"],
+   "pays_cibles": [
+    "Monde"
+   ],
+   "langues": [
+    "en",
+    "fr",
+    "es"
+   ],
    "modele_revenus": "Freemium : 9 € l'export complet, gratuit jusqu'à 500 photos",
    "budget_estime_eur": 800,
    "delai_lancement_jours": 10,
    "duree_opportunite": "2 mois (jusqu'à la fermeture)",
-   "notes": {"potentiel": 7, "cout": 9, "travail": 6, "risque": 7, "urgence": 10, "durabilite": 3, "fiabilite": 9, "concurrence": 6},
+   "notes": {
+    "potentiel": 7,
+    "cout": 9,
+    "travail": 6,
+    "risque": 7,
+    "urgence": 10,
+    "durabilite": 3,
+    "fiabilite": 9,
+    "concurrence": 6
+   },
    "analyse": "Besoin immédiat et massif, fenêtre courte. Pivot possible ensuite vers un outil de migration générique.",
-   "etapes": ["Vérifier l'API / l'export officiel de PixNest", "Développer le connecteur d'export", "Page de vente + Stripe", "SEO sur 'PixNest alternative' et 'export PixNest'", "Lancer sur Reddit et forums d'utilisateurs"],
-   "risques": ["Conditions d'utilisation de l'API", "Fenêtre très courte"],
-   "mots_cles": ["pixnest", "export photos", "migration"],
-   "sources": ["A1", "A2"],
-   "ethique": {"acceptable": true, "raison": "Aide les utilisateurs à conserver leurs données."}
+   "etapes": [
+    "Vérifier l'API / l'export officiel de PixNest",
+    "Développer le connecteur d'export",
+    "Page de vente + Stripe",
+    "SEO sur 'PixNest alternative' et 'export PixNest'",
+    "Lancer sur Reddit et forums d'utilisateurs"
+   ],
+   "risques": [
+    "Conditions d'utilisation de l'API",
+    "Fenêtre très courte"
+   ],
+   "mots_cles": [
+    "pixnest",
+    "export photos",
+    "migration"
+   ],
+   "sources": [
+    "A1",
+    "A2"
+   ],
+   "ethique": {
+    "acceptable": true,
+    "raison": "Aide les utilisateurs à conserver leurs données."
+   },
+   "contexte_declencheur": "PixNest, service de partage de photos utilisé par environ 40 millions de personnes, a annoncé sa fermeture définitive au 31 décembre. Les utilisateurs doivent récupérer leurs albums avant cette date, mais l'outil d'export officiel ne conserve ni les albums ni les légendes. Les forums et réseaux sociaux se remplissent de messages d'utilisateurs inquiets. Plusieurs médias tech relaient l'information, ce qui va amplifier la demande dans les semaines qui viennent.",
+   "pourquoi_maintenant": "La demande atteindra son pic dans les 4 à 6 semaines avant la fermeture. Après le 31 décembre, le besoin disparaît : il faut être en ligne d'ici 10 jours pour capter le trafic de recherche.",
+   "description_detaillee": "Un site web simple où l'utilisateur connecte son compte PixNest, choisit une destination (Google Photos, iCloud, OneDrive ou téléchargement ZIP) et lance le transfert. Le service conserve les albums, les dates et les légendes, ce que l'export officiel ne fait pas. L'offre est gratuite jusqu'à 500 photos, puis 9 € pour un export complet. Le parcours client : recherche Google « exporter PixNest », arrivée sur la page, connexion, paiement Stripe, transfert en arrière-plan avec e-mail de confirmation. L'acquisition repose sur le référencement (« alternative PixNest », « sauvegarder photos PixNest ») et la présence sur Reddit et les forums. Avec 0,1 % des utilisateurs convertis, le chiffre d'affaires possible dépasse 30 000 € sur deux mois.",
+   "notes_explications": {
+    "potentiel": "Des millions d'utilisateurs doivent agir avant une date fixe : la demande est massive mais limitée dans le temps.",
+    "cout": "Un serveur, un nom de domaine et Stripe suffisent : moins de 1 000 €.",
+    "travail": "Le connecteur d'export demande quelques jours de développement ; le reste est standard.",
+    "risque": "Le principal risque vient des conditions d'utilisation de l'API PixNest ; le risque financier est faible.",
+    "urgence": "La fenêtre se ferme le 31 décembre : il faut lancer sous 10 jours.",
+    "durabilite": "Le besoin disparaît après la fermeture, sauf à pivoter vers un outil de migration générique.",
+    "fiabilite": "Fermeture officielle confirmée par plusieurs médias.",
+    "concurrence": "Quelques scripts existent mais aucun service grand public simple."
+   },
+   "budget_detail": [
+    "Nom de domaine + hébergement : 80 €",
+    "Développement freelance du connecteur : 500 €",
+    "Publicité Google Ads de lancement : 200 €"
+   ],
+   "concurrents": [
+    "Export officiel PixNest : ne garde ni albums ni légendes",
+    "Scripts open source : trop techniques pour le grand public"
+   ]
   },
   {
    "titre": "Kit Facture-e : générateur de factures électroniques conformes pour TPE",
@@ -26,19 +82,69 @@
    "evenement_declencheur": "Nouvelle loi sur la facturation électronique obligatoire.",
    "categorie": "saas",
    "cible": "TPE, artisans, indépendants en France",
-   "pays_cibles": ["FR"],
-   "langues": ["fr"],
+   "pays_cibles": [
+    "FR"
+   ],
+   "langues": [
+    "fr"
+   ],
    "modele_revenus": "Abonnement 9 €/mois",
    "budget_estime_eur": 3500,
    "delai_lancement_jours": 45,
    "duree_opportunite": "Durable",
-   "notes": {"potentiel": 8, "cout": 4, "travail": 3, "risque": 6, "urgence": 5, "durabilite": 9, "fiabilite": 9, "concurrence": 4},
+   "notes": {
+    "potentiel": 8,
+    "cout": 4,
+    "travail": 3,
+    "risque": 6,
+    "urgence": 5,
+    "durabilite": 9,
+    "fiabilite": 9,
+    "concurrence": 4
+   },
    "analyse": "Marché durable mais concurrence établie ; se différencier par la simplicité.",
-   "etapes": ["Étudier le cahier des charges officiel", "Choisir une plateforme partenaire agréée", "Développer le MVP", "Landing page + liste d'attente"],
-   "risques": ["Agrément nécessaire", "Concurrents installés"],
-   "mots_cles": ["facture électronique", "TPE", "réforme"],
-   "sources": ["A3"],
-   "ethique": {"acceptable": true, "raison": "Outil de conformité utile."}
+   "etapes": [
+    "Étudier le cahier des charges officiel",
+    "Choisir une plateforme partenaire agréée",
+    "Développer le MVP",
+    "Landing page + liste d'attente"
+   ],
+   "risques": [
+    "Agrément nécessaire",
+    "Concurrents installés"
+   ],
+   "mots_cles": [
+    "facture électronique",
+    "TPE",
+    "réforme"
+   ],
+   "sources": [
+    "A3"
+   ],
+   "ethique": {
+    "acceptable": true,
+    "raison": "Outil de conformité utile."
+   },
+   "contexte_declencheur": "Une nouvelle loi rend la facture électronique obligatoire pour toutes les TPE dès 2027. Des centaines de milliers d'artisans et d'indépendants vont devoir changer d'outil.",
+   "pourquoi_maintenant": "Les entreprises vont chercher une solution dans les 12 prochains mois ; être visible tôt permet de capter les premiers clients.",
+   "description_detaillee": "Un SaaS de facturation électronique ultra simple pour artisans, avec envoi conforme via une plateforme agréée partenaire. Abonnement à 9 € par mois.",
+   "notes_explications": {
+    "potentiel": "Exemple d'explication.",
+    "cout": "Exemple d'explication.",
+    "travail": "Exemple d'explication.",
+    "risque": "Exemple d'explication.",
+    "urgence": "Exemple d'explication.",
+    "durabilite": "Exemple d'explication.",
+    "fiabilite": "Exemple d'explication.",
+    "concurrence": "Exemple d'explication."
+   },
+   "budget_detail": [
+    "Développement : 3 000 €",
+    "Marketing : 500 €"
+   ],
+   "concurrents": [
+    "Logiciels de facturation existants"
+   ]
   },
   {
    "titre": "Revente de bâches à prix majoré aux sinistrés",
@@ -46,19 +152,59 @@
    "evenement_declencheur": "Inondations dans le sud.",
    "categorie": "e-commerce",
    "cible": "Sinistrés",
-   "pays_cibles": ["FR"],
-   "langues": ["fr"],
+   "pays_cibles": [
+    "FR"
+   ],
+   "langues": [
+    "fr"
+   ],
    "modele_revenus": "Marge sur prix abusifs",
    "budget_estime_eur": 2000,
    "delai_lancement_jours": 3,
    "duree_opportunite": "1 semaine",
-   "notes": {"potentiel": 5, "cout": 6, "travail": 8, "risque": 1, "urgence": 10, "durabilite": 1, "fiabilite": 7, "concurrence": 5},
+   "notes": {
+    "potentiel": 5,
+    "cout": 6,
+    "travail": 8,
+    "risque": 1,
+    "urgence": 10,
+    "durabilite": 1,
+    "fiabilite": 7,
+    "concurrence": 5
+   },
    "analyse": "Exploitation de la détresse.",
-   "etapes": ["—"],
-   "risques": ["Illégal / immoral"],
-   "mots_cles": ["bâches", "inondations"],
-   "sources": ["A3"],
-   "ethique": {"acceptable": false, "raison": "Prix abusifs sur des victimes de catastrophe."}
+   "etapes": [
+    "—"
+   ],
+   "risques": [
+    "Illégal / immoral"
+   ],
+   "mots_cles": [
+    "bâches",
+    "inondations"
+   ],
+   "sources": [
+    "A3"
+   ],
+   "ethique": {
+    "acceptable": false,
+    "raison": "Prix abusifs sur des victimes de catastrophe."
+   },
+   "contexte_declencheur": "Inondations.",
+   "pourquoi_maintenant": "—",
+   "description_detaillee": "—",
+   "notes_explications": {
+    "potentiel": "—",
+    "cout": "—",
+    "travail": "—",
+    "risque": "—",
+    "urgence": "—",
+    "durabilite": "—",
+    "fiabilite": "—",
+    "concurrence": "—"
+   },
+   "budget_detail": [],
+   "concurrents": []
   }
  ],
  "renforcements": []

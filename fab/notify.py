@@ -22,6 +22,18 @@ LABELS = {
 }
 
 
+SCORE_MEANING = {
+    "potentiel": "10 = marché et revenus importants",
+    "cout": "10 = presque gratuit, 0 = 5 000 € ou plus",
+    "travail": "10 = lançable en un week-end",
+    "risque": "10 = très faible risque",
+    "urgence": "10 = à lancer dans les jours qui viennent",
+    "durabilite": "10 = le besoin restera après l'actualité",
+    "fiabilite": "10 = événement confirmé, demande évidente",
+    "concurrence": "10 = quasiment aucun concurrent",
+}
+
+
 def color_for(score: float) -> int:
     if score >= 8:
         return 0x1F9D55  # vert
@@ -34,38 +46,93 @@ def _bar(value: int) -> str:
     return "▰" * value + "▱" * (10 - value)
 
 
-def build_embed(idea: dict, dashboard_url: str) -> dict:
+def _cut(text: str, limit: int) -> str:
+    text = str(text or "").strip()
+    return text if len(text) <= limit else text[: limit - 1].rstrip() + "…"
+
+
+def _lines(items: list, limit: int, numbered: bool = False) -> str:
+    out = "\n".join(f"{n}. {x}" if numbered else f"• {x}" for n, x in enumerate(items or [], 1))
+    return _cut(out or "—", limit)
+
+
+def _eur(n: int) -> str:
+    return f"{n:,} €".replace(",", " ")
+
+
+def build_idea_embeds(idea: dict, dashboard_url: str = "") -> list[dict]:
+    """Une idée = 4 cartes Discord : présentation, déclencheur, notes expliquées, plan d'action."""
+    color = color_for(idea["note_globale"])
     notes = idea["notes"]
-    score_lines = "\n".join(f"`{_bar(notes[k])}` {notes[k]:>2}/10 · {label}" for k, label in LABELS.items())
-    steps = idea.get("etapes", [])[:3]
-    steps_txt = "\n".join(f"{n}. {s[:150]}" for n, s in enumerate(steps, 1)) or "—"
-    sources = idea.get("sources", [])[:3]
-    sources_txt = "\n".join(f"[{s['source'][:40]}]({s['url']})" for s in sources) or "—"
+    expl = idea.get("notes_explications") or {}
     url = f"{dashboard_url.rstrip('/')}/#{idea['id']}" if dashboard_url else None
 
-    embed = {
-        "title": f"💡 {idea['titre']}"[:256],
-        "description": (
-            f"**Note globale : {idea['note_globale']}/10**\n\n{idea['pitch']}\n\n"
-            f"**Déclencheur :** {idea['evenement_declencheur']}"
-        )[:1500],
-        "color": color_for(idea["note_globale"]),
+    presentation = {
+        "title": _cut(f"💡 {idea['titre']}", 256),
+        "color": color,
+        "description": _cut(
+            f"**Note globale : {idea['note_globale']}/10**\n\n**{idea.get('pitch', '')}**\n\n"
+            + (idea.get("description_detaillee") or ""),
+            3000,
+        ),
         "fields": [
-            {"name": "Type", "value": idea.get("categorie", "?"), "inline": True},
-            {"name": "Budget estimé", "value": f"{idea['budget_estime_eur']:,} €".replace(",", " "), "inline": True},
-            {"name": "Lancement", "value": f"~{idea['delai_lancement_jours']} jours", "inline": True},
-            {"name": "Fenêtre", "value": str(idea.get("duree_opportunite", "?"))[:100], "inline": True},
-            {"name": "Cible", "value": str(idea.get("cible", "?"))[:200], "inline": True},
-            {"name": "Notes (10 = favorable)", "value": score_lines[:1024], "inline": False},
-            {"name": "Premières étapes", "value": steps_txt[:1024], "inline": False},
-            {"name": "Sources", "value": sources_txt[:1024], "inline": False},
+            {"name": "Type", "value": _cut(idea.get("categorie", "?"), 100), "inline": True},
+            {"name": "Budget estimé", "value": _eur(idea["budget_estime_eur"]), "inline": True},
+            {"name": "Délai de lancement", "value": f"~{idea['delai_lancement_jours']} jours", "inline": True},
+            {"name": "Fenêtre d'opportunité", "value": _cut(idea.get("duree_opportunite", "?"), 200), "inline": True},
+            {"name": "Pays / langues", "value": _cut(", ".join(idea.get("pays_cibles", [])) + " · "
+                                                     + ", ".join(idea.get("langues", [])), 200), "inline": True},
+            {"name": "Cible", "value": _cut(idea.get("cible", "?"), 800), "inline": False},
+            {"name": "Modèle de revenus", "value": _cut(idea.get("modele_revenus", "?"), 800), "inline": False},
         ],
-        "footer": {"text": "Find-a-Business · détails et plan complet sur le tableau de bord"},
-        "timestamp": idea.get("cree_le"),
     }
     if url:
-        embed["url"] = url
-    return embed
+        presentation["url"] = url
+
+    sources = idea.get("sources", [])
+    trigger = {
+        "title": "📰 L'événement déclencheur",
+        "color": color,
+        "description": _cut(
+            f"**{idea.get('evenement_declencheur', '')}**\n\n{idea.get('contexte_declencheur') or ''}"
+            + (f"\n\n**Pourquoi maintenant :** {idea['pourquoi_maintenant']}" if idea.get("pourquoi_maintenant") else ""),
+            2500,
+        ),
+        "fields": [{
+            "name": f"Sources ({len(sources)})",
+            "value": _cut("\n".join(f"[{_cut(s['titre'], 90)}]({s['url']}) · {s['source']}" for s in sources[:6]) or "—", 1024),
+            "inline": False,
+        }],
+    }
+
+    scores = {
+        "title": "📊 Les notes expliquées (sur 10, 10 = favorable)",
+        "color": color,
+        "fields": [
+            {
+                "name": f"{label} : {notes[k]}/10  {_bar(notes[k])}",
+                "value": _cut(f"{expl.get(k) or '—'}\n*({SCORE_MEANING[k]})*", 500),
+                "inline": False,
+            }
+            for k, label in LABELS.items()
+        ],
+    }
+
+    plan = {
+        "title": "🛠️ Le travail à accomplir",
+        "color": color,
+        "description": _lines(idea.get("etapes", []), 2000, numbered=True),
+        "fields": [
+            {"name": "Budget détaillé", "value": _lines(idea.get("budget_detail", []), 700), "inline": False},
+            {"name": "Concurrence", "value": _lines(idea.get("concurrents", []), 700), "inline": False},
+            {"name": "Risques et parades", "value": _lines(idea.get("risques", []), 900), "inline": False},
+            {"name": "Avis global", "value": _cut(idea.get("analyse", "—"), 700), "inline": False},
+            {"name": "Éthique", "value": _cut((idea.get("ethique") or {}).get("raison", "—"), 300), "inline": False},
+        ],
+        "footer": {"text": "Find-a-Business"},
+        "timestamp": idea.get("cree_le"),
+    }
+    return [presentation, trigger, scores, plan]
 
 
 def _post(webhook_url: str, payload: dict, attachment: tuple[str, bytes] | None = None) -> bool:
@@ -104,7 +171,7 @@ def embed_size(embed: dict) -> int:
     return size
 
 
-def group_embeds(embeds: list[dict], max_chars: int = 5500, max_count: int = 10) -> list[list[dict]]:
+def group_embeds(embeds: list[dict], max_chars: int = 5800, max_count: int = 10) -> list[list[dict]]:
     groups: list[list[dict]] = []
     current: list[dict] = []
     total = 0
@@ -122,32 +189,31 @@ def group_embeds(embeds: list[dict], max_chars: int = 5500, max_count: int = 10)
 
 def send_ideas(
     webhook_url: str, ideas: list[dict], dashboard_url: str, test: bool = False,
-    attachment: tuple[str, bytes] | None = None,
+    attachment: tuple[str, bytes] | None = None, header: str = "",
 ) -> int:
-    """Envoie les idées en respectant les limites Discord (10 embeds et 6000 caractères par message)."""
+    """Envoie un message d'en-tête puis chaque idée en détail (un ou plusieurs messages par idée)."""
     if not webhook_url or not ideas:
         return 0
     ideas = sorted(ideas, key=lambda i: i["note_globale"], reverse=True)
-    by_embed = [(build_embed(i, dashboard_url), i) for i in ideas]
-    lookup = {id(e): i for e, i in by_embed}
-    sent = 0
     n = len(ideas)
-    for index, group in enumerate(group_embeds([e for e, _ in by_embed])):
-        payload = {"username": "Find-a-Business", "embeds": group}
-        if index == 0:
-            s = "s" if n > 1 else ""
-            payload["content"] = f"☀️ **Bilan du jour : {n} nouvelle{s} opportunité{s}**"
-            if dashboard_url:
-                payload["content"] += f" · [Tableau de bord]({dashboard_url})"
-            elif attachment:
-                payload["content"] += " · tableau de bord complet en pièce jointe (à ouvrir dans ton navigateur)"
-            if test:
-                payload["content"] = "🧪 **TEST** (idées fictives, le webhook fonctionne) · " + payload["content"]
-        if _post(webhook_url, payload, attachment if index == 0 else None):
-            for e in group:
-                lookup[id(e)]["notifiee"] = True
-                sent += 1
-        time.sleep(1)
+    s = "s" if n > 1 else ""
+    content = header or f"☀️ **Bilan du jour : {n} nouvelle{s} opportunité{s}**"
+    if test:
+        content = "🧪 **TEST** (idées fictives, le webhook fonctionne) · " + content
+    _post(webhook_url, {"username": "Find-a-Business", "content": _cut(content, 1900)}, attachment)
+    sent = 0
+    for rank, idea in enumerate(ideas, 1):
+        ok = True
+        groups = group_embeds(build_idea_embeds(idea, dashboard_url))
+        for gi, group in enumerate(groups):
+            payload = {"username": "Find-a-Business", "embeds": group}
+            if gi == 0:
+                payload["content"] = f"**Idée {rank}/{n}**"
+            ok = _post(webhook_url, payload) and ok
+            time.sleep(1)
+        if ok:
+            idea["notifiee"] = True
+            sent += 1
     return sent
 
 
@@ -155,22 +221,23 @@ def send_daily_report(
     webhook_url: str, ideas: list[dict], run_info: dict, dashboard_url: str, test: bool = False,
     attachment: tuple[str, bytes] | None = None,
 ) -> int:
-    """Bilan du matin : envoyé chaque jour, avec les nouvelles idées pertinentes s'il y en a."""
+    """Bilan du matin : envoyé chaque jour, avec le détail des nouvelles idées pertinentes s'il y en a."""
     if not webhook_url:
         return 0
-    if ideas:
-        return send_ideas(webhook_url, ideas, dashboard_url, test=test, attachment=attachment)
-    lines = [
-        "☀️ **Bilan du jour** : aucune nouvelle idée assez solide aujourd'hui.",
+    stats = (
         f"{run_info.get('sujets_analyses', 0)} sujets analysés sur {run_info.get('articles_nouveaux', 0)} nouveaux articles"
-        f" · {run_info.get('idees_nouvelles', 0)} idée(s) sous le seuil · {run_info.get('idees_ecartees', 0)} écartée(s).",
-    ]
-    if dashboard_url:
-        lines.append(f"[Tableau de bord]({dashboard_url})")
-    text = "\n".join(lines)
+        f" · {run_info.get('idees_nouvelles', 0)} idée(s) trouvée(s) · {run_info.get('idees_ecartees', 0)} écartée(s)"
+        + (f" · coût {run_info['cout_usd']:.2f} $" if run_info.get("cout_usd") else "")
+    )
+    if ideas:
+        n = len(ideas)
+        s = "s" if n > 1 else ""
+        header = f"☀️ **Bilan du jour : {n} nouvelle{s} opportunité{s}**\n{stats}"
+        return send_ideas(webhook_url, ideas, dashboard_url, test=test, attachment=attachment, header=header)
+    text = f"☀️ **Bilan du jour** : aucune nouvelle idée assez solide aujourd'hui.\n{stats}"
     if test:
         text = "🧪 **TEST** · " + text
-    _post(webhook_url, {"username": "Find-a-Business", "content": text[:1900]}, attachment)
+    _post(webhook_url, {"username": "Find-a-Business", "content": _cut(text, 1900)}, attachment)
     return 0
 
 

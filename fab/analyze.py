@@ -51,7 +51,20 @@ Notes de 0 à 10, TOUJOURS dans le sens « 10 = favorable pour l'entrepreneur »
 - fiabilite : solidité de l'info et de la demande (10 = événement confirmé par plusieurs sources, demande évidente) ;
 - concurrence : place disponible (10 = presque aucun concurrent).
 
-Utilise UNIQUEMENT les références d'articles (A1, A2...) fournies dans « sources ». Rédige tout en français, de façon concise et actionnable. Les « etapes » doivent être un plan d'action concret et ordonné (5 à 10 étapes), avec outils suggérés (Shopify, WordPress, Stripe, no-code, etc.)."""
+Utilise UNIQUEMENT les références d'articles (A1, A2...) fournies dans « sources ». Rédige tout en français.
+
+L'entrepreneur lit chaque idée en détail pour décider s'il se lance : sois complet, précis et concret (chiffres, lieux, dates, noms quand les articles les donnent), sans remplissage.
+- « pitch » : 1 à 2 phrases d'accroche.
+- « evenement_declencheur » : le titre de l'événement en une phrase.
+- « contexte_declencheur » : 4 à 8 phrases. Ce qui s'est passé, où, quand, qui est touché, les chiffres clés, ce qui va probablement se passer ensuite, et pourquoi cela crée un besoin nouveau.
+- « pourquoi_maintenant » : 2 à 4 phrases sur la fenêtre de tir et ce qui se passe si on attend.
+- « description_detaillee » : 8 à 15 phrases. Le produit ou le site concrètement (pages, fonctionnalités, offre), le parcours d'un client type, le positionnement, la façon d'attirer les premiers clients, le prix proposé et un ordre de grandeur réaliste du chiffre d'affaires possible.
+- « notes_explications » : pour CHAQUE note, 2 à 3 phrases qui justifient le chiffre donné (sur quoi tu te bases, ce qui ferait monter ou baisser la note).
+- « budget_detail » : la répartition du budget estimé, poste par poste avec montant (ex. « Nom de domaine + hébergement : 60 € »).
+- « concurrents » : les concurrents ou alternatives existants connus (ou « aucun concurrent direct identifié »), avec en quoi l'idée se différencie.
+- « etapes » : un plan d'action concret et ordonné (6 à 12 étapes), avec outils suggérés (Shopify, WordPress, Stripe, no-code, etc.) et la durée estimée de chaque étape.
+- « risques » : chaque risque avec la façon de le limiter.
+- « analyse » : ton avis global en 3 à 5 phrases (faut-il y aller, à quelles conditions, le principal point de vigilance)."""
 
 
 def idea_schema() -> dict:
@@ -62,6 +75,9 @@ def idea_schema() -> dict:
             "titre": {"type": "string"},
             "pitch": {"type": "string"},
             "evenement_declencheur": {"type": "string"},
+            "contexte_declencheur": {"type": "string"},
+            "pourquoi_maintenant": {"type": "string"},
+            "description_detaillee": {"type": "string"},
             "categorie": {"type": "string", "enum": CATEGORIES},
             "cible": {"type": "string"},
             "pays_cibles": {"type": "array", "items": {"type": "string"}},
@@ -76,6 +92,14 @@ def idea_schema() -> dict:
                 "required": SCORE_KEYS,
                 "additionalProperties": False,
             },
+            "notes_explications": {
+                "type": "object",
+                "properties": {k: {"type": "string"} for k in SCORE_KEYS},
+                "required": SCORE_KEYS,
+                "additionalProperties": False,
+            },
+            "budget_detail": {"type": "array", "items": {"type": "string"}},
+            "concurrents": {"type": "array", "items": {"type": "string"}},
             "analyse": {"type": "string"},
             "etapes": {"type": "array", "items": {"type": "string"}},
             "risques": {"type": "array", "items": {"type": "string"}},
@@ -89,7 +113,8 @@ def idea_schema() -> dict:
             },
         },
         "required": [
-            "titre", "pitch", "evenement_declencheur", "categorie", "cible", "pays_cibles", "langues",
+            "titre", "pitch", "evenement_declencheur", "contexte_declencheur", "pourquoi_maintenant",
+            "description_detaillee", "notes_explications", "budget_detail", "concurrents", "categorie", "cible", "pays_cibles", "langues",
             "modele_revenus", "budget_estime_eur", "delai_lancement_jours", "duree_opportunite",
             "notes", "analyse", "etapes", "risques", "mots_cles", "sources", "ethique",
         ],

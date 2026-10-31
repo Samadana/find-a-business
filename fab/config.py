@@ -63,7 +63,7 @@ class Settings:
         default_factory=lambda: _env("DASHBOARD_URL", _default_dashboard_url() if _env_bool("FAB_PAGES", False) else "")
     )
     # Joindre chaque matin le tableau de bord (fichier HTML autonome) au bilan Discord.
-    attach_dashboard: bool = field(default_factory=lambda: _env_bool("FAB_ATTACH_DASHBOARD", True))
+    attach_dashboard: bool = field(default_factory=lambda: _env_bool("FAB_ATTACH_DASHBOARD", False))
 
     model: str = field(default_factory=lambda: _env("FAB_MODEL", "claude-opus-5-5"))
     # Premier tri bon marché : Haiku lit tous les titres et ne garde que les sujets prometteurs.

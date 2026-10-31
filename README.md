@@ -2,14 +2,14 @@
 
 Veille automatique de l'actualité mondiale qui détecte des **opportunités de business web rapides à lancer** (site, e-commerce, SaaS) déclenchées par un événement : un conflit, une pénurie, une nouvelle loi, la fermeture d'un grand service, une tendance virale…
 
-- **Un bilan chaque matin à 9 h** (heure de Paris), gratuitement, via GitHub Actions.
+- **Un bilan chaque matin à 9 h** (heure de Paris), via GitHub Actions, activable d'un clic depuis l'application.
 - **Monde entier, toutes langues** : ~30 médias internationaux, Google News de 31 pays dans leur langue, recherches ciblées, et GDELT (presse de plus de 60 langues).
 - **Analyse en deux temps** : Claude Haiku (très bon marché) lit tous les titres et écarte le bruit évident, puis Claude Opus analyse en profondeur (réflexion poussée) jusqu'à 150 sujets retenus. Les 25 sujets les plus repris par les médias passent toujours, même si le tri les écarte.
 - **Analyse par Claude** : chaque idée reçoit une note globale et 8 notes détaillées, un budget (jusqu'à 5 000 €), un délai de lancement et un plan d'action.
 - **Filtre éthique** : les idées qui exploitent la détresse des victimes (prix abusifs, fausses cagnottes, désinformation…) sont écartées et listées à part, pour transparence.
 - **Déduplication** : une idée déjà proposée n'est jamais renvoyée ; si de nouvelles actualités la confirment, elle gagne des « signaux » et un petit bonus de note.
-- **Discord** : un bilan chaque matin, avec le détail des nouvelles idées pertinentes (ou un court message s'il n'y en a pas).
-- **Tableau de bord** joint chaque matin au bilan Discord (fichier HTML privé, s'ouvre dans le navigateur) : filtres, tri par note, favoris, plan d'action à cocher.
+- **Discord** : un bilan chaque matin. Chaque idée est détaillée en 4 cartes : le projet, l'événement déclencheur et son contexte, les 8 notes expliquées, le travail à accomplir (étapes, budget poste par poste, concurrents, risques).
+- **Application locale (Windows)** : un double-clic sur `Lancer Find-a-Business.bat` ouvre le tableau de bord dans le navigateur. Statut et notes perso pour chaque idée, interrupteur du bilan de 9 h, réglages (note minimale, modèle, plafond de dépense), coûts jour par jour.
 
 👉 **Mise en route : [GUIDE_INSTALLATION.md](GUIDE_INSTALLATION.md)**
 
@@ -50,8 +50,8 @@ config/sources.json ──► collecte (RSS, Google News, GDELT)
                          │
              ┌───────────┴────────────┐
              ▼                        ▼
-   docs/data/*.json            Discord : bilan du matin
-   (historique)                + tableau de bord en pièce jointe
+   docs/data/*.json            Discord : bilan du matin détaillé
+   (lu par l'application)
 ```
 
 | Fichier | Rôle |
@@ -62,9 +62,11 @@ config/sources.json ──► collecte (RSS, Google News, GDELT)
 | `fab/ideas.py` | Notes, filtre éthique, déduplication, archivage (30 jours sans nouvelle) |
 | `fab/notify.py` | Messages Discord |
 | `fab/main.py` | Enchaînement d'un passage complet |
-| `docs/index.html` | Tableau de bord |
-| `fab/report.py` | Tableau de bord en un seul fichier (joint au bilan) |
-| `.github/workflows/veille.yml` | Planification du bilan de 9 h |
+| `app/serveur.py`, `app/static/index.html` | Application locale (tableau de bord et pilotage) |
+| `Lancer Find-a-Business.bat` | Lancement de l'application en double-clic (installe Python si besoin) |
+| `docs/index.html`, `fab/report.py` | Ancien tableau de bord HTML (facultatif) |
+| `.github/workflows/veille.yml` | Planification du bilan de 9 h (si la variable `FAB_AUTO` vaut `true`) |
+| `data/suivi.json` | Statuts et notes perso saisis dans l'application |
 
 ## Lancer en local (facultatif)
 

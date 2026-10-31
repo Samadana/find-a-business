@@ -1,62 +1,63 @@
 from fab import notify
-from tests.test_ideas import BASE, ITEMS, idea
 from fab.ideas import process_analysis
-
+from tests.test_ideas import ITEMS, idea
 
 TITLES = ["Comparateur de prix de l'huile", "Boutique de kits d'urgence", "SaaS de facturation", "Annuaire de réparateurs vélo",
           "Plateforme de covoiturage scolaire", "Guide des aides énergie", "Marketplace de pièces détachées", "Outil de veille réglementaire",
           "Site d'alertes de stock", "Communauté de télétravailleurs", "Générateur de contrats", "Traducteur de menus"]
 
 
-def make_ideas(n):
+def make_ideas(n, long=False):
     ideas = []
-    process_analysis({"idees": [idea(titre=t, mots_cles=[t], pitch="p" * 1400) for t in TITLES[:n]]}, ITEMS, ideas, 5000)
+    extra = {}
+    if long:
+        big = "x" * 5000
+        extra = {"description_detaillee": big, "contexte_declencheur": big, "pourquoi_maintenant": big,
+                 "notes_explications": {k: big for k in notify.LABELS}, "budget_detail": [big] * 3,
+                 "concurrents": [big] * 3, "etapes": [big] * 12, "risques": [big] * 5, "analyse": big,
+                 "cible": big, "modele_revenus": big}
+    process_analysis({"idees": [idea(titre=t, mots_cles=[t], **extra) for t in TITLES[:n]]}, ITEMS, ideas, 5000)
     return ideas
 
 
-def test_embed_contains_scores_and_link():
+def test_idea_embeds_are_detailed_and_within_discord_limits():
+    i = make_ideas(1, long=True)[0]
+    embeds = notify.build_idea_embeds(i, "https://me.github.io/fab/")
+    assert [e["title"][0] for e in embeds] == ["💡", "📰", "📊", "🛠"]
+    assert embeds[0]["url"].endswith("#" + i["id"])
+    assert len(embeds[2]["fields"]) == 8  # une explication par note
+    for e in embeds:
+        assert notify.embed_size(e) <= 6000
+        assert len(e.get("description", "")) <= 4096
+        assert all(len(f["value"]) <= 1024 and len(f["name"]) <= 256 for f in e["fields"])
+    for g in notify.group_embeds(embeds):
+        assert sum(notify.embed_size(e) for e in g) <= 6000
+
+
+def test_score_explanations_shown():
     i = make_ideas(1)[0]
-    e = notify.build_embed(i, "https://me.github.io/fab/")
-    assert e["url"].endswith("#" + i["id"])
-    assert any(f["name"].startswith("Notes") for f in e["fields"])
-    assert notify.embed_size(e) < 6000
+    i["notes_explications"] = {k: f"explication {k}" for k in notify.LABELS}
+    scores = notify.build_idea_embeds(i)[2]
+    assert "explication cout" in scores["fields"][1]["value"]
 
 
-def test_grouping_respects_discord_limits():
-    embeds = [notify.build_embed(i, "") for i in make_ideas(12)]
-    groups = notify.group_embeds(embeds)
-    assert sum(len(g) for g in groups) == 12
-    for g in groups:
-        assert len(g) <= 10 and sum(notify.embed_size(e) for e in g) <= 5500
-
-
-def test_send_ideas_posts_and_marks(monkeypatch):
+def test_send_ideas_posts_header_then_each_idea(monkeypatch):
     calls = []
     monkeypatch.setattr(notify, "_post", lambda url, payload, att=None: calls.append(payload) or True)
     monkeypatch.setattr(notify.time, "sleep", lambda s: None)
-    ideas = make_ideas(4)
-    assert notify.send_ideas("https://discord/webhook", ideas, "https://d/") == 4
+    ideas = make_ideas(3)
+    assert notify.send_ideas("https://discord/webhook", ideas, "") == 3
     assert all(i["notifiee"] for i in ideas)
-    assert "4 nouvelles opportunités" in calls[0]["content"]
+    assert "3 nouvelles opportunités" in calls[0]["content"]
+    assert sum(1 for c in calls if c.get("content", "").startswith("**Idée")) == 3
 
 
 def test_no_webhook_no_send():
     assert notify.send_ideas("", make_ideas(1), "") == 0
 
 
-def test_attachment_sent_as_multipart(monkeypatch):
+def test_report_without_ideas_has_no_attachment_by_default(monkeypatch):
     calls = []
-
-    class Resp:
-        status_code = 200
-        content = b""
-
-    def fake_post(url, **kw):
-        calls.append(kw)
-        return Resp()
-
-    monkeypatch.setattr(notify.requests, "post", fake_post)
-    monkeypatch.setattr(notify.time, "sleep", lambda s: None)
-    notify.send_daily_report("https://discord/x", [], {"sujets_analyses": 3}, "", attachment=("t.html", b"<html>"))
-    assert "files" in calls[0] and "payload_json" in calls[0]["data"]
-    assert "Bilan du jour" in calls[0]["data"]["payload_json"]
+    monkeypatch.setattr(notify, "_post", lambda url, payload, att=None: calls.append((payload, att)) or True)
+    notify.send_daily_report("https://discord/x", [], {"sujets_analyses": 3}, "")
+    assert "Bilan du jour" in calls[0][0]["content"] and calls[0][1] is None

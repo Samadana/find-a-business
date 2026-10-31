@@ -1,6 +1,6 @@
 # Guide d'installation pas à pas
 
-Compte environ 20 minutes. Tu n'as rien à installer sur ton ordinateur : tout se fait depuis ton navigateur.
+Compte environ 25 minutes. Le bilan tourne sur GitHub (ton ordinateur peut rester éteint) ; seule la petite application de suivi s'installe sur ton PC Windows.
 
 Ce dont tu as besoin à la fin :
 
@@ -9,6 +9,7 @@ Ce dont tu as besoin à la fin :
 | Le dépôt GitHub avec ce code | github.com | gratuit (dépôt **privé**) |
 | Une clé API Claude | platform.claude.com | payant à l'usage (voir § Coûts) |
 | Un webhook Discord | ton serveur Discord | gratuit |
+| L'application de suivi | ton PC Windows | gratuit |
 
 ---
 
@@ -49,34 +50,58 @@ Les secrets sont chiffrés par GitHub : personne ne peut les lire, pas même toi
 3. Encore **New repository secret** :
    - Name : `DISCORD_WEBHOOK_URL` · Secret : l'URL du webhook → **Add secret**
 
-## Étape 5 · Le tableau de bord
+## Étape 5 · L'application sur ton ordinateur (tableau de bord)
 
-Rien à faire : chaque bilan Discord contient le **tableau de bord complet en pièce jointe** (un fichier `find-a-business-AAAA-MM-JJ.html`). Clique dessus dans Discord, télécharge-le et ouvre-le : il s'affiche dans ton navigateur, sans connexion à un site, et reste privé. Il contient toutes les idées, leurs notes, les plans d'action, les idées écartées et l'historique des coûts.
+L'application affiche toutes les idées en détail et te permet de les piloter : statut de chaque idée (à étudier, en cours, lancée, abandonnée), notes perso, interrupteur du bilan de 9 h, réglages (note minimale, modèle Claude, plafond de dépense) et coûts jour par jour. Elle tourne uniquement sur ton ordinateur et lit ton dépôt privé.
 
-> Sur téléphone, Discord affiche parfois le fichier comme du texte : ouvre-le plutôt sur ordinateur. Les favoris et cases cochées sont mémorisés par ton navigateur.
+**A. Récupérer l'application**
 
-*(Option, uniquement si tu repasses un jour le dépôt en public : un tableau de bord en ligne via GitHub Pages. Settings → Pages → Source = GitHub Actions, puis ajoute la variable `FAB_PAGES` = `true`.)*
+1. Télécharge `Find-a-Business-App.zip` (fourni avec ce guide), puis clic droit → **Extraire tout…** → choisis par exemple `Documents\Find-a-Business`.
+2. Double-clique sur **Lancer Find-a-Business.bat**.
+   - Si Windows affiche « Windows a protégé votre ordinateur » : **Informations complémentaires** → **Exécuter quand même** (le fichier est un simple script texte, tu peux l'ouvrir avec le Bloc-notes pour le lire).
+   - Si Python n'est pas installé, le script te propose de l'installer (tape **O**). C'est l'installateur officiel de Python, via l'outil de Microsoft (`winget`). Ensuite relance le `.bat`.
+3. Ton navigateur s'ouvre sur `http://127.0.0.1:8765`. Garde la fenêtre noire ouverte pendant que tu utilises l'application ; ferme-la pour arrêter.
+
+**B. Créer la clé GitHub de l'application (une seule fois)**
+
+1. Ouvre <https://github.com/settings/personal-access-tokens/new>.
+2. **Token name** : `find-a-business-app` · **Expiration** : 1 an.
+3. **Repository access** : *Only select repositories* → choisis `find-a-business`.
+4. **Permissions** → *Repository permissions* : **Contents** = *Read and write*, **Variables** = *Read and write*. Ne touche à rien d'autre.
+5. **Generate token**, copie la clé (`github_pat_…`) et colle-la dans l'écran d'accueil de l'application → **Enregistrer et continuer**.
+
+Cette clé ne donne accès qu'à ce dépôt. Elle est enregistrée uniquement sur ton ordinateur (`%APPDATA%\FindABusiness`). Si un jour elle expire, crée-en une nouvelle et colle-la dans **Réglages → Clé GitHub**.
+
+*Astuce : clic droit sur le `.bat` → **Envoyer vers** → **Bureau (créer un raccourci)** pour le lancer depuis ton bureau.*
 
 ## Étape 6 · Premier lancement
 
 1. Onglet **Actions** du dépôt. Si GitHub demande d'activer les workflows, clique sur le bouton vert.
 2. Clique sur **Bilan quotidien des opportunités** → **Run workflow**.
-3. **Premier essai conseillé : coche « Mode test »** → **Run workflow**. Ce mode n'appelle pas Claude et ne coûte rien ; il vérifie que tout est bien branché. Tu dois recevoir sur Discord un message marqué 🧪 **TEST** avec deux idées fictives et le tableau de bord d'exemple en pièce jointe : le webhook fonctionne. *(Ces idées fictives ne sont pas sauvegardées.)*
-4. Relance ensuite **sans** cocher le mode test. Au bout de 3 à 8 minutes :
-   - tu reçois le bilan sur Discord : le détail des idées qui dépassent 6,5/10 (réglable), ou un court message s'il n'y en a pas, et le tableau de bord à jour en pièce jointe.
-5. **Activer le bilan automatique de 9 h** (désactivé par défaut) : ouvre le fichier `.github/workflows/veille.yml` sur GitHub → icône crayon ✏️ → supprime le `#` au début des deux lignes `# schedule:` et `#   - cron: …` (garde l'alignement : `schedule:` sous `on:` avec 2 espaces, `- cron` avec 4) → **Commit changes**.
-   Ensuite, le bilan arrive seul **chaque matin vers 9 h** (heure de Paris, été comme hiver ; GitHub peut le décaler de quelques minutes), sans que ton ordinateur soit allumé. Tu peux aussi lancer un bilan à tout moment avec **Run workflow**. Pour l'arrêter : onglet **Actions** → **Bilan quotidien des opportunités** → **⋯** → **Disable workflow**.
+3. **Premier essai conseillé : coche « Mode test »** → **Run workflow**. Ce mode n'appelle pas Claude et ne coûte rien ; il vérifie que tout est bien branché. Tu dois recevoir sur Discord un message marqué 🧪 **TEST** avec deux idées fictives détaillées. *(Ces idées fictives ne sont pas sauvegardées.)*
+4. Relance ensuite **sans** cocher le mode test. Au bout de 3 à 10 minutes, tu reçois le bilan sur Discord, puis les idées apparaissent dans l'application (bouton **Actualiser**).
+5. **Activer le bilan automatique de 9 h** (désactivé par défaut) : dans l'application, clique sur l'interrupteur **Bilan automatique de 9 h** en haut à droite. Le bilan arrive alors seul **chaque matin vers 9 h** (heure de Paris, été comme hiver ; GitHub peut le décaler de quelques minutes), sans que ton ordinateur soit allumé. Le même interrupteur l'arrête.
 
-✅ Vérification : l'onglet **Activité** du tableau de bord liste chaque passage avec son statut et son coût.
+### Ce que contient le bilan Discord
+
+Un message d'en-tête (nombre de sujets analysés, idées trouvées, coût du jour), puis pour chaque idée au-dessus de la note minimale :
+
+- 💡 **Le projet** : note globale, résumé, description détaillée (fonctionnement, parcours client, acquisition, chiffre d'affaires possible), type, budget, délai, fenêtre d'opportunité, pays, cible, modèle de revenus ;
+- 📰 **L'événement déclencheur** : ce qui s'est passé, le contexte, pourquoi c'est le bon moment, et les articles sources (liens) ;
+- 📊 **Les 8 notes expliquées** : pour chaque note, la valeur et la justification en 2 ou 3 phrases ;
+- 🛠️ **Le travail à accomplir** : étapes numérotées avec outils et durées, budget détaillé poste par poste, concurrents, risques et parades, avis global et avis éthique.
+
+✅ Vérification : l'onglet **Coûts** de l'application liste chaque jour de bilan avec son coût.
 
 ---
 
 ## Réglages optionnels
 
-**Settings → Secrets and variables → Actions → onglet « Variables » → New repository variable**
+Le seuil, le modèle et le plafond se règlent dans l'onglet **Réglages** de l'application. Les autres se règlent sur GitHub : **Settings → Secrets and variables → Actions → onglet « Variables » → New repository variable**
 
 | Variable | Défaut | Rôle |
 |---|---|---|
+| `FAB_AUTO` | `false` | Bilan automatique de 9 h (réglé par l'interrupteur de l'application) |
 | `FAB_MIN_SCORE_NOTIFY` | `6.5` | Note globale minimale pour qu'une idée soit détaillée dans le bilan Discord |
 | `FAB_REPORT_HOUR` | `9` | Heure du bilan (heure de Paris) ; pense aussi à adapter la ligne `cron` |
 | `FAB_MODEL` | `claude-opus-5-5` | Modèle Claude. `claude-sonnet-5-5` coûte 2× moins, `claude-haiku-5-5` ~40× moins (analyses moins fines) |
@@ -86,7 +111,7 @@ Rien à faire : chaque bilan Discord contient le **tableau de bord complet en pi
 | `FAB_TRIAGE_MODEL` | `claude-haiku-5-5` | Modèle du premier tri (bon marché) |
 | `FAB_ALWAYS_KEEP` | `25` | Sujets les plus repris par les médias, toujours envoyés à l'analyse finale |
 | `FAB_MAX_BUDGET_EUR` | `5000` | Budget de lancement maximum d'une idée |
-| `FAB_ATTACH_DASHBOARD` | `true` | Joindre le tableau de bord au bilan Discord |
+| `FAB_ATTACH_DASHBOARD` | `false` | Joindre en plus un tableau de bord HTML au bilan Discord |
 | `FAB_PAGES` | `false` | Tableau de bord en ligne via GitHub Pages (dépôt public uniquement) |
 
 Les sources d'actualité sont dans `config/sources.json` : tu peux ajouter un flux RSS ou un pays Google News en modifiant ce fichier directement sur GitHub (icône crayon).
@@ -99,13 +124,14 @@ Les sources d'actualité sont dans `config/sources.json` : tu peux ajouter un fl
 | Étape | Lu par le modèle | Écrit par le modèle | Prix (par million de tokens) | Coût |
 |---|---|---|---|---|
 | 1. Tri de ~1 500 titres par Claude Haiku | ~68 000 tokens | ~3 000 tokens | 0,10 $ lu / 0,50 $ écrit | ~0,01 $ |
-| 2. Analyse approfondie de ~150 sujets par Claude Opus 5.5 | ~19 000 tokens | 10 000 à 20 000 tokens (réflexion + idées) | 4 $ lu / 20 $ écrit | 0,28 à 0,48 $ |
-| **Total par jour** | | | | **~0,30 à 0,50 $** |
+| 2. Analyse approfondie de ~150 sujets par Claude Opus 5.5 | ~20 000 tokens | 15 000 à 30 000 tokens (réflexion + idées détaillées) | 4 $ lu / 20 $ écrit | 0,38 à 0,68 $ |
+| **Total par jour** | | | | **~0,40 à 0,70 $** |
 
-- Soit environ **9 à 15 $ par mois**. Avec Claude Sonnet 5.5 pour l'analyse (`FAB_MODEL = claude-sonnet-5-5`, 2 $ / 10 $) : ~0,15 à 0,25 $ par jour, soit 5 à 8 $ par mois.
+- Soit environ **12 à 21 $ par mois**. Avec Claude Sonnet 5.5 (à choisir dans **Réglages** de l'application, 2 $ / 10 $) : ~0,20 à 0,35 $ par jour, soit 6 à 11 $ par mois.
+- Les idées sont désormais expliquées en détail (contexte, notes justifiées, plan chiffré) : c'est ce qui augmente un peu le coût par rapport à la première version.
 - Un « token » vaut environ ¾ de mot. L'essentiel du coût vient de ce que le modèle écrit (sa réflexion et les idées) : l'écriture coûte 5 fois plus cher que la lecture.
 - Le plafond `FAB_DAILY_COST_LIMIT_USD` (2 $/jour par défaut) bloque tout appel à Claude au-delà, jusqu'au lendemain. Pour une garantie totale, fixe aussi une limite dans **Limits** sur platform.claude.com et n'achète que 5 ou 10 $ de crédits, sans recharge automatique.
-- Le détail réel (tokens et coût de chaque bilan) est visible dans l'onglet **Activité** du tableau de bord, et par jour et par modèle dans **Usage / Cost** sur platform.claude.com. Ce sont des estimations tant qu'aucun vrai bilan n'a tourné.
+- Le détail réel (tokens et coût de chaque bilan) est visible dans l'onglet **Coûts** de l'application, et par jour et par modèle dans **Usage / Cost** sur platform.claude.com. Ce sont des estimations tant qu'aucun vrai bilan n'a tourné.
 
 **Limite à connaître** : avec un seul passage par jour, le bilan voit ce que les sources affichent à 9 h. Les flux RSS ne gardent que leurs derniers articles, donc certaines actualités de la nuit peuvent échapper au bilan. GDELT et les recherches Google News couvrent bien les 24 dernières heures et compensent en grande partie.
 
@@ -115,6 +141,8 @@ Les sources d'actualité sont dans `config/sources.json` : tu peux ajouter un fl
 |---|---|
 | Message Discord « clé API Claude invalide » | Recrée une clé (étape 2) et remplace le secret `ANTHROPIC_API_KEY` |
 | Message « crédit épuisé » | Recharge tes crédits dans **Billing** sur platform.claude.com |
-| Aucune notification | Normal si aucune idée ne dépasse la note minimale. Regarde le tableau de bord, ou baisse `FAB_MIN_SCORE_NOTIFY` |
-| Le workflow ne se lance plus tout seul | GitHub met en pause les tâches planifiées d'un dépôt inactif depuis 60 jours ; ici chaque passage enregistre ses résultats, donc ça ne devrait pas arriver. Sinon : onglet Actions → **Enable workflow** |
+| Aucune notification | Normal si aucune idée ne dépasse la note minimale. Regarde l'application, ou baisse la note minimale dans **Réglages** |
+| Le bilan de 9 h n'arrive pas | Vérifie que l'interrupteur **Bilan automatique** est activé dans l'application. Sinon : GitHub met en pause les tâches planifiées d'un dépôt inactif depuis 60 jours ; ici chaque passage enregistre ses résultats, donc ça ne devrait pas arriver. Sinon : onglet Actions → **Enable workflow** |
+| L'application dit « Accès refusé par GitHub » | La clé n'a pas les bons droits : recrée-la (étape 5 B) avec Contents et Variables en *Read and write* sur `find-a-business` |
+| Le `.bat` se ferme tout de suite | Clic droit → Modifier pour vérifier qu'il est bien dans le dossier extrait (à côté du dossier `app`), puis relance |
 | Un passage est en rouge dans Actions | Clique dessus pour voir le journal ; les erreurs sont en français |

@@ -82,5 +82,5 @@ def test_report_sent_even_without_ideas(tmp_path, monkeypatch):
     s = make_settings(tmp_path, discord_webhook_url="https://discord/x", min_new_articles=1000)
     info = fab_main.run(s)
     assert info["statut"] == "rien de neuf" and "Bilan du jour" in texts[0][0]
-    assert texts[0][1][0].endswith(".html") and b"window.FAB_DATA" in texts[0][1][1]
+    assert texts[0][1] is None  # plus de fichier HTML joint par défaut
     assert json.loads(s.stats_path.read_text())["dernier_bilan"]

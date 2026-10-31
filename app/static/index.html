@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Find-a-Business</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💡</text></svg>">
+<style>
+  :root {
+    --bg: #f6f7f9; --panel: #ffffff; --text: #16181d; --muted: #646b78; --line: #e3e6eb;
+    --accent: #2f6fde; --good: #1f9d55; --mid: #2f6fde; --warn: #d9822b; --bad: #c2413a;
+    --track: #eceff3; --chip: #eef2f8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1115; --panel: #171a21; --text: #e7e9ee; --muted: #9aa1ae; --line: #262b35;
+      --accent: #6b9cf0; --good: #3fbf7a; --mid: #6b9cf0; --warn: #e8a15a; --bad: #e0675f;
+      --track: #232833; --chip: #1f2530;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 15px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); }
+  header { max-width: 1320px; margin: 0 auto; padding: 22px 28px 6px; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  header .grow { flex: 1; min-width: 240px; }
+  h1 { margin: 0; font-size: 24px; letter-spacing: -0.01em; }
+  .sub { color: var(--muted); font-size: 14px; margin-top: 2px; }
+  main { max-width: 1320px; margin: 0 auto; padding: 0 28px 60px; }
+  .btn { background: var(--chip); border: 1px solid var(--line); color: var(--text); border-radius: 8px; padding: 7px 12px; font: inherit; font-size: 14px; cursor: pointer; }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn:disabled { opacity: .5; cursor: default; }
+  .switch { display: flex; align-items: center; gap: 10px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 7px 12px; font-size: 14px; }
+  .switch input { width: 40px; height: 22px; appearance: none; background: var(--track); border-radius: 999px; position: relative; cursor: pointer; transition: background .2s; }
+  .switch input::after { content: ""; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: #fff; transition: left .2s; box-shadow: 0 1px 2px rgba(0,0,0,.3); }
+  .switch input:checked { background: var(--good); }
+  .switch input:checked::after { left: 21px; }
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin: 16px 0; }
+  .kpi { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; }
+  .kpi .v { font-size: 24px; font-weight: 650; font-variant-numeric: tabular-nums; }
+  .kpi .l { color: var(--muted); font-size: 13px; }
+  .tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); margin-bottom: 16px; flex-wrap: wrap; }
+  .tab { background: none; border: 0; padding: 10px 14px; font: inherit; color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent; }
+  .tab.on { color: var(--text); border-bottom-color: var(--accent); font-weight: 600; }
+  .filters { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 14px; }
+  input[type=search], input[type=text], input[type=password], input[type=number], select, textarea {
+    background: var(--panel); color: var(--text); border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; font: inherit; }
+  .filters input[type=search] { min-width: 220px; flex: 1; }
+  .filters label { color: var(--muted); font-size: 14px; display: flex; align-items: center; gap: 6px; }
+  .legend { color: var(--muted); font-size: 13px; margin: -4px 0 14px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 14px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+  .card.target { outline: 2px solid var(--accent); }
+  .card.dim { opacity: .6; }
+  .top { display: flex; gap: 12px; align-items: flex-start; }
+  .score { flex: none; width: 54px; height: 54px; border-radius: 12px; display: grid; place-items: center; color: #fff; font-weight: 700; font-size: 19px; font-variant-numeric: tabular-nums; }
+  .title { font-weight: 650; font-size: 16px; line-height: 1.3; }
+  .meta { color: var(--muted); font-size: 13px; margin-top: 3px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  .chip { background: var(--chip); border-radius: 999px; padding: 1px 9px; font-size: 12px; color: var(--text); }
+  .chip.new { background: var(--good); color: #fff; }
+  .st-a_etudier { background: #6b7280; color: #fff; } .st-en_cours { background: var(--accent); color: #fff; }
+  .st-lancee { background: var(--good); color: #fff; } .st-abandonnee { background: var(--bad); color: #fff; }
+  .pitch { margin: 0; }
+  .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; font-size: 13px; }
+  .facts div { background: var(--bg); border-radius: 8px; padding: 6px 8px; }
+  .facts b { display: block; font-size: 14px; font-variant-numeric: tabular-nums; }
+  .facts span { color: var(--muted); }
+  .bars { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 16px; }
+  .bar { display: grid; grid-template-columns: 82px 1fr 22px; gap: 8px; align-items: center; font-size: 12.5px; }
+  .bar .n { color: var(--muted); }
+  .bar .t { display: block; height: 7px; background: var(--track); border-radius: 4px; overflow: hidden; }
+  .bar .f { display: block; height: 100%; border-radius: 4px; }
+  .bar .x { text-align: right; font-variant-numeric: tabular-nums; }
+  .suivi { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 10px; }
+  .suivi select { flex: 1; }
+  details.more { border-top: 1px solid var(--line); padding-top: 8px; }
+  details.more summary { cursor: pointer; color: var(--accent); font-size: 14px; }
+  details.more h4 { margin: 14px 0 4px; font-size: 12.5px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+  details.more p { margin: 0 0 6px; white-space: pre-line; }
+  details.more ul, details.more ol { margin: 0; padding-left: 20px; }
+  .why { display: grid; gap: 8px; }
+  .why .row b { font-variant-numeric: tabular-nums; }
+  .why .row div { color: var(--muted); font-size: 14px; }
+  textarea { width: 100%; min-height: 80px; resize: vertical; }
+  a { color: var(--accent); }
+  .empty { text-align: center; color: var(--muted); padding: 48px 0; }
+  table { width: 100%; border-collapse: collapse; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; font-size: 13.5px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; margin-bottom: 16px; max-width: 760px; }
+  .panel h3 { margin: 0 0 10px; font-size: 17px; }
+  .field { display: grid; gap: 4px; margin-bottom: 14px; }
+  .field small { color: var(--muted); }
+  .chart { display: flex; align-items: flex-end; gap: 4px; height: 160px; padding: 10px 0; border-bottom: 1px solid var(--line); margin-bottom: 14px; }
+  .chart .c { flex: 1; background: var(--accent); border-radius: 3px 3px 0 0; min-height: 1px; position: relative; }
+  .chart .c:hover::after { content: attr(data-t); position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); background: var(--text); color: var(--bg); font-size: 12px; padding: 3px 6px; border-radius: 4px; white-space: nowrap; }
+  .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--text); color: var(--bg); padding: 10px 16px; border-radius: 10px; font-size: 14px; display: none; max-width: 90vw; }
+  .alert { background: #fff4e5; color: #6b3d00; border: 1px solid #f3c98b; padding: 10px 14px; border-radius: 10px; margin: 10px 0; }
+  @media (prefers-color-scheme: dark) { .alert { background: #3a2a12; color: #f5d7a8; border-color: #6b4a1a; } }
+  #setup { max-width: 640px; margin: 40px auto; }
+  #setup ol { padding-left: 20px; }
+</style>
+</head>
+<body>
+
+<div id="setup" class="panel" hidden>
+  <h3>💡 Bienvenue dans Find-a-Business</h3>
+  <p>Pour afficher tes idées, l'application a besoin d'une <b>clé d'accès GitHub</b> limitée à ton dépôt. Tu ne la crées qu'une fois.</p>
+  <ol>
+    <li>Ouvre <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">github.com/settings/personal-access-tokens/new</a></li>
+    <li><b>Token name</b> : <code>find-a-business-app</code> · <b>Expiration</b> : 1 an (366 days)</li>
+    <li><b>Repository access</b> : <i>Only select repositories</i> → choisis <code>find-a-business</code></li>
+    <li><b>Permissions</b> → <i>Repository permissions</i> : <b>Contents</b> = Read and write, <b>Variables</b> = Read and write</li>
+    <li><b>Generate token</b>, copie la clé (elle commence par <code>github_pat_</code>) et colle-la ci-dessous.</li>
+  </ol>
+  <div class="field"><label>Dépôt</label><input type="text" id="setupRepo"></div>
+  <div class="field"><label>Clé GitHub</label><input type="password" id="setupToken" placeholder="github_pat_…" autocomplete="off"></div>
+  <button class="btn primary" id="setupSave">Enregistrer et continuer</button>
+  <p class="sub">La clé est enregistrée uniquement sur cet ordinateur.</p>
+</div>
+
+<div id="app" hidden>
+  <header>
+    <div class="grow">
+      <h1>💡 Find-a-Business</h1>
+      <div class="sub" id="sub">Chargement…</div>
+    </div>
+    <label class="switch" title="Bilan automatique chaque matin à 9 h (heure de Paris)">
+      <input type="checkbox" id="auto"> <span id="autoLabel">Bilan automatique de 9 h</span>
+    </label>
+    <button class="btn" id="refresh">↻ Actualiser</button>
+  </header>
+  <main>
+    <div id="alert"></div>
+    <div class="kpis" id="kpis"></div>
+    <nav class="tabs">
+      <button class="tab on" data-tab="ideas">Idées</button>
+      <button class="tab" data-tab="rejected">Écartées</button>
+      <button class="tab" data-tab="costs">Coûts</button>
+      <button class="tab" data-tab="settings">Réglages</button>
+    </nav>
+
+    <section id="tab-ideas">
+      <div class="filters">
+        <input type="search" id="q" placeholder="Rechercher (titre, pays, mot-clé…)">
+        <select id="fStatut">
+          <option value="">Tous les statuts</option>
+          <option value="nouvelle">Nouvelles (non classées)</option>
+          <option value="a_etudier">À étudier</option>
+          <option value="en_cours">En cours</option>
+          <option value="lancee">Lancées</option>
+          <option value="abandonnee">Abandonnées</option>
+        </select>
+        <select id="cat"><option value="">Tous les types</option></select>
+        <select id="sort">
+          <option value="note_globale">Tri : note globale</option>
+          <option value="recent">Tri : plus récentes</option>
+          <option value="potentiel">Tri : potentiel</option>
+          <option value="cout">Tri : coût le plus faible</option>
+          <option value="travail">Tri : moins de travail</option>
+          <option value="urgence">Tri : urgence</option>
+          <option value="durabilite">Tri : durabilité</option>
+          <option value="fiabilite">Tri : fiabilité</option>
+          <option value="risque">Tri : risque le plus faible</option>
+        </select>
+        <label>Note min <input type="range" id="min" min="0" max="10" step="0.5" value="0"> <b id="minv">0</b></label>
+        <label><input type="checkbox" id="showArch"> Archivées</label>
+      </div>
+      <p class="legend">Toutes les notes vont de 0 à 10, <b>10 = favorable</b> (coût 10 = presque gratuit, risque 10 = très faible risque, urgence 10 = à lancer tout de suite). Ouvre « Tout le détail » pour l'explication de chaque note.</p>
+      <div class="grid" id="grid"></div>
+    </section>
+
+    <section id="tab-rejected" hidden>
+      <p class="legend">Idées proposées par l'analyse puis écartées automatiquement (filtre éthique, budget, absence de source).</p>
+      <div id="rejected"></div>
+    </section>
+
+    <section id="tab-costs" hidden>
+      <div id="costs"></div>
+    </section>
+
+    <section id="tab-settings" hidden>
+      <div class="panel">
+        <h3>Réglages du bilan</h3>
+        <div id="settingsWarn"></div>
+        <div class="field">
+          <label for="sScore">Note minimale pour qu'une idée soit détaillée dans le bilan Discord</label>
+          <input type="number" id="sScore" min="0" max="10" step="0.5">
+          <small>Les idées sous ce seuil restent visibles ici. Défaut : 6,5.</small>
+        </div>
+        <div class="field">
+          <label for="sModel">Modèle Claude pour l'analyse</label>
+          <select id="sModel">
+            <option value="claude-opus-5-5">Claude Opus 5.5 : le plus fin (~0,40 à 0,70 $ par bilan)</option>
+            <option value="claude-sonnet-5-5">Claude Sonnet 5.5 : 2 fois moins cher (~0,20 à 0,35 $ par bilan)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="sCap">Plafond de dépense par jour (en $)</label>
+          <input type="number" id="sCap" min="0" max="100" step="0.5">
+          <small>Au-delà, aucun appel à Claude jusqu'au lendemain. 0 = pas de plafond. Défaut : 2 $.</small>
+        </div>
+        <button class="btn primary" id="saveSettings">Enregistrer les réglages</button>
+      </div>
+      <div class="panel">
+        <h3>Clé GitHub</h3>
+        <p class="sub">Dépôt : <b id="repoName"></b>. Si ta clé expire, crée-en une nouvelle (mêmes droits) et colle-la ici.</p>
+        <div class="field"><input type="password" id="newToken" placeholder="github_pat_…" autocomplete="off"></div>
+        <button class="btn" id="saveToken">Remplacer la clé</button>
+      </div>
+    </section>
+  </main>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const LABELS = { potentiel: "Potentiel", cout: "Coût", travail: "Travail", risque: "Risque",
+  urgence: "Urgence", durabilite: "Durabilité", fiabilite: "Fiabilité", concurrence: "Concurrence" };
+const MEANING = { potentiel: "10 = marché et revenus importants", cout: "10 = presque gratuit, 0 = 5 000 € ou plus",
+  travail: "10 = lançable en un week-end", risque: "10 = très faible risque", urgence: "10 = à lancer dans les jours qui viennent",
+  durabilite: "10 = le besoin restera après l'actualité", fiabilite: "10 = événement confirmé, demande évidente",
+  concurrence: "10 = quasiment aucun concurrent" };
+const STATUTS = { nouvelle: "Nouvelle", a_etudier: "À étudier", en_cours: "En cours", lancee: "Lancée", abandonnee: "Abandonnée" };
+let D = { ideas: [], rejected: [], stats: {}, suivi: {}, settings: {}, auto: false };
+let openIds = new Set();
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const safeUrl = u => /^https?:\/\//i.test(u || "") ? esc(u) : "#";
+const color = v => v >= 8 ? "var(--good)" : v >= 6.5 ? "var(--mid)" : v >= 4.5 ? "var(--warn)" : "var(--bad)";
+const fmtEur = n => new Intl.NumberFormat("fr-FR").format(n || 0) + " €";
+const fmtUsd = n => (n || 0).toLocaleString("fr-FR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " $";
+const statutOf = id => (D.suivi[id] && D.suivi[id].statut) || "nouvelle";
+function ago(iso) {
+  if (!iso) return "—";
+  const m = Math.round((Date.now() - new Date(iso)) / 60000);
+  if (m < 60) return `il y a ${m} min`;
+  const h = Math.round(m / 60);
+  if (h < 48) return `il y a ${h} h`;
+  return `il y a ${Math.round(h / 24)} j`;
+}
+function toast(msg, ms = 2600) { const t = $("toast"); t.textContent = msg; t.style.display = "block"; clearTimeout(t._h); t._h = setTimeout(() => t.style.display = "none", ms); }
+async function api(path, body) {
+  const r = await fetch(path, body ? { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) } : {});
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok && !(j && j.copie)) throw new Error(j.erreur || `Erreur ${r.status}`);
+  return j;
+}
+
+async function boot() {
+  const cfg = await api("/api/config");
+  $("setupRepo").value = cfg.repo;
+  if (!cfg.configured) { $("setup").hidden = false; return; }
+  $("app").hidden = false;
+  await load();
+}
+
+async function load() {
+  $("refresh").disabled = true;
+  try {
+    const j = await api("/api/data");
+    if (j.copie) {
+      D = j.copie;
+      $("alert").innerHTML = `<div class="alert">GitHub injoignable (${esc(j.erreur)}). Affichage de la dernière copie enregistrée sur cet ordinateur.</div>`;
+    } else { D = j; $("alert").innerHTML = ""; }
+    if (!D.variables_ok) $("settingsWarn").innerHTML = '<div class="alert">La clé ne permet pas de lire les réglages : ajoute la permission <b>Variables : Read and write</b> à ta clé GitHub.</div>';
+    else $("settingsWarn").innerHTML = "";
+    const cats = [...new Set(D.ideas.map(i => i.categorie))].sort();
+    $("cat").innerHTML = '<option value="">Tous les types</option>' + cats.map(c => `<option>${esc(c)}</option>`).join("");
+    header(); render(); renderRejected(); renderCosts(); fillSettings();
+    if (location.hash) focusIdea(location.hash.slice(1));
+  } catch (e) {
+    $("alert").innerHTML = `<div class="alert">${esc(e.message)}</div>`;
+  } finally { $("refresh").disabled = false; }
+}
+
+function header() {
+  const active = D.ideas.filter(i => i.statut === "active");
+  const day = Date.now() - 86400000;
+  const last = (D.stats.historique || [])[0];
+  $("sub").textContent = D.stats.derniere_execution
+    ? `Dernier bilan ${ago(D.stats.derniere_execution)} (${last?.statut ?? ""}) · modèle ${D.settings.FAB_MODEL || D.stats.modele || "?"} · ${D.repo}`
+    : "Aucun bilan encore effectué.";
+  $("auto").checked = !!D.auto;
+  $("autoLabel").textContent = D.auto ? "Bilan automatique de 9 h : activé" : "Bilan automatique de 9 h : désactivé";
+  const month = costsByDay().slice(0, 30).reduce((s, d) => s + d.cost, 0);
+  const k = [
+    [active.length, "idées actives"],
+    [active.filter(i => new Date(i.cree_le) > day).length, "nouvelles (24 h)"],
+    [D.ideas.filter(i => ["a_etudier", "en_cours"].includes(statutOf(i.id))).length, "à étudier / en cours"],
+    [fmtUsd(month), "coût API (30 j)"],
+  ];
+  $("kpis").innerHTML = k.map(([v, l]) => `<div class="kpi"><div class="v">${v}</div><div class="l">${l}</div></div>`).join("");
+}
+
+function filtered() {
+  const q = $("q").value.trim().toLowerCase(), cat = $("cat").value, st = $("fStatut").value;
+  const min = +$("min").value, showArch = $("showArch").checked, sort = $("sort").value;
+  const list = D.ideas.filter(i =>
+    (showArch || i.statut === "active") && (!cat || i.categorie === cat) && i.note_globale >= min &&
+    (!st || statutOf(i.id) === st) &&
+    (!q || JSON.stringify([i.titre, i.pitch, i.pays_cibles, i.mots_cles, i.evenement_declencheur, i.cible, D.suivi[i.id]?.note]).toLowerCase().includes(q)));
+  const key = sort === "recent" ? i => new Date(i.cree_le).getTime() : sort === "note_globale" ? i => i.note_globale : i => i.notes[sort];
+  return list.sort((a, b) => key(b) - key(a) || b.note_globale - a.note_globale);
+}
+
+const list = (arr, ordered) => (arr && arr.length) ? `<${ordered ? "ol" : "ul"}>${arr.map(x => `<li>${esc(x)}</li>`).join("")}</${ordered ? "ol" : "ul"}>` : "<p>—</p>";
+
+function card(i) {
+  const st = statutOf(i.id), mine = D.suivi[i.id] || {};
+  const isNew = Date.now() - new Date(i.cree_le) < 86400000;
+  const bars = Object.entries(LABELS).map(([k, l]) =>
+    `<div class="bar"><span class="n">${l}</span><span class="t"><span class="f" style="width:${i.notes[k] * 10}%;background:${color(i.notes[k])}"></span></span><span class="x">${i.notes[k]}</span></div>`).join("");
+  const expl = i.notes_explications || {};
+  const why = Object.entries(LABELS).map(([k, l]) =>
+    `<div class="row"><b>${l} : ${i.notes[k]}/10</b> <span class="meta">(${MEANING[k]})</span><div>${esc(expl[k] || "—")}</div></div>`).join("");
+  const sources = (i.sources || []).map(s => `<li><a href="${safeUrl(s.url)}" target="_blank" rel="noopener">${esc(s.titre)}</a> <span class="meta">· ${esc(s.source)} · ${esc(s.langue)}</span></li>`).join("");
+  const hist = (i.historique || []).map(h => `<li>${esc(new Date(h.date).toLocaleString("fr-FR"))} : ${esc(h.note)}</li>`).join("");
+  const options = Object.entries(STATUTS).map(([v, l]) => `<option value="${v}" ${v === st ? "selected" : ""}>${l}</option>`).join("");
+  return `<article class="card ${st === "abandonnee" ? "dim" : ""}" id="${esc(i.id)}">
+    <div class="top">
+      <div class="score" style="background:${color(i.note_globale)}" title="Note globale">${i.note_globale.toFixed(1)}</div>
+      <div>
+        <div class="title">${esc(i.titre)}</div>
+        <div class="meta">
+          <span class="chip">${esc(i.categorie)}</span>
+          ${st !== "nouvelle" ? `<span class="chip st-${st}">${STATUTS[st]}</span>` : ""}
+          ${isNew ? '<span class="chip new">nouveau</span>' : ""}
+          ${i.statut !== "active" ? '<span class="chip">archivée</span>' : ""}
+          <span>${ago(i.cree_le)}</span>
+          ${i.signaux > 1 ? `<span title="Nombre d'actualités qui confirment l'idée">· ${i.signaux} signaux</span>` : ""}
+        </div>
+      </div>
+    </div>
+    <p class="pitch">${esc(i.pitch)}</p>
+    <div class="facts">
+      <div><b>${fmtEur(i.budget_estime_eur)}</b><span>budget estimé</span></div>
+      <div><b>~${i.delai_lancement_jours} j</b><span>pour lancer</span></div>
+      <div><b>${esc(i.duree_opportunite)}</b><span>fenêtre</span></div>
+    </div>
+    <div class="bars">${bars}</div>
+    <details class="more" data-id="${esc(i.id)}" ${openIds.has(i.id) ? "open" : ""}>
+      <summary>Tout le détail</summary>
+      <h4>Le projet</h4><p>${esc(i.description_detaillee || i.pitch)}</p>
+      <h4>Cible</h4><p>${esc(i.cible)} · ${esc((i.pays_cibles || []).join(", "))} · langues : ${esc((i.langues || []).join(", "))}</p>
+      <h4>Modèle de revenus</h4><p>${esc(i.modele_revenus)}</p>
+      <h4>L'événement déclencheur</h4><p><b>${esc(i.evenement_declencheur)}</b></p>${i.contexte_declencheur ? `<p>${esc(i.contexte_declencheur)}</p>` : ""}
+      ${i.pourquoi_maintenant ? `<h4>Pourquoi maintenant</h4><p>${esc(i.pourquoi_maintenant)}</p>` : ""}
+      <h4>Les notes expliquées</h4><div class="why">${why}</div>
+      <h4>Travail à accomplir</h4>${list(i.etapes, true)}
+      <h4>Budget détaillé</h4>${list(i.budget_detail)}
+      <h4>Concurrence</h4>${list(i.concurrents)}
+      <h4>Risques et parades</h4>${list(i.risques)}
+      <h4>Avis global</h4><p>${esc(i.analyse)}</p>
+      <h4>Éthique</h4><p>${esc(i.ethique?.raison)}</p>
+      <h4>Sources</h4><ul>${sources}</ul>
+      ${hist ? `<h4>Historique</h4><ul>${hist}</ul>` : ""}
+    </details>
+    <div class="suivi">
+      <select data-statut="${esc(i.id)}" title="Statut de l'idée">${options}</select>
+      <button class="btn" data-notes="${esc(i.id)}">📝 Mes notes${mine.note ? " ✓" : ""}</button>
+    </div>
+    <div data-notebox="${esc(i.id)}" hidden>
+      <textarea placeholder="Tes notes perso sur cette idée…">${esc(mine.note || "")}</textarea>
+      <button class="btn primary" data-savenote="${esc(i.id)}">Enregistrer la note</button>
+    </div>
+  </article>`;
+}
+
+function render() {
+  const l = filtered();
+  $("grid").innerHTML = l.length ? l.map(card).join("")
+    : `<div class="empty">Aucune idée ne correspond${D.ideas.length ? " aux filtres" : " pour l'instant"}.</div>`;
+}
+
+function renderRejected() {
+  $("rejected").innerHTML = D.rejected.length ? `<table><thead><tr><th>Date</th><th>Idée</th><th>Raison</th></tr></thead><tbody>${
+    D.rejected.map(r => `<tr><td>${esc(new Date(r.date).toLocaleString("fr-FR"))}</td><td><b>${esc(r.titre)}</b><br><span class="meta">${esc(r.pitch)}</span></td><td>${esc(r.raison)}</td></tr>`).join("")
+  }</tbody></table>` : '<div class="empty">Aucune idée écartée.</div>';
+}
+
+function costsByDay() {
+  const days = {};
+  for (const r of D.stats.historique || []) {
+    if (!r.date) continue;
+    const d = new Date(r.date).toLocaleDateString("fr-CA", { timeZone: "Europe/Paris" }); // AAAA-MM-JJ
+    days[d] ??= { day: d, cost: 0, runs: 0, ideas: 0, tin: 0, tout: 0 };
+    days[d].cost += r.cout_usd || 0; days[d].runs += 1; days[d].ideas += r.idees_nouvelles || 0;
+    days[d].tin += r.tokens_entree || 0; days[d].tout += r.tokens_sortie || 0;
+  }
+  return Object.values(days).sort((a, b) => b.day.localeCompare(a.day));
+}
+
+function renderCosts() {
+  const days = costsByDay();
+  if (!days.length) { $("costs").innerHTML = '<div class="empty">Pas encore de bilan, donc aucun coût.</div>'; return; }
+  const last30 = days.slice(0, 30), total = last30.reduce((s, d) => s + d.cost, 0);
+  const max = Math.max(...last30.map(d => d.cost), 0.01);
+  const chart = [...last30].reverse().map(d => `<div class="c" style="height:${Math.max(1, d.cost / max * 100)}%" data-t="${d.day} : ${fmtUsd(d.cost)}"></div>`).join("");
+  const fmtD = s => new Date(s + "T12:00:00").toLocaleDateString("fr-FR", { weekday: "short", day: "numeric", month: "short" });
+  $("costs").innerHTML = `
+    <div class="kpis">
+      <div class="kpi"><div class="v">${fmtUsd(total)}</div><div class="l">30 derniers jours</div></div>
+      <div class="kpi"><div class="v">${fmtUsd(total / Math.max(1, last30.length))}</div><div class="l">moyenne par jour avec bilan</div></div>
+      <div class="kpi"><div class="v">${fmtUsd(days[0].cost)}</div><div class="l">dernier jour (${fmtD(days[0].day)})</div></div>
+    </div>
+    <div class="chart" title="Coût par jour (survole une barre)">${chart}</div>
+    <table><thead><tr><th>Jour</th><th class="num">Bilans</th><th class="num">Idées trouvées</th><th class="num">Tokens lus</th><th class="num">Tokens écrits</th><th class="num">Coût</th></tr></thead><tbody>${
+      days.map(d => `<tr><td>${fmtD(d.day)}</td><td class="num">${d.runs}</td><td class="num">${d.ideas}</td><td class="num">${d.tin.toLocaleString("fr-FR")}</td><td class="num">${d.tout.toLocaleString("fr-FR")}</td><td class="num">${fmtUsd(d.cost)}</td></tr>`).join("")
+    }</tbody></table>
+    <p class="legend" style="margin-top:10px">Coûts estimés d'après les prix publics de Claude. Le montant exact facturé est visible sur platform.claude.com → Usage / Cost.</p>`;
+}
+
+function fillSettings() {
+  $("sScore").value = D.settings.FAB_MIN_SCORE_NOTIFY;
+  $("sModel").value = D.settings.FAB_MODEL;
+  $("sCap").value = D.settings.FAB_DAILY_COST_LIMIT_USD;
+  $("repoName").textContent = D.repo;
+}
+
+function focusIdea(id) {
+  let el = document.getElementById(id);
+  if (!el) { $("showArch").checked = true; $("fStatut").value = ""; render(); el = document.getElementById(id); }
+  if (!el) return;
+  el.classList.add("target"); el.querySelector("details").open = true;
+  el.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+async function saveSuivi(id, patch) {
+  const cur = D.suivi[id] || {};
+  const body = { id, statut: patch.statut ?? cur.statut ?? "nouvelle", note: patch.note ?? cur.note ?? "" };
+  try {
+    const j = await api("/api/suivi", body);
+    D.suivi = j.suivi; header(); render(); toast("Enregistré ✓");
+  } catch (e) { toast("Échec : " + e.message, 6000); render(); }
+}
+
+document.addEventListener("input", e => { if (e.target.closest(".filters")) { $("minv").textContent = $("min").value; render(); } });
+document.addEventListener("toggle", e => {
+  const d = e.target; if (d.dataset && d.dataset.id) d.open ? openIds.add(d.dataset.id) : openIds.delete(d.dataset.id);
+}, true);
+document.addEventListener("change", async e => {
+  const t = e.target;
+  if (t.dataset.statut) saveSuivi(t.dataset.statut, { statut: t.value });
+  if (t.id === "auto") {
+    const on = t.checked;
+    if (on && !confirm("Activer le bilan automatique ?\n\nChaque matin vers 9 h (heure de Paris), le système analysera l'actualité et t'enverra le bilan sur Discord.\nCoût estimé : 0,40 à 0,70 $ par jour avec Opus (0,20 à 0,35 $ avec Sonnet), dans la limite du plafond quotidien.")) { t.checked = false; return; }
+    try { await api("/api/auto", { enabled: on }); D.auto = on; header(); toast(on ? "Bilan automatique activé ✓" : "Bilan automatique désactivé ✓"); }
+    catch (err) { t.checked = !on; toast("Échec : " + err.message, 6000); }
+  }
+});
+document.addEventListener("click", async e => {
+  const t = e.target;
+  if (t.dataset.tab) {
+    document.querySelectorAll(".tab").forEach(b => b.classList.toggle("on", b === t));
+    ["ideas", "rejected", "costs", "settings"].forEach(n => $("tab-" + n).hidden = n !== t.dataset.tab);
+  } else if (t.dataset.notes) {
+    const box = document.querySelector(`[data-notebox="${CSS.escape(t.dataset.notes)}"]`); box.hidden = !box.hidden;
+  } else if (t.dataset.savenote) {
+    const box = document.querySelector(`[data-notebox="${CSS.escape(t.dataset.savenote)}"]`);
+    saveSuivi(t.dataset.savenote, { note: box.querySelector("textarea").value });
+  } else if (t.id === "refresh") { load(); }
+  else if (t.id === "saveSettings") {
+    try {
+      await api("/api/settings", { FAB_MIN_SCORE_NOTIFY: $("sScore").value, FAB_MODEL: $("sModel").value, FAB_DAILY_COST_LIMIT_USD: $("sCap").value });
+      D.settings = { FAB_MIN_SCORE_NOTIFY: $("sScore").value, FAB_MODEL: $("sModel").value, FAB_DAILY_COST_LIMIT_USD: $("sCap").value };
+      header(); toast("Réglages enregistrés ✓ (appliqués au prochain bilan)");
+    } catch (err) { toast("Échec : " + err.message, 6000); }
+  } else if (t.id === "setupSave" || t.id === "saveToken") {
+    const token = (t.id === "setupSave" ? $("setupToken") : $("newToken")).value.trim();
+    if (!token) return toast("Colle d'abord ta clé GitHub.");
+    t.disabled = true;
+    try {
+      await api("/api/config", { token, repo: $("setupRepo").value.trim() || D.repo });
+      $("setup").hidden = true; $("app").hidden = false; $("newToken").value = ""; toast("Clé enregistrée ✓"); await load();
+    } catch (err) { toast("Clé refusée : " + err.message, 7000); }
+    finally { t.disabled = false; }
+  }
+});
+window.addEventListener("hashchange", () => focusIdea(location.hash.slice(1)));
+boot();
+</script>
+</body>
+</html>
