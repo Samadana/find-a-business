@@ -1,1 +1,542 @@
-[]
+[
+ {
+  "titre": "Plateforme d'aide aux patients des cliniques dentaires Vivanta fermées (Espagne) : réclamation aux organismes de crédit et reprise des soins",
+  "pitch": "Des milliers de patients espagnols se retrouvent avec un traitement dentaire inachevé et un crédit qui continue d'être prélevé. Un site en espagnol leur fournit gratuitement les lettres de réclamation, la marche à suivre et un annuaire de dentistes prêts à reprendre leur traitement.",
+  "evenement_declencheur": "Fermeture définitive de la chaîne de cliniques dentaires Vivanta en Espagne, avec des patients aux traitements inachevés et financés à crédit.",
+  "contexte_declencheur": "Fin octobre 2026, la chaîne Vivanta ferme définitivement ses cliniques dentaires en Espagne. Des patients sont touchés dans plusieurs régions : Móstoles (Madrid), Murcie (une cinquantaine de patients selon La Opinión de Murcia), Ceuta, Pays basque et Navarre. L'institut basque de la consommation Kontsumobide appelle les victimes à réclamer les sommes versées. L'association de consommateurs Irache organise une réunion d'information à Pamplona. À Ceuta, un cabinet d'avocats explique comment se retourner contre les organismes de crédit. Beaucoup de traitements (implants, orthodontie) ont été payés d'avance via des crédits liés. Or la loi espagnole sur le crédit à la consommation (Ley 16/2011, crédits liés) permet au consommateur de faire valoir contre le prêteur les droits qu'il avait contre le prestataire défaillant. Le scénario des faillites iDental (2018) et Dentix (2020) va probablement se répéter : des mois de démarches, des prélèvements qui continuent, des patients qui doivent récupérer leur dossier médical et trouver un nouveau dentiste. L'information est dispersée entre presse locale, associations et avocats.",
+  "pourquoi_maintenant": "Les patients cherchent de l'aide maintenant, au moment où les prélèvements tombent et où les médias en parlent. Dans les cas iDental et Dentix, les premières semaines ont été décisives : c'est là que se sont formés les collectifs et que les avocats ont capté l'essentiel de la demande. Dans deux ou trois mois, les patients seront déjà regroupés autour d'associations ou de cabinets, et la recherche Google se sera tassée.",
+  "description_detaillee": "Le site est entièrement en espagnol, sous un nom neutre comme reclamaclinicadental.es, sans reprendre la marque Vivanta dans le domaine. Page 1 : un guide gratuit « Qué hacer si tu clínica dental cierra ». On y trouve les étapes clés : demander son historial clínico, suspendre les prélèvements, saisir l'organisme de crédit, remplir la hoja de reclamaciones, contacter l'OMIC ou l'organisme régional de consommation. Page 2 : un générateur gratuit de lettres. L'utilisateur saisit son nom, la clinique, la financiera (par exemple les organismes de crédit habituels du secteur), le montant et l'état du traitement. Il obtient un PDF prêt à envoyer par burofax : réclamation au prêteur au titre du crédit lié, demande de dossier médical, réclamation à l'administration de la faillite. Page 3 : un annuaire de dentistes par province qui acceptent de reprendre des traitements commencés, avec un bilan de diagnostic à tarif annoncé. Page 4 : une mise en relation avec des cabinets d'avocats et associations de consommateurs partenaires pour les dossiers complexes ou collectifs. Parcours type : une patiente de Murcie tape « Vivanta cierre qué hacer » et lit le guide. Elle génère gratuitement sa lettre à la financiera, puis trouve un dentiste à Murcie qui propose un bilan de reprise à 30 €. Le positionnement est celui d'un outil d'aide pratique et gratuit, pas d'un vendeur de promesses. Monétisation : abonnement des dentistes à l'annuaire (49 à 99 € par mois et par province) et forfait publicitaire fixe des cabinets d'avocats partenaires (150 à 300 € par mois), sans commission sur les dossiers. En option, un « pack suivi » à 19 € avec relances automatiques et modèles complémentaires. Premiers visiteurs : SEO sur les requêtes « Vivanta cierre », « reclamar financiera clínica dental cerrada » et « Vivanta [ville] ». S'y ajoutent les groupes Facebook d'afectados, le contact des journalistes locaux qui couvrent l'affaire et des associations comme Irache. Ordre de grandeur réaliste : 1 500 à 5 000 € de CA sur les 6 premiers mois. Le site peut ensuite servir de base durable pour toute future faillite de clinique dentaire ou esthétique, un phénomène récurrent en Espagne.",
+  "categorie": "outil-web",
+  "cible": "Patients espagnols des cliniques Vivanta ayant un traitement payé ou financé à crédit et inachevé ; secondairement dentistes et avocats en droit de la consommation.",
+  "pays_cibles": [
+   "ES"
+  ],
+  "langues": [
+   "es"
+  ],
+  "modele_revenus": "Générateur et guide gratuits ; abonnements des dentistes à l'annuaire de reprise (49-99 €/mois) ; forfaits publicitaires fixes des avocats partenaires ; pack suivi optionnel à 19 €.",
+  "budget_estime_eur": 1100,
+  "delai_lancement_jours": 14,
+  "duree_opportunite": "3 à 12 mois pour le pic lié à Vivanta, puis besoin récurrent à chaque faillite de clinique.",
+  "notes": {
+   "potentiel": 5,
+   "cout": 7,
+   "travail": 6,
+   "risque": 5,
+   "urgence": 9,
+   "durabilite": 5,
+   "fiabilite": 8,
+   "concurrence": 6
+  },
+  "notes_explications": {
+   "potentiel": "Le nombre de victimes est significatif et réparti dans plusieurs régions, mais leur capacité à payer est limitée et la plupart des démarches doivent rester gratuites. Les revenus viennent surtout des dentistes et avocats, ce qui plafonne le CA à quelques milliers d'euros, sauf extension à d'autres faillites.",
+   "cout": "Un site WordPress avec formulaire générateur de PDF et une relecture juridique par un avocat espagnol freelance suffisent. Le budget reste autour de 1 100 € ; sans publicité payante, il descend sous 800 €.",
+   "travail": "Il faut rédiger les modèles de lettres en espagnol juridique correct et les faire valider, puis monter l'annuaire. Comptez environ deux semaines pour une personne aidée d'un freelance.",
+   "risque": "Fournir des modèles juridiques sans être avocat impose une rédaction prudente (information, pas conseil) et une validation professionnelle. En Espagne, la publicité des avocats est autorisée, mais il faut éviter toute rémunération au résultat. La sensibilité d'un public en détresse crée aussi un risque réputationnel si l'offre paraît mercantile.",
+   "urgence": "Les fermetures datent de fin octobre 2026 et la demande d'information culmine dans les semaines qui suivent. C'est maintenant que les patients cherchent et que les médias citent des ressources.",
+   "durabilite": "Le pic Vivanta retombera en quelques mois. En revanche, les faillites de chaînes dentaires et esthétiques sont récurrentes en Espagne (iDental, Dentix, Vivanta), ce qui donne une seconde vie au site.",
+   "fiabilite": "Cinq articles de médias différents (Móstoles, Murcie, Ceuta, Pays basque, Navarre) confirment la fermeture et les patients lésés. La demande est évidente.",
+   "concurrence": "Associations de consommateurs (OCU, FACUA, Irache) et cabinets d'avocats occupent le terrain, mais avec du contenu dispersé et peu d'outils pratiques. Aucun générateur de lettres ni annuaire de reprise des soins n'a été identifié."
+  },
+  "budget_detail": [
+   "Nom de domaine .es + hébergement 1 an : 80 €",
+   "Thème WordPress + plugin formulaires/PDF (Gravity Forms + extension PDF) : 200 €",
+   "Relecture et validation des modèles de lettres par un avocat espagnol freelance : 400 €",
+   "Rédaction/traduction du guide par un rédacteur natif : 150 €",
+   "Promotion (Google Ads ciblé + boost Facebook groupes d'afectados) : 250 €",
+   "Divers (burofax test, logo) : 20 €"
+  ],
+  "concurrents": [
+   "Associations de consommateurs (OCU, FACUA, Irache, Kontsumobide) : information gratuite mais générale, pas d'outil de génération de lettres ni d'annuaire de reprise.",
+   "Cabinets d'avocats spécialisés (ex. Clemente Cerdeira Abogados à Ceuta) : approche commerciale cabinet par cabinet, pas de vue nationale ; ils deviennent partenaires plutôt que concurrents.",
+   "Plateformes de réclamation généralistes (Reclamador.es) : centrées sur l'aérien et la banque, pas sur les cliniques dentaires."
+  ],
+  "analyse": "C'est une idée utile, alignée éthiquement et très directement liée à l'événement, avec une fenêtre courte. Il faut y aller vite et seulement si vous pouvez faire valider les modèles par un avocat espagnol sous dix jours. Le point de vigilance principal est le ton : le cœur de l'offre (guide et lettres) doit rester gratuit, sans promesse de remboursement. Le revenu viendra des professionnels, pas des victimes. À plus long terme, le site gagne à devenir la référence espagnole « clínica cerrada, qué hacer ».",
+  "etapes": [
+   "Jour 1-2 : recenser les articles, les communiqués de Kontsumobide, Irache et des OMIC, ainsi que les financieras citées ; vérifier le cadre légal des crédits liés (Ley 16/2011).",
+   "Jour 2-3 : réserver le domaine neutre et installer WordPress (hébergement o2switch ou Hostinger) avec un thème léger.",
+   "Jour 3-6 : rédiger le guide et 4 modèles de lettres en espagnol (freelance natif via Malt ou Fiverr), puis les faire valider par un avocat espagnol.",
+   "Jour 6-8 : monter le générateur PDF (Gravity Forms + Gravity PDF, ou Tally + Documint en no-code).",
+   "Jour 8-10 : créer l'annuaire de dentistes de reprise (plugin Directorist) et démarcher par email 50 cliniques dans les provinces touchées.",
+   "Jour 10-12 : contacter 10 cabinets d'avocats et les associations pour des partenariats, et mettre en place Stripe pour les abonnements annuaire et le pack suivi.",
+   "Jour 12-14 : mettre en ligne, poster dans les groupes Facebook d'afectados, envoyer un communiqué aux médias locaux et lancer Google Ads sur « Vivanta cierre ».",
+   "Semaines 3-8 : produire des pages par ville, mettre à jour le guide selon l'évolution de la procédure collective, mesurer les conversions et ajuster les prix."
+  ],
+  "risques": [
+   "Exercice illégal du conseil juridique : présenter le contenu comme de l'information générale, faire valider les modèles par un avocat et renvoyer vers des professionnels pour les cas particuliers.",
+   "Usage de la marque Vivanta : ne pas l'utiliser dans le nom de domaine ni le logo, seulement de manière descriptive dans les contenus.",
+   "Image de profiteur de crise : garder gratuit tout l'essentiel, afficher clairement les sources de revenus et refuser toute commission au résultat.",
+   "Évolution rapide de la procédure (administrateur judiciaire, accords avec les financieras) : prévoir une mise à jour hebdomadaire du guide et une date de mise à jour visible.",
+   "Données de santé et données personnelles : ne stocker aucune donnée médicale, générer les PDF côté navigateur si possible et respecter le RGPD."
+  ],
+  "mots_cles": [
+   "Vivanta cierre",
+   "reclamar financiera clínica dental",
+   "afectados Vivanta",
+   "crédito vinculado tratamiento dental",
+   "clínica dental cerrada qué hacer",
+   "continuar tratamiento dental"
+  ],
+  "sources": [
+   {
+    "titre": "El cierre de las clínicas Vivanta también afecta a pacientes de Móstoles con tratamientos dentales pendientes - mostoleshoy.com",
+    "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOV2Q5V1JtOG56OTJOak16NHB4TWJ1dEVhUEtNVm1md094RWNIZmpLVWNha2hWSjZyb1M3aUl6dlotbVUtSUdLQ2l0bUdsWFE5bTlzWHU3bEN4b1YyYWZRZzFnMHpoZFE0Z3pHcnJ2N3VJZWtlNXI2Q21aOXNuQ2lxdVpSNTRKaEZrb3NJTW5HdGFhNVBvRjg1dWRxQ0xWZlFSNHdkR1pkTFVyWnViaE8tTmc1cGxabUtOX2JUenFfNVdNbTBqYlFSanF1M2dadw?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-10-31T12:31:43+00:00"
+   },
+   {
+    "titre": "Clemente Cerdeira Abogados explica cómo reclamar a las entidades financieras tras el cierre de Vivanta en Ceuta - Ceuta Ahora",
+    "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNdFdlQXJLRDlTbGVHTlo0cGhCaGlKb29acnpUMDJZbFA4akYzTTJscExON2RpclRGcF8yNzN2RWpaX19DQk1PUmNqYTlqcXpUajFFbzItamM5cXY0S19pXzhKb3RDU09mbktVUTRJZlJyQXhrMUVwOWFWR3N4V1V3bnh4cl9pc19nTU1aQzN3NjBpWEEzOU5LSWlvZURFckpWT3UwanpRM09fb0FWb0V6czdJU3c0cEV3aEk1UHVzUnF2anpIS29MYVV1ejVBdnp3Z1hYWDNBNTVIbVlk?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-10-31T08:34:06+00:00"
+   },
+   {
+    "titre": "Kontsumobide insta a afectados por el cierre de clínicas a exigir lo abonado - El Diario Vasco",
+    "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQWGQ4SHYtQTZJYm0taTAwNVJIR3JFWGN0bThsOVNfeXJvaW1PUmFnYnFQN2I5ZFFnanp4Rzl6LUxPQWZaVFdnRjI3S00zTG5mNUFYQzJzSTRKUHJGSGFGU1RiTkQ4OFVQdnhDMjJqempUNEhHUzhEUWdtNmlWQnYzdFl4UlpRWmtUNmxKaDlmMzktRVpmbW5ucV9yQnJ5eElTY3NxQ2VqZ2dUR252djQzUlFFb2d4akVRb0UxbllwZ3XSAcABQVVfeXFMUFhkOEh2LUE2SWJtLWkwMDVSSEdyRVhjdG04bDlTX3lyb2ltT1JhZ2JxUDdiOWRRZ2p6eEc5ei1MT0FmWlRXZ0YyN0tNM0xuZjVBWEMyc0k0SlByRkhhRlNUYk5EODhVUHZ4QzIyanpqVDRIR1M4RFFnbTZpVkJ2M3RZeFJaUVprVDZsSmg5ZjM5LUVaZm1ubnFfckJyeXhJU2NzcUNlamdnVEdudnY0M1JRRW9neGpFUW9FMW5ZcGd1?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-10-31T06:52:51+00:00"
+   },
+   {
+    "titre": "El cierre definitivo de Vivanta Dental deja a medio centenar de pacientes murcianos con tratamientos sin acabar - La Opinión de Murcia",
+    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPUllTcEN6UEoyeDUyNHl3NHp4N3hRSnU3NE9NVmpIRVo3WXdhX05OeTZiQnBxSU84TGFNZlVUdUtKVEUzZzZDcjRlSEZhVi1qS1hJRDc5eVJvS2tOTzE3VXA4SWRqYTVNa0M0WjJfZ19OeW93VEtvTlNDMURKZ1RZcEhIS2xkLVRpWmptNVZyX1M0TjRSQlAtd0JwS1ZQeFloTVdZX19xNGRwZ9IBrwFBVV95cUxPS0lTZlRJZ0N4MTNkNzZEc3VIRFdkVXlMTlFmYWM0MWYyQm11V2hnUW5yV0VEaW1GZUJwWEZpUG5aLUYyU1dQZkpTSF9wenRfbVNEMW9rYlI2c1hmWGwxTmhhaFNnSHZaU1d6NV9aZld2clZ5S3R2QS1aRzhQUzY3OFVJWDJ5bmZiOGM5dGZCa1NKSmZQNV9hZHJyMmNST1ZwZWVZa0UtM0k2QjQ2ZTRV?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-10-31T05:01:09+00:00"
+   },
+   {
+    "titre": "Irache organiza una charla en Pamplona para los afectados por el cierre de la clínica dental Los Arcos & Deprit - Pamplona Actual",
+    "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPbUowUFZyd1M0VWJjcVhmbEtwSlI2Y1BLWi1jZEFmMmFRczlySDAzYWhsUUdzZ2p3UkRvYkc1ZDNZdTJRb0JUNkR2bWI0aTY0WmtWRDFjSEFucjRxZ0dSYXE0bGx5REltazF5Y291elRSTzZPU0xZbGtWNDB3NjJBYTRjRkJXaTRjbkdSSEFQaGxEY1lJbVJnczRudlRnT29IbF94OUdSV2JIVjhzeDhLZFFQaEdzYnVUTHFvSk54cV9uWEpkQnFFRlp2ZHF2QU11ZjQwY3R0c0dSRVFvbld6U3phcWVCd0N2?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-10-31T13:04:03+00:00"
+   }
+  ],
+  "ethique": {
+   "acceptable": true,
+   "raison": "L'outil aide concrètement les patients lésés à faire valoir leurs droits, avec un guide et des lettres gratuits. La monétisation repose sur les professionnels (dentistes, avocats) et une option modeste, sans prix abusif ni promesse trompeuse."
+  },
+  "id": "idee-a271c8a5",
+  "signaux": 1,
+  "cree_le": "2026-10-31T14:01:44+00:00",
+  "mis_a_jour_le": "2026-10-31T14:01:44+00:00",
+  "statut": "active",
+  "notifiee": false,
+  "note_globale": 6.1
+ },
+ {
+  "titre": "Observatoire français des prix de la mémoire (RAM, SSD) et des consoles : indice, alertes et guides « acheter ou attendre »",
+  "pitch": "La pénurie mondiale de DRAM et de NAND fait grimper les prix des barrettes, des SSD et des PC, et raréfie les Xbox Series. Un site français dédié publie un indice de prix quotidien, envoie des alertes de baisse et dit clairement quand acheter, monétisé par l'affiliation.",
+  "evenement_declencheur": "Pénurie mondiale de mémoire (DRAM, NAND) tirée par l'IA : les prix flambent, les puces PC d'entrée de gamme sont en rupture et les Xbox Series X/S manquent.",
+  "contexte_declencheur": "Fin octobre 2026, plusieurs signaux confirment une pénurie historique de mémoire. SanDisk publie des résultats records qui révèlent l'ampleur de la pénurie, et Kioxia alerte sur la flambée du prix de la NAND. Le boom des data centers IA provoque aussi une pénurie de circuits imprimés qui inquiète les fabricants de PC. Les puces d'ordinateurs portables d'entrée de gamme d'Intel sont en rupture, et Intel réoriente ses capacités vers les serveurs. Sam Altman (OpenAI) rencontre Samsung au sujet de la DRAM. Microsoft attribue une baisse de 14 % des ventes Xbox à la « pénurie de composants » et entre en 2026 avec des Series X/S rares et davantage de reconditionnées. Résultat pour les particuliers français : barrettes DDR4/DDR5, SSD, PC et consoles plus chers et des prix très volatils. La question « dois-je acheter maintenant ou attendre ? » devient centrale pour les gamers, les étudiants et les petites entreprises qui renouvellent leur parc. Kioxia évoquant un refroidissement de la hausse, les prix pourraient redescendre par à-coups, ce qui rend utiles les alertes.",
+  "pourquoi_maintenant": "La pénurie est au cœur de l'actualité tech et les fêtes de fin d'année, période de pic d'achat de PC, consoles et composants, approchent. Un site lancé en novembre peut capter les recherches et les ventes affiliées du Black Friday et de Noël. Lancé en février, il raterait la saison et ne garderait que la phase de retour à la normale.",
+  "description_detaillee": "Le site est en français, sous un nom du type prixram.fr ou indice-memoire.fr. La page d'accueil affiche un « indice des prix mémoire France », calculé chaque jour sur un panier de références. On y trouve par exemple des kits DDR5 2x16 Go, des DDR4 2x8 Go, des SSD NVMe 1 To et 2 To, des cartes microSD 256 Go, la Xbox Series X neuve et reconditionnée, ainsi que des PC portables d'entrée de gamme. Les prix sont relevés chez les principaux marchands français (Amazon.fr, LDLC, Materiel.net, Cdiscount, Fnac, Back Market pour le reconditionné). Chaque produit dispose d'un historique en graphique, du meilleur prix du jour en lien affilié et d'un bouton « m'alerter sous X € » (email ou Telegram). S'y ajoutent des guides mis à jour chaque mois : « Faut-il acheter de la RAM maintenant ? », « Les configs PC qui restent abordables malgré la pénurie », « Xbox neuve ou reconditionnée : le vrai calcul », « Upgrader son PC plutôt que le remplacer ». Une newsletter hebdomadaire, « La météo des prix mémoire », complète l'offre. Parcours type : un étudiant qui monte un PC voit que la DDR5 a pris 40 %. Il s'inscrit à une alerte, reçoit un email trois semaines plus tard lors d'une baisse chez LDLC et achète via le lien affilié. Positionnement : spécialisé, pédagogique et neutre, là où les comparateurs généralistes sont exhaustifs mais muets sur le contexte. Premiers visiteurs : posts sur Reddit (r/pcmasterrace_FR, r/france), Dealabs, forums Hardware.fr, et réponse aux articles des sites tech qui citent la pénurie. L'indice est aussi proposé aux journalistes comme donnée citable, ce qui apporte des backlinks. Revenus : commissions d'affiliation (Amazon environ 3 % sur l'informatique, programmes LDLC et Fnac via les plateformes d'affiliation), sponsoring de la newsletter et publicité. Ordre de grandeur réaliste : 300 à 2 000 € par mois après 3 à 6 mois si le trafic atteint 30 000 à 100 000 visites mensuelles.",
+  "categorie": "annuaire-comparateur",
+  "cible": "Gamers, monteurs de PC, étudiants, télétravailleurs et TPE françaises qui achètent composants, PC ou consoles pendant la pénurie.",
+  "pays_cibles": [
+   "FR",
+   "BE",
+   "CH"
+  ],
+  "langues": [
+   "fr"
+  ],
+  "modele_revenus": "Affiliation (Amazon Partenaires, programmes LDLC, Fnac et Back Market via les plateformes d'affiliation), sponsoring de newsletter, publicité display.",
+  "budget_estime_eur": 800,
+  "delai_lancement_jours": 21,
+  "duree_opportunite": "6 à 18 mois de pénurie et de volatilité marquées, puis outil de suivi des prix réutilisable à chaque cycle de la mémoire, qui est historiquement cyclique.",
+  "notes": {
+   "potentiel": 5,
+   "cout": 8,
+   "travail": 6,
+   "risque": 7,
+   "urgence": 7,
+   "durabilite": 5,
+   "fiabilite": 8,
+   "concurrence": 4
+  },
+  "notes_explications": {
+   "potentiel": "L'audience est large (gamers, étudiants, PME), mais les commissions d'affiliation sur l'informatique sont faibles (2 à 4 %). Le revenu dépend d'un trafic important. Il pourrait monter si l'indice devenait une référence citée par les médias.",
+   "cout": "Le scraping ou les API d'affiliation, un petit serveur et un développeur freelance pour les graphiques et alertes suffisent, pour environ 800 €. Il est possible de démarrer avec un tableur et des mises à jour manuelles.",
+   "travail": "Le relevé automatique des prix, les historiques et les alertes demandent 2 à 3 semaines, avec un freelance ou des outils no-code (Browse AI + Airtable + Softr). La maintenance des collecteurs est récurrente.",
+   "risque": "Le scraping peut enfreindre les conditions de certains marchands : privilégier les flux d'affiliation et API officiels. Le risque financier est faible et il n'y a pas d'enjeu éthique.",
+   "urgence": "La saison Black Friday et Noël est la meilleure fenêtre de monétisation et elle commence dans trois semaines. Après les fêtes, l'intérêt persiste mais les volumes d'achat baissent.",
+   "durabilite": "La pénurie finira par se résorber, mais le marché de la mémoire est cyclique et le suivi des prix reste utile. Le site peut s'élargir aux cartes graphiques et aux PC complets.",
+   "fiabilite": "Une dizaine d'articles de sources variées (SanDisk, Kioxia, Intel, OpenAI/Samsung, Microsoft Xbox) confirment une pénurie mondiale et la hausse des prix. La demande d'information sur « quand acheter » est évidente.",
+   "concurrence": "Le terrain est occupé par des acteurs solides : ledenicheur.fr et Idealo (historiques de prix), fr.pcpartpicker.com, Keepa pour Amazon, Dealabs pour les bons plans, et les sites tech qui commentent la pénurie. La niche « indice mémoire + pédagogie » est étroite et doit être défendue par la qualité éditoriale."
+  },
+  "budget_detail": [
+   "Nom de domaine + VPS ou hébergement 1 an : 120 €",
+   "Développeur freelance (collecte des prix, graphiques, alertes) ou outils no-code équivalents : 500 €",
+   "Outil d'emailing (MailerLite/Brevo, palier gratuit puis payant) : 50 €",
+   "Design/logo et thème : 80 €",
+   "Promotion ponctuelle (Reddit/Dealabs sponsorisés, visuels) : 50 €"
+  ],
+  "concurrents": [
+   "ledenicheur.fr, Idealo : comparateurs généralistes avec historique de prix, mais sans indice ni conseil d'achat contextualisé sur la pénurie.",
+   "fr.pcpartpicker.com : historique des prix des composants, interface en anglais et orientée configurateur.",
+   "Keepa / CamelCamelCamel : suivi Amazon uniquement.",
+   "Dealabs : bons plans communautaires ponctuels, sans vision de tendance.",
+   "Hardware & Co, Cowcotland, Les Numériques : articles d'actualité, pas d'outil d'alerte dédié."
+  ],
+  "analyse": "C'est une idée correcte mais concurrentielle. Elle n'a de sens que si vous êtes vous-même passionné de hardware et capable de produire chaque semaine un contenu d'analyse crédible : c'est ce qui fera la différence face à ledenicheur ou PCPartPicker. Lancez une version légère avant le Black Friday (indice sur 20 produits + alertes + 3 guides) et ne développez davantage que si le trafic décolle. Le point de vigilance est la méthode de collecte des prix : passez par les flux d'affiliation officiels plutôt que par un scraping fragile et risqué.",
+  "etapes": [
+   "Jours 1-2 : définir le panier de 20 à 30 références (DDR4, DDR5, SSD NVMe, microSD, Xbox Series neuves et reconditionnées, PC portables d'entrée de gamme).",
+   "Jours 2-4 : s'inscrire aux programmes Amazon Partenaires et aux programmes marchands (LDLC, Fnac, Back Market, Cdiscount via les plateformes d'affiliation) pour accéder aux flux produits.",
+   "Jours 4-12 : faire construire la collecte quotidienne des prix et la base historique, par un freelance Malt (Python + PostgreSQL) ou en no-code (Browse AI + Airtable).",
+   "Jours 10-15 : créer le site (WordPress ou Softr) avec page indice, fiches produits et graphiques (Chart.js), plus le système d'alertes (Brevo ou bot Telegram).",
+   "Jours 12-18 : rédiger 3 guides de fond et la première édition de la newsletter « Météo des prix mémoire ».",
+   "Jours 18-21 : lancer avant le Black Friday, publier sur Reddit, Dealabs et les forums hardware, et proposer l'indice aux journalistes tech.",
+   "Semaines 4-8 : publier un contenu par semaine, élargir aux cartes graphiques si la demande le justifie, et optimiser les pages qui convertissent le mieux."
+  ],
+  "risques": [
+   "Blocage ou violation des conditions des marchands par le scraping : utiliser en priorité les flux d'affiliation et API officiels, avec une fréquence de collecte raisonnable.",
+   "Commissions faibles et trafic insuffisant : capitaliser sur la newsletter et le sponsoring, et viser les produits à plus forte valeur (PC complets).",
+   "Fin rapide de la pénurie : positionner le site sur le suivi des prix en général (cycles mémoire, GPU) pour qu'il reste utile.",
+   "Concurrence des grands comparateurs : se différencier par l'analyse éditoriale, l'indice citable et la réactivité sur l'actualité."
+  ],
+  "mots_cles": [
+   "pénurie RAM",
+   "prix DDR5",
+   "prix SSD hausse",
+   "pénurie DRAM 2026",
+   "Xbox Series X rupture",
+   "acheter RAM maintenant ou attendre",
+   "alerte prix SSD"
+  ],
+  "sources": [
+   {
+    "titre": "SanDisk’s Record Earnings Reveal How Deep the Global Memory Shortage Has Become - Investing.com UK",
+    "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNcU1yZHBxSmlxbUlhUEpaeDVhYUNGOThKVXU5NVl2OHdDb3NvM1RWY2M5ckNBQmUzcEF1MEZpNEJFXzMtaHRDMmxGcG1CeFpsRWhVUW1JbHpFRFZTWmd4bk9ZcVZMU0FRNFNpRlFONzVrR2dOdEVobTBnejl1Q1hDanhFRW1sRVJBVGFVNmpmMjEtU2RJSnFhWTJJX3p2Y25zY0dpYUlXMERQdU92LXRWUWttZVZsQ1ZOQXotazJycw?oc=5",
+    "source": "Google News recherche US",
+    "langue": "en-US",
+    "date": "2026-10-30T17:05:00+00:00"
+   },
+   {
+    "titre": "SanDisk stock tumbles as Kioxia warns on NAND price surge - Yahoo Finance",
+    "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxONzdCLXQtTVJ4N3lDWVNlRGhreERSaTFsbzJPQTdWZENQelJqV1VJRG5BU0c2V2Z1YXpjZXRKLS11MlNnVl9DQkxsY3E0ZmZCUzJtNHRydXoxZVVLUkgzQjl2QVQwTjJnamVmbVhRay02N0NWYldZdUZtMmZVTVZOdDJSakgwZU9SS2JlcmNDTFRqVkJtWkNxdGptRlBRLTlY?oc=5",
+    "source": "Google News recherche US",
+    "langue": "en-US",
+    "date": "2026-10-30T16:18:34+00:00"
+   },
+   {
+    "titre": "Kioxia Outlook Misses Estimates as Memory Price Surge Cools - Seoul Economic Daily",
+    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQd0hmZEFYTzJyYzZWYl84QTdBQnNBZ2hqTHE2MVBxc0xaQ216aGZWTTBoc2pKNXVmV0dFTjVyNkdNVkI2NnRXdTNIOTNoTzNJRjJlZkJ2NWpMX2lrWm5SNGdXMTJ6YWVTVG1qbk9ucnBaOU5RZ3d1NHpjUGJQZXVqNmlSLVZ0TnNTUnZ1ZkR3TnBqbktYUkdUZFF2WU53REhPOG9Od0NfNS1IQVk?oc=5",
+    "source": "Google News recherche US",
+    "langue": "en-US",
+    "date": "2026-10-30T14:07:48+00:00"
+   },
+   {
+    "titre": "AI Data Centre Boom Triggers PCB Shortage, Raising Fresh Supply Concerns For PC Makers - News18",
+    "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPS19SQ0puNVR1M0IwZFp6VGNjemxjZVk2T1FlcFhlZG5rMGNmR0h3cDE4V3RLN0k1R2lyeC1ydXMySFlVM01CRVRYQ3RyNHowMFJZRllaU01FV1BaSGJTNFpxM05CQ21uQ1ktczdESlk2TTVsSWFJV1lUOXEyX3Z5cHV5T0RKY2hueEcxN0U0SVlXNldMTkVLcFgxbUlQUE9mV3gwamgySVFYQWROWEhPbm1tR1dsVzV2WVItMVF3bzgwVlRqVGVEekhFQjZXb3J4VkHSAdIBQVVfeXFMT0tfUkNKbjVUdTNCMGRaelRjY3psY2VZNk9RZXBYZWRuazBjZkdId3AxOFd0SzdJNUdpcngtcnVzMkhZVTNNQkVUWEN0cjR6MDBSWUZZWlNNRVdQWkhiUzRacTNOQkNtbkNZLXM3REpZNk01bElhSVdZVDlxMl92eXB1eU9ESmNobnhHMTdFNElZVzZXTE5FS3BYMW1JUFBPZld4MGpoMklRWEFkTlhIT25tbUdXbFc1dllSLTFRd284MFZUalRlRHpIRUI2V29yeFZB?oc=5",
+    "source": "Google News recherche US",
+    "langue": "en-US",
+    "date": "2026-10-31T13:34:33+00:00"
+   },
+   {
+    "titre": "Sam Altman y ejecutivos de Samsung conversan sobre IA en medio de la escasez de DRAM - DiarioBitcoin",
+    "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPZHlGS3ZobzBkRWg0ZFdwN2x3eHZtd1hrZ1M5b0FpOHJDeGQxZWZ2YkM2azJCOFQxMUI3ck5uYUhacVU5LWtvUTloaFE2cEhRdVhVNk9aZFZRb0p3SVdlOXJMSS1LcXV4cTFsVUUzeDBSd0xuaG1oZGFNb2E3NDY2OUg2Uk43MFRJaV8tWmZmQVF3WWMxYzVnWF9nNHZyNDRmaExGT2hyREVheTZ1U0lKX25Cc1RDUEVyWFZUNkV3UzJ4bmt1ZWRUTg?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-10-31T13:17:13+00:00"
+   },
+   {
+    "titre": "Pour le PDG d'OpenAI, le souci dans la pénurie de la DRAM, c'est vous ! - Hardware & Co",
+    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPU2x5cERVUXZSWXktbzJIVWtnWm1VWkVXNGQ4MHRSX1c4WWx5Mkh6TEhzSnF6U0lyeUhadlIzY3ExVV81QndxM1dvTlEtdFV4aE9TaUR2cGJQbmt2S3lEbU54NkczVlhxOTVVc2o1OV9jQXhCTGhWU01FTnlGTy1rNWNKSHhTaHBxaklVaExHNGNhazR2THBaLUZtQ0ZlekxYbnZaOVZnR19Vdw?oc=5",
+    "source": "Google News recherche FR",
+    "langue": "fr",
+    "date": "2026-10-31T12:23:37+00:00"
+   },
+   {
+    "titre": "Intel's budget laptop chips sell out amid global RAM shortage | Tap to know more | Inshorts - Inshorts",
+    "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOaVlrMGxWd1F1dFVGMURGTE90VFFqWXd2WjNhSHdjb0pvcXF3dS1rLW5tUi1TaFM3aGs4QVVINUhzOEtpLWFpak1vQThUYWdzbTlSSm00MGoyVUF3MXhQREJBQldlc04tQU80cVVPR1FoR2QtaWxuNjRPV3oteU5hcFlGZlZYaTFNZHk3SnRxU3llSUNFWTNtaThyMkJpRjdRbmZvci1Lc9IBrAFBVV95cUxNTmNHV0pkRGlpOXhLTFJsMC1DZFYwTk5HbEotTVFmRXc3c0FJQTlGcXMtT3dNVVdDSWpKOGZqZXp1TGpDS0gxM3FJWnJEMkhwSnc1WncxcGhLMVk0TEU1S1RTT3VkYl9FSm1nX3E5NGdYbmZsU3EtRG1jRmtocUZuelV3ZmlBTkM2ZjJzTng3MXREOHZqWTRSME4xTGtGOVFwUGswSWxuZTBjQXMy?oc=5",
+    "source": "Google News recherche US",
+    "langue": "en-US",
+    "date": "2026-10-31T05:59:12+00:00"
+   },
+   {
+    "titre": "Xbox aborde 2026 avec une pénurie de Series X/S et plus de reconditionnés - Foro3D",
+    "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPZ1MxS290dzRkVzlEeWxZdGRNU2p5SG10ekptd2E1M19IRkYySlN1di1NY2lvajNMXzV4SXJ0cXB4dV90bDNMaHF3U0hzLVY4SWE2ZjFJcllwdE9MY1NpU1RKSlhTaDZ5OURkbGt5M01Eci1BNjZCUXktbmtlWXljZVg5ZDAyNGF1Qkt5YTFpbDctWXBfRjhaRF9sVFFwdm5YTEdodFJWbnA?oc=5",
+    "source": "Google News recherche FR",
+    "langue": "fr",
+    "date": "2026-10-31T11:26:57+00:00"
+   },
+   {
+    "titre": "Las ventas de Xbox caen un 14% y Microsoft dice que es por culpa de la \"escasez de componentes\" - El Chapuzas Informático",
+    "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE12aUNjSVAxMFhLdmRaaTZKNkJQVHdqTHh3dmp3dW5XczBPb0tld3NCUGgxbE4wT1pxMzV3ZTRJSV9Wb2w4YnFGa3Q0Wkp6OTlxOE5WLVhmaHBvZHNidFdyUzYtd19UVEpKUkJ0cFFxbHpJS0pjYy16SFg3eU0?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-10-31T10:04:57+00:00"
+   },
+   {
+    "titre": "Xbox afronta 2026 con escasez de Series X/S y más reacondicionados - Foro3D",
+    "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOMXVVWnkyYjlsTnZ1bERIbERsUmx6T3BHVlNjU2dNNnVObEtDZ0s0UWZINDIyeVFNUTdzRk1OZ18wTmstaFVBNUNrSHlXRi1IbUEzbE5LZE53U0trWGRTX2dsQVdHdkg5cHZMYTFXUzlrQmptdlJOdHZIOGVvek11akxzMDdBcldQc3pPcWMxM3VxUEppc2ltaUd6MWctWi04c21mVw?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-10-31T10:00:00+00:00"
+   }
+  ],
+  "ethique": {
+   "acceptable": true,
+   "raison": "Le site aide les consommateurs à acheter au meilleur prix pendant une pénurie, sans spéculation ni revente : uniquement de l'information et de l'affiliation au prix du marché."
+  },
+  "id": "idee-70f114e3",
+  "signaux": 1,
+  "cree_le": "2026-10-31T14:01:44+00:00",
+  "mis_a_jour_le": "2026-10-31T14:01:44+00:00",
+  "statut": "active",
+  "notifiee": false,
+  "note_globale": 6.1
+ },
+ {
+  "titre": "Kit EUDR « clé en main » pour TPE/PME françaises : diagnostic gratuit, modèles et questionnaires fournisseurs",
+  "pitch": "Le règlement européen contre la déforestation (EUDR) va s'appliquer aux importateurs et vendeurs de café, cacao, bois, cuir, caoutchouc, soja, huile de palme et bovins. Les petites entreprises françaises n'ont ni le budget pour les SaaS spécialisés ni les ressources en français pour s'y préparer. Un kit pratique à prix TPE comble ce vide.",
+  "evenement_declencheur": "Les guides de mise en conformité au règlement européen sur la déforestation (EUDR) se multiplient avant son entrée en application, après les reports successifs.",
+  "contexte_declencheur": "DHL vient de publier un guide destiné aux entreprises sur l'EU Deforestation Regulation (EUDR). C'est le signe que l'échéance approche et que les chaînes logistiques s'y préparent. Le règlement impose de prouver que certaines matières premières et leurs dérivés ne proviennent pas de terres déboisées après 2020. Sont concernés : bovins, cacao, café, palmier à huile, caoutchouc, soja et bois, ainsi que le chocolat, le cuir, les meubles, le papier et même les livres imprimés. Les entreprises doivent collecter la géolocalisation des parcelles et déposer des déclarations de diligence raisonnée dans le système européen TRACES. Après deux reports, le calendrier en vigueur prévoit une application fin 2026 pour les grandes et moyennes entreprises et mi-2027 pour les micro et petites entreprises (dates à revérifier sur EUR-Lex avant lancement). Des milliers de TPE françaises sont concernées comme opérateurs ou fournisseurs de grands comptes, qui leur réclameront des preuves : torréfacteurs, chocolatiers, négociants bois, fabricants de meubles, maroquiniers, importateurs alimentaires. Or l'offre actuelle vise surtout les grands groupes, avec des SaaS à plusieurs milliers d'euros par an et des cabinets de conseil.",
+  "pourquoi_maintenant": "Les grandes entreprises doivent être prêtes dans environ deux mois et répercutent déjà leurs exigences sur leurs fournisseurs PME. Les petites entreprises ont jusqu'à mi-2027, ce qui ouvre une fenêtre de 8 mois de recherche active d'information. Arriver après l'échéance, c'est affronter des guides gratuits institutionnels déjà installés et des clients qui ont déjà choisi leur solution.",
+  "description_detaillee": "Le site est en français, sous un nom du type conformite-eudr.fr. Page 1 : un diagnostic gratuit en 10 questions (produits, codes douaniers, origine, rôle d'opérateur ou de commerçant, taille de l'entreprise). Il indique si l'entreprise est concernée, à quelle date et avec quelles obligations, et sert à capter l'email. Page 2 : le « Kit EUDR TPE » à 190 € HT. Il contient un guide PDF pas à pas de 40 pages, un tutoriel vidéo d'inscription et de dépôt dans TRACES, et des questionnaires fournisseurs prêts à envoyer en français, anglais, espagnol et portugais (langues des pays producteurs de café, cacao et bois). S'y ajoutent un modèle de procédure interne de diligence raisonnée, un tableur d'évaluation des risques par pays et un guide pour obtenir et vérifier les coordonnées GPS des parcelles (format GeoJSON, outils gratuits). Page 3 : une offre « Kit + 2 h d'accompagnement visio » à 590 € HT, assurée par vous ou par un consultant freelance partenaire. Page 4 : une version sectorielle du kit (café/cacao, bois/meuble, cuir) pour mieux coller aux recherches. Parcours type : un torréfacteur lyonnais reçoit un email de son distributeur exigeant ses preuves EUDR. Il cherche « EUDR petite entreprise », fait le diagnostic, achète le kit et envoie les questionnaires à ses importateurs de café vert dans la semaine. Positionnement : simple, en français, au prix d'une TPE, à côté des SaaS à 5 000 € par an. Premiers clients : SEO, LinkedIn (posts et un peu de publicité ciblée par secteur), partenariats avec fédérations et syndicats professionnels (torréfacteurs, chocolatiers, négoce bois, ameublement), webinaires gratuits avec les CCI. Ordre de grandeur : 100 à 300 kits vendus et une trentaine d'accompagnements sur 12 mois, soit 25 000 à 75 000 € de CA.",
+  "categorie": "saas",
+  "cible": "TPE et PME françaises, belges et suisses romandes qui importent, transforment ou revendent des produits soumis à l'EUDR : torréfacteurs, chocolatiers, négociants et transformateurs de bois, fabricants de meubles, maroquiniers, importateurs alimentaires.",
+  "pays_cibles": [
+   "FR",
+   "BE",
+   "CH",
+   "LU"
+  ],
+  "langues": [
+   "fr"
+  ],
+  "modele_revenus": "Diagnostic gratuit ; kit numérique à 190 € HT ; kit + accompagnement à 590 € HT ; à terme, abonnement à 19 €/mois pour un suivi des fournisseurs et des mises à jour réglementaires.",
+  "budget_estime_eur": 2500,
+  "delai_lancement_jours": 45,
+  "duree_opportunite": "Forte demande jusqu'à mi-2027 (échéance des petites entreprises), puis besoin durable de mise à jour et de nouveaux entrants.",
+  "notes": {
+   "potentiel": 7,
+   "cout": 5,
+   "travail": 4,
+   "risque": 6,
+   "urgence": 7,
+   "durabilite": 7,
+   "fiabilite": 6,
+   "concurrence": 5
+  },
+  "notes_explications": {
+   "potentiel": "Des milliers de PME francophones sont concernées directement ou via leurs clients, et l'obligation légale rend l'achat nécessaire. Le panier moyen de 190 à 590 € permet d'atteindre plusieurs dizaines de milliers d'euros de CA. Le potentiel serait plus élevé avec un vrai SaaS d'abonnement.",
+   "cout": "Le principal poste est la validation du contenu par un juriste ou consultant en conformité, auquel s'ajoutent un peu de publicité LinkedIn. Le budget atteint environ 2 500 €, ce qui donne une note moyenne.",
+   "travail": "Produire un guide fiable, des modèles multilingues et un tutoriel TRACES demande une vraie expertise et 4 à 6 semaines de travail sérieux. C'est faisable en moins de 60 jours, mais exigeant.",
+   "risque": "Une erreur dans le guide pourrait exposer des clients à des sanctions : il faut une relecture professionnelle et des mentions claires (outil d'aide, pas avis juridique). Le règlement a déjà été modifié deux fois et pourrait l'être encore, d'où un risque de contenu obsolète.",
+   "urgence": "L'échéance des grandes entreprises est imminente et la cascade d'exigences vers les fournisseurs commence maintenant. Pour les petites entreprises, la fenêtre court jusqu'à mi-2027 : il faut lancer vite, mais il n'y a pas de couperet à quelques jours.",
+   "durabilite": "Le règlement est permanent : de nouvelles entreprises entrent dans son champ, les fournisseurs changent et les obligations seront révisées. Le kit peut évoluer vers un abonnement de veille et de suivi.",
+   "fiabilite": "Le règlement est réel et bien connu, mais le lot ne contient qu'une source (le guide DHL). Le calendrier a déjà été reporté deux fois et un nouveau report ou une simplification réduirait l'urgence.",
+   "concurrence": "Il existe de nombreux SaaS EUDR (Osapiens, Sourcemap, Coolset, Satelligence), des cabinets de conseil et des ressources gratuites (Commission européenne, ministère, CCI). Le créneau du « kit pratique en français à prix TPE » reste peu occupé."
+  },
+  "budget_detail": [
+   "Relecture/co-écriture par un consultant ou juriste conformité freelance : 1 200 €",
+   "Site (WordPress + WooCommerce ou Podia) + domaine + Stripe : 300 €",
+   "Mise en page des modèles, guide PDF et tableurs : 300 €",
+   "Traduction des questionnaires fournisseurs (EN, ES, PT) : 200 €",
+   "Publicité LinkedIn ciblée par secteur : 400 €",
+   "Outils (enregistrement vidéo, emailing) : 100 €"
+  ],
+  "concurrents": [
+   "Osapiens, Sourcemap, Coolset, Satelligence : SaaS complets de traçabilité, chers et pensés pour les grands groupes ; le kit vise ceux qui ne peuvent pas se les offrir.",
+   "Cabinets de conseil RSE et conformité : accompagnement sur mesure à plusieurs milliers d'euros.",
+   "Ressources publiques gratuites (FAQ de la Commission européenne, ministère de l'Agriculture, webinaires CCI) : fiables mais générales et sans modèles opérationnels ; ce sont des partenaires potentiels plutôt que des concurrents."
+  ],
+  "analyse": "C'est l'idée la plus durable du lot. Elle est portée par une obligation légale qui ne disparaîtra pas, avec un panier moyen correct et une clientèle B2B solvable. Il faut y aller si vous avez, ou pouvez vous adjoindre, une compétence solide en conformité ou en commerce international. La qualité du contenu est l'actif principal et une erreur serait coûteuse en réputation. Point de vigilance : vérifier sur EUR-Lex le calendrier exact et les dernières simplifications avant de produire quoi que ce soit, puis prévoir des mises à jour. Commencez par le diagnostic gratuit et un segment (café/cacao ou bois/meuble) avant d'élargir.",
+  "etapes": [
+   "Semaine 1 : étudier le règlement consolidé (EUR-Lex), la FAQ de la Commission et la documentation TRACES, en vérifiant le calendrier et les simplifications en vigueur.",
+   "Semaine 1 : recruter un consultant ou juriste conformité freelance sur Malt pour co-écrire et valider le contenu.",
+   "Semaine 2 : mettre en ligne le diagnostic gratuit (Tally ou Typeform + MailerLite) pour commencer à capter des emails et valider la demande.",
+   "Semaines 2-4 : rédiger le guide, la procédure type, le tableur de risques et les questionnaires fournisseurs, puis lancer les traductions EN, ES et PT.",
+   "Semaine 4 : enregistrer le tutoriel vidéo TRACES (Loom ou OBS) et monter la boutique (WooCommerce ou Podia + Stripe, facturation HT/TVA).",
+   "Semaine 5 : publier 5 articles SEO (« EUDR petite entreprise », « EUDR café torréfacteur », « EUDR bois meuble », « déclaration de diligence raisonnée TRACES », « géolocalisation parcelles EUDR »).",
+   "Semaine 6 : lancer et contacter les fédérations professionnelles (torréfacteurs, chocolatiers, Le Commerce du Bois, ameublement) pour proposer un webinaire gratuit à leurs adhérents.",
+   "Semaines 6-8 : campagne LinkedIn ciblée, premiers accompagnements visio, recueil de témoignages et ajustement du prix."
+  ],
+  "risques": [
+   "Contenu erroné ou obsolète : relecture professionnelle, date de mise à jour visible, mises à jour gratuites pendant 12 mois et veille réglementaire mensuelle.",
+   "Nouveau report ou allègement du règlement : intégrer la flexibilité dans le discours (« se préparer sans surinvestir ») et adapter le kit, la demande de clarté augmentant aussi en cas de changement.",
+   "Responsabilité en cas de sanction d'un client : CGV limitant la responsabilité et mention « outil d'aide, ne remplace pas un conseil juridique personnalisé ».",
+   "Concurrence de ressources gratuites institutionnelles : se différencier par l'opérationnel (modèles prêts à envoyer, tutoriel vidéo, versions sectorielles)."
+  ],
+  "mots_cles": [
+   "EUDR",
+   "règlement déforestation importée",
+   "déclaration de diligence raisonnée",
+   "TRACES EUDR",
+   "EUDR PME",
+   "EUDR café cacao bois",
+   "conformité déforestation"
+  ],
+  "sources": [
+   {
+    "titre": "EU Deforestation Regulation (EUDR): A Guide for Businesses - DHL",
+    "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxORnB0MFdnbTNHTTcwa2pEdFlMeVJmZWZrcTVWZVA1LUZ3aDM0UDY2NFhvNTVzY0lQejg1SGpQNkE3LVpiV3o1SmNsRTdveGtRNEFRY3FaTTFiWll6ZGxJZWVBdzhoX3AyTWg1a3JEc01faFptRHFsaHQzZXdXNVhWV1ZqVUF1M2RFcTZCX2F0WW5WYUx5NjQ3VUtQVGRyZW1ROG5xbA?oc=5",
+    "source": "Google News recherche US",
+    "langue": "en-US",
+    "date": "2026-10-31T02:30:14+00:00"
+   }
+  ],
+  "ethique": {
+   "acceptable": true,
+   "raison": "Le kit aide les entreprises à respecter une loi environnementale, à un prix accessible et sur la base d'informations fiables et validées."
+  },
+  "id": "idee-eede4c76",
+  "signaux": 1,
+  "cree_le": "2026-10-31T14:01:44+00:00",
+  "mis_a_jour_le": "2026-10-31T14:01:44+00:00",
+  "statut": "active",
+  "notifiee": false,
+  "note_globale": 6.0
+ },
+ {
+  "titre": "« Madrid-Barcelona sin AVE » : statut en temps réel, comparateur d'alternatives et guide des remboursements",
+  "pitch": "Si la ligne à grande vitesse Madrid-Barcelone ferme pour travaux, des millions de voyageurs devront se réorganiser. Un site espagnol unique leur donne l'état de la ligne, les meilleures alternatives (avion, bus, covoiturage, itinéraires ferroviaires de substitution) et la marche à suivre pour se faire rembourser.",
+  "evenement_declencheur": "Après l'accident de l'Iryo à Urda, le gouvernement espagnol envisage la fermeture de la ligne AVE Madrid-Saragosse-Barcelone pour travaux.",
+  "contexte_declencheur": "Après le grave accident ferroviaire d'Urda impliquant un train Iryo, le ministre des Transports Óscar Puente évoque une possible fermeture de la ligne à grande vitesse Madrid-Barcelone. La ligne serait remise à niveau, Saragosse devant être la première section préparée pour 350 km/h. Le sujet est couvert par au moins huit articles espagnols (Europa Press, Cadena SER, Infobae, El Periódico de Aragón, Crónica Global…). Vox accuse le gouvernement, les voyageurs sont divisés et le collège des ingénieurs des ponts d'Aragon s'y oppose. Crónica Global juge « inassumable » l'alternative aérienne, qui supposerait un vol toutes les 15 minutes, 24 h/24. Le corridor dessert aussi Guadalajara, Saragosse, Lleida et Tarragone, et c'est l'un des axes ferroviaires les plus fréquentés d'Europe. Si la fermeture est décidée, totale ou partielle, des millions de déplacements devront être reportés. Il faudra comparer prix et durées, et se faire rembourser des billets déjà achetés auprès de Renfe, Iryo ou Ouigo.",
+  "pourquoi_maintenant": "Le débat est à son pic médiatique et les recherches « cierre AVE Madrid Barcelona » explosent dès maintenant. Un site en place avant la décision officielle sera indexé et cité au moment où elle tombera. Si vous attendez l'annonce du calendrier, les grands médias et les comparateurs auront déjà publié leurs guides. Le coût d'entrée étant quasi nul, le risque d'agir tôt est faible.",
+  "description_detaillee": "Le site est en espagnol, avec un nom de domaine du type madridbarcelonasinave.es ou alternativasave.es. Page d'accueil : un bandeau de statut (« ligne ouverte / perturbée / fermée sur tel tronçon ») mis à jour à la main d'après les communiqués d'Adif et du ministère, avec la chronologie des annonces. Page « Alternativas » : un tableau comparatif Madrid-Barcelone, et pour chaque ville intermédiaire, de l'avion (pont aérien Iberia, Vueling, Air Europa), du bus (Alsa), du covoiturage (BlaBlaCar), de la location de voiture et des éventuels trains de substitution. Chaque option indique durée porte à porte, prix moyen et empreinte CO2, avec des liens affiliés vers Omio, Trainline, Skyscanner et les loueurs. Page « Reembolsos » : un guide des droits du voyageur ferroviaire (règlement européen 2021/782) et des politiques de Renfe, Iryo et Ouigo, avec un modèle de demande de remboursement gratuit. Une alerte email ou Telegram gratuite prévient de chaque changement de statut, ce qui constitue une base de contacts monétisable. Parcours type : un consultant barcelonais qui va à Madrid deux fois par mois s'inscrit à l'alerte. Le jour de l'annonce, il compare et réserve un vol via le lien affilié. Positionnement : la source neutre et pratique, là où les médias couvrent surtout la polémique politique. Premiers visiteurs : SEO sur les requêtes d'actualité, partage sur X et Reddit (r/spain, r/Barcelona, r/Madrid), et contact des journalistes pour être cité comme ressource. Revenus : commissions d'affiliation (souvent 1 à 5 € par réservation de transport, davantage sur la location de voitures et l'hôtellerie), AdSense et sponsoring possible d'un loueur ou d'une compagnie de bus. Ordre de grandeur : quelques centaines d'euros si la ligne ne ferme pas, 3 000 à 15 000 € sur la période de travaux si la fermeture est confirmée et dure plusieurs mois.",
+  "categorie": "site-contenu",
+  "cible": "Voyageurs réguliers et occasionnels du corridor Madrid-Guadalajara-Saragosse-Lleida-Tarragone-Barcelone (professionnels, étudiants, touristes), entreprises qui gèrent des déplacements sur cet axe.",
+  "pays_cibles": [
+   "ES"
+  ],
+  "langues": [
+   "es",
+   "ca"
+  ],
+  "modele_revenus": "Affiliation (Omio, Trainline, Skyscanner, BlaBlaCar si disponible, loueurs de voiture, Booking), publicité display, sponsoring, newsletter d'alertes monétisée.",
+  "budget_estime_eur": 600,
+  "delai_lancement_jours": 7,
+  "duree_opportunite": "Dépend de la décision : quelques semaines si le projet est abandonné, 6 à 18 mois si des travaux avec fermeture sont lancés.",
+  "notes": {
+   "potentiel": 5,
+   "cout": 9,
+   "travail": 8,
+   "risque": 7,
+   "urgence": 7,
+   "durabilite": 3,
+   "fiabilite": 4,
+   "concurrence": 6
+  },
+  "notes_explications": {
+   "potentiel": "Le corridor est énorme, mais l'affiliation transport rapporte peu par réservation. Le potentiel dépend entièrement de la confirmation et de la durée de la fermeture. Il passerait à 7 si une fermeture de plusieurs mois était annoncée.",
+   "cout": "Un site de contenu WordPress ou Webflow, des programmes d'affiliation gratuits et un peu de rédaction : environ 600 €. Le projet est réalisable presque sans budget si vous rédigez vous-même en espagnol.",
+   "travail": "Le site de base se monte en une semaine. La vraie charge est la veille et la mise à jour régulière du statut et des alternatives.",
+   "risque": "Peu de risque juridique : information publique et affiliation. Le principal risque est financier et temporel, si le projet de fermeture est abandonné. Il faut aussi éviter toute confusion avec les sites officiels d'Adif ou Renfe.",
+   "urgence": "Le débat est en cours et l'indexation SEO prend du temps : il faut être en ligne avant la décision. Le risque n'est pas d'arriver trop tard dans les jours qui viennent, mais d'arriver après l'annonce officielle.",
+   "durabilite": "Le besoin disparaît à la réouverture de la ligne ou à l'abandon du projet. Il est possible de recycler le site en guide permanent des trajets Madrid-Barcelone, mais la concurrence y est forte.",
+   "fiabilite": "Huit articles traitent du sujet, mais il s'agit d'un « posible cierre » contesté politiquement, sans calendrier officiel. La demande n'existera vraiment que si la fermeture est décidée.",
+   "concurrence": "Les comparateurs (Omio, Trainline, Rome2Rio) et les médias couvriront le sujet, mais aucun site dédié et constamment à jour n'est identifié. Une niche hyper-ciblée peut bien se positionner en SEO d'actualité."
+  },
+  "budget_detail": [
+   "Nom de domaine + hébergement : 60 €",
+   "Thème WordPress premium + plugin tableau comparatif : 90 €",
+   "Rédacteur espagnol freelance (guides alternatives et remboursements) : 300 €",
+   "Outil d'alerte email (MailerLite gratuit puis payant) + bot Telegram : 50 €",
+   "Promotion sociale ponctuelle : 100 €"
+  ],
+  "concurrents": [
+   "Omio, Trainline, Rome2Rio : comparateurs généralistes, sans suivi du statut de la ligne ni contexte des travaux ; à utiliser comme partenaires d'affiliation.",
+   "Sites officiels Adif, Renfe, Iryo, Ouigo : informations fiables mais éclatées par opérateur, sans comparaison des alternatives.",
+   "Médias espagnols (El País, Cadena SER) : couverture politique, pas d'outil pratique ni d'alerte personnalisée."
+  ],
+  "analyse": "C'est un pari à faible coût sur une décision encore incertaine. Il est intéressant parce que l'on peut se lancer en une semaine pour moins de 600 €. Construisez le site minimal et la liste d'alertes dès maintenant, mais n'investissez davantage (publicité, développement) qu'une fois la fermeture et son calendrier confirmés officiellement. Le point de vigilance est la fiabilité de l'information : chaque mise à jour doit citer la source officielle. Si le projet est abandonné, la perte reste minime.",
+  "etapes": [
+   "Jour 1 : vérifier les déclarations d'Óscar Puente et d'Adif, et lister les tronçons potentiellement concernés et les opérateurs.",
+   "Jour 1-2 : réserver le domaine, installer WordPress et un thème rapide (GeneratePress ou Kadence).",
+   "Jour 2-3 : s'inscrire aux programmes d'affiliation (Omio, Trainline, Skyscanner via Travelpayouts, loueurs via Discover Cars, Booking).",
+   "Jour 2-5 : rédiger avec un freelance les pages statut, alternatives par ville et remboursements (règlement UE 2021/782 et conditions de chaque opérateur).",
+   "Jour 5-6 : mettre en place l'alerte email (MailerLite) et un canal Telegram, et ajouter un formulaire d'inscription sur toutes les pages.",
+   "Jour 7 : mettre en ligne, soumettre à Google Search Console, publier sur Reddit et X, et contacter des journalistes de Cadena SER, El Periódico de Aragón et La Vanguardia.",
+   "Semaines 2-8 : mettre à jour le statut à chaque annonce, et ajouter des comparatifs détaillés et des pages par ville intermédiaire si la fermeture se confirme.",
+   "Si fermeture confirmée : investir 300 à 500 € en Google Ads sur les requêtes « alternativa AVE Madrid Barcelona » et démarcher un sponsor (loueur, autocariste)."
+  ],
+  "risques": [
+   "Projet de fermeture abandonné : limiter l'investissement initial à moins de 600 € et prévoir une reconversion en guide permanent des trajets Madrid-Barcelone.",
+   "Information erronée sur le statut : citer systématiquement Adif ou le ministère avec la date, et afficher clairement que le site n'est pas officiel.",
+   "Faibles revenus d'affiliation : diversifier vers la location de voiture et l'hôtellerie, plus rémunératrices, et vers le sponsoring.",
+   "Sujet politiquement clivant : rester strictement factuel et neutre, sans commentaire partisan."
+  ],
+  "mots_cles": [
+   "cierre AVE Madrid Barcelona",
+   "alternativas AVE Madrid Barcelona",
+   "reembolso billete AVE",
+   "Madrid Barcelona sin tren",
+   "obras línea alta velocidad Zaragoza",
+   "puente aéreo Madrid Barcelona"
+  ],
+  "sources": [
+   {
+    "titre": "Abascal dice que el posible cierre del AVE Madrid-Barcelona demuestra que el Gobierno es \"responsable\" en Urda - Europa Press",
+    "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPZ1V3a2kxZmUxYkRheDhBZkZuRWQwV2VPdktERE9EWERFeDZaa1JtNmJrbXc3NzVvNF9BVTdnSmxxVzlyZUpsQ3pranc5N1dDUmV5WkhrMHJpbU84eURyTFVfU2J6VndIVWtBeXdGU2lQNmRaTFZDLVNwZ0RkakM2ZVY3M0hUV0lFcWZpOXNNdVNHVTh0X0k0MmpjUEpRWmswWlhHeDhSUDFoOFZIcDBZWmhHV0d4NlFhaXREY2xYZGVDTDFxSUdkNnh4TW1MakpGVW1qVEpkZ2loTVB3enFHSTVB?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-10-31T10:37:47+00:00"
+   },
+   {
+    "titre": "Los viajeros del AVE divididos ante un posible cierre de la línea Madrid-Barcelona: desde \"es una necesidad\" hasta el \"me parece una desfachatez\" - Cadena SER",
+    "url": "https://news.google.com/rss/articles/CBMiogJBVV95cUxPVjQtYS1RQ0lwb2lTM0VnOWdRVV9xUElyT2dWajVrckNHcEk1eFhtaTA1aG5wcUV1ZU9oRTUwZ2c0ZUZwZGt4dGdLdTFRRVVLNEVFTHUxVXRqWWU4ZFpRbndaUzV2ajdaVEtfOXNRSXU5Q1ExZHlxMFc1WWFpLXZmSGp5ZUwwXzZ4aWFUblN6bFY2SVZZZFJmd0VsOFNKSnVhSkl6MWZya095Nzh4ai1TSVppSlk3ZXhVZUJPY1E3bjNaSHFCWlJDZnNVT0NNTW9jTGtXcjJZVWYxTXZDczJHYW5RbEI5SGtrbktRQldlcmtxbTlJc1hZQW1xbWRmMUtTaGo0NWpxVG14YUdEZzhidUtLT1lFV21KN2NPZjlJZmotd9IBtgJBVV95cUxQQ0U2U3FRNFNldVBGYVVfZFgwdEVQbzRJdFlxelN2T1FCODZaOTZwV2ltaXZ4WVlGTnZia1BYenhBLWF2bERZaXFXdnlJVHIyU1JoM0ZmajRQY0dwaUNRZU9TTFpGYk1WcGVtNDQ1b3hHa3Jyamw3eUZSMmZhUzRTU2E4ZkdPVWZ5UVM3TVJFZlJVaWo4Z3NzLXJSUVNNa29ReGxrc3VaREIyYURqTE5MOG9QZU5RV1IwQUhYVXpPNVpjRlhsS3gtQ25PaUlqNFdkUWJkUmhPZDYxbk1ZeWpaT3BubTlBYzFCZWpHUUZLVTNCajRBWnhsVGMzX1V0YVJQZ1pDWndHZlZaVXNFMGJ5VkNJMFliNmlFOXpCMVVib0V0MUdCTVkxdEtNanloNzZuemhHbjh3?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-10-31T12:34:26+00:00"
+   },
+   {
+    "titre": "Abascal acusa al Gobierno de mentir con el posible cierre del AVE Madrid-Barcelona - Infobae",
+    "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPQW05QmJCN2ZvS0lMNmttWUpyWGl1NUFSMVRFdlB2a1ZkSU5hNjZRdlVqN1NxVElRVFc5QjVjQzE5dXpfSEZMNkN3U2tmTmNraEJKOGpLbzhhaEphRnVUeDVWMm9GVm5obm9aOWZpZ3JabkVJZU5pa0JCUDN3U2tnbUNBSzd1VHdBSDktSHlFSDN4dGV0YW1FMF9NQjFrZl9xTUs0QlkzaW9fMVNQdlA0Vm9SUEoxMUxpSnVoTFBidFhEQVdMTXI1SHVIeU5hMknSAeoBQVVfeXFMTUtfUWpCZHJtc2V1UmFNQ2FyYlJrTTJ1clZqZ1BPQXhoNFdzYWFOX01sTkg0Q0R2bUItMGxUMnp2TTNuZjNfSzdEazk4b3BkNDZnQ1ZzNGIwTExfb256ZXpQQUMyaUNJSWoyOVFVZTNfa195aTUtaUhwRW0xcUJrYzU5bTlFSzJ3NmRwWVZXNFItLUJ6d08zQnQxS1VwTHhHQzRRa3NYOUlIYkVJWlBaMktkVXdCLURnbllVaUNDUERFc3dqYkJKYnJvNk15cE1pX2JxVGU2QzE4SEdtWEhic0xkSUtDWEJka09B?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-10-31T12:17:51+00:00"
+   },
+   {
+    "titre": "Óscar Puente, de hablar hace un año de subir la velocidad a plantear el cierre de la vía: \"Zaragoza será la primera preparada para el AVE a 350km/h\" - El Periódico de Aragón",
+    "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPYjI3YkZtOXdUb2hjTWlFQmo3ZkdQUlBaN2RjZXliTDZrNnhMdkpEeGxBVzdGczJOZ185VW1EbzI1YXkzSzlUdmo1eXhENFk1UWphR0prZ0V2Uld0b2gtUHFwdTFRODhmQUZQaG1YSDJ5X3J4QzdHZGs5ZUtPazl5Q2dwc3ZPWTEwTmNyV2ZXVGVqaC1qSjJRUWdn0gGfAUFVX3lxTE45MW00Z0VnS1g5RXRzU2xZWXo3bDZtejdpVGVYRklWZTZyTkozVTRiZWdUZXdDNTRzVm1PRnJLME5iamJveXUtdE9pdjB5MXVFbV9BZFlORHFwb0k1b3dnY19nbG1QUkhWczZtOHRZWW9kUE5yWFU1NUZSVkZ5bC13MnBfUnYxVnlyMXY2ajFaNDVLWUtkNU5QVDhWN3c1dw?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-10-31T12:06:03+00:00"
+   },
+   {
+    "titre": "Vox cuestiona al Gobierno por plantear el cierre del AVE Madrid-Barcelona tras el accidente de Urda - Diario de Santiago",
+    "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPYnpfMmkwVGZjbV9TTEp2ZTNscE5IWW9MbHRDNXY2Z0dVS0FvTGRkbF9vU1E3THdNeDZWdHFXMjBpUVdqZHpfTHBhWlZpb25mb2RvRlBEeFdpejJNOE5QaTY4VTBtWlRtT1hXRGhrMWU3dDZrLWdJVzZNWkdsSVM4eUxDeE5ZaTNEc1VqRHk1WHcxd3ROemY5Rk93RGpnMURHUmY4VWF5SnRfbjVaeFFPZnAtVjZEUzNPRjkydXJEYzk4R0RiWDU0WkF2MGRteXZmOU54eUhn?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-10-31T11:48:07+00:00"
+   },
+   {
+    "titre": "Los Ingenieros de Caminos de Aragón no son partidarios del posible cierre de la línea AVE Madrid-Zaragoza-Barcelona - Cadena SER",
+    "url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxPR1U5VEx5ZWZQbDNrRTYxaWNacE85c0hKb2l5U2tEUk54Mzh0NzVQb1FDeXVaX1lzZVh0ajJsYUxCcXJZLXR6LWN2UFVsazNlMUZNLXBZSjhNNml5MmtmS2Y0MC1xNmlDWTROSHRrZXFuR1NzWFVTN0xCUDJQcC04eTl4M1NOV3dBanJoMmo0U1J3RUlSZzhyNlQ3OWdSbzYwaHVCbjhhSFpyd3IyN3hjcE10M0pjYkdNdFdUenI2T0RQeTVzVFNnRFl0V1pZd09vZWFqTFNGdkczTnVyYWFPdUw4cllDaDdfTmtudWN6UU1ocjRyVXFURVFGeXB1U3la0gGUAkFVX3lxTFBHc0g3REdLbWNnMDhlUnphdHh1bE5lZzRIYzF2Q2t2bGozS2lUYXd0UjFWUlByQ0dEdFhUNlFQdlZwanQ1RzFMbVJWWHRWbEpKQVIzOG1nal9EUGVtU2JSdWxFYmdhSzVyYkx2SGxvNkZkMVJkcl83VlB1R2t1cGNyd0pwZjhCVi1jRk1KZU5mQjNSZ1NmR0otTkV4MHVDbjRSQjh3OFR2aDlTTkpfTkh4WE5ISUFNNzB5dlpPbFlFTjFNRVFhTk9vVHNvMDFuSDY1ZVVlS2ZVaFlwZjJPTjEtSXZEdFpyTkJwNVlCOFFkMnJYb3lqT052NjVrVXRNNExlVFJCMnhMV2U2eWFid05wZGZIbg?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-10-31T08:37:10+00:00"
+   },
+   {
+    "titre": "Óscar Puente y la línea de alta velocidad Madrid-Barcelona: ¿de 350 km/h al cierre? - Contando Estrelas",
+    "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPaGt4SkpuRFp5dzgxWFVLMFAtamZKaUFZekt2ZnpuVDJYOHpSSGpNbWxFcEtNbWI0SUR5Q0VoTnVvSEFESjJranNHWDVCTU1kZjlOVFNHY1FGTUUxeTgySF9JUmNITnZCMmpaSFQzRGZOMm9sTUU2MmpleHBBZi0zOFVNb25KbVU1YTI1NU03OVU4Vmc5OWhrSXpkc3h3Q3k5N1pCQUE2V2NlRUR6NS1sSzl5OGRySlBkQ1M1Z2ZSdG8?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-10-31T06:49:00+00:00"
+   },
+   {
+    "titre": "Vuelos cada 15 minutos, 24 horas al día… la inasumible alternativa aérea al cierre del AVE Barcelona-Madrid - Crónica Global",
+    "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOdG1KSWZtenllUFJadE9LMEFkM3o3WkVURS10QUl4RG8zZGU4N01Xc05hcmtraXMwR2Z5VVBoT2Y5UDFpV3JpblljWGJyQW9RU2REZzg4UjJpOUpTaDhpOWp5bktISTNZa1VQSUNPajY2bkp2MVdMeFBHZHBObWJ4ZTJDU1VNdUhYc1RPbkhZU2JPS19JRUpTLUZnZTIwb01qSC03b0RYZ2pnd2I1R252SUxqRXl6Nk9wMHJHUUY2Y3ZtTjJvd0JLOXR0b01FZ0RQV2wtNU12ONIB3AFBVV95cUxOa3ZZZ1RUWFBrcmRKdlNncExtMkdGbk1vaFdQTFR4a1kyN1UyMkN2TWZsdzl5YU5UbW1fZ3hkTjJkbzU0TjMwUk1UQnpjY1N2ZVhMWGNMYlhTaWpqa0liWWI0ZlZUWm8tZTJKdkJ0Q2xOalladHVVb2RCQVZTNndnSV9qQ2RSQjd3YW4tR3NLNlIzV3VmN0RsYjJIRThGOEZISjhMQVdYSG1HcXpNcUR3Ym1CVkNnOXFxQ09fZTN0Ung3dzlYaW9VYmp6MWtHQl9HazNfTUNfWmdZekRw?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-10-31T05:00:00+00:00"
+   }
+  ],
+  "ethique": {
+   "acceptable": true,
+   "raison": "Le site fournit une information pratique et des alternatives aux voyageurs, sans exploiter les victimes de l'accident ni créer de peur. La monétisation se fait par affiliation classique, au prix normal."
+  },
+  "id": "idee-5e111883",
+  "signaux": 1,
+  "cree_le": "2026-10-31T14:01:44+00:00",
+  "mis_a_jour_le": "2026-10-31T14:01:44+00:00",
+  "statut": "active",
+  "notifiee": false,
+  "note_globale": 5.7
+ }
+]
