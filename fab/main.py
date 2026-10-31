@@ -167,9 +167,11 @@ def run(settings: Settings | None = None) -> dict:
 
     # 5. Notification Discord (uniquement si des idées pertinentes sont trouvées)
     to_notify = [i for i in new_ideas if i["note_globale"] >= settings.min_score_notify]
+    below = [i for i in new_ideas if i["note_globale"] < settings.min_score_notify]
     run_info["idees_notifiees"] = notify.send_daily_report(
         settings.discord_webhook_url, to_notify, run_info, settings.dashboard_url, test=settings.dry_run,
         attachment=dashboard_file(settings, ideas, rejected, stats, run_info, today_local),
+        below=below, threshold=settings.min_score_notify,
     )
     stats["dernier_bilan"] = today_local
 

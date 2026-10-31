@@ -217,13 +217,28 @@ def send_ideas(
     return sent
 
 
+def _below_text(below: list[dict], threshold: float) -> str:
+    """Liste courte des idées trouvées mais sous la note minimale (détaillées seulement dans l'application)."""
+    if not below:
+        return ""
+    below = sorted(below, key=lambda i: i["note_globale"], reverse=True)
+    n = len(below)
+    head = (f"📋 **{n} autre{'s' if n > 1 else ''} idée{'s' if n > 1 else ''} sous ta note minimale "
+            f"({threshold:g}/10)**, à consulter en détail dans l'application :")
+    lines = [f"• {i['note_globale']}/10 · {_cut(i['titre'], 150)}" for i in below[:15]]
+    if n > 15:
+        lines.append(f"… et {n - 15} autre(s)")
+    return _cut(head + "\n" + "\n".join(lines), 1900)
+
+
 def send_daily_report(
     webhook_url: str, ideas: list[dict], run_info: dict, dashboard_url: str, test: bool = False,
-    attachment: tuple[str, bytes] | None = None,
+    attachment: tuple[str, bytes] | None = None, below: list[dict] | None = None, threshold: float = 6.5,
 ) -> int:
     """Bilan du matin : envoyé chaque jour, avec le détail des nouvelles idées pertinentes s'il y en a."""
     if not webhook_url:
         return 0
+    below_text = _below_text(below or [], threshold)
     stats = (
         f"{run_info.get('sujets_analyses', 0)} sujets analysés sur {run_info.get('articles_nouveaux', 0)} nouveaux articles"
         f" · {run_info.get('idees_nouvelles', 0)} idée(s) trouvée(s) · {run_info.get('idees_ecartees', 0)} écartée(s)"
@@ -232,9 +247,16 @@ def send_daily_report(
     if ideas:
         n = len(ideas)
         s = "s" if n > 1 else ""
-        header = f"☀️ **Bilan du jour : {n} nouvelle{s} opportunité{s}**\n{stats}"
-        return send_ideas(webhook_url, ideas, dashboard_url, test=test, attachment=attachment, header=header)
-    text = f"☀️ **Bilan du jour** : aucune nouvelle idée assez solide aujourd'hui.\n{stats}"
+        header = f"☀️ **Bilan du jour : {n} nouvelle{s} opportunité{s}** (note ≥ {threshold:g}/10)\n{stats}"
+        sent = send_ideas(webhook_url, ideas, dashboard_url, test=test, attachment=attachment, header=header)
+        if below_text:
+            _post(webhook_url, {"username": "Find-a-Business", "content": below_text})
+        return sent
+    if below:
+        text = (f"☀️ **Bilan du jour** : aucune idée n'atteint ta note minimale ({threshold:g}/10) aujourd'hui.\n{stats}"
+                f"\n\n{below_text}")
+    else:
+        text = f"☀️ **Bilan du jour** : aucune nouvelle idée trouvée aujourd'hui.\n{stats}"
     if test:
         text = "🧪 **TEST** · " + text
     _post(webhook_url, {"username": "Find-a-Business", "content": _cut(text, 1900)}, attachment)

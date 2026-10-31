@@ -61,3 +61,14 @@ def test_report_without_ideas_has_no_attachment_by_default(monkeypatch):
     monkeypatch.setattr(notify, "_post", lambda url, payload, att=None: calls.append((payload, att)) or True)
     notify.send_daily_report("https://discord/x", [], {"sujets_analyses": 3}, "")
     assert "Bilan du jour" in calls[0][0]["content"] and calls[0][1] is None
+
+
+def test_daily_report_lists_ideas_below_threshold(monkeypatch):
+    from fab import notify
+    posts = []
+    monkeypatch.setattr(notify, "_post", lambda url, payload, attachment=None: posts.append(payload) or True)
+    below = [{"titre": "Idée moyenne", "note_globale": 6.1}, {"titre": "Idée faible", "note_globale": 5.7}]
+    notify.send_daily_report("https://x", [], {"idees_nouvelles": 2}, "", below=below, threshold=6.5)
+    text = posts[0]["content"]
+    assert "aucune idée n'atteint ta note minimale (6.5/10)" in text
+    assert "6.1/10 · Idée moyenne" in text and "5.7/10 · Idée faible" in text
