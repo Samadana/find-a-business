@@ -194,7 +194,7 @@ def fetch_gdelt(queries: list[str], timeout: float) -> tuple[list[Article], int]
             time.sleep(6)
         url = (
             "https://api.gdeltproject.org/api/v2/doc/doc?mode=artlist&format=json"
-            f"&maxrecords=150&timespan=3h&sort=hybridrel&query={quote_plus(query)}"
+            f"&maxrecords=250&timespan=24h&sort=hybridrel&query={quote_plus(query)}"
         )
         content = _fetch(session, url, timeout)
         if content is None:

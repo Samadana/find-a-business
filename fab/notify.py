@@ -123,7 +123,7 @@ def send_ideas(webhook_url: str, ideas: list[dict], dashboard_url: str, test: bo
         payload = {"username": "Find-a-Business", "embeds": group}
         if index == 0:
             s = "s" if n > 1 else ""
-            payload["content"] = f"🚀 **{n} nouvelle{s} opportunité{s} détectée{s}**"
+            payload["content"] = f"☀️ **Bilan du jour : {n} nouvelle{s} opportunité{s}**"
             if dashboard_url:
                 payload["content"] += f" · [Tableau de bord]({dashboard_url})"
             if test:
@@ -134,6 +134,26 @@ def send_ideas(webhook_url: str, ideas: list[dict], dashboard_url: str, test: bo
                 sent += 1
         time.sleep(1)
     return sent
+
+
+def send_daily_report(webhook_url: str, ideas: list[dict], run_info: dict, dashboard_url: str, test: bool = False) -> int:
+    """Bilan du matin : envoyé chaque jour, avec les nouvelles idées pertinentes s'il y en a."""
+    if not webhook_url:
+        return 0
+    if ideas:
+        return send_ideas(webhook_url, ideas, dashboard_url, test=test)
+    lines = [
+        "☀️ **Bilan du jour** : aucune nouvelle idée assez solide aujourd'hui.",
+        f"{run_info.get('sujets_analyses', 0)} sujets analysés sur {run_info.get('articles_nouveaux', 0)} nouveaux articles"
+        f" · {run_info.get('idees_nouvelles', 0)} idée(s) sous le seuil · {run_info.get('idees_ecartees', 0)} écartée(s).",
+    ]
+    if dashboard_url:
+        lines.append(f"[Tableau de bord]({dashboard_url})")
+    text = "\n".join(lines)
+    if test:
+        text = "🧪 **TEST** · " + text
+    send_text(webhook_url, text)
+    return 0
 
 
 def send_text(webhook_url: str, text: str) -> bool:

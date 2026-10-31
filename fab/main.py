@@ -1,4 +1,4 @@
-"""Point d'entrée : un cycle complet de veille (lancé toutes les 3 h par GitHub Actions).
+"""Point d'entrée : le bilan quotidien (lancé chaque matin par GitHub Actions).
 
     python -m fab.main
 """
@@ -9,6 +9,7 @@ import json
 import logging
 import sys
 from datetime import datetime, timedelta, timezone
+from zoneinfo import ZoneInfo
 
 import anthropic
 
@@ -46,6 +47,17 @@ def run(settings: Settings | None = None) -> dict:
 
     run_info = {"date": now_iso(), "statut": "ok"}
 
+    # 0. Un seul bilan par jour, à l'heure choisie (heure locale, été comme hiver).
+    local_now = datetime.now(ZoneInfo(settings.timezone))
+    today_local = local_now.date().isoformat()
+    if not (settings.force or settings.dry_run):
+        if local_now.hour < settings.report_hour:
+            log.info("Pas encore %d h (%s) : rien à faire.", settings.report_hour, settings.timezone)
+            return {"statut": "ignoré : trop tôt"}
+        if stats.get("dernier_bilan") == today_local:
+            log.info("Bilan du %s déjà fait : rien à faire.", today_local)
+            return {"statut": "ignoré : bilan déjà fait"}
+
     # 1. Collecte
     fixture = ROOT / "tests" / "fixtures" / "articles.json"
     if settings.dry_run and fixture.exists():
@@ -67,6 +79,8 @@ def run(settings: Settings | None = None) -> dict:
 
     if len(fresh) < settings.min_new_articles:
         run_info["statut"] = "rien de neuf"
+        stats["dernier_bilan"] = today_local
+        notify.send_daily_report(settings.discord_webhook_url, [], run_info, settings.dashboard_url, test=settings.dry_run)
         return _finish(settings, stats, ideas, rejected, seen, run_info)
 
     if settings.daily_cost_limit_usd > 0 and today_cost(stats) >= settings.daily_cost_limit_usd:
@@ -135,9 +149,10 @@ def run(settings: Settings | None = None) -> dict:
 
     # 5. Notification Discord (uniquement si des idées pertinentes sont trouvées)
     to_notify = [i for i in new_ideas if i["note_globale"] >= settings.min_score_notify]
-    run_info["idees_notifiees"] = notify.send_ideas(
-        settings.discord_webhook_url, to_notify, settings.dashboard_url, test=settings.dry_run
+    run_info["idees_notifiees"] = notify.send_daily_report(
+        settings.discord_webhook_url, to_notify, run_info, settings.dashboard_url, test=settings.dry_run
     )
+    stats["dernier_bilan"] = today_local
 
     return _finish(settings, stats, ideas, rejected, seen, run_info)
 

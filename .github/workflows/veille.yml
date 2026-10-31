@@ -1,10 +1,12 @@
-name: Veille des opportunités
+name: Bilan quotidien des opportunités
 
 on:
   # LANCEMENT AUTOMATIQUE DÉSACTIVÉ.
-  # Pour l'activer (passage toutes les 3 heures), supprime le « # » au début des deux lignes ci-dessous.
+  # Pour l'activer (bilan chaque matin à 9 h, heure de Paris), supprime le « # » au début des deux lignes ci-dessous.
+  # GitHub compte en heure UTC sans heure d'été : le workflow démarre à 7 h et 8 h UTC
+  # et le programme ne fait le bilan qu'une fois, dès qu'il est 9 h ou plus à Paris.
   # schedule:
-  #   - cron: "7 */3 * * *"   # toutes les 3 heures (GitHub peut décaler de quelques minutes)
+  #   - cron: "0 7,8 * * *"
   workflow_dispatch:
     inputs:
       dry_run:
@@ -39,11 +41,12 @@ jobs:
       - name: Installer les dépendances
         run: pip install -r requirements.txt
 
-      - name: Analyser l'actualité
+      - name: Faire le bilan de l'actualité
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           FAB_DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
+          FAB_FORCE: ${{ github.event_name == 'workflow_dispatch' && '1' || '0' }}
           # Réglages optionnels : Settings > Secrets and variables > Actions > onglet « Variables »
           FAB_MODEL: ${{ vars.FAB_MODEL }}
           FAB_EFFORT: ${{ vars.FAB_EFFORT }}

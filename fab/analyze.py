@@ -152,7 +152,7 @@ def analyze(settings: Settings, items: list[dict], existing: list[dict]) -> Anal
     system = SYSTEM_PROMPT.replace("{max_budget}", str(settings.max_budget_eur))
     request = dict(
         model=settings.model,
-        max_tokens=32000,
+        max_tokens=64000,
         system=[{"type": "text", "text": system, "cache_control": {"type": "ephemeral"}}],
         thinking={"type": "adaptive"},
         output_config={"effort": settings.effort, "format": {"type": "json_schema", "schema": idea_schema()}},

@@ -17,7 +17,7 @@ Ce dont tu as besoin à la fin :
 1. Va sur <https://github.com/new>.
 2. Nom du dépôt : `find-a-business` (ou ce que tu veux).
 3. Choisis **Public** : GitHub Actions et GitHub Pages sont alors gratuits et illimités pour ce projet.
-   *(En privé, Pages demande un abonnement payant et Actions est limité à 2 000 minutes/mois, ce qui devient juste si tu augmentes la fréquence.)*
+   *(En privé, GitHub Pages demande un abonnement payant.)*
 4. Ne coche rien d'autre, clique sur **Create repository**.
 5. Le code y est envoyé (par Claude, ou par toi via **Add file → Upload files** en glissant le contenu du dossier).
 
@@ -59,13 +59,13 @@ Les secrets sont chiffrés par GitHub : personne ne peut les lire, même dans un
 ## Étape 6 · Premier lancement
 
 1. Onglet **Actions** du dépôt. Si GitHub demande d'activer les workflows, clique sur le bouton vert.
-2. Clique sur **Veille des opportunités** → **Run workflow**.
+2. Clique sur **Bilan quotidien des opportunités** → **Run workflow**.
 3. **Premier essai conseillé : coche « Mode test »** → **Run workflow**. Ce mode n'appelle pas Claude et ne coûte rien ; il vérifie que tout est bien branché et publie un tableau de bord d'exemple. Tu dois recevoir sur Discord un message marqué 🧪 **TEST** : le webhook fonctionne. *(Ces idées fictives ne sont pas sauvegardées.)*
 4. Relance ensuite **sans** cocher le mode test. Au bout de 3 à 8 minutes :
    - le tableau de bord affiche les premières idées ;
-   - si au moins une idée dépasse la note de notification (6,5/10 par défaut), tu reçois un message Discord.
-5. **Activer le passage automatique toutes les 3 heures** (désactivé par défaut) : ouvre le fichier `.github/workflows/veille.yml` sur GitHub → icône crayon ✏️ → supprime le `#` au début des deux lignes `# schedule:` et `#   - cron: …` (garde l'alignement : `schedule:` sous `on:` avec 2 espaces, `- cron` avec 4) → **Commit changes**.
-   Ensuite, le système tourne seul **toutes les 3 heures**, sans que ton ordinateur soit allumé. Pour l'arrêter : onglet **Actions** → **Veille des opportunités** → **⋯** → **Disable workflow**.
+   - tu reçois le bilan sur Discord : le détail des idées qui dépassent 6,5/10 (réglable), ou un court message s'il n'y en a pas.
+5. **Activer le bilan automatique de 9 h** (désactivé par défaut) : ouvre le fichier `.github/workflows/veille.yml` sur GitHub → icône crayon ✏️ → supprime le `#` au début des deux lignes `# schedule:` et `#   - cron: …` (garde l'alignement : `schedule:` sous `on:` avec 2 espaces, `- cron` avec 4) → **Commit changes**.
+   Ensuite, le bilan arrive seul **chaque matin vers 9 h** (heure de Paris, été comme hiver ; GitHub peut le décaler de quelques minutes), sans que ton ordinateur soit allumé. Tu peux aussi lancer un bilan à tout moment avec **Run workflow**. Pour l'arrêter : onglet **Actions** → **Bilan quotidien des opportunités** → **⋯** → **Disable workflow**.
 
 ✅ Vérification : l'onglet **Activité** du tableau de bord liste chaque passage avec son statut et son coût.
 
@@ -77,13 +77,14 @@ Les secrets sont chiffrés par GitHub : personne ne peut les lire, même dans un
 
 | Variable | Défaut | Rôle |
 |---|---|---|
-| `FAB_MIN_SCORE_NOTIFY` | `6.5` | Note globale minimale pour recevoir une notification Discord |
+| `FAB_MIN_SCORE_NOTIFY` | `6.5` | Note globale minimale pour qu'une idée soit détaillée dans le bilan Discord |
+| `FAB_REPORT_HOUR` | `9` | Heure du bilan (heure de Paris) ; pense aussi à adapter la ligne `cron` |
 | `FAB_MODEL` | `claude-opus-5-5` | Modèle Claude. `claude-sonnet-5-5` coûte 2× moins, `claude-haiku-5-5` ~40× moins (analyses moins fines) |
-| `FAB_EFFORT` | `medium` | Profondeur de réflexion : `low`, `medium`, `high` (plus cher, plus fin) |
-| `FAB_DAILY_COST_LIMIT_USD` | `3` | Plafond de dépense API par jour. Au-delà, l'analyse se met en pause jusqu'au lendemain (et tu es prévenu sur Discord). `0` = pas de plafond |
-| `FAB_MAX_ARTICLES` | `60` | Nombre maximum de sujets envoyés à l'analyse finale par passage |
+| `FAB_EFFORT` | `high` | Profondeur de réflexion : `low`, `medium`, `high` (plus cher, plus fin) |
+| `FAB_DAILY_COST_LIMIT_USD` | `2` | Plafond de dépense API par jour. Au-delà, l'analyse se met en pause jusqu'au lendemain (et tu es prévenu sur Discord). `0` = pas de plafond |
+| `FAB_MAX_ARTICLES` | `150` | Nombre maximum de sujets envoyés à l'analyse finale par passage |
 | `FAB_TRIAGE_MODEL` | `claude-haiku-5-5` | Modèle du premier tri (bon marché) |
-| `FAB_ALWAYS_KEEP` | `15` | Sujets les plus repris par les médias, toujours envoyés à l'analyse finale |
+| `FAB_ALWAYS_KEEP` | `25` | Sujets les plus repris par les médias, toujours envoyés à l'analyse finale |
 | `FAB_MAX_BUDGET_EUR` | `5000` | Budget de lancement maximum d'une idée |
 | `DASHBOARD_URL` | auto | Adresse du tableau de bord si tu utilises un domaine personnalisé |
 
@@ -92,19 +93,20 @@ Les sources d'actualité sont dans `config/sources.json` : tu peux ajouter un fl
 ## Coûts
 
 - **GitHub et Discord : 0 €.**
-- **API Claude** : c'est le seul coût. Chaque passage (toutes les 3 h, soit 8 par jour) se fait en deux temps :
-  1. **Tri** par Claude Haiku de ~600 titres : environ **0,004 $** par passage ;
-  2. **Analyse finale** des ~60 sujets retenus : environ **0,12 à 0,20 $** avec Claude Opus 5.5 (par défaut), ou **0,06 à 0,10 $** avec Claude Sonnet 5.5.
-- Total estimé :
+- **API Claude** : c'est le seul coût, **un passage par jour** en deux temps :
 
-| Modèle de l'analyse finale | Par jour | Par mois |
-|---|---|---|
-| Claude Opus 5.5 (par défaut, le plus fin) | ~1 à 1,7 $ | ~30 à 50 $ |
-| Claude Sonnet 5.5 (`FAB_MODEL = claude-sonnet-5-5`) | ~0,5 à 0,8 $ | ~15 à 25 $ |
+| Étape | Lu par le modèle | Écrit par le modèle | Prix (par million de tokens) | Coût |
+|---|---|---|---|---|
+| 1. Tri de ~1 500 titres par Claude Haiku | ~68 000 tokens | ~3 000 tokens | 0,10 $ lu / 0,50 $ écrit | ~0,01 $ |
+| 2. Analyse approfondie de ~150 sujets par Claude Opus 5.5 | ~19 000 tokens | 10 000 à 20 000 tokens (réflexion + idées) | 4 $ lu / 20 $ écrit | 0,28 à 0,48 $ |
+| **Total par jour** | | | | **~0,30 à 0,50 $** |
 
-- Le plafond `FAB_DAILY_COST_LIMIT_USD` (3 $/jour par défaut) empêche toute dérive. Un passage sans nouvelle actualité ne coûte rien.
-- Le coût réel de chaque passage est affiché dans l'onglet **Activité** du tableau de bord : fie-toi à ce chiffre après quelques jours plutôt qu'à ces estimations.
-- Pour changer la fréquence, modifie la ligne `cron` dans `.github/workflows/veille.yml` (ex. `7 */6 * * *` = toutes les 6 h, coût divisé par deux).
+- Soit environ **9 à 15 $ par mois**. Avec Claude Sonnet 5.5 pour l'analyse (`FAB_MODEL = claude-sonnet-5-5`, 2 $ / 10 $) : ~0,15 à 0,25 $ par jour, soit 5 à 8 $ par mois.
+- Un « token » vaut environ ¾ de mot. L'essentiel du coût vient de ce que le modèle écrit (sa réflexion et les idées) : l'écriture coûte 5 fois plus cher que la lecture.
+- Le plafond `FAB_DAILY_COST_LIMIT_USD` (2 $/jour par défaut) bloque tout appel à Claude au-delà, jusqu'au lendemain. Pour une garantie totale, fixe aussi une limite dans **Limits** sur platform.claude.com et n'achète que 5 ou 10 $ de crédits, sans recharge automatique.
+- Le détail réel (tokens et coût de chaque bilan) est visible dans l'onglet **Activité** du tableau de bord, et par jour et par modèle dans **Usage / Cost** sur platform.claude.com. Ce sont des estimations tant qu'aucun vrai bilan n'a tourné.
+
+**Limite à connaître** : avec un seul passage par jour, le bilan voit ce que les sources affichent à 9 h. Les flux RSS ne gardent que leurs derniers articles, donc certaines actualités de la nuit peuvent échapper au bilan. GDELT et les recherches Google News couvrent bien les 24 dernières heures et compensent en grande partie.
 
 ## En cas de problème
 

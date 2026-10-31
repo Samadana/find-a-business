@@ -62,15 +62,15 @@ class Settings:
     model: str = field(default_factory=lambda: _env("FAB_MODEL", "claude-opus-5-5"))
     # Premier tri bon marché : Haiku lit tous les titres et ne garde que les sujets prometteurs.
     triage_model: str = field(default_factory=lambda: _env("FAB_TRIAGE_MODEL", "claude-haiku-5-5"))
-    triage_candidates: int = field(default_factory=lambda: _env_int("FAB_TRIAGE_CANDIDATES", 600))
-    triage_keep: int = field(default_factory=lambda: _env_int("FAB_TRIAGE_KEEP", 50))
+    triage_candidates: int = field(default_factory=lambda: _env_int("FAB_TRIAGE_CANDIDATES", 1500))
+    triage_keep: int = field(default_factory=lambda: _env_int("FAB_TRIAGE_KEEP", 120))
     # Sujets les mieux classés par l'heuristique, toujours envoyés à l'analyse finale (filet de sécurité).
-    always_keep: int = field(default_factory=lambda: _env_int("FAB_ALWAYS_KEEP", 15))
-    effort: str = field(default_factory=lambda: _env("FAB_EFFORT", "medium"))
+    always_keep: int = field(default_factory=lambda: _env_int("FAB_ALWAYS_KEEP", 25))
+    effort: str = field(default_factory=lambda: _env("FAB_EFFORT", "high"))
 
     # Collecte
     max_article_age_hours: int = field(default_factory=lambda: _env_int("FAB_MAX_ARTICLE_AGE_HOURS", 36))
-    max_articles_per_run: int = field(default_factory=lambda: _env_int("FAB_MAX_ARTICLES", 60))
+    max_articles_per_run: int = field(default_factory=lambda: _env_int("FAB_MAX_ARTICLES", 150))
     min_new_articles: int = field(default_factory=lambda: _env_int("FAB_MIN_NEW_ARTICLES", 5))
     http_timeout: float = field(default_factory=lambda: _env_float("FAB_HTTP_TIMEOUT", 15.0))
 
@@ -80,9 +80,16 @@ class Settings:
     idea_archive_days: int = field(default_factory=lambda: _env_int("FAB_ARCHIVE_DAYS", 30))
 
     # Garde-fou de dépense (0 = pas de plafond)
-    daily_cost_limit_usd: float = field(default_factory=lambda: _env_float("FAB_DAILY_COST_LIMIT_USD", 3.0))
+    daily_cost_limit_usd: float = field(default_factory=lambda: _env_float("FAB_DAILY_COST_LIMIT_USD", 2.0))
 
     dry_run: bool = field(default_factory=lambda: _env_bool("FAB_DRY_RUN", False))
+
+    # Bilan quotidien : heure locale du bilan. GitHub planifie en heure UTC (sans heure d'été),
+    # le workflow se déclenche donc à 7 h et 8 h UTC et le programme ne garde que le bon créneau.
+    report_hour: int = field(default_factory=lambda: _env_int("FAB_REPORT_HOUR", 9))
+    timezone: str = field(default_factory=lambda: _env("FAB_TIMEZONE", "Europe/Paris"))
+    # Lancement manuel : ignore l'heure et le « déjà fait aujourd'hui ».
+    force: bool = field(default_factory=lambda: _env_bool("FAB_FORCE", False))
 
     sources_path: Path = ROOT / "config" / "sources.json"
     seen_path: Path = ROOT / "data" / "seen_articles.json"
