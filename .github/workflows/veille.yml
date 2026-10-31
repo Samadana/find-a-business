@@ -1,8 +1,10 @@
 name: Veille des opportunités
 
 on:
-  schedule:
-    - cron: "7 */3 * * *"   # toutes les 3 heures (GitHub peut décaler de quelques minutes)
+  # LANCEMENT AUTOMATIQUE DÉSACTIVÉ.
+  # Pour l'activer (passage toutes les 3 heures), supprime le « # » au début des deux lignes ci-dessous.
+  # schedule:
+  #   - cron: "7 */3 * * *"   # toutes les 3 heures (GitHub peut décaler de quelques minutes)
   workflow_dispatch:
     inputs:
       dry_run:

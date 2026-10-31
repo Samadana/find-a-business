@@ -64,7 +64,8 @@ Les secrets sont chiffrés par GitHub : personne ne peut les lire, même dans un
 4. Relance ensuite **sans** cocher le mode test. Au bout de 3 à 8 minutes :
    - le tableau de bord affiche les premières idées ;
    - si au moins une idée dépasse la note de notification (6,5/10 par défaut), tu reçois un message Discord.
-5. Ensuite, le système tourne seul **toutes les 3 heures**, sans que ton ordinateur soit allumé.
+5. **Activer le passage automatique toutes les 3 heures** (désactivé par défaut) : ouvre le fichier `.github/workflows/veille.yml` sur GitHub → icône crayon ✏️ → supprime le `#` au début des deux lignes `# schedule:` et `#   - cron: …` (garde l'alignement : `schedule:` sous `on:` avec 2 espaces, `- cron` avec 4) → **Commit changes**.
+   Ensuite, le système tourne seul **toutes les 3 heures**, sans que ton ordinateur soit allumé. Pour l'arrêter : onglet **Actions** → **Veille des opportunités** → **⋯** → **Disable workflow**.
 
 ✅ Vérification : l'onglet **Activité** du tableau de bord liste chaque passage avec son statut et son coût.
 
