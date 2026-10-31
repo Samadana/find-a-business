@@ -122,3 +122,19 @@ def select_for_analysis(articles: list[Article], max_items: int, max_per_source:
         if len(selected) >= max_items:
             break
     return selected
+
+
+def merge_triage(candidates: list[dict], triage_refs: list[str], always_keep: int, max_items: int) -> list[dict]:
+    """Sujets envoyés à l'analyse finale : ceux retenus par le tri + les mieux classés par l'heuristique.
+
+    Le filet de sécurité (`always_keep`) garantit que les sujets les plus repris par les médias
+    et contenant des mots déclencheurs passent toujours, même si le tri les a écartés.
+    """
+    by_ref = {c["ref"]: c for c in candidates}
+    chosen: list[str] = []
+    for ref in [c["ref"] for c in candidates[:always_keep]] + list(triage_refs):
+        if ref in by_ref and ref not in chosen:
+            chosen.append(ref)
+        if len(chosen) >= max_items:
+            break
+    return [by_ref[r] for r in chosen]

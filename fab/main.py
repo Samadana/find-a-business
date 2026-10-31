@@ -1,4 +1,4 @@
-"""Point d'entrée : un cycle complet de veille (lancé toutes les 30 min par GitHub Actions).
+"""Point d'entrée : un cycle complet de veille (lancé toutes les 3 h par GitHub Actions).
 
     python -m fab.main
 """
@@ -13,11 +13,11 @@ from datetime import datetime, timedelta, timezone
 import anthropic
 
 from . import notify
-from .analyze import analyze
+from .analyze import analyze, triage
 from .collect import Article, collect_all, filter_recent
-from .config import ROOT, Settings
+from .config import MODEL_PRICES_USD, ROOT, Settings
 from .ideas import archive_old, now_iso, process_analysis, recent_ideas_for_prompt
-from .selection import select_for_analysis
+from .selection import merge_triage, select_for_analysis
 from .storage import load_json, prune_seen, save_json
 
 log = logging.getLogger("fab")
@@ -75,7 +75,19 @@ def run(settings: Settings | None = None) -> dict:
         return _finish(settings, stats, ideas, rejected, seen, run_info)
 
     # 2. Sélection des sujets les plus prometteurs
-    items = select_for_analysis(fresh, settings.max_articles_per_run)
+    candidates = select_for_analysis(fresh, settings.triage_candidates, max_per_source=40)
+    run_info["sujets_candidats"] = len(candidates)
+    triage_cost = 0.0
+    try:
+        tri = triage(settings, candidates)
+        tin, tout = MODEL_PRICES_USD.get(settings.triage_model, (0.10, 0.50))
+        triage_cost = (tri.input_tokens * tin + tri.output_tokens * tout) / 1_000_000
+        refs = tri.refs
+    except (anthropic.APIError, RuntimeError, json.JSONDecodeError) as exc:
+        # Si le tri échoue, on se rabat sur le classement heuristique : rien n'est perdu.
+        log.warning("Tri préalable indisponible (%s), classement heuristique utilisé.", exc)
+        refs = [c["ref"] for c in candidates]
+    items = merge_triage(candidates, refs, settings.always_keep, settings.max_articles_per_run)
     run_info["sujets_analyses"] = len(items)
 
     # 3. Analyse par Claude
@@ -98,7 +110,7 @@ def run(settings: Settings | None = None) -> dict:
         return _finish(settings, stats, ideas, rejected, seen, run_info, failed=True)
 
     price_in, price_out = settings.price()
-    cost = (
+    cost = triage_cost + (
         result.input_tokens * price_in + result.cache_read_tokens * price_in * 0.1 + result.output_tokens * price_out
     ) / 1_000_000
     run_info.update(
@@ -117,7 +129,7 @@ def run(settings: Settings | None = None) -> dict:
     for it in items:
         for aid in it["ids"]:
             seen[aid] = now_iso()
-    # Les articles non retenus ce cycle sont aussi marqués (sinon le lot grossirait sans fin).
+    # Les articles écartés par le tri sont aussi marqués (sinon le lot grossirait sans fin).
     for a in fresh:
         seen.setdefault(a.id, now_iso())
 

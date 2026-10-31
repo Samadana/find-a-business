@@ -17,7 +17,7 @@ Ce dont tu as besoin à la fin :
 1. Va sur <https://github.com/new>.
 2. Nom du dépôt : `find-a-business` (ou ce que tu veux).
 3. Choisis **Public** : GitHub Actions et GitHub Pages sont alors gratuits et illimités pour ce projet.
-   *(En privé, Pages demande un abonnement payant et Actions est limité à 2 000 minutes/mois, ce qui ne suffit pas pour un passage toutes les 30 min.)*
+   *(En privé, Pages demande un abonnement payant et Actions est limité à 2 000 minutes/mois, ce qui devient juste si tu augmentes la fréquence.)*
 4. Ne coche rien d'autre, clique sur **Create repository**.
 5. Le code y est envoyé (par Claude, ou par toi via **Add file → Upload files** en glissant le contenu du dossier).
 
@@ -26,7 +26,7 @@ Ce dont tu as besoin à la fin :
 ## Étape 2 · Créer ta clé API Claude
 
 1. Va sur <https://platform.claude.com> (l'ancienne adresse console.anthropic.com y redirige) et crée un compte (e-mail ou Google).
-2. Menu **Billing** (Facturation) : ajoute un moyen de paiement et achète des crédits. **Commence par 10 à 20 $** pour tester.
+2. Menu **Billing** (Facturation) : ajoute un moyen de paiement et achète des crédits. **Commence par 10 $** : c'est environ une semaine à un mois d'utilisation selon le modèle choisi (voir § Coûts).
    - Recommandé : dans **Billing**, désactive la recharge automatique (*auto-reload*) au début, pour ne jamais dépenser plus que prévu.
    - Dans **Limits**, tu peux aussi fixer une limite de dépense mensuelle.
 3. Menu **API Keys** → **Create Key** → nomme-la `find-a-business` → **Create**.
@@ -64,7 +64,7 @@ Les secrets sont chiffrés par GitHub : personne ne peut les lire, même dans un
 4. Relance ensuite **sans** cocher le mode test. Au bout de 3 à 8 minutes :
    - le tableau de bord affiche les premières idées ;
    - si au moins une idée dépasse la note de notification (6,5/10 par défaut), tu reçois un message Discord.
-5. Ensuite, le système tourne seul **toutes les 30 minutes**, sans que ton ordinateur soit allumé.
+5. Ensuite, le système tourne seul **toutes les 3 heures**, sans que ton ordinateur soit allumé.
 
 ✅ Vérification : l'onglet **Activité** du tableau de bord liste chaque passage avec son statut et son coût.
 
@@ -79,8 +79,10 @@ Les secrets sont chiffrés par GitHub : personne ne peut les lire, même dans un
 | `FAB_MIN_SCORE_NOTIFY` | `6.5` | Note globale minimale pour recevoir une notification Discord |
 | `FAB_MODEL` | `claude-opus-5-5` | Modèle Claude. `claude-sonnet-5-5` coûte 2× moins, `claude-haiku-5-5` ~40× moins (analyses moins fines) |
 | `FAB_EFFORT` | `medium` | Profondeur de réflexion : `low`, `medium`, `high` (plus cher, plus fin) |
-| `FAB_DAILY_COST_LIMIT_USD` | `10` | Plafond de dépense API par jour. Au-delà, l'analyse se met en pause jusqu'au lendemain (et tu es prévenu sur Discord). `0` = pas de plafond |
-| `FAB_MAX_ARTICLES` | `180` | Nombre de sujets d'actualité envoyés à Claude par passage |
+| `FAB_DAILY_COST_LIMIT_USD` | `3` | Plafond de dépense API par jour. Au-delà, l'analyse se met en pause jusqu'au lendemain (et tu es prévenu sur Discord). `0` = pas de plafond |
+| `FAB_MAX_ARTICLES` | `60` | Nombre maximum de sujets envoyés à l'analyse finale par passage |
+| `FAB_TRIAGE_MODEL` | `claude-haiku-5-5` | Modèle du premier tri (bon marché) |
+| `FAB_ALWAYS_KEEP` | `15` | Sujets les plus repris par les médias, toujours envoyés à l'analyse finale |
 | `FAB_MAX_BUDGET_EUR` | `5000` | Budget de lancement maximum d'une idée |
 | `DASHBOARD_URL` | auto | Adresse du tableau de bord si tu utilises un domaine personnalisé |
 
@@ -89,12 +91,19 @@ Les sources d'actualité sont dans `config/sources.json` : tu peux ajouter un fl
 ## Coûts
 
 - **GitHub et Discord : 0 €.**
-- **API Claude** : c'est le seul coût. Chaque passage envoie environ 15 000 à 25 000 tokens et en reçoit 4 000 à 8 000. Estimation avec le modèle par défaut (Claude Opus 5.5, 4 $ / 20 $ par million de tokens en entrée / sortie) :
-  - environ **0,10 à 0,25 $ par passage** qui trouve de nouvelles actualités ;
-  - soit **5 à 10 $ par jour** au maximum (48 passages), donc jusqu'à ~300 $ par mois ;
-  - le plafond `FAB_DAILY_COST_LIMIT_USD` (10 $/jour par défaut) empêche toute dérive.
-- Pour réduire : `FAB_MODEL = claude-sonnet-5-5` (≈ 2,5 à 5 $/jour), ou `FAB_EFFORT = low`, ou `FAB_MAX_ARTICLES = 100`. Un passage sans nouvelle actualité ne coûte rien.
-- Le coût réel de chaque passage est affiché dans l'onglet **Activité**.
+- **API Claude** : c'est le seul coût. Chaque passage (toutes les 3 h, soit 8 par jour) se fait en deux temps :
+  1. **Tri** par Claude Haiku de ~600 titres : environ **0,004 $** par passage ;
+  2. **Analyse finale** des ~60 sujets retenus : environ **0,12 à 0,20 $** avec Claude Opus 5.5 (par défaut), ou **0,06 à 0,10 $** avec Claude Sonnet 5.5.
+- Total estimé :
+
+| Modèle de l'analyse finale | Par jour | Par mois |
+|---|---|---|
+| Claude Opus 5.5 (par défaut, le plus fin) | ~1 à 1,7 $ | ~30 à 50 $ |
+| Claude Sonnet 5.5 (`FAB_MODEL = claude-sonnet-5-5`) | ~0,5 à 0,8 $ | ~15 à 25 $ |
+
+- Le plafond `FAB_DAILY_COST_LIMIT_USD` (3 $/jour par défaut) empêche toute dérive. Un passage sans nouvelle actualité ne coûte rien.
+- Le coût réel de chaque passage est affiché dans l'onglet **Activité** du tableau de bord : fie-toi à ce chiffre après quelques jours plutôt qu'à ces estimations.
+- Pour changer la fréquence, modifie la ligne `cron` dans `.github/workflows/veille.yml` (ex. `7 */6 * * *` = toutes les 6 h, coût divisé par deux).
 
 ## En cas de problème
 

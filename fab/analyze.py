@@ -193,3 +193,51 @@ def analyze(settings: Settings, items: list[dict], existing: list[dict]) -> Anal
         cache_read_tokens=getattr(usage, "cache_read_input_tokens", 0) or 0,
         model=response.model,
     )
+
+
+TRIAGE_PROMPT = """Tu fais le PREMIER TRI d'actualités mondiales (toutes langues) pour un entrepreneur qui cherche des opportunités de business WEB (site, e-commerce, SaaS, outil en ligne, contenu) créées par un événement : fermeture d'un service, pénurie, hausse de prix, nouvelle loi ou réglementation, conflit, catastrophe, épidémie, tendance virale, grève, sanctions, lancement ou panne d'un produit populaire, changement de comportement des consommateurs, etc.
+
+Un modèle plus puissant analysera ensuite en détail les sujets que tu retiens. Ton rôle est seulement d'écarter le bruit évident (sport, faits divers isolés, people, résultats d'élections sans conséquence pratique, nécrologies...).
+
+Règle d'or : en cas de doute, GARDE le sujet. Il vaut mieux garder un sujet inutile que rater une opportunité.
+Retiens au maximum {max_keep} références, classées de la plus prometteuse à la moins prometteuse. Réponds uniquement avec le JSON demandé."""
+
+
+@dataclass
+class TriageResult:
+    refs: list[str]
+    input_tokens: int = 0
+    output_tokens: int = 0
+
+
+def triage(settings: Settings, items: list[dict]) -> TriageResult:
+    """Premier tri très bon marché (Claude Haiku) : ne garde que les sujets potentiellement exploitables."""
+    if settings.dry_run or len(items) <= settings.max_articles_per_run:
+        return TriageResult(refs=[it["ref"] for it in items])
+
+    client = anthropic.Anthropic(api_key=settings.anthropic_api_key, max_retries=3, timeout=300)
+    lines = "\n".join(
+        f"{it['ref']} | {it['titre']}" + (f" | {it['resume'][:120]}" if it.get("resume") else "")
+        + (f" | {it['nb_medias']} médias" if it.get("nb_medias", 1) > 1 else "")
+        for it in items
+    )
+    schema = {
+        "type": "object",
+        "properties": {"retenus": {"type": "array", "items": {"type": "string"}}},
+        "required": ["retenus"],
+        "additionalProperties": False,
+    }
+    with client.messages.stream(
+        model=settings.triage_model,
+        max_tokens=16000,
+        system=TRIAGE_PROMPT.replace("{max_keep}", str(settings.triage_keep)),
+        output_config={"effort": "low", "format": {"type": "json_schema", "schema": schema}},
+        messages=[{"role": "user", "content": "Sujets (référence | titre | résumé) :\n" + lines}],
+    ) as stream:
+        response = stream.get_final_message()
+    if response.stop_reason in ("refusal", "max_tokens"):
+        raise RuntimeError(f"Tri préalable interrompu ({response.stop_reason})")
+    text = next((b.text for b in response.content if b.type == "text"), "")
+    known = {it["ref"] for it in items}
+    refs = [r for r in dict.fromkeys(json.loads(text).get("retenus", [])) if r in known]
+    return TriageResult(refs=refs, input_tokens=response.usage.input_tokens or 0, output_tokens=response.usage.output_tokens or 0)

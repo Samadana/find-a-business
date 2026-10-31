@@ -45,3 +45,11 @@ def test_notifies_only_above_threshold(tmp_path, monkeypatch):
     s = make_settings(tmp_path, min_score_notify=6.8)
     fab_main.run(s)
     assert [i["note_globale"] >= 6.8 for i in sent] == [True] * len(sent) and len(sent) == 1
+
+
+def test_triage_failure_falls_back_to_heuristic(tmp_path, monkeypatch):
+    def boom(settings, items):
+        raise RuntimeError("panne")
+    monkeypatch.setattr(fab_main, "triage", boom)
+    info = fab_main.run(make_settings(tmp_path))
+    assert info["statut"] == "ok" and info["sujets_analyses"] == info["sujets_candidats"]

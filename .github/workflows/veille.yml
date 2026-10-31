@@ -2,7 +2,7 @@ name: Veille des opportunités
 
 on:
   schedule:
-    - cron: "*/30 * * * *"   # toutes les 30 minutes (GitHub peut décaler de quelques minutes)
+    - cron: "7 */3 * * *"   # toutes les 3 heures (GitHub peut décaler de quelques minutes)
   workflow_dispatch:
     inputs:
       dry_run:
