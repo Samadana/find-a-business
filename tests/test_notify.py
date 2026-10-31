@@ -32,7 +32,7 @@ def test_grouping_respects_discord_limits():
 
 def test_send_ideas_posts_and_marks(monkeypatch):
     calls = []
-    monkeypatch.setattr(notify, "_post", lambda url, payload: calls.append(payload) or True)
+    monkeypatch.setattr(notify, "_post", lambda url, payload, att=None: calls.append(payload) or True)
     monkeypatch.setattr(notify.time, "sleep", lambda s: None)
     ideas = make_ideas(4)
     assert notify.send_ideas("https://discord/webhook", ideas, "https://d/") == 4
@@ -42,3 +42,21 @@ def test_send_ideas_posts_and_marks(monkeypatch):
 
 def test_no_webhook_no_send():
     assert notify.send_ideas("", make_ideas(1), "") == 0
+
+
+def test_attachment_sent_as_multipart(monkeypatch):
+    calls = []
+
+    class Resp:
+        status_code = 200
+        content = b""
+
+    def fake_post(url, **kw):
+        calls.append(kw)
+        return Resp()
+
+    monkeypatch.setattr(notify.requests, "post", fake_post)
+    monkeypatch.setattr(notify.time, "sleep", lambda s: None)
+    notify.send_daily_report("https://discord/x", [], {"sujets_analyses": 3}, "", attachment=("t.html", b"<html>"))
+    assert "files" in calls[0] and "payload_json" in calls[0]["data"]
+    assert "Bilan du jour" in calls[0]["data"]["payload_json"]

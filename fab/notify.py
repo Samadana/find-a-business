@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import logging
 import time
 
@@ -67,10 +68,19 @@ def build_embed(idea: dict, dashboard_url: str) -> dict:
     return embed
 
 
-def _post(webhook_url: str, payload: dict) -> bool:
+def _post(webhook_url: str, payload: dict, attachment: tuple[str, bytes] | None = None) -> bool:
     for attempt in range(4):
         try:
-            resp = requests.post(webhook_url, json=payload, timeout=20)
+            if attachment:
+                name, content = attachment
+                resp = requests.post(
+                    webhook_url,
+                    data={"payload_json": json.dumps(payload)},
+                    files={"files[0]": (name, content, "text/html")},
+                    timeout=60,
+                )
+            else:
+                resp = requests.post(webhook_url, json=payload, timeout=20)
         except requests.RequestException as exc:
             log.warning("Envoi Discord impossible (%s), essai %d", exc, attempt + 1)
             time.sleep(2 ** attempt)
@@ -110,7 +120,10 @@ def group_embeds(embeds: list[dict], max_chars: int = 5500, max_count: int = 10)
     return groups
 
 
-def send_ideas(webhook_url: str, ideas: list[dict], dashboard_url: str, test: bool = False) -> int:
+def send_ideas(
+    webhook_url: str, ideas: list[dict], dashboard_url: str, test: bool = False,
+    attachment: tuple[str, bytes] | None = None,
+) -> int:
     """Envoie les idées en respectant les limites Discord (10 embeds et 6000 caractères par message)."""
     if not webhook_url or not ideas:
         return 0
@@ -126,9 +139,11 @@ def send_ideas(webhook_url: str, ideas: list[dict], dashboard_url: str, test: bo
             payload["content"] = f"☀️ **Bilan du jour : {n} nouvelle{s} opportunité{s}**"
             if dashboard_url:
                 payload["content"] += f" · [Tableau de bord]({dashboard_url})"
+            elif attachment:
+                payload["content"] += " · tableau de bord complet en pièce jointe (à ouvrir dans ton navigateur)"
             if test:
                 payload["content"] = "🧪 **TEST** (idées fictives, le webhook fonctionne) · " + payload["content"]
-        if _post(webhook_url, payload):
+        if _post(webhook_url, payload, attachment if index == 0 else None):
             for e in group:
                 lookup[id(e)]["notifiee"] = True
                 sent += 1
@@ -136,12 +151,15 @@ def send_ideas(webhook_url: str, ideas: list[dict], dashboard_url: str, test: bo
     return sent
 
 
-def send_daily_report(webhook_url: str, ideas: list[dict], run_info: dict, dashboard_url: str, test: bool = False) -> int:
+def send_daily_report(
+    webhook_url: str, ideas: list[dict], run_info: dict, dashboard_url: str, test: bool = False,
+    attachment: tuple[str, bytes] | None = None,
+) -> int:
     """Bilan du matin : envoyé chaque jour, avec les nouvelles idées pertinentes s'il y en a."""
     if not webhook_url:
         return 0
     if ideas:
-        return send_ideas(webhook_url, ideas, dashboard_url, test=test)
+        return send_ideas(webhook_url, ideas, dashboard_url, test=test, attachment=attachment)
     lines = [
         "☀️ **Bilan du jour** : aucune nouvelle idée assez solide aujourd'hui.",
         f"{run_info.get('sujets_analyses', 0)} sujets analysés sur {run_info.get('articles_nouveaux', 0)} nouveaux articles"
@@ -152,7 +170,7 @@ def send_daily_report(webhook_url: str, ideas: list[dict], run_info: dict, dashb
     text = "\n".join(lines)
     if test:
         text = "🧪 **TEST** · " + text
-    send_text(webhook_url, text)
+    _post(webhook_url, {"username": "Find-a-Business", "content": text[:1900]}, attachment)
     return 0
 
 

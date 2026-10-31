@@ -9,7 +9,7 @@ Veille automatique de l'actualité mondiale qui détecte des **opportunités de 
 - **Filtre éthique** : les idées qui exploitent la détresse des victimes (prix abusifs, fausses cagnottes, désinformation…) sont écartées et listées à part, pour transparence.
 - **Déduplication** : une idée déjà proposée n'est jamais renvoyée ; si de nouvelles actualités la confirment, elle gagne des « signaux » et un petit bonus de note.
 - **Discord** : un bilan chaque matin, avec le détail des nouvelles idées pertinentes (ou un court message s'il n'y en a pas).
-- **Tableau de bord** (GitHub Pages) : filtres, tri par note, favoris, plan d'action à cocher.
+- **Tableau de bord** joint chaque matin au bilan Discord (fichier HTML privé, s'ouvre dans le navigateur) : filtres, tri par note, favoris, plan d'action à cocher.
 
 👉 **Mise en route : [GUIDE_INSTALLATION.md](GUIDE_INSTALLATION.md)**
 
@@ -50,8 +50,8 @@ config/sources.json ──► collecte (RSS, Google News, GDELT)
                          │
              ┌───────────┴────────────┐
              ▼                        ▼
-   docs/data/*.json            Discord (si note ≥ seuil)
-   = tableau de bord
+   docs/data/*.json            Discord : bilan du matin
+   (historique)                + tableau de bord en pièce jointe
 ```
 
 | Fichier | Rôle |
@@ -63,7 +63,8 @@ config/sources.json ──► collecte (RSS, Google News, GDELT)
 | `fab/notify.py` | Messages Discord |
 | `fab/main.py` | Enchaînement d'un passage complet |
 | `docs/index.html` | Tableau de bord |
-| `.github/workflows/veille.yml` | Planification du bilan de 9 h + publication du tableau de bord |
+| `fab/report.py` | Tableau de bord en un seul fichier (joint au bilan) |
+| `.github/workflows/veille.yml` | Planification du bilan de 9 h |
 
 ## Lancer en local (facultatif)
 

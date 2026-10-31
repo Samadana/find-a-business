@@ -18,6 +18,7 @@ from .analyze import analyze, triage
 from .collect import Article, collect_all, filter_recent
 from .config import MODEL_PRICES_USD, ROOT, Settings
 from .ideas import archive_old, now_iso, process_analysis, recent_ideas_for_prompt
+from .report import build_standalone_dashboard
 from .selection import merge_triage, select_for_analysis
 from .storage import load_json, prune_seen, save_json
 
@@ -27,6 +28,20 @@ log = logging.getLogger("fab")
 def today_cost(stats: dict) -> float:
     today = datetime.now(timezone.utc).date().isoformat()
     return sum(r.get("cout_usd", 0) for r in stats.get("historique", []) if r.get("date", "").startswith(today))
+
+
+def dashboard_file(settings, ideas, rejected, stats, run_info, day: str) -> tuple[str, bytes] | None:
+    """Tableau de bord complet en un fichier HTML, joint au bilan Discord."""
+    if not settings.attach_dashboard:
+        return None
+    try:
+        snapshot = {**stats, "historique": [run_info] + stats.get("historique", []), "derniere_execution": run_info["date"],
+                    "modele": settings.model}
+        ordered = sorted(ideas, key=lambda i: (i.get("statut") == "active", i.get("note_globale", 0)), reverse=True)
+        return f"find-a-business-{day}.html", build_standalone_dashboard(ordered, rejected, snapshot)
+    except (OSError, ValueError) as exc:
+        log.warning("Tableau de bord en pièce jointe impossible : %s", exc)
+        return None
 
 
 def maybe_alert(settings: Settings, stats: dict, message: str) -> None:
@@ -80,7 +95,10 @@ def run(settings: Settings | None = None) -> dict:
     if len(fresh) < settings.min_new_articles:
         run_info["statut"] = "rien de neuf"
         stats["dernier_bilan"] = today_local
-        notify.send_daily_report(settings.discord_webhook_url, [], run_info, settings.dashboard_url, test=settings.dry_run)
+        notify.send_daily_report(
+            settings.discord_webhook_url, [], run_info, settings.dashboard_url, test=settings.dry_run,
+            attachment=dashboard_file(settings, ideas, rejected, stats, run_info, today_local),
+        )
         return _finish(settings, stats, ideas, rejected, seen, run_info)
 
     if settings.daily_cost_limit_usd > 0 and today_cost(stats) >= settings.daily_cost_limit_usd:
@@ -150,7 +168,8 @@ def run(settings: Settings | None = None) -> dict:
     # 5. Notification Discord (uniquement si des idées pertinentes sont trouvées)
     to_notify = [i for i in new_ideas if i["note_globale"] >= settings.min_score_notify]
     run_info["idees_notifiees"] = notify.send_daily_report(
-        settings.discord_webhook_url, to_notify, run_info, settings.dashboard_url, test=settings.dry_run
+        settings.discord_webhook_url, to_notify, run_info, settings.dashboard_url, test=settings.dry_run,
+        attachment=dashboard_file(settings, ideas, rejected, stats, run_info, today_local),
     )
     stats["dernier_bilan"] = today_local
 

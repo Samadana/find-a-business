@@ -150,7 +150,9 @@ function ago(iso) {
 
 async function load() {
   const get = async (f, d) => { try { const r = await fetch(`data/${f}?t=${Date.now()}`); return r.ok ? await r.json() : d; } catch { return d; } };
-  [IDEAS, REJECTED, STATS] = await Promise.all([get("ideas.json", []), get("rejected.json", []), get("stats.json", {})]);
+  // Version « fichier » (jointe au bilan Discord) : les données sont intégrées dans la page.
+  if (window.FAB_DATA) ({ ideas: IDEAS, rejected: REJECTED, stats: STATS } = window.FAB_DATA);
+  else [IDEAS, REJECTED, STATS] = await Promise.all([get("ideas.json", []), get("rejected.json", []), get("stats.json", {})]);
   const cats = [...new Set(IDEAS.map(i => i.categorie))].sort();
   document.getElementById("cat").insertAdjacentHTML("beforeend", cats.map(c => `<option>${esc(c)}</option>`).join(""));
   header(); render(); renderRejected(); renderActivity();

@@ -6,22 +6,21 @@ Ce dont tu as besoin à la fin :
 
 | Élément | Où | Coût |
 |---|---|---|
-| Le dépôt GitHub avec ce code | github.com | gratuit (dépôt **public**) |
+| Le dépôt GitHub avec ce code | github.com | gratuit (dépôt **privé**) |
 | Une clé API Claude | platform.claude.com | payant à l'usage (voir § Coûts) |
 | Un webhook Discord | ton serveur Discord | gratuit |
 
 ---
 
-## Étape 1 · Le dépôt GitHub
+## Étape 1 · Le dépôt GitHub (privé)
 
-1. Va sur <https://github.com/new>.
-2. Nom du dépôt : `find-a-business` (ou ce que tu veux).
-3. Choisis **Public** : GitHub Actions et GitHub Pages sont alors gratuits et illimités pour ce projet.
-   *(En privé, GitHub Pages demande un abonnement payant.)*
-4. Ne coche rien d'autre, clique sur **Create repository**.
-5. Le code y est envoyé (par Claude, ou par toi via **Add file → Upload files** en glissant le contenu du dossier).
+Le dépôt `Samadana/find-a-business` existe déjà et contient le code. Pour que personne d'autre que toi ne voie les idées, passe-le en privé :
 
-> Le dépôt public rend visibles les idées détectées. Si tu veux les garder pour toi, dis-le : on peut passer en dépôt privé + tableau de bord hébergé ailleurs gratuitement (Cloudflare Pages par exemple).
+1. Ouvre <https://github.com/Samadana/find-a-business/settings>.
+2. Descends tout en bas, jusqu'à la zone rouge **Danger Zone**.
+3. **Change visibility** → **Change to private** → confirme.
+
+C'est gratuit : un bilan par jour utilise environ 10 minutes de GitHub Actions par jour, loin de la limite gratuite de 2 000 minutes par mois des dépôts privés.
 
 ## Étape 2 · Créer ta clé API Claude
 
@@ -42,7 +41,7 @@ Ce dont tu as besoin à la fin :
 
 ## Étape 4 · Ajouter les secrets dans GitHub
 
-Les secrets sont chiffrés par GitHub : personne ne peut les lire, même dans un dépôt public.
+Les secrets sont chiffrés par GitHub : personne ne peut les lire, pas même toi après les avoir enregistrés.
 
 1. Dans ton dépôt : **Settings** → **Secrets and variables** → **Actions**.
 2. Onglet **Secrets** → **New repository secret** :
@@ -50,20 +49,21 @@ Les secrets sont chiffrés par GitHub : personne ne peut les lire, même dans un
 3. Encore **New repository secret** :
    - Name : `DISCORD_WEBHOOK_URL` · Secret : l'URL du webhook → **Add secret**
 
-## Étape 5 · Activer le tableau de bord (GitHub Pages)
+## Étape 5 · Le tableau de bord
 
-1. **Settings** → **Pages**.
-2. Sous **Build and deployment** → **Source**, choisis **GitHub Actions**.
-3. C'est tout : le tableau de bord sera publié à chaque passage, à l'adresse `https://TON-PSEUDO.github.io/find-a-business/`.
+Rien à faire : chaque bilan Discord contient le **tableau de bord complet en pièce jointe** (un fichier `find-a-business-AAAA-MM-JJ.html`). Clique dessus dans Discord, télécharge-le et ouvre-le : il s'affiche dans ton navigateur, sans connexion à un site, et reste privé. Il contient toutes les idées, leurs notes, les plans d'action, les idées écartées et l'historique des coûts.
+
+> Sur téléphone, Discord affiche parfois le fichier comme du texte : ouvre-le plutôt sur ordinateur. Les favoris et cases cochées sont mémorisés par ton navigateur.
+
+*(Option, uniquement si tu repasses un jour le dépôt en public : un tableau de bord en ligne via GitHub Pages. Settings → Pages → Source = GitHub Actions, puis ajoute la variable `FAB_PAGES` = `true`.)*
 
 ## Étape 6 · Premier lancement
 
 1. Onglet **Actions** du dépôt. Si GitHub demande d'activer les workflows, clique sur le bouton vert.
 2. Clique sur **Bilan quotidien des opportunités** → **Run workflow**.
-3. **Premier essai conseillé : coche « Mode test »** → **Run workflow**. Ce mode n'appelle pas Claude et ne coûte rien ; il vérifie que tout est bien branché et publie un tableau de bord d'exemple. Tu dois recevoir sur Discord un message marqué 🧪 **TEST** : le webhook fonctionne. *(Ces idées fictives ne sont pas sauvegardées.)*
+3. **Premier essai conseillé : coche « Mode test »** → **Run workflow**. Ce mode n'appelle pas Claude et ne coûte rien ; il vérifie que tout est bien branché. Tu dois recevoir sur Discord un message marqué 🧪 **TEST** avec deux idées fictives et le tableau de bord d'exemple en pièce jointe : le webhook fonctionne. *(Ces idées fictives ne sont pas sauvegardées.)*
 4. Relance ensuite **sans** cocher le mode test. Au bout de 3 à 8 minutes :
-   - le tableau de bord affiche les premières idées ;
-   - tu reçois le bilan sur Discord : le détail des idées qui dépassent 6,5/10 (réglable), ou un court message s'il n'y en a pas.
+   - tu reçois le bilan sur Discord : le détail des idées qui dépassent 6,5/10 (réglable), ou un court message s'il n'y en a pas, et le tableau de bord à jour en pièce jointe.
 5. **Activer le bilan automatique de 9 h** (désactivé par défaut) : ouvre le fichier `.github/workflows/veille.yml` sur GitHub → icône crayon ✏️ → supprime le `#` au début des deux lignes `# schedule:` et `#   - cron: …` (garde l'alignement : `schedule:` sous `on:` avec 2 espaces, `- cron` avec 4) → **Commit changes**.
    Ensuite, le bilan arrive seul **chaque matin vers 9 h** (heure de Paris, été comme hiver ; GitHub peut le décaler de quelques minutes), sans que ton ordinateur soit allumé. Tu peux aussi lancer un bilan à tout moment avec **Run workflow**. Pour l'arrêter : onglet **Actions** → **Bilan quotidien des opportunités** → **⋯** → **Disable workflow**.
 
@@ -86,7 +86,8 @@ Les secrets sont chiffrés par GitHub : personne ne peut les lire, même dans un
 | `FAB_TRIAGE_MODEL` | `claude-haiku-5-5` | Modèle du premier tri (bon marché) |
 | `FAB_ALWAYS_KEEP` | `25` | Sujets les plus repris par les médias, toujours envoyés à l'analyse finale |
 | `FAB_MAX_BUDGET_EUR` | `5000` | Budget de lancement maximum d'une idée |
-| `DASHBOARD_URL` | auto | Adresse du tableau de bord si tu utilises un domaine personnalisé |
+| `FAB_ATTACH_DASHBOARD` | `true` | Joindre le tableau de bord au bilan Discord |
+| `FAB_PAGES` | `false` | Tableau de bord en ligne via GitHub Pages (dépôt public uniquement) |
 
 Les sources d'actualité sont dans `config/sources.json` : tu peux ajouter un flux RSS ou un pays Google News en modifiant ce fichier directement sur GitHub (icône crayon).
 
@@ -114,7 +115,6 @@ Les sources d'actualité sont dans `config/sources.json` : tu peux ajouter un fl
 |---|---|
 | Message Discord « clé API Claude invalide » | Recrée une clé (étape 2) et remplace le secret `ANTHROPIC_API_KEY` |
 | Message « crédit épuisé » | Recharge tes crédits dans **Billing** sur platform.claude.com |
-| Le tableau de bord affiche une erreur 404 | Vérifie l'étape 5 (Source = GitHub Actions) puis relance le workflow |
 | Aucune notification | Normal si aucune idée ne dépasse la note minimale. Regarde le tableau de bord, ou baisse `FAB_MIN_SCORE_NOTIFY` |
 | Le workflow ne se lance plus tout seul | GitHub met en pause les tâches planifiées d'un dépôt inactif depuis 60 jours ; ici chaque passage enregistre ses résultats, donc ça ne devrait pas arriver. Sinon : onglet Actions → **Enable workflow** |
 | Un passage est en rouge dans Actions | Clique dessus pour voir le journal ; les erreurs sont en français |

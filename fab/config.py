@@ -57,7 +57,13 @@ def _default_dashboard_url() -> str:
 class Settings:
     anthropic_api_key: str = field(default_factory=lambda: os.environ.get("ANTHROPIC_API_KEY", ""))
     discord_webhook_url: str = field(default_factory=lambda: os.environ.get("DISCORD_WEBHOOK_URL", ""))
-    dashboard_url: str = field(default_factory=lambda: _env("DASHBOARD_URL", _default_dashboard_url()))
+    # Tableau de bord en ligne (GitHub Pages, dépôt public uniquement) : activé avec FAB_PAGES=true.
+    pages_enabled: bool = field(default_factory=lambda: _env_bool("FAB_PAGES", False))
+    dashboard_url: str = field(
+        default_factory=lambda: _env("DASHBOARD_URL", _default_dashboard_url() if _env_bool("FAB_PAGES", False) else "")
+    )
+    # Joindre chaque matin le tableau de bord (fichier HTML autonome) au bilan Discord.
+    attach_dashboard: bool = field(default_factory=lambda: _env_bool("FAB_ATTACH_DASHBOARD", True))
 
     model: str = field(default_factory=lambda: _env("FAB_MODEL", "claude-opus-5-5"))
     # Premier tri bon marché : Haiku lit tous les titres et ne garde que les sujets prometteurs.

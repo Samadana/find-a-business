@@ -41,7 +41,7 @@ def test_daily_cost_limit_blocks_analysis(tmp_path):
 
 def test_notifies_only_above_threshold(tmp_path, monkeypatch):
     sent = []
-    monkeypatch.setattr(fab_main.notify, "send_ideas", lambda url, ideas, d, test=False: sent.extend(ideas) or len(ideas))
+    monkeypatch.setattr(fab_main.notify, "send_ideas", lambda url, ideas, d, test=False, **kw: sent.extend(ideas) or len(ideas))
     s = make_settings(tmp_path, min_score_notify=6.8, discord_webhook_url="https://discord/x")
     fab_main.run(s)
     assert [i["note_globale"] >= 6.8 for i in sent] == [True] * len(sent) and len(sent) == 1
@@ -78,8 +78,9 @@ def test_daily_guard(tmp_path, monkeypatch):
 
 def test_report_sent_even_without_ideas(tmp_path, monkeypatch):
     texts = []
-    monkeypatch.setattr(fab_main.notify, "send_text", lambda url, t: texts.append(t) or True)
+    monkeypatch.setattr(fab_main.notify, "_post", lambda url, payload, att=None: texts.append((payload["content"], att)) or True)
     s = make_settings(tmp_path, discord_webhook_url="https://discord/x", min_new_articles=1000)
     info = fab_main.run(s)
-    assert info["statut"] == "rien de neuf" and "Bilan du jour" in texts[0]
+    assert info["statut"] == "rien de neuf" and "Bilan du jour" in texts[0][0]
+    assert texts[0][1][0].endswith(".html") and b"window.FAB_DATA" in texts[0][1][1]
     assert json.loads(s.stats_path.read_text())["dernier_bilan"]

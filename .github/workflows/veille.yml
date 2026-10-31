@@ -27,9 +27,6 @@ jobs:
   veille:
     runs-on: ubuntu-latest
     timeout-minutes: 25
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -55,6 +52,7 @@ jobs:
           FAB_DAILY_COST_LIMIT_USD: ${{ vars.FAB_DAILY_COST_LIMIT_USD }}
           FAB_MAX_BUDGET_EUR: ${{ vars.FAB_MAX_BUDGET_EUR }}
           DASHBOARD_URL: ${{ vars.DASHBOARD_URL }}
+          FAB_PAGES: ${{ vars.FAB_PAGES }}
         run: python -m fab.main
 
       - name: Sauvegarder les résultats dans le dépôt
@@ -74,11 +72,21 @@ jobs:
           done
           echo "Échec du push" && exit 1
 
-      - name: Préparer le tableau de bord
-        uses: actions/upload-pages-artifact@v3
+  # Facultatif : tableau de bord en ligne via GitHub Pages (dépôt PUBLIC uniquement).
+  # À activer avec la variable FAB_PAGES = true. Par défaut, le tableau de bord est joint au bilan Discord.
+  pages:
+    needs: veille
+    if: ${{ vars.FAB_PAGES == 'true' }}
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: docs
-
-      - name: Publier le tableau de bord (GitHub Pages)
-        id: deploy
+      - id: deploy
         uses: actions/deploy-pages@v4
