@@ -67,7 +67,7 @@ L'application affiche toutes les idées en détail et te permet de les piloter :
 1. Ouvre <https://github.com/settings/personal-access-tokens/new>.
 2. **Token name** : `find-a-business-app` · **Expiration** : 1 an.
 3. **Repository access** : *Only select repositories* → choisis `find-a-business`.
-4. **Permissions** → *Repository permissions* : **Contents** = *Read and write*, **Variables** = *Read and write*. Ne touche à rien d'autre.
+4. **Permissions** → **+ Add permissions** (section *Repositories*) → coche **Contents** et **Variables**. Chacune s'ajoute en *Read-only* : clique sur ce menu et choisis **Read and write**, pour les deux. (*Metadata* passe seul en *Read-only*, c'est normal.) Ne touche à rien d'autre.
 5. **Generate token**, copie la clé (`github_pat_…`) et colle-la dans l'écran d'accueil de l'application → **Enregistrer et continuer**.
 
 Cette clé ne donne accès qu'à ce dépôt. Elle est enregistrée uniquement sur ton ordinateur (`%APPDATA%\FindABusiness`). Si un jour elle expire, crée-en une nouvelle et colle-la dans **Réglages → Clé GitHub**.
