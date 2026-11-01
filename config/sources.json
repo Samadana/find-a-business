@@ -1,81 +1,722 @@
 {
-  "_comment": "Sources d'actualités surveillées. Ajoute ou retire des flux librement. type = rss | gdelt. Les flux Google News couvrent chaque pays dans sa langue.",
-  "rss": [
-    {"name": "BBC World", "url": "https://feeds.bbci.co.uk/news/world/rss.xml", "lang": "en"},
-    {"name": "BBC Business", "url": "https://feeds.bbci.co.uk/news/business/rss.xml", "lang": "en"},
-    {"name": "BBC Technology", "url": "https://feeds.bbci.co.uk/news/technology/rss.xml", "lang": "en"},
-    {"name": "Al Jazeera", "url": "https://www.aljazeera.com/xml/rss/all.xml", "lang": "en"},
-    {"name": "The Guardian World", "url": "https://www.theguardian.com/world/rss", "lang": "en"},
-    {"name": "The Guardian Business", "url": "https://www.theguardian.com/uk/business/rss", "lang": "en"},
-    {"name": "NPR World", "url": "https://feeds.npr.org/1004/rss.xml", "lang": "en"},
-    {"name": "CNBC Top News", "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=100003114", "lang": "en"},
-    {"name": "TechCrunch", "url": "https://techcrunch.com/feed/", "lang": "en"},
-    {"name": "The Verge", "url": "https://www.theverge.com/rss/index.xml", "lang": "en"},
-    {"name": "Hacker News", "url": "https://hnrss.org/frontpage", "lang": "en"},
-    {"name": "Le Monde International", "url": "https://www.lemonde.fr/international/rss_full.xml", "lang": "fr"},
-    {"name": "Le Monde Économie", "url": "https://www.lemonde.fr/economie/rss_full.xml", "lang": "fr"},
-    {"name": "France 24", "url": "https://www.france24.com/fr/rss", "lang": "fr"},
-    {"name": "Franceinfo", "url": "https://www.francetvinfo.fr/titres.rss", "lang": "fr"},
-    {"name": "DW (allemand)", "url": "https://rss.dw.com/xml/rss-de-all", "lang": "de"},
-    {"name": "Tagesschau", "url": "https://www.tagesschau.de/xml/rss2/", "lang": "de"},
-    {"name": "El País", "url": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada", "lang": "es"},
-    {"name": "BBC Mundo", "url": "https://feeds.bbci.co.uk/mundo/rss.xml", "lang": "es"},
-    {"name": "BBC Brasil", "url": "https://feeds.bbci.co.uk/portuguese/rss.xml", "lang": "pt"},
-    {"name": "BBC Arabic", "url": "https://feeds.bbci.co.uk/arabic/rss.xml", "lang": "ar"},
-    {"name": "BBC Russian", "url": "https://feeds.bbci.co.uk/russian/rss.xml", "lang": "ru"},
-    {"name": "BBC Hindi", "url": "https://feeds.bbci.co.uk/hindi/rss.xml", "lang": "hi"},
-    {"name": "BBC Chinese", "url": "https://feeds.bbci.co.uk/zhongwen/simp/rss.xml", "lang": "zh"},
-    {"name": "BBC Turkish", "url": "https://feeds.bbci.co.uk/turkce/rss.xml", "lang": "tr"},
-    {"name": "BBC Ukrainian", "url": "https://feeds.bbci.co.uk/ukrainian/rss.xml", "lang": "uk"},
-    {"name": "NHK World", "url": "https://www3.nhk.or.jp/rss/news/cat0.xml", "lang": "ja"},
-    {"name": "Times of India", "url": "https://timesofindia.indiatimes.com/rssfeedstopstories.cms", "lang": "en"},
-    {"name": "South China Morning Post", "url": "https://www.scmp.com/rss/91/feed", "lang": "en"},
-    {"name": "ANSA", "url": "https://www.ansa.it/sito/notizie/topnews/topnews_rss.xml", "lang": "it"}
-  ],
-  "google_news_editions": [
-    {"hl": "fr", "gl": "FR", "ceid": "FR:fr"},
-    {"hl": "en-US", "gl": "US", "ceid": "US:en"},
-    {"hl": "en-GB", "gl": "GB", "ceid": "GB:en"},
-    {"hl": "en-IN", "gl": "IN", "ceid": "IN:en"},
-    {"hl": "en-NG", "gl": "NG", "ceid": "NG:en"},
-    {"hl": "en-ZA", "gl": "ZA", "ceid": "ZA:en"},
-    {"hl": "en-AU", "gl": "AU", "ceid": "AU:en"},
-    {"hl": "fr-CA", "gl": "CA", "ceid": "CA:fr"},
-    {"hl": "de", "gl": "DE", "ceid": "DE:de"},
-    {"hl": "es", "gl": "ES", "ceid": "ES:es"},
-    {"hl": "es-419", "gl": "MX", "ceid": "MX:es-419"},
-    {"hl": "es-419", "gl": "AR", "ceid": "AR:es-419"},
-    {"hl": "pt-BR", "gl": "BR", "ceid": "BR:pt-419"},
-    {"hl": "pt-PT", "gl": "PT", "ceid": "PT:pt-150"},
-    {"hl": "it", "gl": "IT", "ceid": "IT:it"},
-    {"hl": "nl", "gl": "NL", "ceid": "NL:nl"},
-    {"hl": "pl", "gl": "PL", "ceid": "PL:pl"},
-    {"hl": "sv", "gl": "SE", "ceid": "SE:sv"},
-    {"hl": "uk", "gl": "UA", "ceid": "UA:uk"},
-    {"hl": "ru", "gl": "RU", "ceid": "RU:ru"},
-    {"hl": "tr", "gl": "TR", "ceid": "TR:tr"},
-    {"hl": "ar", "gl": "EG", "ceid": "EG:ar"},
-    {"hl": "ar", "gl": "SA", "ceid": "SA:ar"},
-    {"hl": "he", "gl": "IL", "ceid": "IL:he"},
-    {"hl": "hi", "gl": "IN", "ceid": "IN:hi"},
-    {"hl": "id", "gl": "ID", "ceid": "ID:id"},
-    {"hl": "vi", "gl": "VN", "ceid": "VN:vi"},
-    {"hl": "th", "gl": "TH", "ceid": "TH:th"},
-    {"hl": "ja", "gl": "JP", "ceid": "JP:ja"},
-    {"hl": "ko", "gl": "KR", "ceid": "KR:ko"},
-    {"hl": "zh-TW", "gl": "TW", "ceid": "TW:zh-Hant"}
-  ],
-  "google_news_searches": [
-    {"q": "service shutting down OR discontinued OR \"end of support\" when:1d", "hl": "en-US", "gl": "US", "ceid": "US:en"},
-    {"q": "shortage OR \"sold out\" OR \"price surge\" when:1d", "hl": "en-US", "gl": "US", "ceid": "US:en"},
-    {"q": "new regulation OR \"new law\" OR ban businesses when:1d", "hl": "en-US", "gl": "US", "ceid": "US:en"},
-    {"q": "fermeture OR \"fin du service\" OR pénurie OR \"nouvelle loi\" when:1d", "hl": "fr", "gl": "FR", "ceid": "FR:fr"},
-    {"q": "Schließung OR Engpass OR \"neues Gesetz\" when:1d", "hl": "de", "gl": "DE", "ceid": "DE:de"},
-    {"q": "cierre OR escasez OR \"nueva ley\" when:1d", "hl": "es", "gl": "ES", "ceid": "ES:es"}
-  ],
-  "gdelt_queries": [
-    "(shortage OR shutdown OR \"shutting down\" OR discontinued OR ban OR outage OR recall)",
-    "(war OR evacuation OR blackout OR earthquake OR flood OR pandemic OR epidemic)",
-    "(\"new law\" OR regulation OR tariff OR subsidy OR \"price surge\" OR strike)"
-  ]
+ "_comment": "Sources d'actualités surveillées. Ajoute ou retire des flux librement. type = rss | gdelt. Les flux Google News couvrent chaque pays dans sa langue.",
+ "rss": [
+  {
+   "name": "BBC World",
+   "url": "https://feeds.bbci.co.uk/news/world/rss.xml",
+   "lang": "en",
+   "region": "monde"
+  },
+  {
+   "name": "BBC Business",
+   "url": "https://feeds.bbci.co.uk/news/business/rss.xml",
+   "lang": "en",
+   "region": "monde"
+  },
+  {
+   "name": "BBC Technology",
+   "url": "https://feeds.bbci.co.uk/news/technology/rss.xml",
+   "lang": "en",
+   "region": "monde"
+  },
+  {
+   "name": "Al Jazeera",
+   "url": "https://www.aljazeera.com/xml/rss/all.xml",
+   "lang": "en",
+   "region": "moyen-orient"
+  },
+  {
+   "name": "The Guardian World",
+   "url": "https://www.theguardian.com/world/rss",
+   "lang": "en",
+   "region": "monde"
+  },
+  {
+   "name": "The Guardian Business",
+   "url": "https://www.theguardian.com/uk/business/rss",
+   "lang": "en",
+   "region": "europe"
+  },
+  {
+   "name": "NPR World",
+   "url": "https://feeds.npr.org/1004/rss.xml",
+   "lang": "en",
+   "region": "monde"
+  },
+  {
+   "name": "CNBC Top News",
+   "url": "https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=100003114",
+   "lang": "en",
+   "region": "amerique-nord"
+  },
+  {
+   "name": "TechCrunch",
+   "url": "https://techcrunch.com/feed/",
+   "lang": "en",
+   "region": "business"
+  },
+  {
+   "name": "The Verge",
+   "url": "https://www.theverge.com/rss/index.xml",
+   "lang": "en",
+   "region": "business"
+  },
+  {
+   "name": "Hacker News",
+   "url": "https://hnrss.org/frontpage",
+   "lang": "en",
+   "region": "business"
+  },
+  {
+   "name": "Le Monde International",
+   "url": "https://www.lemonde.fr/international/rss_full.xml",
+   "lang": "fr",
+   "region": "europe"
+  },
+  {
+   "name": "Le Monde Économie",
+   "url": "https://www.lemonde.fr/economie/rss_full.xml",
+   "lang": "fr",
+   "region": "europe"
+  },
+  {
+   "name": "France 24",
+   "url": "https://www.france24.com/fr/rss",
+   "lang": "fr",
+   "region": "europe"
+  },
+  {
+   "name": "Franceinfo",
+   "url": "https://www.francetvinfo.fr/titres.rss",
+   "lang": "fr",
+   "region": "europe"
+  },
+  {
+   "name": "DW (allemand)",
+   "url": "https://rss.dw.com/xml/rss-de-all",
+   "lang": "de",
+   "region": "europe"
+  },
+  {
+   "name": "Tagesschau",
+   "url": "https://www.tagesschau.de/xml/rss2/",
+   "lang": "de",
+   "region": "europe"
+  },
+  {
+   "name": "El País",
+   "url": "https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada",
+   "lang": "es",
+   "region": "europe"
+  },
+  {
+   "name": "BBC Mundo",
+   "url": "https://feeds.bbci.co.uk/mundo/rss.xml",
+   "lang": "es",
+   "region": "amerique-latine"
+  },
+  {
+   "name": "BBC Brasil",
+   "url": "https://feeds.bbci.co.uk/portuguese/rss.xml",
+   "lang": "pt",
+   "region": "amerique-latine"
+  },
+  {
+   "name": "BBC Arabic",
+   "url": "https://feeds.bbci.co.uk/arabic/rss.xml",
+   "lang": "ar",
+   "region": "moyen-orient"
+  },
+  {
+   "name": "BBC Russian",
+   "url": "https://feeds.bbci.co.uk/russian/rss.xml",
+   "lang": "ru",
+   "region": "europe"
+  },
+  {
+   "name": "BBC Hindi",
+   "url": "https://feeds.bbci.co.uk/hindi/rss.xml",
+   "lang": "hi",
+   "region": "asie"
+  },
+  {
+   "name": "BBC Chinese",
+   "url": "https://feeds.bbci.co.uk/zhongwen/simp/rss.xml",
+   "lang": "zh",
+   "region": "asie"
+  },
+  {
+   "name": "BBC Turkish",
+   "url": "https://feeds.bbci.co.uk/turkce/rss.xml",
+   "lang": "tr",
+   "region": "moyen-orient"
+  },
+  {
+   "name": "BBC Ukrainian",
+   "url": "https://feeds.bbci.co.uk/ukrainian/rss.xml",
+   "lang": "uk",
+   "region": "europe"
+  },
+  {
+   "name": "NHK World",
+   "url": "https://www3.nhk.or.jp/rss/news/cat0.xml",
+   "lang": "ja",
+   "region": "asie"
+  },
+  {
+   "name": "Times of India",
+   "url": "https://timesofindia.indiatimes.com/rssfeedstopstories.cms",
+   "lang": "en",
+   "region": "asie"
+  },
+  {
+   "name": "South China Morning Post",
+   "url": "https://www.scmp.com/rss/91/feed",
+   "lang": "en",
+   "region": "asie"
+  },
+  {
+   "name": "ANSA",
+   "url": "https://www.ansa.it/sito/notizie/topnews/topnews_rss.xml",
+   "lang": "it",
+   "region": "europe"
+  },
+  {
+   "name": "BBC Afrique (régions)",
+   "url": "https://feeds.bbci.co.uk/news/world/africa/rss.xml",
+   "lang": "en",
+   "region": "afrique"
+  },
+  {
+   "name": "BBC Afrique (français)",
+   "url": "https://www.bbc.com/afrique/index.xml",
+   "lang": "fr",
+   "region": "afrique"
+  },
+  {
+   "name": "AllAfrica",
+   "url": "https://allafrica.com/tools/headlines/rdf/latest/headlines.rdf",
+   "lang": "en",
+   "region": "afrique"
+  },
+  {
+   "name": "Jeune Afrique",
+   "url": "https://www.jeuneafrique.com/feed/",
+   "lang": "fr",
+   "region": "afrique"
+  },
+  {
+   "name": "Premium Times (Nigeria)",
+   "url": "https://www.premiumtimesng.com/feed",
+   "lang": "en",
+   "region": "afrique"
+  },
+  {
+   "name": "Daily Nation (Kenya)",
+   "url": "https://nation.africa/kenya/rss.xml",
+   "lang": "en",
+   "region": "afrique"
+  },
+  {
+   "name": "News24 (Afrique du Sud)",
+   "url": "https://feeds.24.com/articles/news24/TopStories/rss",
+   "lang": "en",
+   "region": "afrique"
+  },
+  {
+   "name": "TechCabal (tech africaine)",
+   "url": "https://techcabal.com/feed/",
+   "lang": "en",
+   "region": "afrique"
+  },
+  {
+   "name": "BBC Swahili",
+   "url": "https://www.bbc.com/swahili/index.xml",
+   "lang": "sw",
+   "region": "afrique"
+  },
+  {
+   "name": "BBC Hausa",
+   "url": "https://www.bbc.com/hausa/index.xml",
+   "lang": "ha",
+   "region": "afrique"
+  },
+  {
+   "name": "BBC Amérique latine",
+   "url": "https://feeds.bbci.co.uk/news/world/latin_america/rss.xml",
+   "lang": "en",
+   "region": "amerique-latine"
+  },
+  {
+   "name": "Folha (Brésil, économie)",
+   "url": "https://feeds.folha.uol.com.br/mercado/rss091.xml",
+   "lang": "pt",
+   "region": "amerique-latine"
+  },
+  {
+   "name": "Clarín (Argentine, économie)",
+   "url": "https://www.clarin.com/rss/economia/",
+   "lang": "es",
+   "region": "amerique-latine"
+  },
+  {
+   "name": "El Universal (Mexique)",
+   "url": "https://www.eluniversal.com.mx/rss.xml",
+   "lang": "es",
+   "region": "amerique-latine"
+  },
+  {
+   "name": "El Tiempo (Colombie)",
+   "url": "https://www.eltiempo.com/rss/economia.xml",
+   "lang": "es",
+   "region": "amerique-latine"
+  },
+  {
+   "name": "LABS (tech Amérique latine)",
+   "url": "https://labsnews.com/en/feed/",
+   "lang": "en",
+   "region": "amerique-latine"
+  },
+  {
+   "name": "BBC Asie",
+   "url": "https://feeds.bbci.co.uk/news/world/asia/rss.xml",
+   "lang": "en",
+   "region": "asie"
+  },
+  {
+   "name": "Straits Times (Singapour)",
+   "url": "https://www.straitstimes.com/news/asia/rss.xml",
+   "lang": "en",
+   "region": "asie"
+  },
+  {
+   "name": "CNA (Singapour, business)",
+   "url": "https://www.channelnewsasia.com/api/v1/rss-outbound-feed?_format=xml&category=6936",
+   "lang": "en",
+   "region": "asie"
+  },
+  {
+   "name": "Nikkei Asia",
+   "url": "https://asia.nikkei.com/rss/feed/nar",
+   "lang": "en",
+   "region": "asie"
+  },
+  {
+   "name": "Japan Times",
+   "url": "https://www.japantimes.co.jp/feed/",
+   "lang": "en",
+   "region": "asie"
+  },
+  {
+   "name": "Korea Herald",
+   "url": "https://www.koreaherald.com/rss/020000000000.xml",
+   "lang": "en",
+   "region": "asie"
+  },
+  {
+   "name": "The Hindu (Inde, business)",
+   "url": "https://www.thehindu.com/business/feeder/default.rss",
+   "lang": "en",
+   "region": "asie"
+  },
+  {
+   "name": "Inc42 (startups Inde)",
+   "url": "https://inc42.com/feed/",
+   "lang": "en",
+   "region": "asie"
+  },
+  {
+   "name": "Rappler (Philippines)",
+   "url": "https://www.rappler.com/feed/",
+   "lang": "en",
+   "region": "asie"
+  },
+  {
+   "name": "VnExpress (Vietnam)",
+   "url": "https://e.vnexpress.net/rss/business.rss",
+   "lang": "en",
+   "region": "asie"
+  },
+  {
+   "name": "Bangkok Post",
+   "url": "https://www.bangkokpost.com/rss/data/business.xml",
+   "lang": "en",
+   "region": "asie"
+  },
+  {
+   "name": "Dawn (Pakistan)",
+   "url": "https://www.dawn.com/feeds/business",
+   "lang": "en",
+   "region": "asie"
+  },
+  {
+   "name": "Tech in Asia",
+   "url": "https://www.techinasia.com/feed",
+   "lang": "en",
+   "region": "asie"
+  },
+  {
+   "name": "ABC News (Australie)",
+   "url": "https://www.abc.net.au/news/feed/51120/rss.xml",
+   "lang": "en",
+   "region": "oceanie"
+  },
+  {
+   "name": "RNZ (Nouvelle-Zélande)",
+   "url": "https://www.rnz.co.nz/rss/business.xml",
+   "lang": "en",
+   "region": "oceanie"
+  },
+  {
+   "name": "BBC Moyen-Orient",
+   "url": "https://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
+   "lang": "en",
+   "region": "moyen-orient"
+  },
+  {
+   "name": "Arab News",
+   "url": "https://www.arabnews.com/rss.xml",
+   "lang": "en",
+   "region": "moyen-orient"
+  },
+  {
+   "name": "Gulf News",
+   "url": "https://gulfnews.com/rss",
+   "lang": "en",
+   "region": "moyen-orient"
+  },
+  {
+   "name": "NPR Business",
+   "url": "https://feeds.npr.org/1006/rss.xml",
+   "lang": "en",
+   "region": "amerique-nord"
+  },
+  {
+   "name": "CBC (Canada, business)",
+   "url": "https://www.cbc.ca/webfeed/rss/rss-business",
+   "lang": "en",
+   "region": "amerique-nord"
+  },
+  {
+   "name": "Rest of World (tech mondiale)",
+   "url": "https://restofworld.org/feed/latest/",
+   "lang": "en",
+   "region": "business"
+  },
+  {
+   "name": "Product Hunt (nouveaux produits)",
+   "url": "https://www.producthunt.com/feed",
+   "lang": "en",
+   "region": "business"
+  },
+  {
+   "name": "Federal Register (nouvelles règles US)",
+   "url": "https://www.federalregister.gov/api/v1/documents.rss?conditions%5Bsignificant%5D=1",
+   "lang": "en",
+   "region": "amerique-nord"
+  },
+  {
+   "name": "EUR-Lex (Journal officiel UE)",
+   "url": "https://eur-lex.europa.eu/EN/display-feed.rss?rssId=162",
+   "lang": "en",
+   "region": "europe"
+  }
+ ],
+ "google_news_editions": [
+  {
+   "hl": "fr",
+   "gl": "FR",
+   "ceid": "FR:fr"
+  },
+  {
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en"
+  },
+  {
+   "hl": "en-GB",
+   "gl": "GB",
+   "ceid": "GB:en"
+  },
+  {
+   "hl": "en-IN",
+   "gl": "IN",
+   "ceid": "IN:en"
+  },
+  {
+   "hl": "en-NG",
+   "gl": "NG",
+   "ceid": "NG:en"
+  },
+  {
+   "hl": "en-ZA",
+   "gl": "ZA",
+   "ceid": "ZA:en"
+  },
+  {
+   "hl": "en-AU",
+   "gl": "AU",
+   "ceid": "AU:en"
+  },
+  {
+   "hl": "fr-CA",
+   "gl": "CA",
+   "ceid": "CA:fr"
+  },
+  {
+   "hl": "de",
+   "gl": "DE",
+   "ceid": "DE:de"
+  },
+  {
+   "hl": "es",
+   "gl": "ES",
+   "ceid": "ES:es"
+  },
+  {
+   "hl": "es-419",
+   "gl": "MX",
+   "ceid": "MX:es-419"
+  },
+  {
+   "hl": "es-419",
+   "gl": "AR",
+   "ceid": "AR:es-419"
+  },
+  {
+   "hl": "pt-BR",
+   "gl": "BR",
+   "ceid": "BR:pt-419"
+  },
+  {
+   "hl": "pt-PT",
+   "gl": "PT",
+   "ceid": "PT:pt-150"
+  },
+  {
+   "hl": "it",
+   "gl": "IT",
+   "ceid": "IT:it"
+  },
+  {
+   "hl": "nl",
+   "gl": "NL",
+   "ceid": "NL:nl"
+  },
+  {
+   "hl": "pl",
+   "gl": "PL",
+   "ceid": "PL:pl"
+  },
+  {
+   "hl": "sv",
+   "gl": "SE",
+   "ceid": "SE:sv"
+  },
+  {
+   "hl": "uk",
+   "gl": "UA",
+   "ceid": "UA:uk"
+  },
+  {
+   "hl": "ru",
+   "gl": "RU",
+   "ceid": "RU:ru"
+  },
+  {
+   "hl": "tr",
+   "gl": "TR",
+   "ceid": "TR:tr"
+  },
+  {
+   "hl": "ar",
+   "gl": "EG",
+   "ceid": "EG:ar"
+  },
+  {
+   "hl": "ar",
+   "gl": "SA",
+   "ceid": "SA:ar"
+  },
+  {
+   "hl": "he",
+   "gl": "IL",
+   "ceid": "IL:he"
+  },
+  {
+   "hl": "hi",
+   "gl": "IN",
+   "ceid": "IN:hi"
+  },
+  {
+   "hl": "id",
+   "gl": "ID",
+   "ceid": "ID:id"
+  },
+  {
+   "hl": "vi",
+   "gl": "VN",
+   "ceid": "VN:vi"
+  },
+  {
+   "hl": "th",
+   "gl": "TH",
+   "ceid": "TH:th"
+  },
+  {
+   "hl": "ja",
+   "gl": "JP",
+   "ceid": "JP:ja"
+  },
+  {
+   "hl": "ko",
+   "gl": "KR",
+   "ceid": "KR:ko"
+  },
+  {
+   "hl": "zh-TW",
+   "gl": "TW",
+   "ceid": "TW:zh-Hant"
+  }
+ ],
+ "google_news_searches": [
+  {
+   "q": "service shutting down OR discontinued OR \"end of support\" when:1d",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en"
+  },
+  {
+   "q": "shortage OR \"sold out\" OR \"price surge\" when:1d",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en"
+  },
+  {
+   "q": "new regulation OR \"new law\" OR ban businesses when:1d",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en"
+  },
+  {
+   "q": "fermeture OR \"fin du service\" OR pénurie OR \"nouvelle loi\" when:1d",
+   "hl": "fr",
+   "gl": "FR",
+   "ceid": "FR:fr"
+  },
+  {
+   "q": "Schließung OR Engpass OR \"neues Gesetz\" when:1d",
+   "hl": "de",
+   "gl": "DE",
+   "ceid": "DE:de"
+  },
+  {
+   "q": "cierre OR escasez OR \"nueva ley\" when:1d",
+   "hl": "es",
+   "gl": "ES",
+   "ceid": "ES:es"
+  },
+  {
+   "q": "fechamento OR escassez OR \"nova lei\" OR alta de preços when:1d",
+   "hl": "pt-BR",
+   "gl": "BR",
+   "ceid": "BR:pt-419"
+  },
+  {
+   "q": "cierre OR escasez OR \"nueva ley\" OR aumento de precios when:1d",
+   "hl": "es-419",
+   "gl": "MX",
+   "ceid": "MX:es-419"
+  },
+  {
+   "q": "shortage OR shutdown OR \"new rule\" OR price hike when:1d",
+   "hl": "en-IN",
+   "gl": "IN",
+   "ceid": "IN:en"
+  },
+  {
+   "q": "shortage OR shutdown OR \"new law\" OR price hike when:1d",
+   "hl": "en-NG",
+   "gl": "NG",
+   "ceid": "NG:en"
+  },
+  {
+   "q": "shortage OR \"new regulation\" OR price surge when:1d",
+   "hl": "en-ZA",
+   "gl": "ZA",
+   "ceid": "ZA:en"
+  },
+  {
+   "q": "pénurie OR fermeture OR \"nouvelle loi\" when:1d",
+   "hl": "fr",
+   "gl": "SN",
+   "ceid": "SN:fr"
+  },
+  {
+   "q": "نقص OR إغلاق OR \"قانون جديد\" OR ارتفاع الأسعار when:1d",
+   "hl": "ar",
+   "gl": "EG",
+   "ceid": "EG:ar"
+  },
+  {
+   "q": "品薄 OR 終了 OR 新法 OR 値上げ when:1d",
+   "hl": "ja",
+   "gl": "JP",
+   "ceid": "JP:ja"
+  },
+  {
+   "q": "품귀 OR 서비스 종료 OR 규제 OR 가격 인상 when:1d",
+   "hl": "ko",
+   "gl": "KR",
+   "ceid": "KR:ko"
+  },
+  {
+   "q": "kelangkaan OR penutupan OR \"aturan baru\" OR kenaikan harga when:1d",
+   "hl": "id",
+   "gl": "ID",
+   "ceid": "ID:id"
+  },
+  {
+   "q": "\"shutting down\" OR \"sunsetting\" OR \"end of life\" app OR service when:2d",
+   "hl": "en-US",
+   "gl": "US",
+   "ceid": "US:en"
+  }
+ ],
+ "gdelt_queries": [
+  "(shortage OR shutdown OR \"shutting down\" OR discontinued OR ban OR outage OR recall)",
+  "(war OR evacuation OR blackout OR earthquake OR flood OR pandemic OR epidemic)",
+  "(\"new law\" OR regulation OR tariff OR subsidy OR \"price surge\" OR strike)",
+  "(shortage OR shutdown OR \"new law\" OR \"price surge\" OR ban) (sourcelang:spanish OR sourcelang:portuguese)",
+  "(shortage OR shutdown OR \"new law\" OR \"price surge\" OR ban) (sourcelang:arabic OR sourcelang:turkish OR sourcelang:persian)",
+  "(shortage OR shutdown OR \"new law\" OR \"price surge\" OR ban) (sourcelang:chinese OR sourcelang:japanese OR sourcelang:korean)",
+  "(shortage OR shutdown OR \"new law\" OR \"price surge\" OR ban) (sourcelang:hindi OR sourcelang:indonesian OR sourcelang:vietnamese OR sourcelang:thai)",
+  "(shortage OR shutdown OR \"new law\" OR \"price surge\" OR ban) (sourcecountry:nigeria OR sourcecountry:kenya OR sourcecountry:southafrica OR sourcecountry:ghana OR sourcecountry:egypt)"
+ ],
+ "google_trends": [
+  "US",
+  "GB",
+  "FR",
+  "DE",
+  "ES",
+  "IT",
+  "BR",
+  "MX",
+  "AR",
+  "IN",
+  "ID",
+  "JP",
+  "KR",
+  "NG",
+  "ZA",
+  "KE",
+  "EG",
+  "SA",
+  "TR",
+  "AU",
+  "CA",
+  "PH",
+  "VN",
+  "TH"
+ ]
 }

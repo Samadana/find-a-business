@@ -117,3 +117,10 @@ def test_forbidden_match_ignores_protective_wording():
     assert forbidden_match("outil pour détecter la contrefaçon") is None
     assert forbidden_match("vendre des produits de contrefaçon") == "contrefaçon"
     assert forbidden_match("une arnaque au faux remboursement") == "arnaque"
+
+
+def test_resolve_sources_adds_other_outlets():
+    from fab.ideas import resolve_sources
+    items = {"A1": {"titre": "t", "url": "u1", "source": "BBC", "langue": "en", "date": "d",
+                    "autres_sources": [{"titre": "t2", "url": "u2", "source": "Reuters", "langue": "en", "date": "d"}]}}
+    assert [s["url"] for s in resolve_sources(["A1"], items)] == ["u1", "u2"]

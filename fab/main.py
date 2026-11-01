@@ -6,6 +6,7 @@
 from __future__ import annotations
 
 import json
+from collections import Counter
 import logging
 import sys
 from datetime import datetime, timedelta, timezone
@@ -17,6 +18,7 @@ from . import notify
 from .analyze import analyze, triage
 from .collect import Article, collect_all, filter_recent
 from .config import MODEL_PRICES_USD, ROOT, Settings
+from .corroborate import corroborate
 from .ideas import archive_old, now_iso, process_analysis, recent_ideas_for_prompt
 from .report import build_standalone_dashboard
 from .selection import merge_triage, select_for_analysis
@@ -121,6 +123,7 @@ def run(settings: Settings | None = None) -> dict:
         refs = [c["ref"] for c in candidates]
     items = merge_triage(candidates, refs, settings.always_keep, settings.max_articles_per_run)
     run_info["sujets_analyses"] = len(items)
+    run_info["regions_analysees"] = dict(Counter(it.get("region", "monde") for it in items).most_common())
 
     # 3. Analyse par Claude
     try:
@@ -156,6 +159,11 @@ def run(settings: Settings | None = None) -> dict:
     new_ideas, newly_rejected, reinforced = process_analysis(result.data, items, ideas, settings.max_budget_eur)
     rejected = (newly_rejected + rejected)[:200]
     run_info.update(idees_nouvelles=len(new_ideas), idees_ecartees=len(newly_rejected), renforcements=reinforced)
+    if new_ideas and not settings.dry_run:
+        try:
+            run_info["sources_confirmation"] = corroborate(new_ideas, settings.http_timeout)
+        except Exception as exc:  # la vérification est un bonus : elle ne doit jamais faire échouer le bilan
+            log.warning("Recherche de sources supplémentaires impossible : %s", exc)
 
     # Les articles analysés ne seront plus renvoyés à Claude.
     for it in items:

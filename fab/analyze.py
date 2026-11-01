@@ -18,6 +18,11 @@ CATEGORIES = ["e-commerce", "saas", "site-contenu", "marketplace", "outil-web", 
 SYSTEM_PROMPT = """Tu es un analyste d'opportunités business pour un entrepreneur francophone solo.
 Ton travail : lire un lot d'actualités mondiales (toutes langues) et repérer les opportunités de BUSINESS WEB rapides à lancer que ces événements créent.
 
+Le lot couvre toutes les régions du monde (champ « region »). Ne te limite pas à l'Europe : un événement en Afrique, en Asie, en Amérique latine
+ou au Moyen-Orient peut créer une opportunité sur place (site dans la langue locale, clientèle locale ou diaspora) ou ailleurs.
+Le site peut être en anglais, espagnol, portugais, arabe, etc., tant que le porteur peut le lancer et le vendre en ligne.
+Cherche activement la variété géographique des idées.
+
 Exemples du type d'idée recherchée :
 - un conflit éclate -> e-shop de kits de survie / matériel d'autonomie pour les pays voisins inquiets ;
 - un grand site ou service ferme -> site de remplacement, outil de migration, comparatif d'alternatives ;
@@ -51,10 +56,13 @@ Notes de 0 à 10, TOUJOURS dans le sens « 10 = favorable pour l'entrepreneur »
 - risque : risques juridiques, financiers, de réputation (10 = très faible risque) ;
 - urgence : fenêtre d'opportunité (10 = à lancer dans les jours qui viennent, sinon trop tard) ;
 - durabilite : l'activité tiendra-t-elle après l'actualité (10 = besoin durable) ;
-- fiabilite : solidité de l'info et de la demande (10 = événement confirmé par plusieurs sources, demande évidente) ;
+- fiabilite : solidité de l'info et de la demande (10 = événement confirmé par plusieurs médias indépendants, demande évidente).
+  Un sujet couvert par un seul média (nb_medias = 1, sans autres_sources) ne peut pas dépasser 6 en fiabilité ;
 - concurrence : place disponible (10 = presque aucun concurrent).
 
-Utilise UNIQUEMENT les références d'articles (A1, A2...) fournies dans « sources ». Rédige tout en français.
+Utilise UNIQUEMENT les références d'articles (A1, A2...) fournies dans « sources ». Cite toutes les références qui parlent du même événement. Rédige tout en français.
+« requete_verification » : 3 à 8 mots-clés en ANGLAIS, précis, qui permettent de retrouver d'autres articles sur l'événement déclencheur
+dans Google News (noms propres, lieu, objet : ex. « Binance hack North Korea withdrawals »). Pas de guillemets ni d'opérateurs.
 
 L'entrepreneur lit chaque idée en détail pour décider s'il se lance : sois complet, précis et concret (chiffres, lieux, dates, noms quand les articles les donnent), sans remplissage.
 - « pitch » : 1 à 2 phrases d'accroche.
@@ -102,6 +110,7 @@ def idea_schema() -> dict:
                 "additionalProperties": False,
             },
             "budget_detail": {"type": "array", "items": {"type": "string"}},
+            "requete_verification": {"type": "string"},
             "concurrents": {"type": "array", "items": {"type": "string"}},
             "analyse": {"type": "string"},
             "etapes": {"type": "array", "items": {"type": "string"}},
@@ -117,7 +126,7 @@ def idea_schema() -> dict:
         },
         "required": [
             "titre", "pitch", "evenement_declencheur", "contexte_declencheur", "pourquoi_maintenant",
-            "description_detaillee", "notes_explications", "budget_detail", "concurrents", "categorie", "cible", "pays_cibles", "langues",
+            "description_detaillee", "notes_explications", "budget_detail", "requete_verification", "concurrents", "categorie", "cible", "pays_cibles", "langues",
             "modele_revenus", "budget_estime_eur", "delai_lancement_jours", "duree_opportunite",
             "notes", "analyse", "etapes", "risques", "mots_cles", "sources", "ethique",
         ],
@@ -157,7 +166,10 @@ class AnalysisResult:
 
 def build_user_message(items: list[dict], existing: list[dict]) -> str:
     articles = [
-        {k: it[k] for k in ("ref", "titre", "resume", "langue", "pays", "source", "date", "nb_medias") if it.get(k)}
+        {
+            **{k: it[k] for k in ("ref", "titre", "resume", "langue", "pays", "region", "source", "date", "nb_medias") if it.get(k)},
+            **({"autres_sources": [o["source"] for o in it["autres_sources"]]} if it.get("autres_sources") else {}),
+        }
         for it in items
     ]
     known = [{"id": i["id"], "titre": i["titre"], "pitch": i["pitch"][:120]} for i in existing]
@@ -228,6 +240,7 @@ TRIAGE_PROMPT = """Tu fais le PREMIER TRI d'actualités mondiales (toutes langue
 Un modèle plus puissant analysera ensuite en détail les sujets que tu retiens. Ton rôle est seulement d'écarter le bruit évident (sport, faits divers isolés, people, résultats d'élections sans conséquence pratique, nécrologies...).
 
 Règle d'or : en cas de doute, GARDE le sujet. Il vaut mieux garder un sujet inutile que rater une opportunité.
+Garde des sujets de TOUTES les régions du monde (Afrique, Asie, Amérique latine, Moyen-Orient, Océanie, Amérique du Nord, Europe) : ne privilégie pas l'Europe.
 Retiens au maximum {max_keep} références, classées de la plus prometteuse à la moins prometteuse. Réponds uniquement avec le JSON demandé."""
 
 
@@ -245,7 +258,7 @@ def triage(settings: Settings, items: list[dict]) -> TriageResult:
 
     client = anthropic.Anthropic(api_key=settings.anthropic_api_key, max_retries=3, timeout=300)
     lines = "\n".join(
-        f"{it['ref']} | {it['titre']}" + (f" | {it['resume'][:120]}" if it.get("resume") else "")
+        f"{it['ref']} | {it.get('region', '?')} | {it['titre']}" + (f" | {it['resume'][:120]}" if it.get("resume") else "")
         + (f" | {it['nb_medias']} médias" if it.get("nb_medias", 1) > 1 else "")
         for it in items
     )
@@ -260,7 +273,7 @@ def triage(settings: Settings, items: list[dict]) -> TriageResult:
         max_tokens=16000,
         system=TRIAGE_PROMPT.replace("{max_keep}", str(settings.triage_keep)),
         output_config={"effort": "low", "format": {"type": "json_schema", "schema": schema}},
-        messages=[{"role": "user", "content": "Sujets (référence | titre | résumé) :\n" + lines}],
+        messages=[{"role": "user", "content": "Sujets (référence | région | titre | résumé) :\n" + lines}],
     ) as stream:
         response = stream.get_final_message()
     if response.stop_reason in ("refusal", "max_tokens"):

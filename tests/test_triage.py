@@ -39,7 +39,7 @@ def test_triage_filters_unknown_refs_and_duplicates(monkeypatch):
     res = an.triage(s, items)
     assert res.refs == ["A2", "A1"] and res.input_tokens == 1000
     assert captured["model"] == "claude-haiku-5-5"
-    assert "A1 | x | 3 médias" in captured["messages"][0]["content"]
+    assert "A1 | ? | x | 3 médias" in captured["messages"][0]["content"]
 
 
 def test_triage_skipped_when_few_items():

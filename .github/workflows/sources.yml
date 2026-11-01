@@ -1,0 +1,21 @@
+name: Vérifier les sources (gratuit)
+
+# Lancement manuel uniquement. N'appelle pas Claude, n'envoie rien sur Discord, n'enregistre rien.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m fab.check_sources

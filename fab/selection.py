@@ -12,6 +12,7 @@ from dataclasses import dataclass, field
 from datetime import datetime, timezone
 
 from .collect import Article, normalize_title
+from .regions import region_of
 
 # Mots déclencheurs multilingues (en minuscules, sans accents).
 TRIGGER_WORDS = {
@@ -29,7 +30,30 @@ TRIGGER_WORDS = {
     "engpass", "schliessung", "gesetz", "krieg", "streik", "krise", "verbot",
     "escasez", "cierre", "ley", "guerra", "huelga", "crisis", "prohibicion",
     "carenza", "chiusura", "legge", "sciopero", "falta", "fechamento", "lei", "greve",
+    "escassez", "aumento", "proibicao", "tarifa", "inflacion", "inflacao", "apagon", "apagao",
+    # néerlandais / polonais / turc / indonésien / vietnamien / swahili (sans accents)
+    "tekort", "sluiting", "wet", "staking", "niedobor", "zamkniecie", "ustawa", "strajk",
+    "kitlik", "kapanis", "yasak", "zam", "grev", "kelangkaan", "penutupan", "larangan", "kenaikan", "mogok",
+    "thieu", "dong", "cam", "luat", "uhaba", "marufuku", "mgomo", "bei",
+    # russe / ukrainien
+    "дефицит", "закрытие", "закон", "запрет", "забастовка", "кризис", "цены", "санкции", "війна", "дефіцит",
+    # arabe / hébreu / persan
+    "نقص", "إغلاق", "قانون", "حظر", "إضراب", "أزمة", "ارتفاع", "حرب", "عقوبات", "מחסור", "סגירה", "חוק",
+    # hindi
+    "कमी", "बंद", "कानून", "प्रतिबंध", "हड़ताल", "संकट", "महंगाई",
 }
+
+# Langues écrites sans espaces (chinois, japonais, thaï) : recherche par sous-chaîne.
+TRIGGER_SUBSTRINGS = {
+    "品薄", "不足", "終了", "閉鎖", "新法", "規制", "値上げ", "禁止", "戦争", "停電", "地震", "ストライキ", "物価",
+    "短缺", "关闭", "关停", "新规", "法规", "涨价", "禁令", "战争", "罢工", "危机", "停产",
+    "품귀", "종료", "폐쇄", "규제", "인상", "금지", "전쟁", "파업", "위기",
+    "ขาดแคลน", "ปิด", "กฎหมาย", "ขึ้นราคา",
+}
+
+
+def trigger_hits(tokens: set[str], text: str) -> int:
+    return len(tokens & TRIGGER_WORDS) + sum(1 for t in TRIGGER_SUBSTRINGS if t in text)
 
 
 @dataclass
@@ -45,13 +69,18 @@ class Cluster:
     def sources(self) -> set[str]:
         return {a.source for a in self.articles}
 
+    @property
+    def region(self) -> str:
+        lead = self.lead
+        return lead.region or region_of(lead.country, lead.lang)
+
     def priority(self, now: datetime) -> float:
         n_sources = len(self.sources)
-        trigger_hits = len(self.tokens & TRIGGER_WORDS)
+        hits = trigger_hits(self.tokens, " ".join(a.title for a in self.articles[:5]))
         newest = max(datetime.fromisoformat(a.published) for a in self.articles)
         age_h = max((now - newest).total_seconds() / 3600, 0)
         recency = max(0.0, 1.0 - age_h / 36)
-        return min(n_sources, 6) * 1.0 + min(trigger_hits, 3) * 1.5 + recency * 2.0
+        return min(n_sources, 6) * 1.0 + min(hits, 3) * 1.5 + recency * 2.0
 
 
 def _tokens(article: Article) -> set[str]:
@@ -92,11 +121,49 @@ def cluster_articles(articles: list[Article], threshold: float = 0.5) -> list[Cl
     return clusters
 
 
+def interleave_regions(items: list, region_key) -> list:
+    """Réordonne une liste triée par priorité en alternant les régions du monde.
+
+    Chaque région garde son ordre interne ; on prend à tour de rôle le meilleur sujet restant de chaque
+    région. Les régions très couvertes (Europe, Amérique du Nord) ne monopolisent donc plus le haut de la liste.
+    """
+    groups: dict[str, list] = defaultdict(list)
+    order: list[str] = []
+    for it in items:
+        r = region_key(it)
+        if r not in groups:
+            order.append(r)
+        groups[r].append(it)
+    out = []
+    depth = 0
+    while len(out) < len(items):
+        for r in order:
+            if depth < len(groups[r]):
+                out.append(groups[r][depth])
+        depth += 1
+    return out
+
+
+def _other_sources(c: Cluster, limit: int = 4) -> list[dict]:
+    """Autres médias qui couvrent le même sujet (un par média), pour étoffer les sources des idées."""
+    seen = {c.lead.source}
+    out = []
+    for a in c.articles[1:]:
+        if a.source in seen:
+            continue
+        seen.add(a.source)
+        out.append({"titre": a.title, "url": a.url, "source": a.source, "langue": a.lang, "date": a.published})
+        if len(out) >= limit:
+            break
+    return out
+
+
 def select_for_analysis(articles: list[Article], max_items: int, max_per_source: int = 15) -> list[dict]:
-    """Retourne au plus `max_items` sujets, prêts à être envoyés à Claude."""
+    """Retourne au plus `max_items` sujets, prêts à être envoyés à Claude, en alternant les régions du monde."""
     now = datetime.now(timezone.utc)
     clusters = cluster_articles(articles)
     clusters.sort(key=lambda c: c.priority(now), reverse=True)
+    clusters = interleave_regions(clusters, lambda c: c.region)
 
     per_source: Counter = Counter()
     selected = []
@@ -112,11 +179,13 @@ def select_for_analysis(articles: list[Article], max_items: int, max_per_source:
                 "resume": lead.summary,
                 "langue": lead.lang,
                 "pays": lead.country,
+                "region": c.region,
                 "source": lead.source,
                 "date": lead.published,
                 "nb_medias": len(c.sources),
                 "url": lead.url,
                 "ids": [a.id for a in c.articles],
+                "autres_sources": _other_sources(c),
             }
         )
         if len(selected) >= max_items:
@@ -124,17 +193,33 @@ def select_for_analysis(articles: list[Article], max_items: int, max_per_source:
     return selected
 
 
-def merge_triage(candidates: list[dict], triage_refs: list[str], always_keep: int, max_items: int) -> list[dict]:
+def merge_triage(
+    candidates: list[dict], triage_refs: list[str], always_keep: int, max_items: int, max_share: float = 0.3,
+) -> list[dict]:
     """Sujets envoyés à l'analyse finale : ceux retenus par le tri + les mieux classés par l'heuristique.
 
     Le filet de sécurité (`always_keep`) garantit que les sujets les plus repris par les médias
     et contenant des mots déclencheurs passent toujours, même si le tri les a écartés.
     """
     by_ref = {c["ref"]: c for c in candidates}
+    # Aucune région ne peut occuper plus de 30 % de l'analyse finale, tant que d'autres régions ont des sujets.
+    cap = max(1, int(max_items * max_share))
+    per_region: Counter = Counter()
     chosen: list[str] = []
+    overflow: list[str] = []
     for ref in [c["ref"] for c in candidates[:always_keep]] + list(triage_refs):
-        if ref in by_ref and ref not in chosen:
-            chosen.append(ref)
+        if ref not in by_ref or ref in chosen or ref in overflow:
+            continue
+        region = by_ref[ref].get("region", "monde")
+        if per_region[region] >= cap:
+            overflow.append(ref)
+            continue
+        per_region[region] += 1
+        chosen.append(ref)
         if len(chosen) >= max_items:
             break
+    for ref in overflow:
+        if len(chosen) >= max_items:
+            break
+        chosen.append(ref)
     return [by_ref[r] for r in chosen]

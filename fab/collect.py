@@ -18,6 +18,8 @@ from urllib.parse import quote_plus
 import feedparser
 import requests
 
+from .regions import region_of
+
 log = logging.getLogger(__name__)
 
 USER_AGENT = "Mozilla/5.0 (compatible; FindABusinessBot/1.0; +https://github.com)"
@@ -35,6 +37,7 @@ class Article:
     lang: str
     published: str  # ISO 8601 UTC
     country: str = ""
+    region: str = ""
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -72,7 +75,7 @@ def _entry_date(entry) -> datetime | None:
     return None
 
 
-def parse_feed(content: bytes, source: str, lang: str, country: str = "") -> list[Article]:
+def parse_feed(content: bytes, source: str, lang: str, country: str = "", region: str = "") -> list[Article]:
     feed = feedparser.parse(content)
     now = datetime.now(timezone.utc)
     articles = []
@@ -95,6 +98,7 @@ def parse_feed(content: bytes, source: str, lang: str, country: str = "") -> lis
                 lang=lang,
                 published=published.isoformat(timespec="seconds"),
                 country=country,
+                region=region_of(country, lang, region),
             )
         )
     return articles
@@ -121,6 +125,7 @@ def parse_gdelt(payload: dict) -> list[Article]:
                 lang=(item.get("language") or "?")[:20],
                 published=published.isoformat(timespec="seconds"),
                 country=item.get("sourcecountry", "") or "",
+                region=region_of(item.get("sourcecountry", ""), item.get("language", "")),
             )
         )
     return articles
@@ -128,6 +133,15 @@ def parse_gdelt(payload: dict) -> list[Article]:
 
 def build_feed_list(sources: dict) -> list[dict]:
     feeds = [dict(f) for f in sources.get("rss", [])]
+    for geo in sources.get("google_trends", []):
+        feeds.append(
+            {
+                "name": f"Google Trends {geo}",
+                "url": f"https://trends.google.com/trending/rss?geo={geo}",
+                "lang": "",
+                "country": geo,
+            }
+        )
     for ed in sources.get("google_news_editions", []):
         feeds.append(
             {
@@ -170,7 +184,7 @@ def fetch_rss(feeds: list[dict], timeout: float) -> tuple[list[Article], int]:
         content = _fetch(session, feed["url"], timeout)
         if content is None:
             return None
-        return parse_feed(content, feed["name"], feed.get("lang", "?"), feed.get("country", ""))
+        return parse_feed(content, feed["name"], feed.get("lang", "?"), feed.get("country", ""), feed.get("region", ""))
 
     articles: list[Article] = []
     failures = 0

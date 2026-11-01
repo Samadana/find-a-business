@@ -32,3 +32,31 @@ def test_merge_triage_keeps_safety_net_and_caps():
     cands = [{"ref": f"A{i}"} for i in range(1, 21)]
     out = merge_triage(cands, ["A20", "A3", "A99", "A19"], always_keep=3, max_items=5)
     assert [c["ref"] for c in out] == ["A1", "A2", "A3", "A20", "A19"]
+
+
+def test_interleave_regions_alternates():
+    from fab.selection import interleave_regions
+    items = [("europe", 1), ("europe", 2), ("europe", 3), ("asie", 4), ("afrique", 5)]
+    out = interleave_regions(items, lambda x: x[0])
+    assert [x[1] for x in out] == [1, 4, 5, 2, 3]
+
+
+def test_merge_triage_caps_dominant_region():
+    from fab.selection import merge_triage
+    cands = [{"ref": f"E{i}", "region": "europe"} for i in range(10)] + [{"ref": f"A{i}", "region": "asie"} for i in range(3)]
+    refs = [c["ref"] for c in cands]
+    out = merge_triage(cands, refs, always_keep=0, max_items=6, max_share=0.5)
+    regions = [c["region"] for c in out]
+    assert regions.count("europe") == 3 and regions.count("asie") == 3
+
+
+def test_trigger_hits_non_latin():
+    from fab.selection import trigger_hits
+    assert trigger_hits(set(), "半導体の品薄が続く") == 1
+    assert trigger_hits({"shortage"}, "chip shortage") == 1
+
+
+def test_region_of():
+    from fab.regions import region_of
+    assert region_of("NG") == "afrique" and region_of("South Korea") == "asie"
+    assert region_of("", "pt-BR") == "amerique-latine" and region_of("", "en", "business") == "business"

@@ -73,15 +73,22 @@ def make_id(title: str) -> str:
     return "idee-" + hashlib.sha1(f"{normalize_title(title)}|{now_iso()[:10]}".encode()).hexdigest()[:8]
 
 
-def resolve_sources(refs: list[str], items_by_ref: dict[str, dict]) -> list[dict]:
+def resolve_sources(refs: list[str], items_by_ref: dict[str, dict], limit: int = 12) -> list[dict]:
+    """Articles cités par Claude, puis les autres médias qui couvrent les mêmes sujets."""
     out, seen = [], set()
-    for ref in refs:
-        it = items_by_ref.get(str(ref).strip())
-        if not it or it["url"] in seen:
-            continue
-        seen.add(it["url"])
-        out.append({k: it[k] for k in ("titre", "url", "source", "langue", "date")})
-    return out
+    cited = [items_by_ref[r] for r in (str(x).strip() for x in refs) if r in items_by_ref]
+    for it in cited:
+        if it["url"] not in seen:
+            seen.add(it["url"])
+            out.append({k: it.get(k, "") for k in ("titre", "url", "source", "langue", "date")})
+    for it in cited:
+        for other in it.get("autres_sources", []) or []:
+            if len(out) >= limit:
+                return out
+            if other["url"] not in seen:
+                seen.add(other["url"])
+                out.append({k: other.get(k, "") for k in ("titre", "url", "source", "langue", "date")})
+    return out[:limit] if len(out) > limit else out
 
 
 def ethics_check(idea: dict) -> tuple[bool, str]:
