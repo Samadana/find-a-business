@@ -82,3 +82,29 @@ def test_ethics_check_accepts_helpful_idea():
 def test_archive_old():
     ideas = [{"statut": "active", "mis_a_jour_le": "2020-01-01T00:00:00+00:00"}]
     assert archive_old(ideas, 30) == 1 and ideas[0]["statut"] == "archivee"
+
+
+def test_strip_dev_costs():
+    from fab.ideas import strip_dev_costs
+    idea = {"budget_estime_eur": 1180, "budget_detail": [
+        "Nom de domaine + hébergement : 80 €",
+        "Développement freelance du connecteur : 400 €",
+        "Agence web pour l'intégration : 1 000 €" if False else "Publicité Google Ads : 700 €",
+    ]}
+    assert strip_dev_costs(idea) == 400
+    assert idea["budget_estime_eur"] == 780
+    assert idea["budget_detail"] == ["Nom de domaine + hébergement : 80 €", "Publicité Google Ads : 700 €"]
+
+
+def test_strip_dev_costs_keeps_other_lines():
+    from fab.ideas import strip_dev_costs
+    idea = {"budget_estime_eur": 200, "budget_detail": ["API OpenStreetMap : 0 €", "Logo sur Fiverr : 50 €"]}
+    assert strip_dev_costs(idea) == 0 and idea["budget_estime_eur"] == 200
+
+
+def test_strip_dev_costs_keeps_non_dev_freelances():
+    from fab.ideas import strip_dev_costs
+    idea = {"budget_estime_eur": 700, "budget_detail": [
+        "Relecture par un avocat freelance : 400 €", "Développeur freelance (graphiques, alertes) : 300 €"]}
+    assert strip_dev_costs(idea) == 300
+    assert idea["budget_detail"] == ["Relecture par un avocat freelance : 400 €"] and idea["budget_estime_eur"] == 400

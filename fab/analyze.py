@@ -28,7 +28,10 @@ Exemples du type d'idée recherchée :
 Contraintes STRICTES :
 1. Uniquement du web : site, e-commerce (dropshipping ou stock modeste inclus), SaaS, outil en ligne, contenu monétisé, marketplace, annuaire, communauté. Jamais de commerce physique, de franchise, d'usine.
 2. Budget de lancement entre 0 et {max_budget} €. N'écarte pas une bonne idée parce qu'elle coûte : la note « cout » sert à l'exprimer.
-3. Lançable par une seule personne (éventuellement aidée de freelances) en moins de 60 jours.
+3. Lançable par une seule personne en moins de 60 jours. Le porteur de projet est DÉVELOPPEUR : il code lui-même le site, l'application ou le SaaS.
+   N'inclus donc JAMAIS de coût de développement (freelance, agence, prestataire, développeur) dans le budget : seulement les vrais frais
+   (domaine, hébergement, API et services payants, publicité, contenus, juridique, stock, etc.). Le temps de développement se reflète
+   dans la note « travail » et dans les durées des étapes, pas dans le budget.
 4. Le lien entre l'événement et l'idée doit être direct et concret. Pas d'idées génériques qui existeraient sans l'événement.
 5. Qualité plutôt que quantité : 0 à 8 idées par lot. Zéro idée est une réponse parfaitement acceptable si rien n'est vraiment exploitable.
 
@@ -43,7 +46,7 @@ Déduplication : on te donne la liste des idées déjà proposées. Si une actua
 
 Notes de 0 à 10, TOUJOURS dans le sens « 10 = favorable pour l'entrepreneur » :
 - potentiel : taille du marché et revenus possibles (10 = très fort) ;
-- cout : budget nécessaire (10 = quasi gratuit, 5 ≈ 1 500 €, 0 = {max_budget} € ou plus) ;
+- cout : budget nécessaire, hors développement fait par le porteur lui-même (10 = quasi gratuit, 5 ≈ 1 500 €, 0 = {max_budget} € ou plus) ;
 - travail : effort pour lancer (10 = un week-end, 5 ≈ 2-3 semaines, 0 = plusieurs mois) ;
 - risque : risques juridiques, financiers, de réputation (10 = très faible risque) ;
 - urgence : fenêtre d'opportunité (10 = à lancer dans les jours qui viennent, sinon trop tard) ;
@@ -60,7 +63,7 @@ L'entrepreneur lit chaque idée en détail pour décider s'il se lance : sois co
 - « pourquoi_maintenant » : 2 à 4 phrases sur la fenêtre de tir et ce qui se passe si on attend.
 - « description_detaillee » : 8 à 15 phrases. Le produit ou le site concrètement (pages, fonctionnalités, offre), le parcours d'un client type, le positionnement, la façon d'attirer les premiers clients, le prix proposé et un ordre de grandeur réaliste du chiffre d'affaires possible.
 - « notes_explications » : pour CHAQUE note, 2 à 3 phrases qui justifient le chiffre donné (sur quoi tu te bases, ce qui ferait monter ou baisser la note).
-- « budget_detail » : la répartition du budget estimé, poste par poste avec montant (ex. « Nom de domaine + hébergement : 60 € »).
+- « budget_detail » : la répartition du budget estimé, poste par poste avec montant (ex. « Nom de domaine + hébergement : 60 € »), sans aucune ligne de développement.
 - « concurrents » : les concurrents ou alternatives existants connus (ou « aucun concurrent direct identifié »), avec en quoi l'idée se différencie.
 - « etapes » : un plan d'action concret et ordonné (6 à 12 étapes), avec outils suggérés (Shopify, WordPress, Stripe, no-code, etc.) et la durée estimée de chaque étape.
 - « risques » : chaque risque avec la façon de le limiter.

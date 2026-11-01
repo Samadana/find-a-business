@@ -15,7 +15,7 @@
    "français"
   ],
   "modele_revenus": "Affiliation (commission par souscription chez les fournisseurs/courtiers partenaires), affiliation sur équipements d'économie d'énergie, encarts sponsorisés ; outil gratuit pour l'utilisateur.",
-  "budget_estime_eur": 900,
+  "budget_estime_eur": 500,
   "delai_lancement_jours": 14,
   "duree_opportunite": "Pic de novembre 2026 à mars 2027, puis récurrent chaque hiver tant que les prix restent volatils.",
   "notes": {
@@ -41,7 +41,6 @@
   "budget_detail": [
    "Nom de domaine + hébergement 1 an : 80 €",
    "Thème WordPress / outil no-code (Webflow ou Softr) : 100 €",
-   "Développement du simulateur par un freelance : 400 €",
    "Outil d'e-mailing et SMS (Brevo) pour les alertes : 60 € les 3 premiers mois",
    "Visuels et vidéos courtes (Canva Pro) : 40 €",
    "Publicité Facebook ciblée locale pour amorcer : 220 €"
@@ -291,7 +290,7 @@
    "fr"
   ],
   "modele_revenus": "Affiliation (Amazon Partenaires, programmes LDLC, Fnac et Back Market via les plateformes d'affiliation), sponsoring de newsletter, publicité display.",
-  "budget_estime_eur": 800,
+  "budget_estime_eur": 300,
   "delai_lancement_jours": 21,
   "duree_opportunite": "6 à 18 mois de pénurie et de volatilité marquées, puis outil de suivi des prix réutilisable à chaque cycle de la mémoire, qui est historiquement cyclique.",
   "notes": {
@@ -316,7 +315,6 @@
   },
   "budget_detail": [
    "Nom de domaine + VPS ou hébergement 1 an : 120 €",
-   "Développeur freelance (collecte des prix, graphiques, alertes) ou outils no-code équivalents : 500 €",
    "Outil d'emailing (MailerLite/Brevo, palier gratuit puis payant) : 50 €",
    "Design/logo et thème : 80 €",
    "Promotion ponctuelle (Reddit/Dealabs sponsorisés, visuels) : 50 €"

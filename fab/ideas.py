@@ -109,6 +109,39 @@ def reinforce(idea: dict, sources: list[dict], comment: str = "") -> None:
     idea["note_globale"] = global_score(idea["notes"], idea["signaux"])
 
 
+# Le porteur de projet développe lui-même : aucun coût de développement externe dans les budgets.
+DEV_COST_RE = re.compile(
+    r"d[ée]velopp|developer|programm|codage|\bdev\b|int[ée]grateur|agence (?:web|digitale)",
+    re.IGNORECASE,
+)
+AMOUNT_RE = re.compile(r"(\d[\d\s\u202f\u00a0.]*)\s*€")
+
+
+def _amount(line: str) -> int:
+    m = AMOUNT_RE.findall(line)
+    if not m:
+        return 0
+    digits = re.sub(r"[^\d]", "", m[-1])
+    return int(digits) if digits else 0
+
+
+def strip_dev_costs(idea: dict) -> int:
+    """Retire du budget détaillé les lignes de développement sous-traité et ajuste le budget estimé.
+
+    Retourne le montant retiré.
+    """
+    kept, removed = [], 0
+    for line in idea.get("budget_detail") or []:
+        if DEV_COST_RE.search(line):
+            removed += _amount(line)
+        else:
+            kept.append(line)
+    if len(kept) != len(idea.get("budget_detail") or []):
+        idea["budget_detail"] = kept
+        idea["budget_estime_eur"] = max(0, int(idea.get("budget_estime_eur", 0) or 0) - removed)
+    return removed
+
+
 def process_analysis(
     data: dict,
     items: list[dict],
@@ -136,6 +169,7 @@ def process_analysis(
         idea["sources"] = resolve_sources(raw.get("sources", []), items_by_ref)
         idea["budget_estime_eur"] = max(0, int(raw.get("budget_estime_eur", 0) or 0))
         idea["delai_lancement_jours"] = max(0, int(raw.get("delai_lancement_jours", 0) or 0))
+        strip_dev_costs(idea)
 
         ok, reason = ethics_check(idea)
         if ok and idea["budget_estime_eur"] > max_budget_eur:
