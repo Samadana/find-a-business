@@ -1,1 +1,38 @@
-[]
+[
+ {
+  "titre": "« Après le hack Binance » : guide d'action pour les utilisateurs francophones (retraits, auto-conservation, fiscalité, anti-arnaques au remboursement)",
+  "pitch": "Le piratage record de 6,3 milliards de dollars chez Binance a poussé des milliers d'utilisateurs à vouloir sécuriser leurs cryptos. Un site d'action pas à pas les aide à retirer leurs fonds, choisir un portefeuille physique et éviter les faux « services de récupération ».",
+  "raison": "Motif interdit détecté : « arnaque ».",
+  "sources": [
+   {
+    "titre": "FBI blames North Korea for record $6.3bn crypto heist from Binance - Al Jazeera",
+    "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQU1Bma2xxdW43TWpaNFB0MnVLS3FVUGt4SVIxb1gyVzNHeFRWcWlhb19WdnRxTnF1eFl4ak1VMEJJQ2RadHdWOVI4Rk5NbHVPY2t1Z1U5M2FhLTF5bzVkYVg0bWRSVWd4UzBhY1lVcWdCR0d2Q2RBRFJNVTdkU2pZQng1Mm9vUU9WM2J0UzQ1eFRiWFN0WDkya9IBngFBVV95cUxNYXROV2xtZ2I2aWVDbnpuQVdtbkF6UXJfSVdpbkdkVmN2ZDd4dlBlYndDOTl3V2lDdGxvTDdRem9Ka0d2MEZtWF9kcTdRQ2dxckxLcGV2UmFGenpwTk1RWi1jYnJXR1ZfRXJiWHpuRXJRTmQ2X2NxNnB0aWJXeUZCXzVjQkdQSHhud1BuTG9mbHNiemlYVEF3Q0hOeGFRQQ?oc=5",
+    "source": "Google News IN",
+    "langue": "en-IN",
+    "date": "2026-11-01T02:40:06+00:00"
+   },
+   {
+    "titre": "La plateforme de cryptomonnaies Binance annonce une reprise des retraits, après un piratage commis par des hackers de Corée du Nord selon les accusations du FBI.",
+    "url": "https://www.franceinfo.fr/economie/bitcoin/la-plateforme-de-cryptomonnaies-binance-annonce-une-reprise-des-retraits-apres-un-piratage-commis-par-des-hackers-de-coree-du-nord-selon-les-accusations-du-fbi_8262545.html#xtor=RSS-3-[lestitres]",
+    "source": "Franceinfo",
+    "langue": "fr",
+    "date": "2026-11-01T09:32:53+00:00"
+   },
+   {
+    "titre": "Crypto firm Binance covers 90% of losses after $6.3bn hack",
+    "url": "https://www.bbc.co.uk/news/articles/ckpdg3ql4169o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC World",
+    "langue": "en",
+    "date": "2026-11-01T09:28:06+00:00"
+   },
+   {
+    "titre": "Binance resumes withdrawals following $6.3 billion hack, says 90% of stolen user assets are covered",
+    "url": "https://www.cnbc.com/2026/10/31/binance-hack-asset-coverage-withdrawals.html",
+    "source": "CNBC Top News",
+    "langue": "en",
+    "date": "2026-11-01T09:03:47+00:00"
+   }
+  ],
+  "date": "2026-11-01T10:02:19+00:00"
+ }
+]

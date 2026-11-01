@@ -1,5 +1,139 @@
 [
  {
+  "titre": "« Mon gaz indexé » : simulateur fixe ou indexé et alerte mensuelle du prix repère pour les foyers français chauffés au gaz",
+  "pitch": "Le prix repère du gaz a pris 42 % depuis janvier et six millions de foyers à tarif indexé subissent chaque hausse de plein fouet. Un outil simple leur dit chaque mois combien ils vont payer et s'ils ont intérêt à bloquer un prix fixe.",
+  "evenement_declencheur": "Nouvelle hausse du prix repère du gaz au 1er novembre 2026, +42 % depuis janvier à cause de la guerre au Moyen-Orient.",
+  "contexte_declencheur": "Selon Franceinfo, le prix repère de vente du gaz naturel a augmenté de 42 % depuis janvier 2026, une flambée attribuée à la guerre au Moyen-Orient (Iran). Une nouvelle hausse est entrée en vigueur le 1er novembre, au moment où le froid revient, et elle s'applique directement aux six millions de foyers dont l'offre est indexée sur ce prix repère. Au total, dix millions de foyers utilisent le gaz au quotidien en France, mais tous ne paient pas le même prix selon qu'ils ont un tarif fixe ou indexé, ce que Franceinfo qualifie de « jungle des prix ». Des reportages à Asnières-sur-Seine montrent des habitants qui réduisent déjà leur chauffage. Le sujet s'inscrit dans un climat de forte tension sur le pouvoir d'achat (manifestations contre la vie chère du 31 octobre, nouvelle mobilisation prévue le 5 novembre). Tant que le conflit au Moyen-Orient dure, le prix repère restera volatil et chaque publication mensuelle relancera l'inquiétude. Le besoin nouveau : comprendre son exposition personnelle, anticiper la facture et décider rapidement s'il faut passer à une offre à prix fixe.",
+  "pourquoi_maintenant": "La saison de chauffe commence et les recherches « tarif fixe ou indexé gaz » culminent entre novembre et février. Les offres à prix fixe proposées par les fournisseurs risquent elles-mêmes de grimper si la hausse se poursuit, donc les foyers veulent décider vite. Lancé en décembre, l'outil manquera le pic de trafic et de souscriptions de cet hiver.",
+  "description_detaillee": "Le site propose trois briques. 1) Un simulateur : l'utilisateur saisit sa consommation annuelle (ou la déduit de sa surface et de son type de logement), son type d'offre et son fournisseur, et obtient le coût estimé de son hiver au prix repère actuel, puis la comparaison avec les meilleures offres à prix fixe du moment sur 1, 2 et 3 ans. 2) Une alerte mensuelle gratuite par e-mail (et SMS en option) : à chaque publication du nouveau prix repère, l'abonné reçoit l'impact chiffré sur sa facture et un verdict « garder / basculer en fixe ». 3) Un centre de ressources : fixe vs indexé expliqué simplement, historique graphique du prix repère depuis janvier 2026, modèle de lettre de résiliation, droits du consommateur (aucun frais de résiliation pour les particuliers), aides (chèque énergie), et un guide « réduire sa facture sans avoir froid » (robinets thermostatiques, thermostat programmable, calfeutrage). Parcours type : une habitante d'Asnières voit un post Facebook « Votre gaz va encore augmenter ce mois-ci : combien pour vous ? », fait la simulation en 1 minute, découvre qu'elle paierait 180 € de moins sur l'hiver en offre fixe, clique vers le fournisseur partenaire et s'inscrit à l'alerte. Positionnement : l'outil spécialisé des foyers indexés, plus pédagogique et moins commercial que les grands comparateurs, avec un suivi mensuel que ceux-ci n'offrent pas. Acquisition : groupes Facebook locaux et de consommateurs, réponses sur forums, TikTok/Reels courts à chaque nouveau prix repère, communiqué aux médias régionaux avec un « baromètre » chiffré, SEO sur les requêtes « prix repère gaz décembre 2026 ». Revenus : affiliation fournisseurs et courtiers (environ 20 à 60 € par souscription selon les programmes), affiliation Amazon/enseignes sur les équipements d'économie d'énergie, éventuellement un encart sponsorisé. Ordre de grandeur réaliste : avec 20 000 à 40 000 visites mensuelles l'hiver et 1 à 2 % de souscriptions, 200 à 600 contrats par mois, soit 4 000 à 15 000 € de commissions mensuelles au pic, beaucoup moins l'été ; la base d'abonnés aux alertes est l'actif durable.",
+  "categorie": "outil-web",
+  "cible": "Les foyers français chauffés au gaz, en priorité les six millions de ménages à offre indexée sur le prix repère, souvent modestes et peu à l'aise avec les offres d'énergie.",
+  "pays_cibles": [
+   "France"
+  ],
+  "langues": [
+   "français"
+  ],
+  "modele_revenus": "Affiliation (commission par souscription chez les fournisseurs/courtiers partenaires), affiliation sur équipements d'économie d'énergie, encarts sponsorisés ; outil gratuit pour l'utilisateur.",
+  "budget_estime_eur": 900,
+  "delai_lancement_jours": 14,
+  "duree_opportunite": "Pic de novembre 2026 à mars 2027, puis récurrent chaque hiver tant que les prix restent volatils.",
+  "notes": {
+   "potentiel": 7,
+   "cout": 8,
+   "travail": 6,
+   "risque": 7,
+   "urgence": 9,
+   "durabilite": 6,
+   "fiabilite": 8,
+   "concurrence": 3
+  },
+  "notes_explications": {
+   "potentiel": "Dix millions de foyers au gaz dont six millions indexés, et des commissions d'affiliation significatives par contrat. La note baisserait si les programmes d'affiliation des fournisseurs sont fermés ou peu rémunérateurs pour un nouveau site.",
+   "cout": "Un site WordPress ou no-code avec un simulateur en JavaScript et un outil d'e-mailing coûtent quelques centaines d'euros. L'essentiel du budget va à un freelance pour le simulateur et à un peu de publicité locale.",
+   "travail": "Il faut collecter et tenir à jour les grilles d'offres fixes et le prix repère chaque mois, ce qui demande de la rigueur. Comptez 2 semaines pour une première version propre.",
+   "risque": "Peu de risque juridique si les comparaisons sont exactes, datées et que les liens d'affiliation sont signalés. Le principal danger est réputationnel en cas de données obsolètes ou de partialité perçue.",
+   "urgence": "La hausse vient d'entrer en vigueur le 1er novembre et le cœur de l'hiver arrive. Chaque semaine de retard fait perdre une part du pic de recherche annuel.",
+   "durabilite": "Le besoin d'arbitrer fixe/indexé revient chaque hiver et à chaque crise énergétique, mais il faiblit si les prix se stabilisent. La liste d'abonnés aux alertes permet de rebondir sur l'électricité ou les carburants.",
+   "fiabilite": "Cinq articles concordants (Franceinfo, HuffPost) confirment la hausse de 42 %, les six millions de foyers indexés et les difficultés concrètes des ménages. La demande d'explication est évidente.",
+   "concurrence": "Selectra, Hellowatt, Papernest, le comparateur officiel du Médiateur de l'énergie et les associations de consommateurs dominent le SEO. La place existe uniquement sur la niche « suivi mensuel des indexés » et via les réseaux sociaux."
+  },
+  "budget_detail": [
+   "Nom de domaine + hébergement 1 an : 80 €",
+   "Thème WordPress / outil no-code (Webflow ou Softr) : 100 €",
+   "Développement du simulateur par un freelance : 400 €",
+   "Outil d'e-mailing et SMS (Brevo) pour les alertes : 60 € les 3 premiers mois",
+   "Visuels et vidéos courtes (Canva Pro) : 40 €",
+   "Publicité Facebook ciblée locale pour amorcer : 220 €"
+  ],
+  "concurrents": [
+   "Selectra / Hellowatt / Papernest : comparateurs généralistes puissants en SEO mais orientés vente ; l'idée se différencie par l'alerte mensuelle personnalisée et le verdict « garder ou basculer » pour les indexés.",
+   "Comparateur officiel energie-info.fr (Médiateur national de l'énergie) : neutre et gratuit mais austère et sans suivi ; on peut le citer comme référence pour gagner en crédibilité.",
+   "Médias et UFC-Que Choisir : explications ponctuelles sans outil de suivi personnel."
+  ],
+  "analyse": "Bonne idée à faible coût dont le timing est idéal, mais sur un marché où les grands comparateurs captent le SEO. Il faut miser sur un angle très spécifique (les foyers indexés et l'alerte mensuelle) et sur la diffusion virale à chaque nouveau prix repère plutôt que sur Google. Avant de construire, vérifiez quels programmes d'affiliation acceptent un nouveau site, car c'est le cœur du modèle. Le point de vigilance : des données d'offres toujours à jour et datées.",
+  "etapes": [
+   "Vérifier et s'inscrire aux programmes d'affiliation fournisseurs et courtiers (Awin, Effiliation, contacts directs) : 2 jours",
+   "Collecter l'historique du prix repère 2026 et les offres fixes en cours dans un tableur : 2 jours",
+   "Monter le site sur WordPress (thème rapide) ou Webflow, pages guide, historique et mentions légales : 3 jours",
+   "Faire développer le simulateur fixe/indexé par un freelance (Malt) et l'intégrer : 5 jours en parallèle",
+   "Brancher le formulaire d'alerte à Brevo avec un modèle d'e-mail mensuel automatisé : 1 jour",
+   "Rédiger 8 à 10 articles SEO ciblés (« prix repère gaz novembre/décembre 2026 », « fixe ou indexé ») : 3 jours",
+   "Lancer la diffusion : groupes Facebook, Reddit/forums, 5 vidéos TikTok/Reels, petite campagne Meta locale : en continu dès J+14",
+   "Envoyer un baromètre chiffré aux rédactions régionales à la prochaine publication du prix repère : 1 jour",
+   "Mettre à jour les offres chaque semaine et analyser les conversions pour ajuster : 2 h par semaine"
+  ],
+  "risques": [
+   "Données d'offres obsolètes : afficher la date de mise à jour, automatiser une relecture hebdomadaire.",
+   "Affiliation refusée ou faible : prévoir plusieurs courtiers partenaires et des revenus d'équipements d'économie d'énergie.",
+   "Perception de partialité : afficher clairement les liens affiliés et inclure aussi des offres non partenaires.",
+   "Baisse brutale des prix (accord avec l'Iran évoqué) : élargir rapidement à l'électricité et au fioul pour garder l'audience."
+  ],
+  "mots_cles": [
+   "prix repère gaz",
+   "tarif indexé gaz",
+   "offre gaz prix fixe",
+   "hausse gaz novembre 2026",
+   "simulateur facture gaz",
+   "chauffage gaz économies"
+  ],
+  "sources": [
+   {
+    "titre": "\"Une très forte hausse liée à la guerre au Moyen-Orient\" : visualisez la flambée du prix du gaz depuis le début de l'année 2026",
+    "url": "https://www.franceinfo.fr/economie/pouvoir-achat/une-tres-forte-hausse-liee-a-la-guerre-au-moyen-orient-visualisez-la-flambee-du-prix-du-gaz-depuis-le-debut-de-l-annee-2026_8254645.html#xtor=RSS-3-[lestitres]",
+    "source": "Franceinfo",
+    "langue": "fr",
+    "date": "2026-11-01T06:36:19+00:00"
+   },
+   {
+    "titre": "\"On est obligés de faire des choix\" : confrontés à la hausse des prix du gaz, des habitants contraints de limiter leur chauffage",
+    "url": "https://www.franceinfo.fr/economie/pouvoir-achat/temoignages-on-est-obliges-de-faire-des-choix-confrontes-a-la-hausse-des-prix-du-gaz-des-habitants-contraints-de-limiter-leur-chauffage_8261813.html#xtor=RSS-3-[lestitres]",
+    "source": "Franceinfo",
+    "langue": "fr",
+    "date": "2026-11-01T07:06:06+00:00"
+   },
+   {
+    "titre": "Tarif fixe ou indexé ? On vous explique comment s'y retrouver dans la jungle des prix du gaz",
+    "url": "https://www.franceinfo.fr/economie/pouvoir-achat/tarif-fixe-ou-indexe-on-vous-explique-comment-s-y-retrouver-dans-la-jungle-des-prix-du-gaz-au-moment-ou-les-prix-flambent_8257390.html#xtor=RSS-3-[lestitres]",
+    "source": "Franceinfo",
+    "langue": "fr",
+    "date": "2026-11-01T09:00:18+00:00"
+   },
+   {
+    "titre": "Prix du gaz, pneus neige, retraites complémentaires... Ce qui change au 1er novembre",
+    "url": "https://www.franceinfo.fr/economie/prix-du-gaz-pneus-neige-retraites-complementaires-ce-qui-change-au-1er-novembre_8258393.html#xtor=RSS-3-[lestitres]",
+    "source": "Franceinfo",
+    "langue": "fr",
+    "date": "2026-11-01T07:07:45+00:00"
+   },
+   {
+    "titre": "Prix du carburant et du gaz, trêve hivernale… Tout ce qui change pour vous à partir de ce 1er novembre 2026 - Le HuffPost",
+    "url": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxNdHNXNjg3MzI1OWNuRDVhNC1KZko5VnBLTFZydlBBN1cwYXlhalN0cnBCdzlCQk5RdUhBS3ZRdGN3TWVnWlJrQ0ZheTZ0YzMzWHI5Y2JfZ3dzNW1Vdnp4aVc1NVJ2dHlnWkR0NXRIS1BXWm1ncFFwNlhUbExVQmhMeTREVmk4c2VjU2ZiaGI3dkoybFlGOFM4aWFDZWdISUY4Um90TC1LQnE3RVRuTmVwN1V4aVBaQWVQWW1DX0g3LTFDWWQyOTVzVnF1cC05MHluV0R6U25rVngtQTQwQ1ZYckRjUzBld3cxRkVjVUdsZlNEQTJwUFZXM1RiSQ?oc=5",
+    "source": "Google News FR",
+    "langue": "fr",
+    "date": "2026-11-01T06:32:08+00:00"
+   },
+   {
+    "titre": "EN DIRECT, manifestations du 31 octobre : plusieurs centaines de milliers de personnes ont défilé contre la vie chère en France, des couvre-feux partiels en vigueur la nuit dernière dans certaines grandes villes - Le Monde.fr",
+    "url": "https://news.google.com/rss/articles/CBMi-gJBVV95cUxNRjMxTnYwY2hfenJ1cU9WOWlEcnRDWGp0RzBIMS1NWmN0YkxKMVdhWkdIME1paU1wV0prQlBqeXZ6aXhHV2Z3V0UtclNPLTlQU1RtRDFBV1pUMkZkODBCZGhkWG8tTEZzMjNNdFNFaTZWczJJSGdrU1hJaXBRajEtcmRQYmhGQWU4ek1SQm1INnVrbzN2VFZRVXpnZDA4b1VmNnZoMTM1Z1AteGpiclRHQ2pPNG5YYjJRR21TbGlzd0I2d2xNWm85WWFuNjl2NGJ2alFOQnVBWEE5aUxDcjBkWlNKSWlGMjFfQmhPMXRmZGpVLUI0S1JaaF9kdWJtaENFek5HQlJiMUZfMkJCbS1fUTFxTXpaeFJWUVJXYXAxNU5RRTB4WG1vb1FERXc0dVB0NVNiRHpFZVFMNjY1X1JXN2xjM2h0WUp4WE45LTkzU0lRMTI5NWlKM0pxVzZjck5RZGNRZkRPRFFzTHBDcUVDOUNYNi0xaEhxSnc?oc=5",
+    "source": "Google News FR",
+    "langue": "fr",
+    "date": "2026-11-01T09:29:34+00:00"
+   }
+  ],
+  "ethique": {
+   "acceptable": true,
+   "raison": "L'outil aide des foyers fragilisés à comprendre et réduire leur facture avec une information gratuite ; la monétisation par affiliation est transparente et ne renchérit pas le prix pour l'utilisateur."
+  },
+  "id": "idee-9247f62d",
+  "signaux": 1,
+  "cree_le": "2026-11-01T10:02:19+00:00",
+  "mis_a_jour_le": "2026-11-01T10:02:19+00:00",
+  "statut": "active",
+  "notifiee": true,
+  "note_globale": 6.7
+ },
+ {
   "titre": "Plateforme d'aide aux patients des cliniques dentaires Vivanta fermées (Espagne) : réclamation aux organismes de crédit et reprise des soins",
   "pitch": "Des milliers de patients espagnols se retrouvent avec un traitement dentaire inachevé et un crédit qui continue d'être prélevé. Un site en espagnol leur fournit gratuitement les lettres de réclamation, la marche à suivre et un annuaire de dentistes prêts à reprendre leur traitement.",
   "evenement_declencheur": "Fermeture définitive de la chaîne de cliniques dentaires Vivanta en Espagne, avec des patients aux traitements inachevés et financés à crédit.",
@@ -112,6 +246,13 @@
     "source": "Google News recherche ES",
     "langue": "es",
     "date": "2026-10-31T13:04:03+00:00"
+   },
+   {
+    "titre": "Cierre de la clínica Los Arcos & Deprit Oralis - Noticias de Navarra",
+    "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPX0ZIOGkzZVFvTzR5Si1rX25WWTgxakdRc19LekUtREhfWUZzRmJmN0MwWjZMZEVuUUwxVWdXemhRcjdlSWxLM3BnSGNnem9EMnM4d2N2NjExNExHQ05ucTRiejFQS0c2SWFfc2p3SHFhSV9lWHY3R2xndi1QNmRIS3FfVkVYR3JPazh2czdKRE9qSTJxX2lhUlE2RTFjODZ5TWtvRURxaUs0YVRPRmpuT3RMZTFiRFZ3ODR3VtIBwgFBVV95cUxQV1UyYjliQ1U1WGN3dWQtb01CdjJPQjYyVkVDOUlvMXlvMTFldFhOT1dkU0pLbnpXbUg4VVpvakNiRnlGOTE0WlUzeVE0RVVEY1JwSnMxeWk5NlRDSDVmZjJVUmgxS2Y4REJNXzdCOXJwMEtLUWpRcmRzQUgxcW40UUFjVzRDaWp6WUtwbVhNSFBMMGc3UDUyMmNQb2ZQNkV5R1hEdzVGSlplY3RBVmg3WDdDdW5ZX04taGdLbzU1RW5EQQ?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-11-01T09:46:48+00:00"
    }
   ],
   "ethique": {
@@ -119,12 +260,18 @@
    "raison": "L'outil aide concrètement les patients lésés à faire valoir leurs droits, avec un guide et des lettres gratuits. La monétisation repose sur les professionnels (dentistes, avocats) et une option modeste, sans prix abusif ni promesse trompeuse."
   },
   "id": "idee-a271c8a5",
-  "signaux": 1,
+  "signaux": 2,
   "cree_le": "2026-10-31T14:01:44+00:00",
-  "mis_a_jour_le": "2026-10-31T14:01:44+00:00",
+  "mis_a_jour_le": "2026-11-01T10:02:19+00:00",
   "statut": "active",
   "notifiee": false,
-  "note_globale": 6.1
+  "note_globale": 6.2,
+  "historique": [
+   {
+    "date": "2026-11-01T10:02:19+00:00",
+    "note": "Noticias de Navarra rapporte la fermeture de la clinique Los Arcos & Deprit Oralis en Navarre : d'autres patients espagnols de cliniques dentaires se retrouvent potentiellement avec des soins inachevés, ce qui élargit la cible de la plateforme au-delà du seul réseau Vivanta (à vérifier selon le détail de l'article)."
+   }
+  ]
  },
  {
   "titre": "Observatoire français des prix de la mémoire (RAM, SSD) et des consoles : indice, alertes et guides « acheter ou attendre »",
@@ -276,6 +423,34 @@
     "source": "Google News recherche ES",
     "langue": "es",
     "date": "2026-10-31T10:00:00+00:00"
+   },
+   {
+    "titre": "Sam Altman questions PC RAM use amid AI shortage - News Karnataka",
+    "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNdW1hYUdTZjRFallQd3NsM0RRdmN1NWNtWm1EWk5CTmF1ME1PZXBKS3JtWDNqMU1PTFF5RFFfRjR3b04ybUMxSktQZ2szWjJzUzRNc3ZZUVVlX21iU1BKdFMxeU1hMUxBS183VzVFZm5sY25vbFZ1UXkxbS1wZmdzSW5HUGpBdjk3SWxaUDhGcHZBM3cxdTRFVVlybw?oc=5",
+    "source": "Google News recherche US",
+    "langue": "en-US",
+    "date": "2026-11-01T04:53:40+00:00"
+   },
+   {
+    "titre": "Kioxia's Sold-Out Books Meet a Slower Price Engine - ad-hoc-news.de",
+    "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNSDZWX3R0MXJKM2V0RktLeUZpZ210NFEzSVZwRzZBSXdLZ3ZDZUVoc0UyZTRHSFc5RkQwRUZieldfX0tvRkV3bmNxbmJiR1haTi0wVmhNNFgyVFY4NU81TDZ4clQxRVM2Y2p5bURxVWYtVmhDSm1mOG5QRnBKTGQyVnh5WXdqN0U2aTVvdkI3ZElyb3hFU0NBWGc1YkV3Q2FDLXhrdjBiVkZ0OWg4aHRTd2NrdFRkOU9kbDZfV3NDZw?oc=5",
+    "source": "Google News recherche US",
+    "langue": "en-US",
+    "date": "2026-10-31T21:20:54+00:00"
+   },
+   {
+    "titre": "AI Data Centers Swallow Up MLCC Supply: Shortage to Peak in First Half of Next Year - BigGo Finance",
+    "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBLaG1IZS1SVkY3d3lHbnhsaUxaUFg2RnE2VE93X1phUDlhQ2hzUTd6Ql9rUDQtUXNaWUR3MXIxbjNoaU9UalB5U2htcnFsQklxUDJRcF8wVEc4UEx3a2d5Mk9HaUpFOFc1WFBHak9aRTR4UVNrUGc?oc=5",
+    "source": "Google News recherche US",
+    "langue": "en-US",
+    "date": "2026-11-01T03:55:00+00:00"
+   },
+   {
+    "titre": "Intel Core Series 3 Shortage Fueled by Surging Demand - hi-Tech.ua",
+    "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxORlpKRUFRU2N5cG1ZZE5qdHRnblNDSG1lNWFxSmdpOFFGUE56bE5QaWNXNjRjVXdXai1DNEF4VGFGUTBzMVp5TmZEVS1GOGpKU2ptWm5iRm5XMVBFbE9KT3UtX1k0QWdHU2x1WUtFRXo5TFBobENMUHNlWHFQOWphNlBB?oc=5",
+    "source": "Google News recherche US",
+    "langue": "en-US",
+    "date": "2026-11-01T07:08:16+00:00"
    }
   ],
   "ethique": {
@@ -283,12 +458,18 @@
    "raison": "Le site aide les consommateurs à acheter au meilleur prix pendant une pénurie, sans spéculation ni revente : uniquement de l'information et de l'affiliation au prix du marché."
   },
   "id": "idee-70f114e3",
-  "signaux": 1,
+  "signaux": 2,
   "cree_le": "2026-10-31T14:01:44+00:00",
-  "mis_a_jour_le": "2026-10-31T14:01:44+00:00",
+  "mis_a_jour_le": "2026-11-01T10:02:19+00:00",
   "statut": "active",
   "notifiee": false,
-  "note_globale": 6.1
+  "note_globale": 6.2,
+  "historique": [
+   {
+    "date": "2026-11-01T10:02:19+00:00",
+    "note": "La tension sur les composants s'étend : Kioxia affiche des carnets de commandes NAND complets, les data centers IA absorbent l'offre de condensateurs MLCC avec un pic de pénurie attendu au premier semestre 2027, Sam Altman relance le débat sur l'usage de la RAM des PC, et les processeurs Intel Core Series 3 sont en pénurie. Cela confirme la durée de la hausse des prix et justifie d'élargir l'observatoire aux processeurs et aux PC complets."
+   }
+  ]
  },
  {
   "titre": "Kit EUDR « clé en main » pour TPE/PME françaises : diagnostic gratuit, modèles et questionnaires fournisseurs",
@@ -388,6 +569,109 @@
   "signaux": 1,
   "cree_le": "2026-10-31T14:01:44+00:00",
   "mis_a_jour_le": "2026-10-31T14:01:44+00:00",
+  "statut": "active",
+  "notifiee": false,
+  "note_globale": 6.0
+ },
+ {
+  "titre": "« Métiers en pénurie au Luxembourg » : guide et boîte à outils pour les candidats francophones visés par le recrutement étranger",
+  "pitch": "Le Luxembourg ouvre plus largement le recrutement d'étrangers dans 20 professions en forte pénurie. Un site francophone fiable, métier par métier, explique la procédure et vend des outils de candidature honnêtes aux candidats du Maghreb, d'Afrique et de France.",
+  "evenement_declencheur": "Le Luxembourg recrute des travailleurs étrangers dans 20 professions en forte pénurie.",
+  "contexte_declencheur": "Selon Espacemanager (média tunisien), le Luxembourg recrute des étrangers dans 20 professions identifiées en forte pénurie. Le pays, dont une grande partie de la main-d'œuvre est déjà frontalière ou étrangère et où le français est une langue officielle, attire particulièrement les candidats francophones du Maghreb et d'Afrique de l'Ouest, ainsi que les Français frontaliers. L'annonce reprise par la presse maghrébine crée un afflux de candidats qui ne connaissent ni le format de CV luxembourgeois, ni les démarches d'autorisation de séjour et de travail pour les ressortissants hors UE, ni les niveaux de salaire. Les informations officielles existent (ADEM, guichet.lu) mais elles sont dispersées et administratives. Le risque, comme à chaque annonce de ce type, est de voir prospérer de faux intermédiaires qui vendent des « visas garantis ». Le besoin nouveau : un guide clair, fiable et abordable, organisé par métier.",
+  "pourquoi_maintenant": "L'annonce circule maintenant dans les médias et réseaux sociaux francophones et les candidats cherchent l'information cette semaine. Être le premier site structuré par métier permet de capter le SEO et les partages avant que des acteurs moins scrupuleux occupent l'espace. Le besoin restera durable tant que la pénurie de main-d'œuvre persiste.",
+  "description_detaillee": "Le site propose une fiche par métier en pénurie (la liste exacte des 20 professions est à reprendre et vérifier sur les sources officielles ADEM / guichet.lu) : missions, diplômes exigés et reconnaissance, salaire social minimum et salaires constatés, langues demandées, employeurs et agences d'intérim qui recrutent, liens vers les offres. Une page « Procédure hors UE pas à pas » explique l'autorisation de séjour pour travailleur salarié, les délais et les documents, avec renvoi systématique aux formulaires officiels. Une page « Frontaliers français » traite de la fiscalité et des transports. Offre payante : un pack à 29 € (modèles de CV et de lettre au format luxembourgeois par métier, checklist des documents, calendrier type de la démarche, liste d'agences) et une relecture de CV personnalisée à 59 € réalisée par un freelance RH connaissant le marché luxembourgeois. Parcours type : un technicien tunisien lit l'article d'Espacemanager, cherche « Luxembourg métiers en pénurie », trouve la fiche de son métier, vérifie qu'il remplit les conditions, achète le pack et postule à cinq offres. Positionnement : l'information honnête, gratuite pour l'essentiel, sans promesse d'embauche ni de visa, avec une page dédiée aux arnaques. Acquisition : SEO par métier, groupes Facebook de la diaspora et des candidats à l'émigration, LinkedIn, partenariats avec des médias maghrébins. Revenus complémentaires : affiliation à des cours de luxembourgeois et d'allemand en ligne, à des services de traduction assermentée. Ordre de grandeur réaliste : 1 000 à 4 000 € par mois après 2 à 3 mois si le SEO prend.",
+  "categorie": "site-contenu",
+  "cible": "Candidats francophones qualifiés hors UE (Maghreb, Afrique de l'Ouest), Français frontaliers de Lorraine et Belges intéressés par les métiers en pénurie au Luxembourg.",
+  "pays_cibles": [
+   "Tunisie",
+   "Maroc",
+   "Algérie",
+   "Sénégal",
+   "Côte d'Ivoire",
+   "France",
+   "Belgique"
+  ],
+  "langues": [
+   "français"
+  ],
+  "modele_revenus": "Contenu gratuit monétisé par un pack de candidature à 29 €, une relecture de CV à 59 €, de l'affiliation (cours de langue, traduction assermentée) et de la publicité ciblée.",
+  "budget_estime_eur": 1100,
+  "delai_lancement_jours": 21,
+  "duree_opportunite": "Pic de quelques semaines après l'annonce, puis besoin durable tant que la pénurie de main-d'œuvre luxembourgeoise persiste.",
+  "notes": {
+   "potentiel": 6,
+   "cout": 8,
+   "travail": 6,
+   "risque": 5,
+   "urgence": 6,
+   "durabilite": 7,
+   "fiabilite": 5,
+   "concurrence": 5
+  },
+  "notes_explications": {
+   "potentiel": "Le vivier de candidats francophones attirés par le Luxembourg est très large, mais leur pouvoir d'achat est variable, ce qui limite les prix. Le volume peut compenser grâce au SEO par métier.",
+   "cout": "Un site de contenu et quelques modèles téléchargeables coûtent environ 1 000 €, principalement en rédaction et en relecture par un spécialiste RH. Pas de stock ni de développement complexe.",
+   "travail": "Il faut rédiger 20 fiches métiers fiables et une procédure administrative exacte, soit environ 3 semaines. La mise à jour réglementaire demande un suivi régulier.",
+   "risque": "Une information erronée sur la procédure peut nuire gravement aux candidats et à la réputation du site. Il faut aussi éviter toute ressemblance avec une agence de placement payante non autorisée.",
+   "urgence": "L'annonce vient d'être relayée et l'intérêt est maximal maintenant, mais le besoin ne disparaîtra pas en quelques jours. Une fenêtre de quelques semaines suffit.",
+   "durabilite": "Les pénuries de main-d'œuvre au Luxembourg sont structurelles et les listes de métiers sont mises à jour régulièrement. Le site peut devenir une référence durable.",
+   "fiabilite": "Une seule source, issue d'un média tunisien, et la liste précise n'est pas donnée dans le résumé. Il faut confirmer l'information auprès de l'ADEM et de guichet.lu avant de lancer.",
+   "concurrence": "Jobs.lu, Moovijob, guichet.lu et de nombreux youtubeurs couvrent le Luxembourg, mais peu de sites structurent l'information par métier en pénurie pour les candidats hors UE. La niche reste ouverte."
+  },
+  "budget_detail": [
+   "Nom de domaine + hébergement : 80 €",
+   "Thème WordPress + extension de vente de fichiers (WooCommerce, Stripe) : 90 €",
+   "Rédaction des 20 fiches métiers (freelance + travail personnel) : 500 €",
+   "Relecture de la procédure et des modèles de CV par un spécialiste RH du Luxembourg : 300 €",
+   "Visuels et modèles de CV (Canva Pro) : 30 €",
+   "Publicité Facebook ciblée diaspora pour amorcer : 100 €"
+  ],
+  "concurrents": [
+   "guichet.lu et ADEM : sources officielles fiables mais administratives et non organisées par profil de candidat ; le site les vulgarise et y renvoie.",
+   "Jobs.lu / Moovijob : sites d'offres d'emploi sans accompagnement sur la procédure hors UE ; le site peut les utiliser comme partenaires d'affiliation ou de liens.",
+   "Agences et « consultants en immigration » : souvent chers et parfois douteux ; le site se positionne comme une alternative honnête et peu coûteuse."
+  ],
+  "analyse": "Idée intéressante et durable si elle est exécutée avec une rigueur absolue sur l'exactitude des informations. Il faut d'abord confirmer la liste officielle des 20 métiers et les conditions réelles de recrutement hors UE, car l'unique source est secondaire. Le modèle doit rester majoritairement gratuit, avec des produits payants modestes et sans aucune promesse d'emploi. Le principal point de vigilance est éthique et réputationnel.",
+  "etapes": [
+   "Vérifier la liste officielle des métiers en pénurie et les règles d'autorisation de travail sur ADEM et guichet.lu : 2 jours",
+   "Construire l'arborescence et installer WordPress + WooCommerce + Stripe : 2 jours",
+   "Rédiger les 20 fiches métiers et la procédure hors UE, faire relire par un spécialiste RH (Malt) : 10 jours",
+   "Créer le pack de candidature (CV, lettres, checklist) sur Canva et le mettre en vente : 3 jours",
+   "Rédiger la page « arnaques et faux intermédiaires » avec les recours officiels : 1 jour",
+   "Diffuser dans les groupes Facebook et LinkedIn de la diaspora, proposer des articles aux médias maghrébins : en continu dès J+21",
+   "Lancer le service de relecture de CV avec un freelance rémunéré à la prestation : 2 jours",
+   "Mettre à jour les fiches tous les mois et suivre les évolutions réglementaires : 2 h par mois"
+  ],
+  "risques": [
+   "Information erronée ou périmée : faire relire par un professionnel, dater chaque fiche, renvoyer aux sources officielles.",
+   "Assimilation à un placement payant non autorisé : ne jamais mettre en relation contre rémunération ni promettre un emploi ou un visa.",
+   "Source unique peu détaillée : confirmer l'annonce avant d'investir, et ajuster la liste si elle diffère.",
+   "Faible pouvoir d'achat de la cible : prix bas, contenu gratuit généreux, revenus complémentaires par affiliation."
+  ],
+  "mots_cles": [
+   "métiers en pénurie Luxembourg",
+   "travailler au Luxembourg Tunisie",
+   "permis de travail Luxembourg hors UE",
+   "CV format luxembourgeois",
+   "recrutement étrangers Luxembourg 2026"
+  ],
+  "sources": [
+   {
+    "titre": "Le Luxembourg recrute des étrangers dans 20 professions en forte pénurie - Espacemanager",
+    "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxOQXBBNkxxSlFUa0FvOExXS2RGYmFhd3hST2cyREN5WjFNSnFIU1Z0WTNkYVFjQ2VMYnhVelR2cUxuLWkxS0I3NmU5b09EcEItZUlTRXUzX0dzakphZ1BiU2tGYXBwVkgyWVBMNW44NURWOXRsUkJUWndicGdHSWhJUXNSZzdtalotMDRLU2RNLTc4ZGIyT2hvYVRQTFdsMTRpWDlDbEFtNk1BNnRaamU3QUdGODdtTVNna1BVS1JCZm1SRWFyeEJPZnRfSnM5dWhLb1h0Szg2bmM?oc=5",
+    "source": "Google News recherche FR",
+    "langue": "fr",
+    "date": "2026-10-31T10:16:33+00:00"
+   }
+  ],
+  "ethique": {
+   "acceptable": true,
+   "raison": "Acceptable à condition de fournir une information fiable et majoritairement gratuite, de vendre des outils à prix modeste, sans jamais promettre emploi ou visa ; le site doit au contraire protéger les candidats contre les faux intermédiaires."
+  },
+  "id": "idee-e8615bd8",
+  "signaux": 1,
+  "cree_le": "2026-11-01T10:02:19+00:00",
+  "mis_a_jour_le": "2026-11-01T10:02:19+00:00",
   "statut": "active",
   "notifiee": false,
   "note_globale": 6.0
@@ -525,6 +809,13 @@
     "source": "Google News recherche ES",
     "langue": "es",
     "date": "2026-10-31T05:00:00+00:00"
+   },
+   {
+    "titre": "El cierre del corredor Madrid-Barcelona dejaría a Renfe sin su única línea rentable y con 600 millones meno... - OkDiario",
+    "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPS2lXSUh1S1ZNTzhsNk9xT3l3NnZvX2pWWVlYdFlnOHB6MFJtbjBSNmZSOXhyUW5GVUNDSHVzUE1RcVlsRThkSDlmWVozWkZqOVdxdDdaWTh6N3NpNml3OUxDMUhpVEgwU0c0N0psQ1BidFFOdENuemdXZnFzSDdBRUtFajJhelJwOUpLc3BhT2FkRmVEbkhYSlR6czlVbDF1Z2w3eE95WmJLSE5VcXFzNGphN3JQbEtVQ01MVkc1dWZIaUpJS2ZTVGpQb2haYUJ6UVJTbm9LdEZzUdIB3wFBVV95cUxPa0Rfd2w4bXdvQzNDRnJTVHJyUEY5dkh0Wk9NbXVWTWkxZDNaRVRmNjV6MmRPQnhiVlh5QXBIOHdOeHNfQy1iVGItTFcwU2hXNjdyU2hrYzhNWWoyaG10LWJfalhNZGhpR09IbXNRVUFkUmRleXdYelFEYmRYTDlMOFd6QVU0X0VCNG9BM1M0SmR2YzdPazFNcWkxQnpIbWlfdUNvTWxhcElMUW5vdGowYUZ6TEU1TGNZNGJEcnZjcWV5aDVaRlZPcHdKY3lvWWRqNFhQQmVIblB3UUJLSjlR?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-11-01T04:45:21+00:00"
    }
   ],
   "ethique": {
@@ -532,11 +823,118 @@
    "raison": "Le site fournit une information pratique et des alternatives aux voyageurs, sans exploiter les victimes de l'accident ni créer de peur. La monétisation se fait par affiliation classique, au prix normal."
   },
   "id": "idee-5e111883",
-  "signaux": 1,
+  "signaux": 2,
   "cree_le": "2026-10-31T14:01:44+00:00",
-  "mis_a_jour_le": "2026-10-31T14:01:44+00:00",
+  "mis_a_jour_le": "2026-11-01T10:02:19+00:00",
   "statut": "active",
   "notifiee": false,
-  "note_globale": 5.7
+  "note_globale": 5.8,
+  "historique": [
+   {
+    "date": "2026-11-01T10:02:19+00:00",
+    "note": "OkDiario indique que la fermeture du corridor Madrid-Barcelone priverait Renfe de sa seule ligne rentable et de 600 millions d'euros de revenus : le scénario de fermeture reste sur la table et alimente le débat public, ce qui maintient l'intérêt pour un site de statut et d'alternatives."
+   }
+  ]
+ },
+ {
+  "titre": "Boutique mono-produit du mini-rétroviseur bombé anti-trottoir devenu viral en Espagne, déclinée en France",
+  "pitch": "El País décrit un petit miroir bombé, collé en deux minutes sur le rétroviseur, que de nombreux conducteurs adoptent pour voir les bordures et les angles morts. Une boutique dédiée peut surfer sur la vague en Espagne et l'amener en France avant les grands vendeurs.",
+  "evenement_declencheur": "Un petit miroir bombé à coller sur le rétroviseur devient l'accessoire viral des conducteurs espagnols (El País).",
+  "contexte_declencheur": "El País consacre le 1er novembre 2026 un article à « l'accessoire viral que de nombreux conducteurs installent pour mieux se garer » : un petit miroir en verre bombé qui se colle sur le rétroviseur en deux minutes pour surveiller les trottoirs hauts et réduire les angles morts. Quand un grand quotidien relaie un produit déjà populaire sur les réseaux, la demande s'accélère généralement pendant quelques semaines. Le produit coûte très peu à fabriquer et cible un problème universel : les jantes rayées contre les bordures et les manœuvres en créneau. La France, voisine et proche culturellement, n'a pas encore vu la vague médiatique. L'hiver, avec ses journées courtes et la pluie, rend la visibilité en manœuvre plus difficile, ce qui renforce l'argument. Le besoin nouveau : des conducteurs qui ont vu le produit cherchent où l'acheter, avec une livraison rapide et une installation expliquée.",
+  "pourquoi_maintenant": "Les produits viraux ont une fenêtre de quelques semaines avant que les annonces Amazon et les grands dropshippers saturent le marché et cassent les prix. Être le premier à créer du contenu vidéo en français et en espagnol sur ce produit est l'avantage principal. Au-delà de janvier, la marge sera probablement trop faible.",
+  "description_detaillee": "Une boutique Shopify mono-produit, en espagnol et en français, avec une page produit très visuelle : vidéo d'installation en 2 minutes, comparatif avant/après en créneau, compatibilité selon les rétroviseurs, avis clients. Offres : lot de 2 miroirs à 14,90 €, lot famille de 4 (deux voitures) à 24,90 €, et un bundle « jantes protégées » avec protections de jantes autocollantes à 29,90 €. Parcours type : un conducteur voit une vidéo TikTok montrant le trottoir invisible devenu visible, clique, regarde la vidéo d'installation et commande le lot de 2 ; il reçoit le colis en 3 à 6 jours depuis un stock européen. Positionnement : produit testé, verre de qualité (et non plastique déformant), livraison rapide en Europe, service client en français et en espagnol, sans promesse exagérée sur la sécurité (« aide à la visibilité », pas « supprime totalement les angles morts »). Acquisition : vidéos UGC tournées soi-même en situation réelle (TikTok, Reels, Shorts), petite campagne TikTok Ads et Meta Ads, micro-influenceurs automobile. Approvisionnement : commander 300 à 500 unités auprès d'un fournisseur (Alibaba / CJ Dropshipping avec entrepôt UE) après test d'échantillons. Économie : coût produit + emballage environ 2 à 3 € le lot, expédition 3 à 4 €, coût d'acquisition publicitaire estimé 4 à 7 €, soit une marge nette de 2 à 5 € par commande. Ordre de grandeur réaliste : 500 à 2 000 commandes sur la fenêtre de 2 à 3 mois, soit 7 500 à 30 000 € de chiffre d'affaires et 1 500 à 6 000 € de bénéfice si les publicités convertissent.",
+  "categorie": "e-commerce",
+  "cible": "Conducteurs urbains en Espagne et en France, notamment jeunes conducteurs, propriétaires de voitures à jantes alu et personnes qui redoutent le créneau.",
+  "pays_cibles": [
+   "Espagne",
+   "France",
+   "Belgique"
+  ],
+  "langues": [
+   "espagnol",
+   "français"
+  ],
+  "modele_revenus": "Vente directe en e-commerce (stock modeste en entrepôt UE ou dropshipping), avec lots et ventes additionnelles.",
+  "budget_estime_eur": 2000,
+  "delai_lancement_jours": 14,
+  "duree_opportunite": "6 à 12 semaines avant saturation par Amazon et les autres vendeurs.",
+  "notes": {
+   "potentiel": 4,
+   "cout": 6,
+   "travail": 8,
+   "risque": 6,
+   "urgence": 8,
+   "durabilite": 3,
+   "fiabilite": 5,
+   "concurrence": 3
+  },
+  "notes_explications": {
+   "potentiel": "Le marché des conducteurs est immense, mais le panier est petit et la marge par commande faible. Le résultat dépend entièrement de la performance des publicités et des vidéos.",
+   "cout": "Il faut prévoir un petit stock, des échantillons et surtout un budget publicitaire de test, d'où environ 2 000 €. On peut réduire le budget en dropshipping pur, au prix de délais plus longs.",
+   "travail": "Une boutique Shopify mono-produit avec un thème prêt à l'emploi se monte en quelques jours. Le plus long est de recevoir et tester les échantillons.",
+   "risque": "Risque financier limité au stock et aux publicités. Attention aux allégations de sécurité exagérées et à la qualité (miroirs déformants qui génèrent des retours).",
+   "urgence": "La vague est en cours en Espagne et l'article d'El País l'amplifie. Dans deux à trois mois, les prix seront écrasés par les grands vendeurs.",
+   "durabilite": "C'est un produit de tendance avec une demande de fond modeste. Une fois la vague passée, il ne restera qu'une petite vente résiduelle.",
+   "fiabilite": "Une seule source, mais de référence (El País), qui confirme une adoption déjà en cours. Il reste à vérifier la traction réelle sur TikTok et dans les tendances de recherche avant d'investir.",
+   "concurrence": "Des miroirs d'angle mort génériques sont déjà vendus quelques euros sur Amazon et AliExpress. La seule différenciation possible repose sur la qualité, la rapidité et le contenu."
+  },
+  "budget_detail": [
+   "Abonnement Shopify 2 mois + thème gratuit : 70 €",
+   "Nom de domaine : 15 €",
+   "Échantillons de 3 fournisseurs : 60 €",
+   "Stock initial 400 lots + emballages : 900 €",
+   "Budget publicitaire de test TikTok/Meta : 800 €",
+   "Applications (avis, traduction) : 55 €",
+   "Imprévus (retours, frais de port) : 100 €"
+  ],
+  "concurrents": [
+   "Amazon / AliExpress : miroirs d'angle mort génériques à bas prix mais délais longs ou présentation pauvre ; l'idée mise sur la qualité du verre, la vidéo d'installation et la livraison UE rapide.",
+   "Centres auto (Norauto, Feu Vert) : produits similaires en rayon, peu mis en avant ; aucune communication virale.",
+   "Autres dropshippers qui vont arriver : l'avantage est d'être premier et d'avoir son propre contenu vidéo."
+  ],
+  "analyse": "Idée opportuniste, peu risquée mais à faible marge, qui ne vaut la peine que si l'on agit vite et que l'on maîtrise la publicité sur TikTok/Meta. Avant d'acheter du stock, testez la demande avec des vidéos organiques et une petite campagne à 100-200 €. Le principal point de vigilance est la qualité du miroir : un produit déformant entraînera retours et mauvais avis. À considérer comme un coup rapide, pas comme une activité durable.",
+  "etapes": [
+   "Vérifier la traction (TikTok Creative Center, Google Trends ES/FR) et commander 3 échantillons : 1 jour + 7 jours de livraison",
+   "Monter la boutique Shopify bilingue (thème Dawn, application de traduction, Stripe/PayPal) : 2 jours",
+   "Tourner 6 à 10 vidéos d'installation et de créneau avec les échantillons : 2 jours",
+   "Tester la demande en organique et avec 150 € de publicité TikTok sur une précommande : 4 jours",
+   "Commander le stock auprès du meilleur fournisseur (entrepôt UE si possible) : 1 jour + délai fournisseur",
+   "Monter les campagnes TikTok Ads et Meta Ads, contacter 10 micro-influenceurs auto : 3 jours",
+   "Ajouter les lots et le bundle protections de jantes pour augmenter le panier : 1 jour",
+   "Suivre le coût d'acquisition chaque jour et arrêter dès que la marge devient négative : en continu"
+  ],
+  "risques": [
+   "Saturation rapide du marché : limiter le stock initial et réinvestir uniquement si les ventes suivent.",
+   "Qualité insuffisante et retours : tester les échantillons en conditions réelles, choisir du verre et non du plastique.",
+   "Allégations trompeuses sur la sécurité : formuler « aide à la visibilité », rappeler que le produit ne remplace pas le contrôle visuel.",
+   "Coût publicitaire trop élevé : miser d'abord sur le contenu organique et les influenceurs rémunérés à la commission."
+  ],
+  "mots_cles": [
+   "miroir angle mort rétroviseur",
+   "espejo punto ciego retrovisor",
+   "rétroviseur bordure trottoir",
+   "accessoire voiture viral",
+   "protéger jantes créneau"
+  ],
+  "sources": [
+   {
+    "titre": "El accesorio viral que muchos conductores instalan para aparcar mejor",
+    "url": "https://elpais.com/escaparate/estilo-de-vida/espejos-retrovisores.html",
+    "source": "El País",
+    "langue": "es",
+    "date": "2026-11-01T05:45:00+00:00"
+   }
+  ],
+  "ethique": {
+   "acceptable": true,
+   "raison": "Vente d'un accessoire utile à prix raisonnable, à condition de ne pas exagérer les promesses de sécurité."
+  },
+  "id": "idee-05e63806",
+  "signaux": 1,
+  "cree_le": "2026-11-01T10:02:19+00:00",
+  "mis_a_jour_le": "2026-11-01T10:02:19+00:00",
+  "statut": "active",
+  "notifiee": false,
+  "note_globale": 5.0
  }
 ]
