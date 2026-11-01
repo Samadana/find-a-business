@@ -210,9 +210,17 @@ def fetch_gdelt(queries: list[str], timeout: float) -> tuple[list[Article], int]
             "https://api.gdeltproject.org/api/v2/doc/doc?mode=artlist&format=json"
             f"&maxrecords=250&timespan=24h&sort=hybridrel&query={quote_plus(query)}"
         )
-        content = _fetch(session, url, timeout)
+        content = None
+        for attempt in range(3):
+            content = _fetch(session, url, timeout)
+            if content is not None:
+                break
+            time.sleep(15 * (attempt + 1))  # GDELT limite fortement le débit (erreur 429) : on patiente puis on réessaie
         if content is None:
             failures += 1
+            if failures >= 2 and not articles:
+                log.warning("GDELT ne répond pas : requêtes suivantes abandonnées pour ce bilan.")
+                return articles, failures + len(queries) - i - 1
             continue
         try:
             articles.extend(parse_gdelt(json.loads(content)))

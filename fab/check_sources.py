@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import json
 import logging
+import time
 from collections import Counter
 
 from .collect import build_feed_list, fetch_gdelt, fetch_rss, filter_recent
@@ -29,7 +30,9 @@ def main() -> None:
         if fail or not arts:
             dead.append(feed["name"])
         print(f"{status}  {feed['name']}")
-    for q in sources.get("gdelt_queries", []):
+    for i, q in enumerate(sources.get("gdelt_queries", [])):
+        if i:
+            time.sleep(6)
         arts, fail = fetch_gdelt([q], settings.http_timeout)
         articles += arts
         print(f"{'ÉCHEC' if fail else f'{len(arts):4d}'}  GDELT {q[:90]}")
