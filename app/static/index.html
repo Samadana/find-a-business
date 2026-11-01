@@ -519,8 +519,16 @@ document.addEventListener("change", async e => {
     const modele = sonnet ? "Claude Sonnet 5.5" : "Claude Opus 5.5";
     const cout = sonnet ? "0,20 à 0,35 $" : "0,40 à 0,70 $";
     if (on && !confirm(`Activer le bilan automatique ?\n\nChaque matin vers 9 h (heure de Paris), le système analysera l'actualité avec ${modele} (modèle choisi dans Réglages) et t'enverra le bilan sur Discord.\nCoût estimé : ${cout} par jour, dans la limite du plafond de ${D.settings.FAB_DAILY_COST_LIMIT_USD} $ par jour.`)) { t.checked = false; return; }
-    try { await api("/api/auto", { enabled: on }); D.auto = on; header(); toast(on ? "Bilan automatique activé ✓" : "Bilan automatique désactivé ✓"); }
-    catch (err) { t.checked = !on; toast("Échec : " + err.message, 6000); }
+    try {
+      await api("/api/auto", { enabled: on });
+      await load();  // relit le réglage sur GitHub pour confirmer qu'il est bien enregistré
+      if (D.auto !== on) throw new Error("GitHub n'a pas enregistré le changement.");
+      $("runStatus").innerHTML = "";
+      toast(on ? "Bilan automatique activé ✓ (vérifié sur GitHub)" : "Bilan automatique désactivé ✓", 4000);
+    } catch (err) {
+      t.checked = !on; header();
+      $("runStatus").innerHTML = `<div class="alert">Le bilan automatique n'a pas pu être ${on ? "activé" : "désactivé"} : ${esc(err.message)}</div>`;
+    }
   }
 });
 document.addEventListener("click", async e => {
