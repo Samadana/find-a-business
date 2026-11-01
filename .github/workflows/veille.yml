@@ -3,10 +3,13 @@ name: Bilan quotidien des opportunités
 on:
   # Le bilan automatique de 9 h (heure de Paris) ne tourne que si la variable FAB_AUTO vaut "true".
   # Elle se règle d'un clic depuis l'application locale (interrupteur « Bilan auto 9 h »).
-  # GitHub compte en heure UTC sans heure d'été : le workflow démarre à 7 h et 8 h UTC
-  # et le programme ne fait le bilan qu'une fois, dès qu'il est 9 h ou plus à Paris.
+  # GitHub compte en heure UTC sans heure d'été et peut sauter un déclenchement planifié
+  # quand ses serveurs sont chargés (surtout à l'heure pile). Le workflow démarre donc
+  # plusieurs fois entre 7 h et 10 h UTC, à des minutes décalées ; le programme ne fait
+  # le bilan qu'une fois par jour, au premier passage à partir de 9 h (heure de Paris).
+  # Les passages suivants s'arrêtent en quelques secondes, sans appel à Claude.
   schedule:
-    - cron: "0 7,8 * * *"
+    - cron: "7,37 7-10 * * *"
   workflow_dispatch:
     inputs:
       dry_run:
