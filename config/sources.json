@@ -380,12 +380,6 @@
    "region": "moyen-orient"
   },
   {
-   "name": "Times of Israel",
-   "url": "https://www.timesofisrael.com/feed/",
-   "lang": "en",
-   "region": "moyen-orient"
-  },
-  {
    "name": "NPR Business",
    "url": "https://feeds.npr.org/1006/rss.xml",
    "lang": "en",
