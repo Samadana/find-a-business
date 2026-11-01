@@ -108,3 +108,12 @@ def test_strip_dev_costs_keeps_non_dev_freelances():
         "Relecture par un avocat freelance : 400 €", "Développeur freelance (graphiques, alertes) : 300 €"]}
     assert strip_dev_costs(idea) == 300
     assert idea["budget_detail"] == ["Relecture par un avocat freelance : 400 €"] and idea["budget_estime_eur"] == 400
+
+
+def test_forbidden_match_ignores_protective_wording():
+    from fab.ideas import forbidden_match
+    assert forbidden_match("guide pour retirer ses fonds, anti-arnaques au remboursement") is None
+    assert forbidden_match("aider les victimes à éviter les arnaques") is None
+    assert forbidden_match("outil pour détecter la contrefaçon") is None
+    assert forbidden_match("vendre des produits de contrefaçon") == "contrefaçon"
+    assert forbidden_match("une arnaque au faux remboursement") == "arnaque"

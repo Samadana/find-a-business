@@ -231,14 +231,28 @@ def _below_text(below: list[dict], threshold: float) -> str:
     return _cut(head + "\n" + "\n".join(lines), 1900)
 
 
+def _rejected_text(rejected: list[dict]) -> str:
+    """Idées écartées (filtre éthique, budget, sources) avec la raison, pour transparence."""
+    if not rejected:
+        return ""
+    n = len(rejected)
+    head = f"🚫 **{n} idée{'s' if n > 1 else ''} écartée{'s' if n > 1 else ''}** (détail dans l'onglet Écartées de l'application) :"
+    lines = [f"• **{_cut(r.get('titre', '?'), 140)}**\n  ↳ {_cut(r.get('raison', '?'), 220)}" for r in rejected[:8]]
+    if n > 8:
+        lines.append(f"… et {n - 8} autre(s)")
+    return _cut(head + "\n" + "\n".join(lines), 1900)
+
+
 def send_daily_report(
     webhook_url: str, ideas: list[dict], run_info: dict, dashboard_url: str, test: bool = False,
     attachment: tuple[str, bytes] | None = None, below: list[dict] | None = None, threshold: float = 6.5,
+    rejected: list[dict] | None = None,
 ) -> int:
     """Bilan du matin : envoyé chaque jour, avec le détail des nouvelles idées pertinentes s'il y en a."""
     if not webhook_url:
         return 0
     below_text = _below_text(below or [], threshold)
+    rejected_text = _rejected_text(rejected or [])
     stats = (
         f"{run_info.get('sujets_analyses', 0)} sujets analysés sur {run_info.get('articles_nouveaux', 0)} nouveaux articles"
         f" · {run_info.get('idees_nouvelles', 0)} idée(s) trouvée(s) · {run_info.get('idees_ecartees', 0)} écartée(s)"
@@ -249,8 +263,9 @@ def send_daily_report(
         s = "s" if n > 1 else ""
         header = f"☀️ **Bilan du jour : {n} nouvelle{s} opportunité{s}** (note ≥ {threshold:g}/10)\n{stats}"
         sent = send_ideas(webhook_url, ideas, dashboard_url, test=test, attachment=attachment, header=header)
-        if below_text:
-            _post(webhook_url, {"username": "Find-a-Business", "content": below_text})
+        for extra in (below_text, rejected_text):
+            if extra:
+                _post(webhook_url, {"username": "Find-a-Business", "content": extra})
         return sent
     if below:
         text = (f"☀️ **Bilan du jour** : aucune idée n'atteint ta note minimale ({threshold:g}/10) aujourd'hui.\n{stats}"
@@ -260,6 +275,8 @@ def send_daily_report(
     if test:
         text = "🧪 **TEST** · " + text
     _post(webhook_url, {"username": "Find-a-Business", "content": _cut(text, 1900)}, attachment)
+    if rejected_text:
+        _post(webhook_url, {"username": "Find-a-Business", "content": rejected_text})
     return 0
 
 

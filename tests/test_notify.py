@@ -72,3 +72,12 @@ def test_daily_report_lists_ideas_below_threshold(monkeypatch):
     text = posts[0]["content"]
     assert "aucune idée n'atteint ta note minimale (6.5/10)" in text
     assert "6.1/10 · Idée moyenne" in text and "5.7/10 · Idée faible" in text
+
+
+def test_daily_report_lists_rejected_ideas(monkeypatch):
+    from fab import notify
+    posts = []
+    monkeypatch.setattr(notify, "_post", lambda url, payload, attachment=None: posts.append(payload) or True)
+    rejected = [{"titre": "Revente à prix abusif", "raison": "Exploite une pénurie."}]
+    notify.send_daily_report("https://x", [], {}, "", rejected=rejected)
+    assert "écartée" in posts[-1]["content"] and "Exploite une pénurie." in posts[-1]["content"]

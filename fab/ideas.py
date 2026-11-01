@@ -30,6 +30,23 @@ FORBIDDEN_PATTERNS = [
     r"\bsp[ée]cul\w* sur (la|les) (p[ée]nurie|victimes)",
 ]
 FORBIDDEN_RE = re.compile("|".join(FORBIDDEN_PATTERNS), re.IGNORECASE)
+# Un motif précédé de ces mots décrit une protection (« anti-arnaques », « éviter les arnaques »…), pas une pratique.
+PROTECTIVE_RE = re.compile(
+    r"(anti[- ]?|contre (les |la |le |l')?|[ée]viter (les |la |le |l')?|d[ée]tect\w* (les |la |le |l')?|"
+    r"rep[ée]r\w* (les |la |le |l')?|signal\w* (les |la |le |l')?|lutt\w* contre (les |la |le |l')?|"
+    r"prot[ée]g\w* (des |de la |du |de l'|contre (les |la |le |l')?)|pr[ée]vention (des |de la |du |de l')?|"
+    r"v[ée]rifi\w* (les |la |le |l')?|alerte\w* (aux |sur les )?)$",
+    re.IGNORECASE,
+)
+
+
+def forbidden_match(text: str) -> str | None:
+    """Premier motif interdit employé comme pratique (et non comme protection), sinon None."""
+    for m in FORBIDDEN_RE.finditer(text):
+        before = text[max(0, m.start() - 40):m.start()]
+        if not PROTECTIVE_RE.search(before):
+            return m.group(0)
+    return None
 
 
 def now_iso() -> str:
@@ -72,9 +89,9 @@ def ethics_check(idea: dict) -> tuple[bool, str]:
     if not eth.get("acceptable", False):
         return False, eth.get("raison") or "Jugée non éthique par l'analyse."
     text = " ".join(str(idea.get(k, "")) for k in ("titre", "pitch", "modele_revenus", "analyse"))
-    match = FORBIDDEN_RE.search(text)
+    match = forbidden_match(text)
     if match:
-        return False, f"Motif interdit détecté : « {match.group(0)} »."
+        return False, f"Motif interdit détecté : « {match} »."
     return True, eth.get("raison", "")
 
 
