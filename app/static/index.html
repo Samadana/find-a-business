@@ -28,11 +28,6 @@
   .btn { background: var(--chip); border: 1px solid var(--line); color: var(--text); border-radius: 8px; padding: 7px 12px; font: inherit; font-size: 14px; cursor: pointer; }
   .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
   .btn:disabled { opacity: .5; cursor: default; }
-  .switch { display: flex; align-items: center; gap: 10px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 7px 12px; font-size: 14px; }
-  .switch input { width: 40px; height: 22px; appearance: none; background: var(--track); border-radius: 999px; position: relative; cursor: pointer; transition: background .2s; }
-  .switch input::after { content: ""; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: #fff; transition: left .2s; box-shadow: 0 1px 2px rgba(0,0,0,.3); }
-  .switch input:checked { background: var(--good); }
-  .switch input:checked::after { left: 21px; }
   .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin: 16px 0; }
   .kpi { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; }
   .kpi .v { font-size: 24px; font-weight: 650; font-variant-numeric: tabular-nums; }
@@ -131,9 +126,6 @@
       <h1>💡 Find-a-Business</h1>
       <div class="sub" id="sub">Chargement…</div>
     </div>
-    <label class="switch" title="Bilan automatique chaque matin à 9 h (heure de Paris)">
-      <input type="checkbox" id="auto"> <span id="autoLabel">Bilan automatique de 9 h</span>
-    </label>
     <button class="btn primary" id="runBtn">▶ Lancer un bilan</button>
     <button class="btn" id="refresh">↻ Actualiser</button>
   </header>
@@ -240,7 +232,7 @@ const MEANING = { potentiel: "10 = marché et revenus importants", cout: "10 = p
   durabilite: "10 = le besoin restera après l'actualité", fiabilite: "10 = événement confirmé, demande évidente",
   concurrence: "10 = quasiment aucun concurrent" };
 const STATUTS = { nouvelle: "Nouvelle", a_etudier: "À étudier", en_cours: "En cours", lancee: "Lancée", abandonnee: "Abandonnée" };
-let D = { ideas: [], rejected: [], stats: {}, suivi: {}, settings: {}, auto: false };
+let D = { ideas: [], rejected: [], stats: {}, suivi: {}, settings: {} };
 let openIds = new Set();
 
 const $ = id => document.getElementById(id);
@@ -352,8 +344,6 @@ function header() {
   $("sub").textContent = D.stats.derniere_execution
     ? `Dernier bilan ${ago(D.stats.derniere_execution)} (${last?.statut ?? ""}) · modèle ${D.settings.FAB_MODEL || D.stats.modele || "?"} · ${D.repo}`
     : "Aucun bilan encore effectué.";
-  $("auto").checked = !!D.auto;
-  $("autoLabel").textContent = D.auto ? "Bilan automatique de 9 h : activé" : "Bilan automatique de 9 h : désactivé";
   const month = costsByDay().slice(0, 30).reduce((s, d) => s + d.cost, 0);
   const k = [
     [active.length, "idées actives"],
@@ -513,23 +503,6 @@ document.addEventListener("toggle", e => {
 document.addEventListener("change", async e => {
   const t = e.target;
   if (t.dataset.statut) saveSuivi(t.dataset.statut, { statut: t.value });
-  if (t.id === "auto") {
-    const on = t.checked;
-    const sonnet = (D.settings.FAB_MODEL || "").includes("sonnet");
-    const modele = sonnet ? "Claude Sonnet 5.5" : "Claude Opus 5.5";
-    const cout = sonnet ? "0,20 à 0,35 $" : "0,40 à 0,70 $";
-    if (on && !confirm(`Activer le bilan automatique ?\n\nChaque matin vers 9 h (heure de Paris), le système analysera l'actualité avec ${modele} (modèle choisi dans Réglages) et t'enverra le bilan sur Discord.\nCoût estimé : ${cout} par jour, dans la limite du plafond de ${D.settings.FAB_DAILY_COST_LIMIT_USD} $ par jour.`)) { t.checked = false; return; }
-    try {
-      await api("/api/auto", { enabled: on });
-      await load();  // relit le réglage sur GitHub pour confirmer qu'il est bien enregistré
-      if (D.auto !== on) throw new Error("GitHub n'a pas enregistré le changement.");
-      $("runStatus").innerHTML = "";
-      toast(on ? "Bilan automatique activé ✓ (vérifié sur GitHub)" : "Bilan automatique désactivé ✓", 4000);
-    } catch (err) {
-      t.checked = !on; header();
-      $("runStatus").innerHTML = `<div class="alert">Le bilan automatique n'a pas pu être ${on ? "activé" : "désactivé"} : ${esc(err.message)}</div>`;
-    }
-  }
 });
 document.addEventListener("click", async e => {
   const t = e.target;
