@@ -124,3 +124,26 @@ def test_resolve_sources_adds_other_outlets():
     items = {"A1": {"titre": "t", "url": "u1", "source": "BBC", "langue": "en", "date": "d",
                     "autres_sources": [{"titre": "t2", "url": "u2", "source": "Reuters", "langue": "en", "date": "d"}]}}
     assert [s["url"] for s in resolve_sources(["A1"], items)] == ["u1", "u2"]
+
+
+def test_strip_dev_costs_in_english():
+    from fab.ideas import strip_dev_costs
+    idea = {"budget_estime_eur": 2100, "budget_detail": [
+        "Domain and hosting: €80", "Freelance developer for the API connector: €1,500", "Google Ads: €520.50"]}
+    assert strip_dev_costs(idea) == 1500
+    assert idea["budget_estime_eur"] == 600
+    assert idea["budget_detail"] == ["Domain and hosting: €80", "Google Ads: €520.50"]
+
+
+def test_forbidden_match_in_english():
+    from fab.ideas import forbidden_match
+    assert forbidden_match("a tool to help victims avoid scams") is None
+    assert forbidden_match("anti-scam checklist for refunds") is None
+    assert forbidden_match("detect counterfeit sneakers") is None
+    assert forbidden_match("sell counterfeit sneakers") == "counterfeit"
+    assert forbidden_match("help companies evade sanctions") == "evade sanctions"
+
+
+def test_new_ideas_are_marked_as_written_in_english():
+    from fab.analyze import SYSTEM_PROMPT
+    assert "en ANGLAIS américain" in SYSTEM_PROMPT

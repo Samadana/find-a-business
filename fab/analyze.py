@@ -60,7 +60,9 @@ Notes de 0 à 10, TOUJOURS dans le sens « 10 = favorable pour l'entrepreneur »
   Un sujet couvert par un seul média (nb_medias = 1, sans autres_sources) ne peut pas dépasser 6 en fiabilité ;
 - concurrence : place disponible (10 = presque aucun concurrent).
 
-Utilise UNIQUEMENT les références d'articles (A1, A2...) fournies dans « sources ». Cite toutes les références qui parlent du même événement. Rédige tout en français.
+Utilise UNIQUEMENT les références d'articles (A1, A2...) fournies dans « sources ». Cite toutes les références qui parlent du même événement.
+Rédige TOUS les textes (titre, pitch, descriptions, étapes, risques, budget détaillé, explications des notes, etc.) en ANGLAIS américain naturel et clair :
+les idées sont publiées pour un public international. Écris les montants en euros sous la forme « €1,500 ». Les clés JSON et les catégories restent inchangées.
 « requete_verification » : 3 à 8 mots-clés en ANGLAIS, précis, qui permettent de retrouver d'autres articles sur l'événement déclencheur
 dans Google News (noms propres, lieu, objet : ex. « Binance hack North Korea withdrawals »). Pas de guillemets ni d'opérateurs.
 
