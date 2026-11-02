@@ -52,7 +52,7 @@ Les secrets sont chiffrés par GitHub : personne ne peut les lire, pas même toi
 
 ## Étape 5 · L'application sur ton ordinateur (tableau de bord)
 
-L'application affiche toutes les idées en détail et te permet de les piloter : bouton **▶ Lancer un bilan** (bilan complet ou test gratuit), statut de chaque idée (à étudier, en cours, lancée, abandonnée), notes perso, interrupteur du bilan de 9 h, réglages (note minimale, modèle Claude, plafond de dépense) et coûts jour par jour. Elle tourne uniquement sur ton ordinateur et lit ton dépôt privé.
+L'application affiche toutes les idées en détail et te permet de les piloter : bouton **▶ Lancer un bilan** (bilan complet ou test gratuit), statut de chaque idée (à étudier, en cours, lancée, abandonnée), notes perso, réglages (note minimale, modèle Claude, plafond de dépense) et coûts jour par jour. Elle tourne uniquement sur ton ordinateur et lit ton dépôt privé.
 
 **A. Récupérer l'application**
 
@@ -80,7 +80,7 @@ Cette clé ne donne accès qu'à ce dépôt. Elle est enregistrée uniquement su
 2. Le plus simple : dans l'application, bouton **▶ Lancer un bilan**. (Sinon, sur GitHub : **Bilan quotidien des opportunités** → **Run workflow**.)
 3. **Premier essai conseillé : choisis « Test gratuit »** (sur GitHub : coche « Mode test »). Ce mode n'appelle pas Claude et ne coûte rien ; il vérifie que tout est bien branché. Tu dois recevoir sur Discord un message marqué 🧪 **TEST** avec deux idées fictives détaillées. *(Ces idées fictives ne sont pas sauvegardées.)*
 4. Relance ensuite en choisissant **Lancer le bilan complet**. L'application affiche « Bilan en cours » ; au bout de 5 à 10 minutes, tu reçois le bilan sur Discord et les idées apparaissent toutes seules dans l'application.
-5. **Activer le bilan automatique de 9 h** (désactivé par défaut) : dans l'application, clique sur l'interrupteur **Bilan automatique de 9 h** en haut à droite. Le bilan arrive alors seul **chaque matin vers 9 h** (heure de Paris, été comme hiver ; GitHub peut le décaler de quelques minutes), sans que ton ordinateur soit allumé. Le même interrupteur l'arrête.
+5. **Lancer le bilan du jour** : chaque jour, clique sur **▶ Lancer un bilan** dans l'application, ou sur GitHub : onglet **Actions** → **Bilan quotidien des opportunités** → **Run workflow** (laisse « Mode test » décoché). Le bilan arrive sur Discord en 10 à 20 minutes. Il n'y a plus de lancement automatique : le planning de GitHub sautait trop souvent des déclenchements.
 
 ### Ce que contient le bilan Discord
 
@@ -101,7 +101,6 @@ Le seuil, le modèle et le plafond se règlent dans l'onglet **Réglages** de l'
 
 | Variable | Défaut | Rôle |
 |---|---|---|
-| `FAB_AUTO` | `false` | Bilan automatique de 9 h (réglé par l'interrupteur de l'application) |
 | `FAB_MIN_SCORE_NOTIFY` | `6.5` | Note globale minimale pour qu'une idée soit détaillée dans le bilan Discord |
 | `FAB_REPORT_HOUR` | `9` | Heure du bilan (heure de Paris) ; pense aussi à adapter la ligne `cron` |
 | `FAB_MODEL` | `claude-opus-5-5` | Modèle Claude. `claude-sonnet-5-5` coûte 2× moins, `claude-haiku-5-5` ~40× moins (analyses moins fines) |
@@ -133,7 +132,7 @@ Les sources d'actualité sont dans `config/sources.json` : tu peux ajouter un fl
 - Le plafond `FAB_DAILY_COST_LIMIT_USD` (2 $/jour par défaut) bloque tout appel à Claude au-delà, jusqu'au lendemain. Pour une garantie totale, fixe aussi une limite dans **Limits** sur platform.claude.com et n'achète que 5 ou 10 $ de crédits, sans recharge automatique.
 - Le détail réel (tokens et coût de chaque bilan) est visible dans l'onglet **Coûts** de l'application, et par jour et par modèle dans **Usage / Cost** sur platform.claude.com. Ce sont des estimations tant qu'aucun vrai bilan n'a tourné.
 
-**Limite à connaître** : avec un seul passage par jour, le bilan voit ce que les sources affichent à 9 h. Les flux RSS ne gardent que leurs derniers articles, donc certaines actualités de la nuit peuvent échapper au bilan. GDELT et les recherches Google News couvrent bien les 24 dernières heures et compensent en grande partie.
+**Limite à connaître** : avec un seul passage par jour, le bilan voit ce que les sources affichent au moment où tu le lances. Les flux RSS ne gardent que leurs derniers articles, donc certaines actualités de la nuit peuvent échapper au bilan. GDELT et les recherches Google News couvrent bien les 24 dernières heures et compensent en grande partie.
 
 ## En cas de problème
 
@@ -142,7 +141,7 @@ Les sources d'actualité sont dans `config/sources.json` : tu peux ajouter un fl
 | Message Discord « clé API Claude invalide » | Recrée une clé (étape 2) et remplace le secret `ANTHROPIC_API_KEY` |
 | Message « crédit épuisé » | Recharge tes crédits dans **Billing** sur platform.claude.com |
 | Aucune notification | Normal si aucune idée ne dépasse la note minimale. Regarde l'application, ou baisse la note minimale dans **Réglages** |
-| Le bilan de 9 h n'arrive pas | Vérifie que l'interrupteur **Bilan automatique** est activé dans l'application. Sinon : GitHub met en pause les tâches planifiées d'un dépôt inactif depuis 60 jours ; ici chaque passage enregistre ses résultats, donc ça ne devrait pas arriver. Sinon : onglet Actions → **Enable workflow** |
+| Le bilan n'arrive pas sur Discord | Vérifie que « Mode test » était décoché au lancement, puis regarde l'exécution dans l'onglet Actions. Si le workflow est grisé : onglet Actions → **Enable workflow** |
 | L'application dit « Accès refusé par GitHub » ou « ne permet pas encore de lancer un bilan » | La clé n'a pas les bons droits : sur <https://github.com/settings/personal-access-tokens>, clique sur ta clé → **Edit**, et mets **Actions**, **Contents** et **Variables** en *Read and write* sur `find-a-business` (la clé reste la même, rien à recoller) |
 | Le `.bat` se ferme tout de suite | Clic droit → Modifier pour vérifier qu'il est bien dans le dossier extrait (à côté du dossier `app`), puis relance |
 | Un passage est en rouge dans Actions | Clique dessus pour voir le journal ; les erreurs sont en français |

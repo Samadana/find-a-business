@@ -1,15 +1,9 @@
 name: Bilan quotidien des opportunités
 
 on:
-  # Le bilan automatique de 9 h (heure de Paris) ne tourne que si la variable FAB_AUTO vaut "true".
-  # Elle se règle d'un clic depuis l'application locale (interrupteur « Bilan auto 9 h »).
-  # GitHub compte en heure UTC sans heure d'été et peut sauter un déclenchement planifié
-  # quand ses serveurs sont chargés (surtout à l'heure pile). Le workflow démarre donc
-  # plusieurs fois entre 7 h et 10 h UTC, à des minutes décalées ; le programme ne fait
-  # le bilan qu'une fois par jour, au premier passage à partir de 9 h (heure de Paris).
-  # Les passages suivants s'arrêtent en quelques secondes, sans appel à Claude.
-  schedule:
-    - cron: "7,37 7-10 * * *"
+  # Bilan lancé à la main chaque jour (bouton « Lancer un bilan » de l'application locale,
+  # ou onglet Actions → Run workflow). Le planning automatique de GitHub a été retiré :
+  # il sautait trop souvent des déclenchements.
   workflow_dispatch:
     inputs:
       dry_run:
@@ -28,7 +22,6 @@ concurrency:
 
 jobs:
   veille:
-    if: github.event_name != 'schedule' || vars.FAB_AUTO == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
@@ -47,7 +40,7 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           FAB_DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
-          FAB_FORCE: ${{ github.event_name == 'workflow_dispatch' && '1' || '0' }}
+          FAB_FORCE: "1"
           # Réglages optionnels : Settings > Secrets and variables > Actions > onglet « Variables »
           FAB_MODEL: ${{ vars.FAB_MODEL }}
           FAB_EFFORT: ${{ vars.FAB_EFFORT }}
