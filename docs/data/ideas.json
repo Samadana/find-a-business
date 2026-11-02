@@ -133,6 +133,257 @@
   "note_globale": 6.7
  },
  {
+  "titre": "'Can my car enter Delhi?': BS6 eligibility checker and options guide for NCR drivers facing the older-vehicle entry ban",
+  "pitch": "Delhi is about to block non-BS6 vehicles at its borders. A bilingual Hindi/English checker tells drivers in seconds whether their vehicle is allowed and what to do if it is not: sell, scrap, switch to CNG or EV.",
+  "evenement_declencheur": "Delhi prepares to stop older vehicles that fail BS6 emission standards from entering the city, with ANPR cameras at border points.",
+  "contexte_declencheur": "The Times of India reports that Delhi is set to implement restrictions barring older vehicles that do not meet BS6 emission standards from entering the city. Officials are struggling with how to monitor numerous entry points during rush hours and plan to rely on technology such as automatic number plate recognition. Millions of commuters drive daily from Gurugram, Noida, Ghaziabad, Faridabad and other NCR towns, and many still own BS4 or older cars, two-wheelers and commercial vehicles. Most owners do not know their vehicle's emission norm offhand, nor the exact rules, exemptions or penalties. Once ANPR enforcement starts, fines and refused entries will push owners to check eligibility, sell or scrap their vehicle, or buy a compliant one. This creates a sudden, massive information need and a wave of purchase decisions.",
+  "pourquoi_maintenant": "Searches peak in the days before and right after enforcement begins, when the first fines and viral videos of turned-back vehicles appear. A tool live before the start date can rank for 'BS6 check by number' style queries before the large auto portals react. After a few months, the content becomes a slower evergreen guide.",
+  "description_detaillee": "The homepage is a simple checker: the user selects vehicle type, fuel, state of registration and month/year of registration (or first sale), and gets a clear verdict (likely BS6 / likely not BS6 / check needed) with an explanation, since BS6 became mandatory for new registrations from April 2020. A link explains how to confirm the exact emission norm on the official Vahan/mParivahan records and on the RC. Pages cover the rules in plain language: which roads and borders, timings, exemptions, penalties, and the latest official notifications, updated as orders are published. A 'What now?' section compares options with calculators: selling the vehicle (lead forms or affiliate links to used-car buyers), scrapping at a registered vehicle scrapping facility and the scrappage certificate benefits, CNG retrofit where legal, buying a BS6 used car, or switching to public transport or EV with monthly cost comparison. Everything is in Hindi and English, mobile-first and WhatsApp-shareable, since much traffic will come from family and housing-society WhatsApp groups. First users come from SEO, a Google Ads test on 'BS6 vehicle ban Delhi' keywords, posts in r/delhi and r/gurgaon, and outreach to local news sites who often embed or link useful tools. Revenue comes from display ads (high traffic volume), affiliate or lead-gen fees from used-car platforms, scrapping facilities, CNG kit installers and EV dealers (typically ₹200-₹1,000 per qualified lead). With hundreds of thousands of affected vehicles, a realistic outcome is 200,000-500,000 visits in the enforcement month and €1,000-€4,000 per month in combined ads and leads during the first quarter.",
+  "categorie": "outil-web",
+  "cible": "Car, two-wheeler and small commercial vehicle owners in Delhi NCR (Gurugram, Noida, Ghaziabad, Faridabad) with pre-2020 vehicles",
+  "pays_cibles": [
+   "India"
+  ],
+  "langues": [
+   "English",
+   "Hindi"
+  ],
+  "modele_revenus": "Display ads, lead generation for used-car buyers, scrapping facilities, CNG installers and EV dealers, affiliate links",
+  "budget_estime_eur": 450,
+  "delai_lancement_jours": 10,
+  "duree_opportunite": "Strong spike around enforcement start, then 6-12 months of steady demand as vehicles are replaced",
+  "notes": {
+   "potentiel": 6,
+   "cout": 8,
+   "travail": 8,
+   "risque": 7,
+   "urgence": 9,
+   "durabilite": 5,
+   "fiabilite": 7,
+   "concurrence": 6
+  },
+  "notes_explications": {
+   "potentiel": "Traffic potential is very large given the NCR population, but Indian ad CPMs are low. Lead-gen deals with used-car and scrapping players would push revenue higher if secured early.",
+   "cout": "Only domain, hosting, a small ads test and Hindi proofreading are needed, under €500. No paid data API is required if users enter their registration date.",
+   "travail": "The checker logic is simple and the guide pages are few; a developer can ship it in about a week. Keeping rules updated with official notifications is the recurring effort.",
+   "risque": "The main risk is giving a wrong verdict; framing results as 'likely' and pointing to official Vahan records limits liability. No sensitive data needs to be stored.",
+   "urgence": "The restriction is described as imminent; being ready before enforcement and the first fines is essential to capture the spike.",
+   "durabilite": "Once most owners have checked and decided, traffic declines, but rules tend to tighten over time (other cities, other standards) and the replacement decisions last months.",
+   "fiabilite": "The plan is covered by the Times of India and a second outlet, and Delhi has a long track record of vehicle restrictions. The exact start date and scope still need confirmation.",
+   "concurrence": "Big auto portals (CarDekho, Cars24, CarWale) will publish articles, and Vahan provides raw data, but none offers a dedicated, bilingual checker focused on this ban with an options guide."
+  },
+  "budget_detail": [
+   "Domain name (.in) and hosting: €40",
+   "Hindi copy proofreading by a native speaker: €120",
+   "Google Ads test on ban-related keywords: €250",
+   "Logo and social share images (Canva Pro, 1 month): €12",
+   "Miscellaneous (form tool, analytics): €28"
+  ],
+  "requete_verification": "Delhi BS6 vehicle ban border enforcement ANPR",
+  "concurrents": [
+   "Vahan/mParivahan official portals: raw data, no plain-language verdict or options",
+   "CarDekho, CarWale, Cars24 news articles: static articles designed to sell cars, not a neutral checker",
+   "Local news explainers: one-off, not updated, no tools"
+  ],
+  "analyse": "A quick, low-cost and helpful tool with a clear spike in demand, well suited to a developer who can ship in days. Go if you can launch before enforcement and secure at least one or two lead-gen partners, since ads alone in India pay little. The main point of vigilance is accuracy: track official notifications closely and never present a verdict as legal certainty.",
+  "etapes": [
+   "Collect official rules, notifications and exemptions from Delhi transport department and CAQM sources (1 day)",
+   "Build the checker and result pages with Astro or Next.js, mobile-first, deployed on Cloudflare Pages (3 days)",
+   "Write and translate guide pages: rules, penalties, sell/scrap/CNG/EV options with cost calculators (3 days)",
+   "Add WhatsApp share buttons and Open Graph images for viral sharing (half a day)",
+   "Apply to affiliate/lead programs of used-car buyers and contact registered scrapping facilities and CNG installers in NCR (2 days)",
+   "Launch with a Google Ads test, posts in r/delhi, r/gurgaon, r/noida and outreach to local news sites (1 day)",
+   "Monitor search console and update rules within hours of each official announcement (ongoing)"
+  ],
+  "risques": [
+   "Wrong verdict for edge cases (late registrations, imported vehicles): use 'likely' wording and link to official records",
+   "Policy delayed or changed: keep content focused on official sources and pivot to general pollution-rule guides",
+   "Low ad revenue: prioritize lead-gen partnerships early",
+   "Copycats from big portals: win on speed, bilingual UX and WhatsApp shareability"
+  ],
+  "mots_cles": [
+   "BS6 check Delhi",
+   "Delhi vehicle ban",
+   "BS4 car entry Delhi",
+   "vehicle scrappage NCR",
+   "ANPR Delhi border",
+   "can my car enter Delhi"
+  ],
+  "sources": [
+   {
+    "titre": "Delhi's vehicle ban faces big test at borders: Can enforcement keep up?",
+    "url": "https://timesofindia.indiatimes.com/city/delhi/delhis-massive-vehicle-ban-faces-its-biggest-test-at-the-borders-can-enforcement-keep-up/articleshow/135445979.cms",
+    "source": "Times of India",
+    "langue": "en",
+    "date": "2026-11-02T05:08:45+00:00"
+   },
+   {
+    "titre": "Delhi's massive vehicle ban faces its biggest test at the borders: Can enforcement keep up? - The Times of India",
+    "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxOR2tMbXFtR0RkdmREWEF4U2UydHZUVUhGVUs5eW9SOUVKWUp4SEJ0cEZsdFdUN3VqQWJfdEtHZkJ4c3A2clNyaE5TdnozM0JlbnA1Q3E1cWd0a1MxLWFpTU1iTC1RTlJLR1NONGRnamV5MTFRWklfS2FYV001d1dOc1lCX2VYQmEtc0oxWExIbVZtU21WVDJpVllJNlRQYTR3M2xyUU8xVHFzOWdOLUdxY3dqWWZBVzBlS1B2cXQyRy1FVkQ4b2RHLW5DUld0ZzJ5bUJ2alNFN2tGUzYtQTJDdTd6UmFVN1JxT2lXUVdoWjFRbXM?oc=5",
+    "source": "Google News IN",
+    "langue": "en-IN",
+    "date": "2026-11-02T05:08:00+00:00"
+   },
+   {
+    "titre": "Delhi-NCR's New Pollution Rules Explained: Older Vehicles Banned, 50% WFH, And Strict Commute Curbs - NDTV",
+    "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPOE1hQTNma0FOSjVGTlpBdmkxX0c2T1hYbW1ZUW9kOU1XLUQyelQ0UGp4ZEJ5VThKbURBamVXeHpkZWlCZXlkblVMUkNUYWtQcFVlSGMwelhDdDNNazc3UFdkaXA0M0xVQUtaLXRGSldVaWRVS1hxQWFsbUlQdHY4R0tveFdBdEEyalhKRXhYNDY3QnhSN0M1SGh0VHh3SUU0alN6VEMzWFcwUTBxRFB6YnlWejl2SXhFYURqVlVzSWtrVHNrZHcwazVlVTBNWUtI0gHYAUFVX3lxTE4yTFFOR3JveHJmRW9oT2ItTXVEamYycVBsZFQyejU4aVVLYXd5c2l1RklyMC1PZmRQRjBUbzEtb1RNWnZva2d3dndWeklHcy1vMzM1T205U1dDVlhQVXQ5Q2FHalZWaEtla3ZQSVFtYkE3WEZzRV92LS1CUzNmZ2pGck9mNEc0VkVVMDdKY2FJaHpEbXhlaTM4dzBvb1BPM2ZUaklITlg4UW1yaWtVOGFvUDN1Ym1KVHNUQXp3WXE5Mjd6TkJKci12TkxSWXNCalFTeVVrY0JLNw?oc=5",
+    "source": "NDTV",
+    "langue": "en",
+    "date": "2026-11-01T02:53:08+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Delhi pollution curbs: Non-BS-VI vehicles barred from Nov 1, check rules - Business Standard",
+    "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOUVVIY29uMzFWcGRfWGpjcWVjb0VhZXZWMmFxb20tQUxmcV9sc1VOdXM1SWZybHV0OVZ5djZud3FMRTRjaURvYktDRHNocnlRZmxmSlBwVWlRWVFLd1o3aTVBYXRZdVlGUXdrY2xiUmFOc3NlUjdXbnVtRjN5V05VeDZIaVFXZDZZRXU1d04wWE9XMC0wRUdXVTBvdDI0bkY0YkNCVXdaQkd3ZDAzQk45TGJ3OVlQNkM2bmNXVGVhMkVqN1FDYmN5bi1lTEFhSkVMdmRxSm930gHbAUFVX3lxTE1WbEMyeFdkTVlyc0gtRXFSNzBoWkE3RGt5cmVnSjB0S3lHR3hXakVJTFBOR2loTXBZanFUNFU0STBQUGxZbjQ3X3JTSG9DQ1pnYTlxeTRZSFpzMlNFMURPcHlrTHp6NnppWGxWSFpRZl92NGEybWQwU09mWV9sTlpyb1RKV3lGakhnSGVYNXRCWVlNdlZobTE1aC1vMFdMM2hPand6QlFuYjlmN1o3OHZHRTdobmhtY2xvLU42b1BXR1ZPVHJLMTYwRldlTXdocEdodjVXTE15dVo3OA?oc=5",
+    "source": "Business Standard",
+    "langue": "en",
+    "date": "2026-10-27T05:21:36+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Delhi’s BS6 rule is coming: Is your NCR vehicle on the banned list? Here's how to check - The Times of India",
+    "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxPOXZUUE1lTlk5eDBya1NhSWM4SHJQQ3lfaWU0dDVnYzVzUHNVWnBsczV0Q09RNGFZZjJoVlpmMExMQVlhdUt5azJVNFkwOW9XNVpTMWJkNDF5TzVBc0FlQ1d2bWx3TlR2bjRja2x3dUVxdU1lWnpXZUVHa282ams2VXdsVXVMLUVEVkEyc1Zqc2lVT0tRUHFMNVdUa1JvTV9HZ3VIWkpmeGc5d2lna2s5VzE1Qno4NE1KLXk0eC1tWlh4c0JrMXNpUkhtY2U0WW9QZHRKOW5TSDhDaTN3WERNRnREOEpPeExWOGdDV9IB8gFBVV95cUxONnlOdTUzaGF5WFZYWWNPMi1SdFNDdXg2eV9OeW5UTXZRR1RfcE42WWhWdTAzakROaEl3Mkp0bTNia3JvV09nVUlrWHpSc2Q4d0U3YXN1TE5wV1VWeTlJVi16VTRLbk95VGctTGVwcjd0b0MzS0h2NVRCYm1wZzVVclBDSEJYdHlWRTI1UTlDOEt0WmF5dDJYaTZnWWYxeTFoRzBsckZaWWdUWHFGaWg0MEczN0VZQVZUMml0YllicmxrTnFXaEZIVWQwZTFRbDZHRGxYUkpoUjJweE1zZ0lCeUJ1S3hyMnhDRDJKRXdGeXZLdw?oc=5",
+    "source": "The Times of India",
+    "langue": "en",
+    "date": "2026-10-27T11:33:00+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Delhi pollution rules from today: What changes on the road, at the pump and at work - Moneycontrol.com",
+    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOQUtHTGtqMVZ1LXFJZnFtM3RqZHRLNU5XX3RSQlExRWN4U3dhMS1XM3FvSEJIZFhnRU9rQ2FzVWN4cUZEcm1WUnZ4b3k3WUgxeE5NMVd0eWVMTjU3cGMydGFKZ25xbTRPVjkxZUJCYWxjT0NNLWdsbkRjVFQ2Rk5vMU92TEQyWlFhOG1VcFFFcXhBZ1dMdG1ZbmlQdUFVb1VXWGNlNmtoVV9MUG1tNGpfamd2dWxWd9IBuwFBVV95cUxPU3J0RW56d2s5MlRVTVVFZXJSbzNabExvMEZlUHVKWUlZMWx4d19KVUd5azlKbzVObnBqaElVcVBrcVlGTzl3Y2p5cXRsdFFHbWFNb1pvclEySTVLV21DamVCbVFtVFVlYmdwelNBN3N2cWtnWUtfWEg3RUhLaHFSSHNjRHNXM2dFZnNPaktEdjJMVDRSTmQzaUpqakxfQkh4SW1Nazk0TmNCS2ZCdUNKZ1IxODR6QkxRamxJ?oc=5",
+    "source": "Moneycontrol.com",
+    "langue": "en",
+    "date": "2026-11-01T03:56:01+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Older vehicles, no entry: Delhi shuts the gate on non-BS6 outsiders from November 1 - India.com",
+    "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNdDl2RHhiazVUNG5uX1hJQnVCMEhULVRSY2tYUzVyV29nYThDdXFvaldvSHpWbldvZzE2cjJSVXFhcWJaMUlEVkQ2WkZhYk0zNGRyaGFJbzluajZvTTJGUXN4UW1zNEwweHcweVBwTjBEQWhPaVV5MzZDdDF1ZjJkMmRBZWEyeXpuMDlYZXpqZG5CSUNTN3NWRkJkcHpxT3dmeWRNdXZkZmpsZWdqWDVMRm1vYkF3c0J1MHhBLU8xQTByTVRLNmfSAcYBQVVfeXFMTXQ5dkR4Yms1VDRubl9YSUJ1QjBIVC1UUmNrWFM1cldvZ2E4Q3Vxb2pXb0h6Vm5Xb2cxNnIyUlVxYXFiWjFJRFZENlpGYWJNMzRkcmhhSW85bmo2b00yRlFzeFFtczRMMHh3MHlQcE4wREFoT2lVeTM2Q3QxdWYyZDJkQWVhMnl6bjA5WGV6amRuQklDUzdzVkZCZHB6cU93ZnlkTXV2ZGZqbGVnalg1TEZtb2JBd3NCdTB4QS1PMUEwck1USzZn?oc=5",
+    "source": "India.com",
+    "langue": "en",
+    "date": "2026-10-31T17:22:36+00:00",
+    "confirmation": true
+   }
+  ],
+  "ethique": {
+   "acceptable": true,
+   "raison": "The tool gives drivers reliable information and helps them comply with an environmental rule; it neither exploits distress nor encourages evasion of enforcement."
+  },
+  "id": "idee-28d20b0c",
+  "signaux": 1,
+  "cree_le": "2026-11-02T09:22:17+00:00",
+  "mis_a_jour_le": "2026-11-02T09:22:17+00:00",
+  "statut": "active",
+  "notifiee": true,
+  "langue_redaction": "en",
+  "note_globale": 6.7,
+  "sources_confirmation": 5
+ },
+ {
+  "titre": "'Aceita VR e VA': guide and comparator for Brazilian merchants and workers as meal-voucher cards become interoperable on November 7",
+  "pitch": "From November 7, meal and food voucher cards in Brazil can be accepted on any enabled card machine regardless of operator. A Portuguese site helps small restaurants and grocers pick the right machine and fees, and helps workers find where their card works.",
+  "evenement_declencheur": "Brazil's meal (VR) and food (VA) voucher cards become accepted across operators on any enabled card machine starting November 7, 2026.",
+  "contexte_declencheur": "Folha reports that from November 7, 2026, meal-voucher (vale-refeição) and food-voucher (vale-alimentação) cards change significantly. The main change is that cards from different operators will be accepted on any card machine enabled to process this type of payment, ending the need for merchants to sign separate contracts with Alelo, Sodexo/Pluxee, Ticket, VR and others. Tens of millions of Brazilian workers receive these benefits, and hundreds of thousands of restaurants, bakeries, snack bars and supermarkets accept them. Small merchants do not know which machine is enabled, what fees apply, or whether they can drop old voucher contracts. Workers want to know where their card now works. This transition creates a short burst of confusion and switching decisions among merchants.",
+  "pourquoi_maintenant": "Merchants will make machine and contract decisions in the weeks around November 7. A site live before or right at the switch can capture searches like 'maquininha que aceita VR' and 'taxa vale-refeição'. Once the market settles in a few months, the big fintech blogs will dominate.",
+  "description_detaillee": "The site has two entry points. For merchants: a plain-language explainer of what changes on November 7, an FAQ (can I cancel my old voucher contracts, how long until I am paid, what fees apply), and a comparator of card machines and acquirers enabled for VR/VA with fees, settlement times, machine cost and rental, updated manually and verified with sources. A savings calculator lets a restaurant enter its monthly voucher volume and current fees to estimate the gain of switching to a single machine. For workers: a guide explaining where their card can now be used, and a crowdsourced map where users mark establishments that accept all voucher cards. Monetization comes from affiliate programs of card-machine providers (Mercado Pago, PagBank, Stone, InfinitePay, Ton, commonly paying a fixed fee per machine sold) and display ads on worker-facing pages. A free downloadable 'Aceitamos todos os vales' window sticker PDF captures merchant emails. Traffic comes from SEO in Portuguese, posts in Facebook groups for restaurant owners, LinkedIn, and short explainer videos on Instagram and TikTok. A realistic target is 100-300 affiliate machine sales per month in the first quarter at roughly R$40-R$100 each, i.e. €700-€4,000 per month, plus ads.",
+  "categorie": "annuaire-comparateur",
+  "cible": "Small restaurants, snack bars, bakeries and grocers in Brazil, plus workers receiving VR/VA benefits",
+  "pays_cibles": [
+   "Brazil"
+  ],
+  "langues": [
+   "Portuguese"
+  ],
+  "modele_revenus": "Card-machine affiliate commissions, display ads, merchant newsletter sponsorships",
+  "budget_estime_eur": 600,
+  "delai_lancement_jours": 12,
+  "duree_opportunite": "Intense for 2-3 months around the switch, then a moderate evergreen comparator niche",
+  "notes": {
+   "potentiel": 6,
+   "cout": 8,
+   "travail": 7,
+   "risque": 7,
+   "urgence": 9,
+   "durabilite": 5,
+   "fiabilite": 7,
+   "concurrence": 5
+  },
+  "notes_explications": {
+   "potentiel": "Brazil has a huge base of voucher users and merchants, and card-machine affiliates pay per sale. Revenue depends on ranking against established fintech blogs, which caps the score.",
+   "cout": "Domain, hosting, a modest Meta ads budget and sticker design come to about €600. Most effort is time, not money.",
+   "travail": "A comparator table, calculator, FAQ and a simple crowdsourced map take about 10-12 days. Keeping fees updated requires periodic checking.",
+   "risque": "Low legal risk if fee data is sourced and dated. The main risk is publishing outdated fees, which hurts credibility.",
+   "urgence": "The change takes effect on November 7; merchant decisions cluster in the following weeks.",
+   "durabilite": "Once the transition is absorbed, interest drops to generic 'best card machine' searches, still a valuable but competitive niche.",
+   "fiabilite": "The change is reported by Folha and another outlet and stems from official rules on the worker food program. Details of fees and enabled machines still need checking provider by provider.",
+   "concurrence": "Fintech blogs and card-machine comparators (e.g. comparison sites and provider blogs) exist, but few focus specifically on VR/VA interoperability with a savings calculator and worker map."
+  },
+  "budget_detail": [
+   "Domain (.com.br) and hosting for 12 months: €60",
+   "Meta and Google ads test targeting restaurant owners: €400",
+   "Sticker and social media design (Canva Pro): €40",
+   "Portuguese native proofreading: €100"
+  ],
+  "requete_verification": "vale-refeição vale-alimentação maquininha interoperabilidade 7 de novembro",
+  "concurrents": [
+   "Card-machine provider blogs (Stone, PagBank, Mercado Pago): brand-biased",
+   "Generic maquininha comparison sites: not focused on VR/VA, no savings calculator",
+   "Voucher operators' own sites (Alelo, Pluxee, Ticket, VR): explain their product only"
+  ],
+  "analyse": "A good, timely Portuguese-language niche with a clear deadline and affiliate monetization. Go if you can launch within about ten days and verify fee data carefully. The main point of vigilance is accuracy and freshness of the comparator; outdated fees would kill trust with merchants.",
+  "etapes": [
+   "Read the official rules and Folha coverage, list enabled acquirers and their VR/VA fees (2 days)",
+   "Build the comparator, savings calculator and FAQ with Next.js on Vercel (4 days)",
+   "Add the crowdsourced acceptance map with Leaflet and OpenStreetMap (2 days)",
+   "Apply to card-machine affiliate programs (1 day)",
+   "Create the downloadable sticker and email capture with MailerLite (half a day)",
+   "Launch with Meta ads to restaurant owners and posts in merchant Facebook groups (1 day)",
+   "Update fees weekly and publish news pages as operators announce changes (ongoing)"
+  ],
+  "risques": [
+   "Outdated or wrong fee data: date every figure, cite sources, weekly review",
+   "Affiliate programs refusing foreign publishers: use a Brazilian payment intermediary or focus on ads and lead forms",
+   "Competition from big fintech blogs: target long-tail and city-specific queries",
+   "Implementation delays: monitor official announcements and adjust content"
+  ],
+  "mots_cles": [
+   "maquininha que aceita VR",
+   "vale-refeição interoperabilidade",
+   "taxa vale-alimentação",
+   "aceitar todos os vales",
+   "PAT mudanças novembro"
+  ],
+  "sources": [
+   {
+    "titre": "Recebimento de vales-alimentação e refeição muda a partir do dia 7",
+    "url": "https://redir.folha.com.br/redir/online/mercado/rss091/*https://www1.folha.uol.com.br/mercado/2026/11/recebimento-de-vales-alimentacao-e-refeicao-muda-a-partir-do-dia-7.shtml",
+    "source": "Folha (Brésil, économie)",
+    "langue": "pt",
+    "date": "2026-11-02T07:00:00+00:00"
+   },
+   {
+    "titre": "Recebimento de vales-alimentação e refeição mudam a partir do dia 7 - ICL Notícias",
+    "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQZDUtUFhyWERDcHZLLVlqUFh2MGxYdTFIQ19EQkhiZElRaVc0dURiYjBjd2RDUEFsUU5majlpYkM0ekVhSG9XeDRTTFFOZkhia0ZZOEJNdndrbzJ5SWR6c2t0eTVvUjY3Nl95QkxoOU9RbUtlcVlUaWpoczhDcEpUcg?oc=5",
+    "source": "Google News BR",
+    "langue": "pt-BR",
+    "date": "2026-11-01T22:01:38+00:00"
+   }
+  ],
+  "ethique": {
+   "acceptable": true,
+   "raison": "The site provides practical, transparent information that helps small merchants and workers navigate a regulatory change."
+  },
+  "id": "idee-5e5f562f",
+  "signaux": 1,
+  "cree_le": "2026-11-02T09:22:17+00:00",
+  "mis_a_jour_le": "2026-11-02T09:22:17+00:00",
+  "statut": "active",
+  "notifiee": true,
+  "langue_redaction": "en",
+  "note_globale": 6.5,
+  "sources_confirmation": 0
+ },
+ {
   "titre": "Plateforme d'aide aux patients des cliniques dentaires Vivanta fermées (Espagne) : réclamation aux organismes de crédit et reprise des soins",
   "pitch": "Des milliers de patients espagnols se retrouvent avec un traitement dentaire inachevé et un crédit qui continue d'être prélevé. Un site en espagnol leur fournit gratuitement les lettres de réclamation, la marche à suivre et un annuaire de dentistes prêts à reprendre leur traitement.",
   "evenement_declencheur": "Fermeture définitive de la chaîne de cliniques dentaires Vivanta en Espagne, avec des patients aux traitements inachevés et financés à crédit.",
@@ -252,6 +503,20 @@
     "source": "Google News recherche ES",
     "langue": "es",
     "date": "2026-11-01T09:46:48+00:00"
+   },
+   {
+    "titre": "Asescon pide a Bruselas que intervenga ante el cierre de Vivanta y la incertidumbre de sus pacientes - El Faro de Ceuta",
+    "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOQ3FkVGRuM2wwaWpXZEhsZG9ieGRta0ZqQndBc1FJdUo0OWRTaUhBWHBHbl9HdFBVendaTGgzelRRbFlQaUhjMHZ6enRRaXZScTFHMmtVbGpFV1pPNFA0QUhCM0ZubGtDNWFwV2VrN3Q4ODZaamtoejJFMnRrcEg5N1dkb3hEWFdQbTJ4Y1JNal92eEFDWmRBMk8yYVdPUdIBowFBVV95cUxNeE5jeEU2ODE1azVsQ0k2N1NaM2Q3a0J2M0o2cXAtTHQ2NkZCRURpTG9EeGNuWG1ieUx1NzZZX2tTbmY2cmNwOUU5b21qZzVzSTBudW80cmJVclU1RGtpYjlHTTVSXy14VmJNbnVmRG1kVVd4RTYwaWJyaWVVVXFxSHVIMWtZb3NiOTF2ZjgwZGhBV2hMdm9YYzFYNUlVbGs5bkhZ?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-11-02T09:00:32+00:00"
+   },
+   {
+    "titre": "Irache asesora a los afectados por el cierre de la clínica dental Los Arcos & Deprit de Pamplona para que reclamen sus derechos - COPE",
+    "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxNQktidDZrMk5wXzRUcUxxc0wyd2FfV2VpWTd1NG5nOVJKNy10TjhwbDQ3OEtuUkQybFdLSHc4eHlyMFRSTTBwZGVfQTdvOV9HVWhxUWFicUQ3eC1HSEtwRmFqNGk4ZW96M0ltbzJicGR2bWsyeXhzMnU0MGJwbjFucGo2LU5oSGVKOHlRSzhOUGlHdVVSY2JvWGljY0RTNFJvd19oYmZ5ZGExTHZ0Vjd3SlE0TjZyVUI1NElXd19vTDdpazRZM2VGSjN4dUJYNDBpNnpLM2pKa2FnaEFaU2NmbWJtc3A0ZEk1SUHSAe8BQVVfeXFMTjVERE9qRk9QXzdxOWZwNGR1RjdaZUNzcXNnVjlDNXNrNTFSTklic0UtNEVjWGk3Ry1kWFh6bVdGSk5hNjI1R210WEtCaU5nZzQyRjFlQWJTWkkzdVhRVkxVbGhfdVNma2RxVGxVYnladkI3YXE0MlhPa21PRmhMXzZyS3A4ZnVjTE1tQU1TbmlKd2toQ3pLNk03aFpZdjdVM2RRUl8tY0tMQ1ZhendxamZzWGx0M1dnbzVnamZTMWNRMkJoS2xLeW5PVTM1ZUJCQVpEWEgyYzdFWS1qOFl0NXB5OVJ3bndja3BIczc1NDQ?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-11-02T09:07:03+00:00"
    }
   ],
   "ethique": {
@@ -259,16 +524,20 @@
    "raison": "L'outil aide concrètement les patients lésés à faire valoir leurs droits, avec un guide et des lettres gratuits. La monétisation repose sur les professionnels (dentistes, avocats) et une option modeste, sans prix abusif ni promesse trompeuse."
   },
   "id": "idee-a271c8a5",
-  "signaux": 2,
+  "signaux": 3,
   "cree_le": "2026-10-31T14:01:44+00:00",
-  "mis_a_jour_le": "2026-11-01T10:02:19+00:00",
+  "mis_a_jour_le": "2026-11-02T09:22:17+00:00",
   "statut": "active",
   "notifiee": false,
-  "note_globale": 6.2,
+  "note_globale": 6.3,
   "historique": [
    {
     "date": "2026-11-01T10:02:19+00:00",
     "note": "Noticias de Navarra rapporte la fermeture de la clinique Los Arcos & Deprit Oralis en Navarre : d'autres patients espagnols de cliniques dentaires se retrouvent potentiellement avec des soins inachevés, ce qui élargit la cible de la plateforme au-delà du seul réseau Vivanta (à vérifier selon le détail de l'article)."
+   },
+   {
+    "date": "2026-11-02T09:22:17+00:00",
+    "note": "Asescon asks Brussels to intervene over the Vivanta closure and patient uncertainty; another clinic closure in Pamplona (Los Arcos & Deprit) has consumer groups advising patients, showing the need extends beyond Vivanta to dental-clinic closures in general."
    }
   ]
  },
@@ -449,6 +718,90 @@
     "source": "Google News recherche US",
     "langue": "en-US",
     "date": "2026-11-01T07:08:16+00:00"
+   },
+   {
+    "titre": "La pénurie de cartes graphiques NVIDIA et AMD a entraîné une hausse des prix pouvant atteindre 45 % en un mois. - GameGPU",
+    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQaVJOem9GSEZiRTZNTTFEQV9HN1VwTVh2MVJYU2dVTFpMUTJ5d3hteHliaXdrZTRXdGdyVTRzbHEteDFhUVYxMjdncDlFUk9GLWpWSmxjQm5ZVVhlVURUU19yQkZac1VpWWtBUGpUekR2OGUtbkRzN2RabmJhTmNuaGpKMlh4MkFxc2QxNWp4RzJQRS1zMWFBZmEzbFZhSC10V0I4VmEtbGRKRGlwZU1oMzVmbFFrdw?oc=5",
+    "source": "Google News recherche FR",
+    "langue": "fr",
+    "date": "2026-11-01T17:50:57+00:00"
+   },
+   {
+    "titre": "A shortage of NVIDIA and AMD graphics cards has led to a price increase of up to 45% in a month. - GameGPU",
+    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQREhFQ2lPajA2VjZOUzFMYVI5aHpJMEp1QmYtZG5xVWtpY05CYnVTUWhZOEM4bUNjSUxQRDZqcE1ZM3FQU2xsNmtTSkVmQlpySW5mZGF1YldoT2d0SVlCc3N6ZVM0Y1NZYzFtbWluZFU5YkpGc01leTlSdEJ4VTdDcC1uQ3J5MldkbG1HU0RlMngzRjhzMDZJdGlpNFp0YV94N3FKVDZIRDNLUXl0ZHFOd19IdkFFZw?oc=5",
+    "source": "Google News recherche US",
+    "langue": "en-US",
+    "date": "2026-11-01T17:50:57+00:00"
+   },
+   {
+    "titre": "Memory Shortage Spreads to Graphics Cards: AMD to Raise GPU and GDDR6 Supply Prices Again After Just One Month - BigGo Finance",
+    "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1VRUhEM0RDVVZXVVNXS2RPREp0a05sekc1OGFocG1oXzZ6SU1KRWR5d0RSZHhTcVhDd0FjRGlIZVlYaVNIUHlPd0lyaW1ObHdlcUZrTlhzbTZ2bjFScjd1OGE3RDdBUnhFejNRSnlRN1NEaWNCcVE?oc=5",
+    "source": "Google News recherche US",
+    "langue": "en-US",
+    "date": "2026-11-02T08:56:00+00:00"
+   },
+   {
+    "titre": "AMD Raises GPU and GDDR6 Bundle Prices for Graphics Card Manufacturers - Technetbook",
+    "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOSW5UbmV3YVBaQjRLaVFmNUF1UXRVOF85b0JmbDEtZVlvdnFkS2oteFlmTWkySm5xRjVzNjl5TmRBLTRvQ0RObEMtSFRoX0lVYUc3NTJFZ3ZMV1JxVy1HSzJqNVBKSVZOMUlXRTJsUFdiRXc4WWFMN0o3TmJPOW5RSzRJZzE0VzQ?oc=5",
+    "source": "Google News recherche NG",
+    "langue": "en-NG",
+    "date": "2026-11-02T01:04:00+00:00"
+   },
+   {
+    "titre": "NAND Prices Remain Robust as AI Demand Deepens Memory Shortage, but Long-Run Risks Look Exacerbated - Morningstar",
+    "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNV2hXb2JyQmdZTVJUVzJoOExmTmllMDFOUm5rcDE5elBSY1EtcVdISzBXOXZmRy04MXlVcmhfN3FiS2RjU29kMHBjOW9FdHdXZEhyaC1QMFJsWXBMM3Zyd002YlAtemJZbEl0dFpOMTdNbm10QXVwTEhTVnRFZ3hhOUFRQVM0TV9wZDV3UDNtV1RuQU16LTlmdVZDUTNoWG9UMG94V19TNENEbFgzTWx4Q3d0NV9melFudzM1U19ELTRzUndyTE5pOU1NX1AxaE95YThFeDN2T2xjTkphTjVhazJWQjc?oc=5",
+    "source": "Google News recherche US",
+    "langue": "en-US",
+    "date": "2026-11-02T04:37:39+00:00"
+   },
+   {
+    "titre": "Prolonged memory chip shortage prompts downgrade to smartphone and IT OLED demand forecasts - 머니투데이",
+    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFB6OS1Xd1Y4N2kzdE9ZV3lEOV81VmRNWjNnNl95RUpvdU1rZjJscWRrWU5HWjJCY3lWYm11a0U0eGJDdkp5Mm1xV2hQS1JUM3pvSlpUc0hmcy1HMm1MMGxaZ0xDRURxVGUzN3I5by1jS1k?oc=5",
+    "source": "Google News recherche US",
+    "langue": "en-US",
+    "date": "2026-11-02T08:10:00+00:00"
+   },
+   {
+    "titre": "Even Intel is not immune as memory shortage fallout intensifies - 머니투데이",
+    "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5DSXhvXzhDYkZUQ1hJS2p0N3pmUUhST0FXbFJGc0ZHNmdMd21GVzlFUHYyUGdaenc3OW9pZE9CekN1TXA3bzBFWWhOdXBaTDBNN2VNZ2FBRWg3Z091Q0ZSeEZoUFFidWFwVlBUa2xTNmo?oc=5",
+    "source": "Google News recherche US",
+    "langue": "en-US",
+    "date": "2026-11-02T07:50:00+00:00"
+   },
+   {
+    "titre": "Sam Altman Calls RAM In Home PCs 'Terrible' Amid Global Memory Shortage - ETV Bharat",
+    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNcWdSUktZaWQ4Nno0TVdBZUZTWDhkd20zX3BoMFZzclNpaEs2d0RlSFVrbE9RTy1MZTI4eHJIejJUSVlCNGtMX3RtSms0c2VaMUtCRXBlNkw5RkxFbF96VjhidmdqT0xtMUNHMEFRU2dHTG1yRXd0SGNjTEtkajJ2NVZQX1RlblBrdGZxUXBDNEg3U0FfRllNOEs3VUY4ZU9JNkR0ek9QcWlMNjA1WTg1Mm0yONIBuAFBVV95cUxOaEczMGtOdV91cTZGNE55RjNwM1dndWZCdWVSdWlZLXNCcFJDQXFrWUFXNndzSDFKUWhReG52UDc5b3F5YjQ4LXJFZkhIX2JLZ0w2WFRYcUdyYjQwNnBPeko4d0dxR1dZV1ZsandPTmc2UVlWWWp3Y1NwYTlBUWxWYWRLdGNFRE1RQWhBaE5fbTZKTW1GdGpfSlZtMmpwRENfRFhDN0VjdUpGVUpRazFrTWJjUjF0Smxp?oc=5",
+    "source": "Google News recherche US",
+    "langue": "en-US",
+    "date": "2026-11-02T06:54:35+00:00"
+   },
+   {
+    "titre": "Pénurie de PCB : 30 mois de délai à cause de l'IA - HardwareCooking",
+    "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE03Sk9LaFR3RDBsRUVfc2VYRVR3cTlZNUpFY015QUpmRTA1bjdYekdkU2xYM3BWYWR2NDBCcHVORmZ6dy1DQlZBNjY2MnVQYlZkRjdzM1R0a3Zya1I5MDR0UV9XWlhkWGZDVW1QYTYxMXBaMTNBaHJ5Ug?oc=5",
+    "source": "Google News recherche FR",
+    "langue": "fr",
+    "date": "2026-11-02T08:28:59+00:00"
+   },
+   {
+    "titre": "Memory Price Hikes Force New Playbook for China's Mid-Range Phones: OPPO, vivo and Honor Drop the Specs War in November Launches - BigGo Finance",
+    "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1jYXVfSU5wZWlzVUl4ek12WkJNajVJUlktWDR6d3Bka3hCMUxidldHUWNTYmtpNTkzYndJQ0xrTGczSU9TVGVsX09HUktzLXhFaG9sX1BHWVdPN205aTNiQXFkMVpTLWFRZV9VOEpvbjJGTDJoZ2c?oc=5",
+    "source": "Google News recherche IN",
+    "langue": "en-IN",
+    "date": "2026-11-02T02:26:00+00:00"
+   },
+   {
+    "titre": "Lava smartphone prices to increase by up to ₹3,000 from November 15: What buyers should know - PCQuest",
+    "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPWWJKdi1zZEM3WmgzSjFTWE44R0lJREcxR1RnR1c5WVRLS3BwS0YwaURSbU04YmxjWVFNb05ucGsxRjk4TDRuWU1HdmRXQXNpNXQ0cVpSS0FVckI5NDU2UFdfQjhXVkM0Nm5DelFqR3hycVVidzIwdU9yMUpET2w2M2JuOXZTeE1JZk54RWxGcnl1UWo3Sl9mM0h30gGfAUFVX3lxTE5ncjZZZTdsTVJfdEN4SW54SHBHWXM1cmc1Z3VuVjN6aFVLZnY3YWdZSVpHVTkxbU1nSG1XQmV3clQ5dEhPc3Y5d3dFVzBfNHVvaElhSVp1MkxkNEVFX0FKQVJkd3k4LTlLLW1QNUNjbjJDVTdPRUQ2UEQ2c0czNnR0VnhpMDVUWE9KN2FuRUc2RC1lT05jYmlzTVF2NElFSQ?oc=5",
+    "source": "Google News recherche NG",
+    "langue": "en-NG",
+    "date": "2026-11-02T04:11:30+00:00"
+   },
+   {
+    "titre": "Sandisk Sinks 13% Last Friday After a Beat: Kioxia Says the Flash Price Surge Is Fading - TIKR.com",
+    "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPY3p2Xy1LMmxxVFlaYlA3cGF2LS1tZnNDeW1ITmFYa2tWaGd6NjVXeVVPRzMyc2JQemFvZDZsSXZrc2hZd2lEblVYQ1VQa3FYMjA0SUx5MEJQQVRTQjk2WV9YTjB1RnRjWjdFU21VOUsxdnA0d0prZ1JGZktoLXlvWXlaSlRPUFdMYWw3X3NPamRadkxsanNYZk5YQVJGNzlVYXhvbVg1cndmcWpxVWtMQQ?oc=5",
+    "source": "Google News recherche US",
+    "langue": "en-US",
+    "date": "2026-11-02T06:56:15+00:00"
    }
   ],
   "ethique": {
@@ -456,18 +809,159 @@
    "raison": "Le site aide les consommateurs à acheter au meilleur prix pendant une pénurie, sans spéculation ni revente : uniquement de l'information et de l'affiliation au prix du marché."
   },
   "id": "idee-70f114e3",
-  "signaux": 2,
+  "signaux": 3,
   "cree_le": "2026-10-31T14:01:44+00:00",
-  "mis_a_jour_le": "2026-11-01T10:02:19+00:00",
+  "mis_a_jour_le": "2026-11-02T09:22:17+00:00",
   "statut": "active",
   "notifiee": false,
-  "note_globale": 6.2,
+  "note_globale": 6.3,
   "historique": [
    {
     "date": "2026-11-01T10:02:19+00:00",
     "note": "La tension sur les composants s'étend : Kioxia affiche des carnets de commandes NAND complets, les data centers IA absorbent l'offre de condensateurs MLCC avec un pic de pénurie attendu au premier semestre 2027, Sam Altman relance le débat sur l'usage de la RAM des PC, et les processeurs Intel Core Series 3 sont en pénurie. Cela confirme la durée de la hausse des prix et justifie d'élargir l'observatoire aux processeurs et aux PC complets."
+   },
+   {
+    "date": "2026-11-02T09:22:17+00:00",
+    "note": "The memory shortage is spreading to graphics cards: NVIDIA and AMD GPU prices up to 45% in a month, AMD raising GPU+GDDR6 bundle prices again, PCB lead times of 30 months, smartphone price hikes (Lava, OPPO/vivo/Honor cutting specs). Kioxia hints the flash price surge may be fading, which strengthens the 'buy or wait' angle; consider adding GPUs to the observatory."
    }
   ]
+ },
+ {
+  "titre": "'Asli LPG Rate': crowdsourced LPG price tracker for Pakistan comparing street prices with the official OGRA rate",
+  "pitch": "LPG is selling at Rs630-700 per kg in Pakistan against an official Rs294. A bilingual Urdu/English site showing real prices by city next to the official rate, with a one-click complaint generator, helps households fight overcharging this winter.",
+  "evenement_declencheur": "LPG prices in Pakistan surge to Rs630-700 per kg amid a reported shortage ahead of winter, more than double the official Rs294 rate.",
+  "contexte_declencheur": "Pakistani media report that LPG prices have shot up to as much as Rs700 per kg as winter approaches, with Profit by Pakistan Today citing Rs630 per kg against an official notified rate of Rs294. The surge is linked to a 'shortage' in the context of the Gulf conflict that is lifting energy prices across the region, while refineries in Pakistan report record profits. Millions of households, especially in areas without piped natural gas, rely on LPG cylinders for cooking and heating. Consumers rarely know the official OGRA price for the month, and distributors exploit that opacity. Demand will rise further in December-January when gas load-shedding peaks. A transparent, crowdsourced reference price gives households bargaining power and gives authorities and journalists data on overcharging.",
+  "pourquoi_maintenant": "Winter demand and overcharging are happening now and will peak in the next two months. A tool launched within days can become the reference cited by journalists and shared on WhatsApp before the season peaks. Waiting until January means missing most of this winter's need.",
+  "description_detaillee": "The homepage shows the official OGRA LPG price for the month (per kg, 11.8 kg domestic cylinder and 45.4 kg commercial cylinder) next to the median crowdsourced street price for the user's city. Users submit a price report in 20 seconds via the site or a WhatsApp bot: city, area, seller type, price paid, cylinder size, optional receipt photo. A map and city pages show prices, the gap versus the official rate, and the trend over the past weeks. A complaint generator produces a ready-to-send message in Urdu and English for OGRA's complaint portal and district price-control authorities, with the user's report attached. A 'cheaper alternatives' page covers safe options: piped-gas connection steps, induction cooking costs with current electricity tariffs, and safety guidance against illegally refilled cylinders. A free weekly SMS/WhatsApp alert gives the new official rate when OGRA announces it. Launch through Facebook groups, local Reddit communities, Pakistani tech Twitter, and by pitching the dataset to Dawn, Geo, Profit and Express Tribune journalists. Revenue is modest: display ads, sponsored listings for licensed distributors who commit to selling at or near the official rate (e.g. Rs3,000-Rs10,000 per month per city), and later a data/API offer for media and NGOs. Realistic income is €200-€1,000 per month during winter, so this is a low-cost, high-impact project that can grow into a broader Pakistan energy price tracker.",
+  "categorie": "outil-web",
+  "cible": "Pakistani households and small eateries relying on LPG cylinders, plus journalists and consumer groups",
+  "pays_cibles": [
+   "Pakistan"
+  ],
+  "langues": [
+   "Urdu",
+   "English"
+  ],
+  "modele_revenus": "Display ads, sponsored listings for fair-price licensed distributors, later data access for media and NGOs",
+  "budget_estime_eur": 250,
+  "delai_lancement_jours": 10,
+  "duree_opportunite": "Peak each winter (November-February), recurring yearly while prices stay volatile",
+  "notes": {
+   "potentiel": 3,
+   "cout": 9,
+   "travail": 8,
+   "risque": 6,
+   "urgence": 9,
+   "durabilite": 6,
+   "fiabilite": 6,
+   "concurrence": 7
+  },
+  "notes_explications": {
+   "potentiel": "Audience is large but ad CPMs in Pakistan are very low and willingness to pay is limited. Revenue relies on distributor sponsorships, which are uncertain.",
+   "cout": "Domain, cheap hosting and a WhatsApp Business API tier cost little; €250 covers launch. A free web form could replace WhatsApp to save even more.",
+   "travail": "A submission form, aggregation by city and an official-rate display are quick to build. Moderation of fake reports and Urdu content take some extra effort.",
+   "risque": "Distributors might contest published prices; publishing medians and moderating reports limits defamation risk. Avoid naming individual sellers without verification.",
+   "urgence": "Winter demand and the price gap are happening right now and will peak within weeks.",
+   "durabilite": "LPG pricing issues recur every winter in Pakistan, so the site can be reactivated yearly. Out of season, traffic will be low.",
+   "fiabilite": "Two different outlets report the surge, each counted as single-source items, so the score is capped at 6. The recurring winter LPG crisis in Pakistan supports the demand.",
+   "concurrence": "OGRA publishes official prices and news sites report them, but there is no known crowdsourced street-price comparison."
+  },
+  "budget_detail": [
+   "Domain name and hosting for 12 months: €50",
+   "WhatsApp Business API messages (Twilio or 360dialog) first months: €80",
+   "Urdu copy proofreading: €60",
+   "Facebook boost on local groups/pages: €60"
+  ],
+  "requete_verification": "Pakistan LPG price Rs700 per kg OGRA shortage",
+  "concurrents": [
+   "OGRA official notifications: official rate only, no street prices",
+   "Pakistani news sites (Dawn, Geo, Profit): one-off reports, no data tool",
+   "Facebook community posts: scattered, unverified"
+  ],
+  "analyse": "A useful, cheap civic-tech project with strong immediate relevance but weak monetization. Go only if you accept it as a low-revenue, high-visibility project or as the first brick of a larger multi-fuel price tracker for Pakistan. The main point of vigilance is data quality: moderate reports, show medians and never accuse specific sellers without proof.",
+  "etapes": [
+   "Collect OGRA monthly LPG price notifications and set up a manual or scraped update (1 day)",
+   "Build the submission form, city aggregation and median display with SvelteKit or Next.js on a low-cost VPS (3 days)",
+   "Add the complaint generator with Urdu and English templates (1 day)",
+   "Connect a WhatsApp bot for reports and weekly official-rate alerts via Twilio (2 days)",
+   "Write alternatives and safety pages in Urdu and English (1 day)",
+   "Seed initial data by asking in Facebook groups and Reddit communities in Karachi, Lahore, Islamabad, Peshawar, Quetta (2 days)",
+   "Pitch the dataset to Pakistani journalists and consumer groups (ongoing)"
+  ],
+  "risques": [
+   "Fake or manipulated price reports: rate limiting, outlier filtering, optional receipt photos",
+   "Legal pressure from distributors: publish aggregated medians, no unverified naming",
+   "Low revenue: keep costs minimal, seek NGO or media partnerships",
+   "Seasonality: expand to petrol, diesel and electricity tariffs to keep traffic year-round"
+  ],
+  "mots_cles": [
+   "LPG price Pakistan",
+   "OGRA LPG rate",
+   "LPG cylinder price today",
+   "gas shortage Pakistan winter",
+   "LPG overcharging complaint"
+  ],
+  "sources": [
+   {
+    "titre": "LPG prices surge up to Rs700 per kg amid 'shortage' ahead of winter - The News Pakistan",
+    "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNSTI1X19DaFlOWkNZMlZOUlVpR3lUMUtzUVFObmFhcEc1YmIyZDBHdVhuU0pFNXlYNlpDdTV4alhjcEFpc1JGSHphWlJPbFNUQmtyUHk5MXkxMUZyYmduS2FKbGhieWs0eWNXd1NkRHBQUUFITnBSemRkbHNoUUdLZmFvX3NlRmxfYUZ0WHdIQlFxbzhib0RsaEZNenJmOUVw?oc=5",
+    "source": "Google News recherche US",
+    "langue": "en-US",
+    "date": "2026-11-01T14:42:00+00:00"
+   },
+   {
+    "titre": "LPG prices go through the roof, hit Rs630 per kg against official Rs294 rate - Profit by Pakistan Today",
+    "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQdm1rNEcxUktmSk1ybUlkRkNLaUtUMTdmTFpFSVk3WTlhb0pXZ2JvUlJVeDJHN1FveU42STdUQUZacTZINnNheHNNTURTeG5JaTJDVnVyZlZHMDdZamRSNEFNbXJqd054cmxTelBLMmoxZVcwVTd3bUQzbFlNYUtaakZtRF8ybVlKVEh0VWRpRGl4ckQ4YjNGbHhfNVNjemJsSHVOSlZTbnVhNEQ2ZllDT0hIM1FGb0lWLVVRQTNwWQ?oc=5",
+    "source": "Google News recherche ZA",
+    "langue": "en-ZA",
+    "date": "2026-11-02T04:31:29+00:00"
+   },
+   {
+    "titre": "Pakistan LPG prices nearly double as Iran border disruptions freeze supplies - Arab News PK",
+    "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxONHNDMEVDNXgzWlJzSnMyNlZSX3duZ3VqUUpWQVJqOGRBY3NGWENVSk9PVDdNSlpmNVo3RFpRVG5pSU40bWoyZktFVE42WGxQcElwOTVRRi1QZ1dETEM1alZpcnlZbXRxX1dWbEV2MlBudDlLVFBDVVNKdVRJQ3RRMHdLcW1pNHM0NjhnRWk4d2VUc2Rzc21rckltUDRfSmp0ajdpNFJHblcxZ1JHeUJlWFF0bGR0NUpl?oc=5",
+    "source": "Arab News PK",
+    "langue": "en",
+    "date": "2026-10-28T04:54:11+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Minister blames closure of border for LPG price hike - Dawn",
+    "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE1DaFg2M0tJdTVMMm9CRkZBX3BBWlBveFFCMkg1LTBhT2czZ3pzOHAwQjhEN3FtcEVEeW9jTmF2Uy0zMU5MeUhjNw?oc=5",
+    "source": "Dawn",
+    "langue": "en",
+    "date": "2026-10-27T01:59:11+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "The LPG Price formula is about to change - Profit by Pakistan Today",
+    "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPUV8yeFVtS2Q2elZXWDcyVmpYOHk3RFU2RmUtTDRnaVZRV3hkWlJ2VXFaUHRYSjhwTW03OUVUb1ViRDNyVXBtdmVRVU9GRlQteFhiMVZudjF1cS1OSGRQM25XT0h3dnljVDN3MzhWUDFUdTF6VmVua3o0Z1ZldFFkbnVBNXR3TGpyTkI3TUlUNnA?oc=5",
+    "source": "Profit by Pakistan Today",
+    "langue": "en",
+    "date": "2026-10-29T06:01:50+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Latest LPG Prices in Pakistan, October 30, 2026 - Daily Ausaf",
+    "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPeWkyZW9DaVZTNFdJVU9ZMHpCbFFNb3ZSVGQ5NGhCMjlIY1dzVTYtWDZ1dkxiWVZRc3ZOZ1pfbkk3d0pZYWw5b3VyTDBWLW1NMFl1UnRxREpUcjg1dnNVZl9fQXZpeEU4MHBkUTJNbmx3ZzRpb05CdEE0WjkzRE1vTHJfei14U21E0gGOAUFVX3lxTE9BYkdBSjBzTGctRHJsSVJUZ2EyWFJFSGFiMUE2S2pTV2YtRmc2T1M4Y2p4VFlkbkdlNmhKb01jdW5sU0JkMjhMOXZFSnY2Vllyb192azVuLVdKb1A0bWdrcWlGbnVkVjMtQkIzWGd4RmlpNlZwdGpHcG0yRWJFMjQxSFRnTmVDMENKUDROTHc?oc=5",
+    "source": "Daily Ausaf",
+    "langue": "en",
+    "date": "2026-10-30T04:41:28+00:00",
+    "confirmation": true
+   }
+  ],
+  "ethique": {
+   "acceptable": true,
+   "raison": "The tool fights overcharging and helps households pay a fair price; it does not profit from the shortage."
+  },
+  "id": "idee-5e0c7563",
+  "signaux": 1,
+  "cree_le": "2026-11-02T09:22:17+00:00",
+  "mis_a_jour_le": "2026-11-02T09:22:17+00:00",
+  "statut": "active",
+  "notifiee": false,
+  "langue_redaction": "en",
+  "note_globale": 6.1,
+  "sources_confirmation": 4
  },
  {
   "titre": "Kit EUDR « clé en main » pour TPE/PME françaises : diagnostic gratuit, modèles et questionnaires fournisseurs",

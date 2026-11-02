@@ -1,5 +1,55 @@
 [
  {
+  "titre": "Exchange Exit Kit: a step-by-step self-custody wizard and exchange-risk dashboard after the $6.3bn Binance hack",
+  "pitch": "Binance users pulled $3.64bn within hours of withdrawals reopening. A neutral, multilingual wizard that walks them from 'my coins sit on an exchange' to 'I safely hold my own keys', funded by hardware-wallet affiliate commissions.",
+  "raison": "Motif interdit détecté : « scam ».",
+  "sources": [
+   {
+    "titre": "Binance sees spike in withdrawals as exchange returns online after US$6.3 billion hack",
+    "url": "https://www.scmp.com/business/cryptocurrency/article/3372910/binance-sees-spike-withdrawals-exchange-returns-online-after-us63-billion-hack",
+    "source": "South China Morning Post",
+    "langue": "en",
+    "date": "2026-11-01T19:53:28+00:00"
+   },
+   {
+    "titre": "Binance resumes customer withdrawals after record $6.3bn hack",
+    "url": "https://www.theguardian.com/business/2026/nov/01/binance-losses-covered-hack-fbi-north-korea-cryptocurrency",
+    "source": "The Guardian World",
+    "langue": "en",
+    "date": "2026-11-01T11:54:23+00:00"
+   },
+   {
+    "titre": "Binance resumes withdrawals following $6.3 billion breach",
+    "url": "https://techcrunch.com/2026/11/01/binance-resumes-withdrawals-following-6-3-billion-breach/",
+    "source": "TechCrunch",
+    "langue": "en",
+    "date": "2026-11-01T16:20:10+00:00"
+   },
+   {
+    "titre": "Binance users withdraw $3.6bn after largest-ever crypto hack",
+    "url": "https://www.bbc.co.uk/news/articles/cwj34gdmnly4o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC World",
+    "langue": "en",
+    "date": "2026-11-02T07:42:33+00:00"
+   },
+   {
+    "titre": "Binance sees spike in withdrawals as exchange returns online after $6.3bn heist",
+    "url": "https://www.dailymaverick.co.za/article/2026-11-01-binance-sees-spike-in-withdrawals-as-exchange-returns-online-after-63-billion-heist/",
+    "source": "Daily Maverick (Afrique du Sud)",
+    "langue": "en",
+    "date": "2026-11-01T21:35:27+00:00"
+   },
+   {
+    "titre": "Binance sees outflows stabilising as exchange returns online after US$6.3 billion heist",
+    "url": "https://www.channelnewsasia.com/business/binance-crypto-exchange-online-63-billion-heist-6512096",
+    "source": "CNA (Singapour, business)",
+    "langue": "en",
+    "date": "2026-11-02T03:47:40+00:00"
+   }
+  ],
+  "date": "2026-11-02T09:22:17+00:00"
+ },
+ {
   "titre": "« Après le hack Binance » : guide d'action pour les utilisateurs francophones (retraits, auto-conservation, fiscalité, anti-arnaques au remboursement)",
   "pitch": "Le piratage record de 6,3 milliards de dollars chez Binance a poussé des milliers d'utilisateurs à vouloir sécuriser leurs cryptos. Un site d'action pas à pas les aide à retirer leurs fonds, choisir un portefeuille physique et éviter les faux « services de récupération ».",
   "raison": "Motif interdit détecté : « arnaque ».",
