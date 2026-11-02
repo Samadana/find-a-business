@@ -28,6 +28,10 @@ FORBIDDEN_PATTERNS = [
     r"\bd[ée]sinformation", r"\bfake news\b", r"\busurp", r"\bcontourner (les )?sanctions",
     r"\barmes? (à feu|de guerre)", r"\bmunitions?\b", r"\bdrogues?\b", r"\bpr[ie]x abusifs?",
     r"\bsp[ée]cul\w* sur (la|les) (p[ée]nurie|victimes)",
+    # Les idées sont rédigées en anglais depuis novembre 2026 : mêmes motifs en anglais.
+    r"\bscam", r"\bdefraud", r"\bcounterfeit", r"\bfake (donations?|fundrais\w*|charit\w*)", r"\bdisinformation",
+    r"\bimpersonat", r"\b(evade|evading|circumvent\w*|bypass\w*) sanctions", r"\bfirearms?\b", r"\bammunition\b",
+    r"\billegal drugs?\b", r"\bprice[- ]gouging", r"\bprofit\w* (from|on) (the )?(shortage|victims)",
 ]
 FORBIDDEN_RE = re.compile("|".join(FORBIDDEN_PATTERNS), re.IGNORECASE)
 # Un motif précédé de ces mots décrit une protection (« anti-arnaques », « éviter les arnaques »…), pas une pratique.
@@ -35,7 +39,9 @@ PROTECTIVE_RE = re.compile(
     r"(anti[- ]?|contre (les |la |le |l')?|[ée]viter (les |la |le |l')?|d[ée]tect\w* (les |la |le |l')?|"
     r"rep[ée]r\w* (les |la |le |l')?|signal\w* (les |la |le |l')?|lutt\w* contre (les |la |le |l')?|"
     r"prot[ée]g\w* (des |de la |du |de l'|contre (les |la |le |l')?)|pr[ée]vention (des |de la |du |de l')?|"
-    r"v[ée]rifi\w* (les |la |le |l')?|alerte\w* (aux |sur les )?)$",
+    r"v[ée]rifi\w* (les |la |le |l')?|alerte\w* (aux |sur les )?|"
+    r"against (the )?|avoid\w* (the )?|detect\w* (the )?|spot\w* (the )?|report\w* (the )?|fight\w* (against )?(the )?|"
+    r"protect\w* (from |against )?(the )?|prevent\w* (the )?|verif\w* (the )?|alert\w* (on |about )?(the )?)$",
     re.IGNORECASE,
 )
 
@@ -135,17 +141,21 @@ def reinforce(idea: dict, sources: list[dict], comment: str = "") -> None:
 
 # Le porteur de projet développe lui-même : aucun coût de développement externe dans les budgets.
 DEV_COST_RE = re.compile(
-    r"d[ée]velopp|developer|programm|codage|\bdev\b|int[ée]grateur|agence (?:web|digitale)",
+    r"d[ée]velopp|develop(?:er|ment)|programm|codage|coding|\bdev\b|int[ée]grateur|agence (?:web|digitale)|"
+    r"(?:web|digital|development) agency",
     re.IGNORECASE,
 )
-AMOUNT_RE = re.compile(r"(\d[\d\s\u202f\u00a0.]*)\s*€")
+# « 1 500 € » (français) ou « €1,500 » (anglais).
+AMOUNT_RE = re.compile(r"€\s*(\d[\d\s\u202f\u00a0.,]*\d|\d)|(\d[\d\s\u202f\u00a0.,]*\d|\d)\s*(?:€|EUR\b)")
 
 
 def _amount(line: str) -> int:
     m = AMOUNT_RE.findall(line)
     if not m:
         return 0
-    digits = re.sub(r"[^\d]", "", m[-1])
+    raw = next(g for g in m[-1] if g)
+    raw = re.sub(r"[.,]\d{2}$", "", raw.strip())  # ignore les centimes
+    digits = re.sub(r"[^\d]", "", raw)
     return int(digits) if digits else 0
 
 
@@ -223,6 +233,7 @@ def process_analysis(
             "mis_a_jour_le": now_iso(),
             "statut": "active",
             "notifiee": False,
+            "langue_redaction": "en",
         })
         idea["note_globale"] = global_score(idea["notes"], 1)
         new_ideas.append(idea)
