@@ -118,6 +118,27 @@
     "source": "Google News FR",
     "langue": "fr",
     "date": "2026-11-01T09:29:34+00:00"
+   },
+   {
+    "titre": "Europe faces gas shortage without Iran deal, says IEA - The Telegraph",
+    "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPMnYtZ1VhT3NZUnUtSS0yR3FNVFZxeV9MSks4cHdHREhrc196cnpHeE52LVFkVm0yRnVhNU1ER2gwTU5nLUVZdmstcXJmN1JqS2NFSU1wX2lNUzQ2dTFybEVqR0pTeGNkWXZ0bld0WWJjazVXSXhxNTBXUWl4RVM5UGhrUXVyWktLVjVpUnhva1AwWl9qRXYxMzVJMFM2NlVlbTJj?oc=5",
+    "source": "Google News recherche US",
+    "langue": "en-US",
+    "date": "2026-11-03T06:15:00+00:00"
+   },
+   {
+    "titre": "El bajo nivel de reservas en Europa podría prolongar la escasez en el mercado del gas, según la AIE - TradingView",
+    "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5GZENZT2VNcUtOTHU2N0ZrZ0VhYXVkMmNocW5FUFpCN3ZoQ1dwTkhyRWx0R0NZRW9qTVpDYXhNWk1uWHVoM0RhTlZ6MmhvaW4zYUNjTUxueWIwVlA2TEVreGRiMUVRdTBxOW5DRDhhbGlESGFsN2VJ?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-11-03T06:42:00+00:00"
+   },
+   {
+    "titre": "Belgians to pay up to €900 extra for gas per year due to record price increase - The Brussels Times",
+    "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOQ3E5eU9qSW5YZ1RKWEhpbFpGMndvY0FCaUxPOEUxdWF3R1dwTjBqQ3Q2SUtuZTJLUDZfbjVTRVA2SVVLUV9pUzRDV3ZMOEc2VFBXT2h6Q3R3cWRxcmFHb250Y0Z2ODNmTFFscDlpVHRCdlF4a3dqbmtDUThCV3hXZmppbWItWDdVc2Ftc29LUUZmbm85ajZ6TUJCcU1hZ3lDTkNZYlpHV2VUQXB2S0F2WnpHRm5naFU2bml4bE12WWE4dw?oc=5",
+    "source": "Google News recherche NG",
+    "langue": "en-NG",
+    "date": "2026-11-02T19:18:45+00:00"
    }
   ],
   "ethique": {
@@ -125,12 +146,18 @@
    "raison": "L'outil aide des foyers fragilisés à comprendre et réduire leur facture avec une information gratuite ; la monétisation par affiliation est transparente et ne renchérit pas le prix pour l'utilisateur."
   },
   "id": "idee-9247f62d",
-  "signaux": 1,
+  "signaux": 2,
   "cree_le": "2026-11-01T10:02:19+00:00",
-  "mis_a_jour_le": "2026-11-01T10:02:19+00:00",
+  "mis_a_jour_le": "2026-11-03T08:00:18+00:00",
   "statut": "active",
   "notifiee": true,
-  "note_globale": 6.7
+  "note_globale": 6.8,
+  "historique": [
+   {
+    "date": "2026-11-03T08:00:18+00:00",
+    "note": "The IEA warns Europe faces a gas shortage without an Iran deal and that low storage levels could prolong market tightness; Belgian households face up to €900 extra per year after a record increase. Supports further indexed-price hikes and demand for a fixed-vs-indexed simulator, and suggests a possible Belgian extension."
+   }
+  ]
  },
  {
   "titre": "'Can my car enter Delhi?': BS6 eligibility checker and options guide for NCR drivers facing the older-vehicle entry ban",
@@ -280,6 +307,185 @@
   "sources_confirmation": 5
  },
  {
+  "titre": "'Ashol LPG Dam': crowdsourced real LPG cylinder price map for Bangladesh versus the official BERC rate",
+  "pitch": "Bangladesh's regulator has raised the 12kg LPG cylinder price by Tk223 to Tk2,060, and retailers often charge even more. A Bengali/English site shows the official monthly rate and the prices people actually pay by area, so households can find fair sellers and report overcharging.",
+  "evenement_declencheur": "Bangladesh raises the price of a 12kg LPG cylinder by Tk223 to Tk2,060 for November 2026.",
+  "contexte_declencheur": "On November 2, 2026, the Bangladesh Energy Regulatory Commission (BERC) raised the price of a 12kg LPG cylinder by Tk223 to Tk2,060, as reported by The Business Standard, Prothom Alo and New Age. A political leader warned the hike would create a new crisis in public life. LPG is the main cooking fuel for millions of urban and peri-urban households not connected to piped gas, and retail prices routinely exceed the official rate, especially after increases and during supply squeezes. Global energy tensions linked to the Iran conflict suggest further monthly increases are possible. Households currently have no easy way to know what fair price to expect or which local dealers respect it.",
+  "pourquoi_maintenant": "The hike just took effect and overcharging is most common in the weeks after an increase, when consumers are least sure of the correct price. BERC adjusts prices monthly, so a site launched now benefits from every future announcement. Facebook groups are already discussing prices; a structured tool can capture that attention.",
+  "description_detaillee": "A mobile-first site in Bengali and English. The home page shows the official BERC price for each cylinder size this month, with a history chart and a notice on the date of the next adjustment. Users submit the price they paid, the brand (Bashundhara, Omera, Jamuna, etc.), the area (district, upazila or Dhaka neighborhood) and optionally a photo of the receipt; the map then shows the average real price by area and the gap with the official rate. A 'fair dealers' list highlights sellers consistently reported at or near the official price, and a page explains how to complain to the Directorate of National Consumer Rights Protection. Users can subscribe to a free monthly SMS or WhatsApp alert with the new official price. Growth relies on Facebook, the dominant platform in Bangladesh, local community pages and partnerships with consumer rights groups. Revenue: Facebook-friendly display ads, featured listings for verified fair-price dealers (Tk500-1,500 per month) and, later, delivery app affiliate links. Revenue will be modest, likely €100-600 per month at first, but the model is cheap and could be paired with the existing Pakistan tracker to share the codebase.",
+  "categorie": "annuaire-comparateur",
+  "cible": "Bangladeshi households using LPG cylinders, especially in Dhaka, Chattogram and district towns, plus the diaspora following prices back home",
+  "pays_cibles": [
+   "BD"
+  ],
+  "langues": [
+   "bn",
+   "en"
+  ],
+  "modele_revenus": "Display ads, paid featured listings for verified fair-price dealers, future delivery affiliate links",
+  "budget_estime_eur": 250,
+  "delai_lancement_jours": 10,
+  "duree_opportunite": "Durable: monthly BERC price changes keep the need alive; peaks after each hike",
+  "notes": {
+   "potentiel": 4,
+   "cout": 9,
+   "travail": 8,
+   "risque": 7,
+   "urgence": 8,
+   "durabilite": 6,
+   "fiabilite": 7,
+   "concurrence": 8
+  },
+  "notes_explications": {
+   "potentiel": "A huge user base but very low advertising rates in Bangladesh, so revenue is limited. Dealer listings could add income if traction is strong.",
+   "cout": "Hosting, a domain and a small Facebook ad budget suffice. Under €300.",
+   "travail": "A submission form, map and monthly price page are simple to build, especially if code is shared with a similar tracker. Bengali content needs careful translation.",
+   "risque": "Main risks are fake reports and complaints from dealers labeled as expensive. Moderation, aggregate data and no naming of individual dealers without multiple reports keep it low.",
+   "urgence": "Overcharging is highest right after a hike. Launching within two weeks catches the current wave and positions for December's adjustment.",
+   "durabilite": "Monthly price setting means recurring interest. Demand would drop only if prices stabilized or piped gas expanded massively.",
+   "fiabilite": "Hike confirmed by three outlets (The Business Standard, Prothom Alo, New Age) plus political reactions. Overcharging is a well-known recurring complaint.",
+   "concurrence": "Newspapers publish the official price, but no crowdsourced real-price tool for LPG in Bangladesh appears to exist."
+  },
+  "budget_detail": [
+   "Domain + hosting: €60",
+   "Facebook ads in Dhaka and Chattogram: €150",
+   "SMS/WhatsApp alert credits: €40"
+  ],
+  "requete_verification": "Bangladesh LPG price 12kg Tk2060 BERC November",
+  "concurrents": [
+   "Newspaper articles announcing BERC prices: official rate only, no real prices",
+   "Facebook community groups: anecdotal, unstructured; this site aggregates and maps reports",
+   "Aucun concurrent direct identifié for crowdsourced LPG prices in Bangladesh"
+  ],
+  "analyse": "A low-cost, socially useful project with limited revenue, best done if you can reuse code from a similar price tracker. Facebook distribution is essential in Bangladesh, so invest effort there rather than in SEO alone. Moderate reports carefully to avoid targeting individual dealers unfairly. Consider it a portfolio piece that may grow with dealer listings rather than a primary income source.",
+  "etapes": [
+   "Collect BERC monthly prices for the last 12 months and set up the official price page (1 day)",
+   "Build the price submission form, moderation queue and area-level map (Leaflet + simple backend) (3 days)",
+   "Translate interface and guides into Bengali with a native speaker review (2 days)",
+   "Add the monthly SMS/WhatsApp alert subscription (1 day)",
+   "Create a Facebook page, post in local community groups and run small ads (ongoing)",
+   "Contact consumer rights groups to share the tool and complaint guide (1 week)"
+  ],
+  "risques": [
+   "Fake or malicious reports: require receipts for dealer-level data, show only aggregated area averages otherwise",
+   "Dealer pushback: avoid naming dealers on single reports, offer a right of reply",
+   "Low ad revenue: keep costs minimal and test dealer featured listings",
+   "Translation errors undermining trust: native Bengali review before launch"
+  ],
+  "mots_cles": [
+   "LPG price Bangladesh",
+   "12kg LPG cylinder price",
+   "BERC LPG price November",
+   "এলপিজি গ্যাসের দাম",
+   "LPG overcharging Dhaka",
+   "Tk2060 LPG"
+  ],
+  "sources": [
+   {
+    "titre": "LPG price increased again, 12kg cylinder rises by Tk 223 - New Age BD",
+    "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQaGtLd0NhdkdXQ05FQjlOMm9yZk93ZUxWajZuUy1CY0t6T0h5dzFpWUM2V08zaVkzaUZQODBLdTlxQ1BVT1RMcmZzWjhHWUV1bkhHajlFUE5LMXJVV2ZXaFhsbTlOcGFQdTNfeHZPdkxZTkF6TEpybDR1SzljWG0yeGdrOTdQOG5OLU9JUzc0STZfcHd0ZzFvd3hXTG5LSTFrYUE?oc=5",
+    "source": "Google News recherche IN",
+    "langue": "en-IN",
+    "date": "2026-11-03T07:33:13+00:00"
+   },
+   {
+    "titre": "12kg LPG cylinder price rises by Tk223 to Tk2,060 - The Business Standard",
+    "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNdS1HcUxnaXRGRUpnVDFlTGlJcUQ5ZzRUOWlDRmJ0cF9Jd2tHbWZXVzVDeGVSS0FtUVhKTXh2LS1xUFhHSDFpdTdvVV9jU0ZDNDY1QlkySUJYOFZLRkpBMWNiMlYxMGl1amtZM1NwSURrVmtnV2NUYV9ORWpPY3B6bnNSZVc1bXk4emt5NmZUZDZ3cVk?oc=5",
+    "source": "Google News recherche IN",
+    "langue": "en-IN",
+    "date": "2026-11-02T13:29:25+00:00"
+   },
+   {
+    "titre": "LPG price hiked by Tk 223 - Prothom Alo English",
+    "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE11NnFuWFNoUlVPN2tIaExOTm8wTEdGaFRLbXRxVF95M0ZVbnFBbXhQRFlrdWVoenhpbDNIdkpDbTNVb1p0SlAzSng0ZWtlay1Ca0owRXFNYzROTzNERXNnRdIBbkFVX3lxTE5XTmJNNDkyWmd5Vl9xUkVhZnJqeWJnTm1SSWd2ZlRxU0ZTT3A1emg0UkVVWXFKRzdvV095X2F0STV6eURHZFFaYXgwOFVXTmZfX05POXpHYTZTOUpZdFV1RlpxanpDUkdnVWRVV19R?oc=5",
+    "source": "Google News recherche IN",
+    "langue": "en-IN",
+    "date": "2026-11-02T13:28:12+00:00"
+   },
+   {
+    "titre": "LPG price hike to create new crisis in public life: Porwar - Daily Sun",
+    "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPN1l3UVZhOFVLV3Q2c1BEblQ0M2hlaWJuVVdBWkFsR0NfMXp5elV5T3lLR3VxME85WFFBWWtiM3F0TVhxbzlPSm5MTURRVmNFVklSSjk4MDdXSGpxMnBpcEgtbGZxMmkyQlNKLWZVeGVuSEw3NEN4eDIyX3FJSGNQem1FYVVKOEVYOElYMjlKM2JhajVuWnlNUjZwVloxeGtrTFE?oc=5",
+    "source": "Google News recherche NG",
+    "langue": "en-NG",
+    "date": "2026-11-02T15:36:20+00:00"
+   },
+   {
+    "titre": "12kg LPG cylinder price rises by Tk 223 - Jagonews24",
+    "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBPVlpHeHpYaXA4eFFOTWZBald3S2tVN0tJLWE4LXVmVHFiX1ZaWnRFOUt3dXpPc3NMWGtHNU13VGVnYjdrR0owalNJanRsTHQ2bzgwOXIyWkQ5MVl1amc?oc=5",
+    "source": "Google News recherche NG",
+    "langue": "en-NG",
+    "date": "2026-11-02T13:04:22+00:00"
+   },
+   {
+    "titre": "12kg LPG cylinder price rises by Tk223 to Tk2,060 - www.daily-sun.com",
+    "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBQYU5FNGg4Y1dRYmI5LUFqdWU5NWNpMzNYZUVvTnpOdVRWalJNYTJRbndBS0dnclF0WklUcVBaRDFycUVnVGo1S2xMNVZJdGZ6X3JzdFRzcmIzQQ?oc=5",
+    "source": "Google News recherche NG",
+    "langue": "en-NG",
+    "date": "2026-11-02T18:00:00+00:00"
+   },
+   {
+    "titre": "12kg LPG cylinder price hiked by Tk 223 for November - New Age BD",
+    "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPaEY0eGNuc0lkdGV5bFpwZEp2ekRTNW5hNjhKREo3eEYwOFFvaWlXTlJMX0hwdXhHb2FnUmJaWF9lWXhhVlMxdkl5UmtYYzl0VU9femx6dE1xdnN3ZzRUbTVvOFlOSkJReklZWGdLNFNGVG5FVGsxc2E1N0w0WGdtSElaY1o0c1BRNzd6TjRrM1Q0SVQ2SWVpTi1MZTFJcnlaazZuWQ?oc=5",
+    "source": "Google News recherche NG",
+    "langue": "en-NG",
+    "date": "2026-11-02T13:28:00+00:00"
+   },
+   {
+    "titre": "LPG price jumps Tk 475 in two months, 12kg cylinder now Tk 2,060 - The Daily Star",
+    "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOemZoTWc1bjZNVDc5RWJlNUlEby1HSGRPc1FLLTJqSUtPUDVZUTVsY1d2QXJVRHZDYzR1Z2VkQmQ5c18weTh5Y1BSRFBQZFJKQnYtZXN4N3NMd1pfT0duYnBFS3dNX0x1bzRzbERyUlM5c0EtTnQwOTFlNkJmNnA4QkVTYVN5bWJsZ2I3Z0c1WHQwLUtxeUhibXdfVXp0aWhTVzdMUDZPUEpORDVRTjhOUXltRlN0THFzRzJ0Tjl5b0g?oc=5",
+    "source": "The Daily Star",
+    "langue": "en",
+    "date": "2026-11-02T18:00:00+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "LPG price adjusted upward for November - Bangladesh Sangbad Sangstha (BSS)",
+    "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE5GWFBDa1BDRWJQSGpENHNqSl9tSzJFQXdaUlUzRDFCVExiUE1la3dyY2Y2QXF6YjluZnB6SDlFajlZd2FPZXJhN0NQOFNDQQ?oc=5",
+    "source": "Bangladesh Sangbad Sangstha (BSS)",
+    "langue": "en",
+    "date": "2026-11-02T14:42:22+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Consumers face fresh burden as 12kg LPG cylinder price rises to Tk 2,060 - United News of Bangladesh",
+    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOV3lpMER3WWhWdzBoM1ZQYVYwdTBURjd0dk9Kb0JfV3VXc0tUMENVZk5DZFNyN0xvanZsUFJBS0RpdzhIMFlDcmU2d2Z0SHh6NUpGRWRkdW9YVzV1LXhoN1NRQzRkeU5YRG9jWHBVVFA1a1pXUUJXaHRFX2JhZ3VaWFhpWkFCUWc4ZU9YVklOTEgxeVA5MEYzY1BJc0ZQLVhRemVvMXhQRGRtcnphMzZOUWF3bmJ3QQ?oc=5",
+    "source": "United News of Bangladesh",
+    "langue": "en",
+    "date": "2026-11-02T19:03:05+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Gas cylinder price in Bangladesh: How much does each size cost? - Jagonews24",
+    "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9Zc2lKSzJDSzFhZ2tMMW5TZTl5cE9KTE5zR29MQlNDRl9LWENfLU5lNks3V0VUeWY5eUs4SURXcG5na2FBcm9mMU5FNzU5QjdTejliWmxWZFdwLTJQLWc?oc=5",
+    "source": "Jagonews24",
+    "langue": "en",
+    "date": "2026-11-03T03:51:37+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "12kg LPG cylinder price hiked by Tk223 to Tk2,060 - Banglanews24",
+    "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE51UVhPQ3N5dVJ2WjlBR2hlMEhfNDdJSkRmWS1YYWhGVHJOaHI2c2ZhRG92dEY4ZTQyQXBHMmxHeEczVUh4Ykhzd0ROY3Q2QlNEWHJTcnNzMWlqQWFoVmdrVEFjc2xNNk94eVlF?oc=5",
+    "source": "Banglanews24",
+    "langue": "en",
+    "date": "2026-11-02T13:05:15+00:00",
+    "confirmation": true
+   }
+  ],
+  "ethique": {
+   "acceptable": true,
+   "raison": "Helps households avoid overcharging on an essential cooking fuel with free information; it does not raise prices or exploit distress."
+  },
+  "id": "idee-ea74644b",
+  "signaux": 1,
+  "cree_le": "2026-11-03T08:00:18+00:00",
+  "mis_a_jour_le": "2026-11-03T08:00:18+00:00",
+  "statut": "active",
+  "notifiee": true,
+  "langue_redaction": "en",
+  "note_globale": 6.7,
+  "sources_confirmation": 5
+ },
+ {
   "titre": "'Aceita VR e VA': guide and comparator for Brazilian merchants and workers as meal-voucher cards become interoperable on November 7",
   "pitch": "From November 7, meal and food voucher cards in Brazil can be accepted on any enabled card machine regardless of operator. A Portuguese site helps small restaurants and grocers pick the right machine and fees, and helps workers find where their card works.",
   "evenement_declencheur": "Brazil's meal (VR) and food (VA) voucher cards become accepted across operators on any enabled card machine starting November 7, 2026.",
@@ -384,162 +590,321 @@
   "sources_confirmation": 0
  },
  {
-  "titre": "Plateforme d'aide aux patients des cliniques dentaires Vivanta fermées (Espagne) : réclamation aux organismes de crédit et reprise des soins",
-  "pitch": "Des milliers de patients espagnols se retrouvent avec un traitement dentaire inachevé et un crédit qui continue d'être prélevé. Un site en espagnol leur fournit gratuitement les lettres de réclamation, la marche à suivre et un annuaire de dentistes prêts à reprendre leur traitement.",
-  "evenement_declencheur": "Fermeture définitive de la chaîne de cliniques dentaires Vivanta en Espagne, avec des patients aux traitements inachevés et financés à crédit.",
-  "contexte_declencheur": "Fin octobre 2026, la chaîne Vivanta ferme définitivement ses cliniques dentaires en Espagne. Des patients sont touchés dans plusieurs régions : Móstoles (Madrid), Murcie (une cinquantaine de patients selon La Opinión de Murcia), Ceuta, Pays basque et Navarre. L'institut basque de la consommation Kontsumobide appelle les victimes à réclamer les sommes versées. L'association de consommateurs Irache organise une réunion d'information à Pamplona. À Ceuta, un cabinet d'avocats explique comment se retourner contre les organismes de crédit. Beaucoup de traitements (implants, orthodontie) ont été payés d'avance via des crédits liés. Or la loi espagnole sur le crédit à la consommation (Ley 16/2011, crédits liés) permet au consommateur de faire valoir contre le prêteur les droits qu'il avait contre le prestataire défaillant. Le scénario des faillites iDental (2018) et Dentix (2020) va probablement se répéter : des mois de démarches, des prélèvements qui continuent, des patients qui doivent récupérer leur dossier médical et trouver un nouveau dentiste. L'information est dispersée entre presse locale, associations et avocats.",
-  "pourquoi_maintenant": "Les patients cherchent de l'aide maintenant, au moment où les prélèvements tombent et où les médias en parlent. Dans les cas iDental et Dentix, les premières semaines ont été décisives : c'est là que se sont formés les collectifs et que les avocats ont capté l'essentiel de la demande. Dans deux ou trois mois, les patients seront déjà regroupés autour d'associations ou de cabinets, et la recherche Google se sera tassée.",
-  "description_detaillee": "Le site est entièrement en espagnol, sous un nom neutre comme reclamaclinicadental.es, sans reprendre la marque Vivanta dans le domaine. Page 1 : un guide gratuit « Qué hacer si tu clínica dental cierra ». On y trouve les étapes clés : demander son historial clínico, suspendre les prélèvements, saisir l'organisme de crédit, remplir la hoja de reclamaciones, contacter l'OMIC ou l'organisme régional de consommation. Page 2 : un générateur gratuit de lettres. L'utilisateur saisit son nom, la clinique, la financiera (par exemple les organismes de crédit habituels du secteur), le montant et l'état du traitement. Il obtient un PDF prêt à envoyer par burofax : réclamation au prêteur au titre du crédit lié, demande de dossier médical, réclamation à l'administration de la faillite. Page 3 : un annuaire de dentistes par province qui acceptent de reprendre des traitements commencés, avec un bilan de diagnostic à tarif annoncé. Page 4 : une mise en relation avec des cabinets d'avocats et associations de consommateurs partenaires pour les dossiers complexes ou collectifs. Parcours type : une patiente de Murcie tape « Vivanta cierre qué hacer » et lit le guide. Elle génère gratuitement sa lettre à la financiera, puis trouve un dentiste à Murcie qui propose un bilan de reprise à 30 €. Le positionnement est celui d'un outil d'aide pratique et gratuit, pas d'un vendeur de promesses. Monétisation : abonnement des dentistes à l'annuaire (49 à 99 € par mois et par province) et forfait publicitaire fixe des cabinets d'avocats partenaires (150 à 300 € par mois), sans commission sur les dossiers. En option, un « pack suivi » à 19 € avec relances automatiques et modèles complémentaires. Premiers visiteurs : SEO sur les requêtes « Vivanta cierre », « reclamar financiera clínica dental cerrada » et « Vivanta [ville] ». S'y ajoutent les groupes Facebook d'afectados, le contact des journalistes locaux qui couvrent l'affaire et des associations comme Irache. Ordre de grandeur réaliste : 1 500 à 5 000 € de CA sur les 6 premiers mois. Le site peut ensuite servir de base durable pour toute future faillite de clinique dentaire ou esthétique, un phénomène récurrent en Espagne.",
+  "titre": "'Is my TV box safe?': model lookup and cleanup guide after Google exposes a 1.3-million-device Android set-top box botnet",
+  "pitch": "Google says one of its Android manufacturing partners secretly backdoored 1.3 million set-top boxes and turned them into a botnet. A multilingual checker lets owners look up their box model, learn whether it is at risk and what to do, with recommendations for certified replacements.",
+  "evenement_declencheur": "Google reveals that partner Videostrong Technology built a backdoor into 1.3 million Android set-top boxes and used them as a botnet.",
+  "contexte_declencheur": "The Verge reported on November 2, 2026, that Google discovered a Shenzhen-based manufacturing partner, Videostrong Technology Co., had secretly built a backdoor into 1.3 million devices and turned them into a botnet. Google says it dismantled the backdoor and cut ties with the manufacturer, which has been banned. Videostrong supplies white-label boxes that are often sold under other brand names, so most owners have no idea who built their device. Cheap Android TV boxes are hugely popular in Latin America, Southeast Asia and among budget buyers in the US and Europe. Infected devices can be used for ad fraud, proxy traffic and attacks from the owner's home network. Owners now want a simple answer: is my box one of them, and should I unplug it?",
+  "pourquoi_maintenant": "Searches for 'is my Android TV box infected' spike right after such disclosures and decline within weeks. Being among the first clear, model-specific resources earns search rankings and links from tech forums. Waiting means competing with tech media explainers that already rank.",
+  "description_detaillee": "A free site with a search box: users type the brand and model printed on their box (or upload a photo of the label and Settings > About screen) and get a risk assessment based on a database of white-label models linked to Videostrong and to previously documented botnet campaigns. Each result page explains how to check Play Protect certification, signs of compromise (unknown apps, network slowdowns, router warnings), and step-by-step actions: disconnect, factory reset, firmware update or replacement. A 'Certified alternatives' page compares Google TV Streamer, Chromecast with Google TV, Nvidia Shield, Fire TV and budget certified boxes, with affiliate links. A Portuguese version targets Brazil, where uncertified 'TV box' devices are widespread, and a Spanish version targets Mexico and Spain. Traffic comes from SEO, Reddit (r/AndroidTV, r/cordcutters), YouTube Shorts showing how to check a box in 60 seconds, and community submissions that grow the database. Revenue: Amazon and retailer affiliate commissions (typically 3-4% on $30-200 devices), display ads, and optional paid extended network scan guides. Realistic: €300-1,500 per month during the peak months, then a smaller evergreen income from security-checker searches.",
   "categorie": "outil-web",
-  "cible": "Patients espagnols des cliniques Vivanta ayant un traitement payé ou financé à crédit et inachevé ; secondairement dentistes et avocats en droit de la consommation.",
+  "cible": "Owners of cheap or unbranded Android TV boxes worldwide, especially in the US, UK, Brazil, Mexico and Spain",
   "pays_cibles": [
-   "ES"
+   "US",
+   "GB",
+   "BR",
+   "MX",
+   "ES",
+   "FR"
   ],
   "langues": [
+   "en",
+   "pt",
    "es"
   ],
-  "modele_revenus": "Générateur et guide gratuits ; abonnements des dentistes à l'annuaire de reprise (49-99 €/mois) ; forfaits publicitaires fixes des avocats partenaires ; pack suivi optionnel à 19 €.",
-  "budget_estime_eur": 1100,
-  "delai_lancement_jours": 14,
-  "duree_opportunite": "3 à 12 mois pour le pic lié à Vivanta, puis besoin récurrent à chaque faillite de clinique.",
+  "modele_revenus": "Affiliate commissions on certified streaming devices, display ads, optional premium guides",
+  "budget_estime_eur": 400,
+  "delai_lancement_jours": 10,
+  "duree_opportunite": "Peak interest for 1-2 months, evergreen security-checker traffic as new botnet disclosures recur",
   "notes": {
    "potentiel": 5,
-   "cout": 7,
-   "travail": 6,
-   "risque": 5,
-   "urgence": 9,
-   "durabilite": 5,
-   "fiabilite": 8,
+   "cout": 9,
+   "travail": 8,
+   "risque": 7,
+   "urgence": 8,
+   "durabilite": 6,
+   "fiabilite": 6,
    "concurrence": 6
   },
   "notes_explications": {
-   "potentiel": "Le nombre de victimes est significatif et réparti dans plusieurs régions, mais leur capacité à payer est limitée et la plupart des démarches doivent rester gratuites. Les revenus viennent surtout des dentistes et avocats, ce qui plafonne le CA à quelques milliers d'euros, sauf extension à d'autres faillites.",
-   "cout": "Un site WordPress avec formulaire générateur de PDF et une relecture juridique par un avocat espagnol freelance suffisent. Le budget reste autour de 1 100 € ; sans publicité payante, il descend sous 800 €.",
-   "travail": "Il faut rédiger les modèles de lettres en espagnol juridique correct et les faire valider, puis monter l'annuaire. Comptez environ deux semaines pour une personne aidée d'un freelance.",
-   "risque": "Fournir des modèles juridiques sans être avocat impose une rédaction prudente (information, pas conseil) et une validation professionnelle. En Espagne, la publicité des avocats est autorisée, mais il faut éviter toute rémunération au résultat. La sensibilité d'un public en détresse crée aussi un risque réputationnel si l'offre paraît mercantile.",
-   "urgence": "Les fermetures datent de fin octobre 2026 et la demande d'information culmine dans les semaines qui suivent. C'est maintenant que les patients cherchent et que les médias citent des ressources.",
-   "durabilite": "Le pic Vivanta retombera en quelques mois. En revanche, les faillites de chaînes dentaires et esthétiques sont récurrentes en Espagne (iDental, Dentix, Vivanta), ce qui donne une seconde vie au site.",
-   "fiabilite": "Cinq articles de médias différents (Móstoles, Murcie, Ceuta, Pays basque, Navarre) confirment la fermeture et les patients lésés. La demande est évidente.",
-   "concurrence": "Associations de consommateurs (OCU, FACUA, Irache) et cabinets d'avocats occupent le terrain, mais avec du contenu dispersé et peu d'outils pratiques. Aucun générateur de lettres ni annuaire de reprise des soins n'a été identifié."
+   "potentiel": "The audience is large but low-value: buyers of cheap boxes are price-sensitive, so affiliate conversion is modest. Volume can compensate partly.",
+   "cout": "Hosting, a domain and a small ad test are all that is needed. Under €500 total.",
+   "travail": "A searchable database, guide pages and three language versions fit in about ten days. Maintaining the model list is ongoing but light.",
+   "risque": "Low legal risk if the site cites official sources and avoids accusing specific resellers without evidence. Wrong 'safe' verdicts are the main reputational risk.",
+   "urgence": "The disclosure is fresh and search spikes are short-lived. Launching within two weeks matters.",
+   "durabilite": "Android box malware disclosures recur regularly, so a general 'TV box safety checker' remains useful. The specific news will fade.",
+   "fiabilite": "Single outlet in the batch, which caps the score at 6, but it relays an official Google statement. The demand for checking is plausible but not yet measured.",
+   "concurrence": "Tech media publish explainers and Google has a Play Protect certification page, but there is no dedicated multilingual model lookup tool."
   },
   "budget_detail": [
-   "Nom de domaine .es + hébergement 1 an : 80 €",
-   "Thème WordPress + plugin formulaires/PDF (Gravity Forms + extension PDF) : 200 €",
-   "Relecture et validation des modèles de lettres par un avocat espagnol freelance : 400 €",
-   "Rédaction/traduction du guide par un rédacteur natif : 150 €",
-   "Promotion (Google Ads ciblé + boost Facebook groupes d'afectados) : 250 €",
-   "Divers (burofax test, logo) : 20 €"
+   "Domain + hosting: €80",
+   "Reddit and Meta ads tests in US, BR and MX: €250",
+   "Stock images and icons: €30",
+   "Contingency: €40"
   ],
+  "requete_verification": "Google Videostrong Android set-top box botnet backdoor",
   "concurrents": [
-   "Associations de consommateurs (OCU, FACUA, Irache, Kontsumobide) : information gratuite mais générale, pas d'outil de génération de lettres ni d'annuaire de reprise.",
-   "Cabinets d'avocats spécialisés (ex. Clemente Cerdeira Abogados à Ceuta) : approche commerciale cabinet par cabinet, pas de vue nationale ; ils deviennent partenaires plutôt que concurrents.",
-   "Plateformes de réclamation généralistes (Reclamador.es) : centrées sur l'aérien et la banque, pas sur les cliniques dentaires."
+   "Google's Play Protect certified device list: official but not searchable by white-label model names",
+   "Tech media explainers (The Verge, BleepingComputer): one-off articles, no lookup",
+   "Antivirus vendors' blogs: promote their own products; this tool is neutral and multilingual"
   ],
-  "analyse": "C'est une idée utile, alignée éthiquement et très directement liée à l'événement, avec une fenêtre courte. Il faut y aller vite et seulement si vous pouvez faire valider les modèles par un avocat espagnol sous dix jours. Le point de vigilance principal est le ton : le cœur de l'offre (guide et lettres) doit rester gratuit, sans promesse de remboursement. Le revenu viendra des professionnels, pas des victimes. À plus long terme, le site gagne à devenir la référence espagnole « clínica cerrada, qué hacer ».",
+  "analyse": "A cheap, fast idea worth doing if you can launch within 10 days. Its value depends on the quality of the model database, so base it on official lists and documented research and label uncertain cases clearly. Expect modest revenue: treat it as an SEO asset that can grow into a general consumer IoT safety checker. The Portuguese and Spanish versions are the real differentiator.",
   "etapes": [
-   "Jour 1-2 : recenser les articles, les communiqués de Kontsumobide, Irache et des OMIC, ainsi que les financieras citées ; vérifier le cadre légal des crédits liés (Ley 16/2011).",
-   "Jour 2-3 : réserver le domaine neutre et installer WordPress (hébergement o2switch ou Hostinger) avec un thème léger.",
-   "Jour 3-6 : rédiger le guide et 4 modèles de lettres en espagnol (freelance natif via Malt ou Fiverr), puis les faire valider par un avocat espagnol.",
-   "Jour 6-8 : monter le générateur PDF (Gravity Forms + Gravity PDF, ou Tally + Documint en no-code).",
-   "Jour 8-10 : créer l'annuaire de dentistes de reprise (plugin Directorist) et démarcher par email 50 cliniques dans les provinces touchées.",
-   "Jour 10-12 : contacter 10 cabinets d'avocats et les associations pour des partenariats, et mettre en place Stripe pour les abonnements annuaire et le pack suivi.",
-   "Jour 12-14 : mettre en ligne, poster dans les groupes Facebook d'afectados, envoyer un communiqué aux médias locaux et lancer Google Ads sur « Vivanta cierre ».",
-   "Semaines 3-8 : produire des pages par ville, mettre à jour le guide selon l'évolution de la procédure collective, mesurer les conversions et ajuster les prix."
+   "Collect model names and white-label brands tied to Videostrong and prior box botnet reports from public research (3 days)",
+   "Build the lookup tool with a static site generator and a searchable JSON database (3 days)",
+   "Write guides: check Play Protect, signs of infection, reset and replace, in EN/PT/ES (3 days)",
+   "Create the certified-alternatives comparison with Amazon affiliate links per country (1 day)",
+   "Add a community submission form for new models with moderation (1 day)",
+   "Post helpful threads on Reddit and Brazilian/Mexican tech forums, publish short how-to videos (ongoing)"
   ],
   "risques": [
-   "Exercice illégal du conseil juridique : présenter le contenu comme de l'information générale, faire valider les modèles par un avocat et renvoyer vers des professionnels pour les cas particuliers.",
-   "Usage de la marque Vivanta : ne pas l'utiliser dans le nom de domaine ni le logo, seulement de manière descriptive dans les contenus.",
-   "Image de profiteur de crise : garder gratuit tout l'essentiel, afficher clairement les sources de revenus et refuser toute commission au résultat.",
-   "Évolution rapide de la procédure (administrateur judiciaire, accords avec les financieras) : prévoir une mise à jour hebdomadaire du guide et une date de mise à jour visible.",
-   "Données de santé et données personnelles : ne stocker aucune donnée médicale, générer les PDF côté navigateur si possible et respecter le RGPD."
+   "False 'safe' verdict: phrase results as 'not on known lists' and always recommend Play Protect verification",
+   "Defamation risk toward resellers: only cite official or published research, no unsourced accusations",
+   "Short-lived traffic: broaden to a general smart-device safety checker after the peak",
+   "Low affiliate conversion: add display ads and focus on high-traffic SEO pages"
   ],
   "mots_cles": [
-   "Vivanta cierre",
-   "reclamar financiera clínica dental",
-   "afectados Vivanta",
-   "crédito vinculado tratamiento dental",
-   "clínica dental cerrada qué hacer",
-   "continuar tratamiento dental"
+   "Android TV box botnet",
+   "Videostrong backdoor",
+   "is my TV box infected",
+   "Play Protect certified TV box",
+   "TV box pirata vírus",
+   "caja Android TV malware"
   ],
   "sources": [
    {
-    "titre": "El cierre de las clínicas Vivanta también afecta a pacientes de Móstoles con tratamientos dentales pendientes - mostoleshoy.com",
-    "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOV2Q5V1JtOG56OTJOak16NHB4TWJ1dEVhUEtNVm1md094RWNIZmpLVWNha2hWSjZyb1M3aUl6dlotbVUtSUdLQ2l0bUdsWFE5bTlzWHU3bEN4b1YyYWZRZzFnMHpoZFE0Z3pHcnJ2N3VJZWtlNXI2Q21aOXNuQ2lxdVpSNTRKaEZrb3NJTW5HdGFhNVBvRjg1dWRxQ0xWZlFSNHdkR1pkTFVyWnViaE8tTmc1cGxabUtOX2JUenFfNVdNbTBqYlFSanF1M2dadw?oc=5",
-    "source": "Google News recherche ES",
-    "langue": "es",
-    "date": "2026-10-31T12:31:43+00:00"
+    "titre": "One of Google’s Android partners turned 1.3 million set-top boxes into a botnet",
+    "url": "https://www.theverge.com/1024807/google-botnet-android-tv-shut-down",
+    "source": "The Verge",
+    "langue": "en",
+    "date": "2026-11-02T20:37:49+00:00"
    },
    {
-    "titre": "Clemente Cerdeira Abogados explica cómo reclamar a las entidades financieras tras el cierre de Vivanta en Ceuta - Ceuta Ahora",
-    "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNdFdlQXJLRDlTbGVHTlo0cGhCaGlKb29acnpUMDJZbFA4akYzTTJscExON2RpclRGcF8yNzN2RWpaX19DQk1PUmNqYTlqcXpUajFFbzItamM5cXY0S19pXzhKb3RDU09mbktVUTRJZlJyQXhrMUVwOWFWR3N4V1V3bnh4cl9pc19nTU1aQzN3NjBpWEEzOU5LSWlvZURFckpWT3UwanpRM09fb0FWb0V6czdJU3c0cEV3aEk1UHVzUnF2anpIS29MYVV1ejVBdnp3Z1hYWDNBNTVIbVlk?oc=5",
-    "source": "Google News recherche ES",
-    "langue": "es",
-    "date": "2026-10-31T08:34:06+00:00"
+    "titre": "Shutting the Door on the XCPE Botnet - Google Cloud",
+    "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxORmJ2VVhPbGtGcWJHSGJKcV9UUHU1NzJrdWxPYndXeFNhSDdtaWtZWFl0NFJuQjFYM3pJbVlDR2J6eDdIejBQazh3RDhHYTgweGdvUHllajQyenl2UDB4dVIyZEdzd3Q0RXRHT2xDWEFzcVJlUERFRmkzZkQ4aTd2bEpEQnl2M1NfbHRxQXlONTdTaDg0S3o1aw?oc=5",
+    "source": "Google Cloud",
+    "langue": "en",
+    "date": "2026-11-02T14:03:06+00:00",
+    "confirmation": true
    },
    {
-    "titre": "Kontsumobide insta a afectados por el cierre de clínicas a exigir lo abonado - El Diario Vasco",
-    "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQWGQ4SHYtQTZJYm0taTAwNVJIR3JFWGN0bThsOVNfeXJvaW1PUmFnYnFQN2I5ZFFnanp4Rzl6LUxPQWZaVFdnRjI3S00zTG5mNUFYQzJzSTRKUHJGSGFGU1RiTkQ4OFVQdnhDMjJqempUNEhHUzhEUWdtNmlWQnYzdFl4UlpRWmtUNmxKaDlmMzktRVpmbW5ucV9yQnJ5eElTY3NxQ2VqZ2dUR252djQzUlFFb2d4akVRb0UxbllwZ3XSAcABQVVfeXFMUFhkOEh2LUE2SWJtLWkwMDVSSEdyRVhjdG04bDlTX3lyb2ltT1JhZ2JxUDdiOWRRZ2p6eEc5ei1MT0FmWlRXZ0YyN0tNM0xuZjVBWEMyc0k0SlByRkhhRlNUYk5EODhVUHZ4QzIyanpqVDRIR1M4RFFnbTZpVkJ2M3RZeFJaUVprVDZsSmg5ZjM5LUVaZm1ubnFfckJyeXhJU2NzcUNlamdnVEdudnY0M1JRRW9neGpFUW9FMW5ZcGd1?oc=5",
-    "source": "Google News recherche ES",
-    "langue": "es",
-    "date": "2026-10-31T06:52:51+00:00"
+    "titre": "Google Disrupts 1.3 Million-Device Android Botnet, Says TV Box Maker Sold Criminal Access - The Hacker News",
+    "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1rQy1rOGdyelRlR3lnRFBNM3hxQ3VqMU1lUjd0bHR2V2hkaDl4VDNQZTgzbHY2SU9NNWJxcTJvOU14ekRRRng4bjhLM0NVMEFBZDhpVGlqc3lSU3M0OUN4RFdvcnFKNnRqLUlHRXdoWDc1WVZqREFEUDJ3Vnc?oc=5",
+    "source": "The Hacker News",
+    "langue": "en",
+    "date": "2026-11-02T15:50:00+00:00",
+    "confirmation": true
    },
    {
-    "titre": "El cierre definitivo de Vivanta Dental deja a medio centenar de pacientes murcianos con tratamientos sin acabar - La Opinión de Murcia",
-    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPUllTcEN6UEoyeDUyNHl3NHp4N3hRSnU3NE9NVmpIRVo3WXdhX05OeTZiQnBxSU84TGFNZlVUdUtKVEUzZzZDcjRlSEZhVi1qS1hJRDc5eVJvS2tOTzE3VXA4SWRqYTVNa0M0WjJfZ19OeW93VEtvTlNDMURKZ1RZcEhIS2xkLVRpWmptNVZyX1M0TjRSQlAtd0JwS1ZQeFloTVdZX19xNGRwZ9IBrwFBVV95cUxPS0lTZlRJZ0N4MTNkNzZEc3VIRFdkVXlMTlFmYWM0MWYyQm11V2hnUW5yV0VEaW1GZUJwWEZpUG5aLUYyU1dQZkpTSF9wenRfbVNEMW9rYlI2c1hmWGwxTmhhaFNnSHZaU1d6NV9aZld2clZ5S3R2QS1aRzhQUzY3OFVJWDJ5bmZiOGM5dGZCa1NKSmZQNV9hZHJyMmNST1ZwZWVZa0UtM0k2QjQ2ZTRV?oc=5",
-    "source": "Google News recherche ES",
-    "langue": "es",
-    "date": "2026-10-31T05:01:09+00:00"
+    "titre": "Cops bust botnet of 1.3M infected Android TV boxes - The Register",
+    "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPdE9KazZoLTNLSlJpU2YxU3VNc1Nub0hkSUFXME11c040X0NybFZGWDFKcVZmM0kyRWFXLWU5S1BjYVVISVFLYk00aGM0OGF2UGtrcUJFaF9RRU9IMzNyV0U0MjJoT0NSbURLemxZZVY2QkJSRXRDWHluS0JSYlV5d3ZWNWMwaERVYlRicEQ0Z2ljZXUwc1BpMmZwdE1xMld2dEFwekNvQnB0Um1R?oc=5",
+    "source": "The Register",
+    "langue": "en",
+    "date": "2026-11-02T19:03:31+00:00",
+    "confirmation": true
    },
    {
-    "titre": "Irache organiza una charla en Pamplona para los afectados por el cierre de la clínica dental Los Arcos & Deprit - Pamplona Actual",
-    "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPbUowUFZyd1M0VWJjcVhmbEtwSlI2Y1BLWi1jZEFmMmFRczlySDAzYWhsUUdzZ2p3UkRvYkc1ZDNZdTJRb0JUNkR2bWI0aTY0WmtWRDFjSEFucjRxZ0dSYXE0bGx5REltazF5Y291elRSTzZPU0xZbGtWNDB3NjJBYTRjRkJXaTRjbkdSSEFQaGxEY1lJbVJnczRudlRnT29IbF94OUdSV2JIVjhzeDhLZFFQaEdzYnVUTHFvSk54cV9uWEpkQnFFRlp2ZHF2QU11ZjQwY3R0c0dSRVFvbld6U3phcWVCd0N2?oc=5",
-    "source": "Google News recherche ES",
-    "langue": "es",
-    "date": "2026-10-31T13:04:03+00:00"
+    "titre": "Google shuts down global botnet running on certified Android devices - CyberScoop",
+    "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPdTViRkNibzNncldteEszdS1pYlJaSFB3X3FvTndmRGdNTVc5VjRWRnc1aFhFUGFDUHo1eVNyQmNhQ2JpOXJQRWJPUnIxMVNmOHg3elJ2a2Vyc2xLeFd3dGVRelZ1QmRITjNmMXc5UWg1UzhtWWUtOS05ZVRPTWVuUXg2NzFDZw?oc=5",
+    "source": "CyberScoop",
+    "langue": "en",
+    "date": "2026-11-02T22:00:49+00:00",
+    "confirmation": true
    },
    {
-    "titre": "Cierre de la clínica Los Arcos & Deprit Oralis - Noticias de Navarra",
-    "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPX0ZIOGkzZVFvTzR5Si1rX25WWTgxakdRc19LekUtREhfWUZzRmJmN0MwWjZMZEVuUUwxVWdXemhRcjdlSWxLM3BnSGNnem9EMnM4d2N2NjExNExHQ05ucTRiejFQS0c2SWFfc2p3SHFhSV9lWHY3R2xndi1QNmRIS3FfVkVYR3JPazh2czdKRE9qSTJxX2lhUlE2RTFjODZ5TWtvRURxaUs0YVRPRmpuT3RMZTFiRFZ3ODR3VtIBwgFBVV95cUxQV1UyYjliQ1U1WGN3dWQtb01CdjJPQjYyVkVDOUlvMXlvMTFldFhOT1dkU0pLbnpXbUg4VVpvakNiRnlGOTE0WlUzeVE0RVVEY1JwSnMxeWk5NlRDSDVmZjJVUmgxS2Y4REJNXzdCOXJwMEtLUWpRcmRzQUgxcW40UUFjVzRDaWp6WUtwbVhNSFBMMGc3UDUyMmNQb2ZQNkV5R1hEdzVGSlplY3RBVmg3WDdDdW5ZX04taGdLbzU1RW5EQQ?oc=5",
-    "source": "Google News recherche ES",
-    "langue": "es",
-    "date": "2026-11-01T09:46:48+00:00"
-   },
-   {
-    "titre": "Asescon pide a Bruselas que intervenga ante el cierre de Vivanta y la incertidumbre de sus pacientes - El Faro de Ceuta",
-    "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOQ3FkVGRuM2wwaWpXZEhsZG9ieGRta0ZqQndBc1FJdUo0OWRTaUhBWHBHbl9HdFBVendaTGgzelRRbFlQaUhjMHZ6enRRaXZScTFHMmtVbGpFV1pPNFA0QUhCM0ZubGtDNWFwV2VrN3Q4ODZaamtoejJFMnRrcEg5N1dkb3hEWFdQbTJ4Y1JNal92eEFDWmRBMk8yYVdPUdIBowFBVV95cUxNeE5jeEU2ODE1azVsQ0k2N1NaM2Q3a0J2M0o2cXAtTHQ2NkZCRURpTG9EeGNuWG1ieUx1NzZZX2tTbmY2cmNwOUU5b21qZzVzSTBudW80cmJVclU1RGtpYjlHTTVSXy14VmJNbnVmRG1kVVd4RTYwaWJyaWVVVXFxSHVIMWtZb3NiOTF2ZjgwZGhBV2hMdm9YYzFYNUlVbGs5bkhZ?oc=5",
-    "source": "Google News recherche ES",
-    "langue": "es",
-    "date": "2026-11-02T09:00:32+00:00"
-   },
-   {
-    "titre": "Irache asesora a los afectados por el cierre de la clínica dental Los Arcos & Deprit de Pamplona para que reclamen sus derechos - COPE",
-    "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxNQktidDZrMk5wXzRUcUxxc0wyd2FfV2VpWTd1NG5nOVJKNy10TjhwbDQ3OEtuUkQybFdLSHc4eHlyMFRSTTBwZGVfQTdvOV9HVWhxUWFicUQ3eC1HSEtwRmFqNGk4ZW96M0ltbzJicGR2bWsyeXhzMnU0MGJwbjFucGo2LU5oSGVKOHlRSzhOUGlHdVVSY2JvWGljY0RTNFJvd19oYmZ5ZGExTHZ0Vjd3SlE0TjZyVUI1NElXd19vTDdpazRZM2VGSjN4dUJYNDBpNnpLM2pKa2FnaEFaU2NmbWJtc3A0ZEk1SUHSAe8BQVVfeXFMTjVERE9qRk9QXzdxOWZwNGR1RjdaZUNzcXNnVjlDNXNrNTFSTklic0UtNEVjWGk3Ry1kWFh6bVdGSk5hNjI1R210WEtCaU5nZzQyRjFlQWJTWkkzdVhRVkxVbGhfdVNma2RxVGxVYnladkI3YXE0MlhPa21PRmhMXzZyS3A4ZnVjTE1tQU1TbmlKd2toQ3pLNk03aFpZdjdVM2RRUl8tY0tMQ1ZhendxamZzWGx0M1dnbzVnamZTMWNRMkJoS2xLeW5PVTM1ZUJCQVpEWEgyYzdFWS1qOFl0NXB5OVJ3bndja3BIczc1NDQ?oc=5",
-    "source": "Google News recherche ES",
-    "langue": "es",
-    "date": "2026-11-02T09:07:03+00:00"
+    "titre": "Google Disrupts Massive Android TV Botnet, Bans Device Maker - SQ Magazine",
+    "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5uTFFaZUwxVk9HQ0Y0M3dJaDBrS2UwNkVxV0lSWm12OUN6NGczcHV4eDdRcmNBelJKRWg5WDRFTmhWbW1SZXZiZ3loR05ZdEdxSWJ6N254TktPY1NaUjQydjQ1Z1ZRWkNtVThVaEdEM2dueU4zNUFweXVGWmQ?oc=5",
+    "source": "SQ Magazine",
+    "langue": "en",
+    "date": "2026-11-02T18:25:47+00:00",
+    "confirmation": true
    }
   ],
   "ethique": {
    "acceptable": true,
-   "raison": "L'outil aide concrètement les patients lésés à faire valoir leurs droits, avec un guide et des lettres gratuits. La monétisation repose sur les professionnels (dentistes, avocats) et une option modeste, sans prix abusif ni promesse trompeuse."
+   "raison": "Provides free, factual security information and neutral replacement advice; does not create artificial fear since the threat is officially confirmed."
   },
-  "id": "idee-a271c8a5",
-  "signaux": 3,
-  "cree_le": "2026-10-31T14:01:44+00:00",
-  "mis_a_jour_le": "2026-11-02T09:22:17+00:00",
+  "id": "idee-f6c7af07",
+  "signaux": 1,
+  "cree_le": "2026-11-03T08:00:18+00:00",
+  "mis_a_jour_le": "2026-11-03T08:00:18+00:00",
   "statut": "active",
-  "notifiee": false,
-  "note_globale": 6.3,
-  "historique": [
+  "notifiee": true,
+  "langue_redaction": "en",
+  "note_globale": 6.5,
+  "sources_confirmation": 5
+ },
+ {
+  "titre": "'Rate Rise Rescue' Australia: repayment impact calculator and hardship request generator after the RBA's fifth hike to 4.85%",
+  "pitch": "The Reserve Bank of Australia has raised rates for the fifth time this year, to an 18-year high of 4.85%. A free tool shows mortgage holders their new repayments and walks those under stress through their legal right to request hardship relief from their lender, with a ready-to-send letter.",
+  "evenement_declencheur": "The Reserve Bank of Australia hikes its cash rate to 4.85%, its fifth increase of 2026 and the highest level since 2008.",
+  "contexte_declencheur": "On November 3, 2026, the RBA lifted the official cash rate by 25 basis points to 4.85%, its fifth hike this year and the highest level since 2008, citing AI-driven demand and persistent inflation. Governor Michele Bullock said 'some pain now' would prevent worse later. Reports note that the hikes have so far failed to tame inflation while mortgage holders suffer, and a major bank is predicting the worst housing crash on record. Lenders will pass on the increase within days, raising monthly repayments for millions of variable-rate borrowers. Under Australian credit law, borrowers facing financial difficulty can request a hardship variation, and lenders must respond within set timeframes, but many people do not know this or how to ask. A clear, free tool that combines the numbers with practical next steps addresses a growing need.",
+  "pourquoi_maintenant": "Lenders pass on the hike within days and the first higher repayment hits in December, right before Christmas spending. Search demand for 'mortgage hardship' and 'rate rise calculator' peaks in the weeks after each decision. With more hikes possible, launching now also positions the site for the next RBA meetings.",
+  "description_detaillee": "The site has three tools. First, a 'Five hikes later' calculator: users enter their loan balance, rate and remaining term and see how much more they pay per month and per year since January, plus the impact of a further hike. Second, a stress check that compares repayments to income and expenses and flags serious mortgage stress. Third, a hardship request generator: for people in difficulty, a guided form produces a clear, factual letter to their lender requesting a hardship variation (payment pause, reduced repayments, term extension), with guidance on what to include, response timeframes and how to escalate to the Australian Financial Complaints Authority (AFCA) if refused. Every page prominently links to the free National Debt Helpline and financial counsellors. The core tools are completely free. Revenue comes from an opt-in refinance comparison referral to licensed mortgage brokers (as an exempt referrer passing contact details only), display ads on calculator pages and a small optional donation. Traffic comes from SEO on 'RBA rate rise calculator', 'mortgage hardship letter template', sharing in Australian Reddit communities (r/AusFinance, r/AusProperty) and outreach to community legal centres. Realistic: 30,000-100,000 visits around each RBA decision and €1,000-3,000 per month in referral and ad revenue.",
+  "categorie": "outil-web",
+  "cible": "Australian variable-rate mortgage holders, especially recent first-home buyers under repayment stress",
+  "pays_cibles": [
+   "AU"
+  ],
+  "langues": [
+   "en"
+  ],
+  "modele_revenus": "Opt-in referrals to licensed mortgage brokers, display ads, optional donations; core tools free",
+  "budget_estime_eur": 1000,
+  "delai_lancement_jours": 14,
+  "duree_opportunite": "High demand while rates stay elevated (likely 12-24 months), with spikes after each RBA meeting",
+  "notes": {
+   "potentiel": 6,
+   "cout": 7,
+   "travail": 6,
+   "risque": 5,
+   "urgence": 8,
+   "durabilite": 7,
+   "fiabilite": 8,
+   "concurrence": 5
+  },
+  "notes_explications": {
+   "potentiel": "Millions of variable-rate borrowers and valuable refinance leads. Monetization must stay restrained given the audience, which caps revenue.",
+   "cout": "The main expense is a legal review by an Australian lawyer to keep the site within general information and referral rules. Hosting and ads are cheap.",
+   "travail": "Calculators are simple; the hardship generator and accurate legal content need careful writing. About two weeks.",
+   "risque": "Australian credit law restricts giving credit assistance without a licence, and the audience is financially stressed. Staying strictly factual, free and referral-only with legal review reduces the risk.",
+   "urgence": "Repayments rise within weeks and search demand spikes now. Each new RBA meeting adds further windows.",
+   "durabilite": "Rates are at an 18-year high and housing stress will last, so the tools remain useful for at least a year. Demand fades if rates fall significantly.",
+   "fiabilite": "The rate decision is confirmed by The Guardian, CNBC, Infobae and Korean media. Demand for hardship information is evident from coverage of mortgage holders' suffering.",
+   "concurrence": "Canstar, RateCity and bank calculators cover repayments, and Moneysmart has guidance. Few combine the numbers with a practical hardship letter generator in one flow."
+  },
+  "budget_detail": [
+   "Domain + hosting: €80",
+   "Legal review of disclaimers and referral setup by an Australian lawyer: €500",
+   "Google Ads on rate-rise and hardship keywords: €350",
+   "Contingency: €70"
+  ],
+  "requete_verification": "RBA cash rate 4.85 fifth hike Bullock mortgage",
+  "concurrents": [
+   "Canstar and RateCity: repayment calculators focused on product comparison, not hardship",
+   "Moneysmart (ASIC) and National Debt Helpline: trustworthy guidance but no letter generator; this site links to them rather than competing",
+   "Bank calculators: tied to one lender"
+  ],
+  "analyse": "A useful, durable tool if built with restraint: free core features, honest content and visible links to free financial counselling. Get the legal review before launch to stay clearly on the information side of Australian credit licensing rules. The hardship letter generator is the differentiator and the reason people will share it. Do not push refinancing to people in real hardship; reserve referrals for those whose numbers make it sensible.",
+  "etapes": [
+   "Research hardship provisions, lender response timeframes and AFCA escalation from official sources (Moneysmart, AFCA, National Debt Helpline) (3 days)",
+   "Build the repayment impact calculator and stress check (Next.js, client-side calculation) (3 days)",
+   "Build the hardship letter generator with a guided form and PDF/email output (3 days)",
+   "Get an Australian lawyer to review content, disclaimers and the referral model (1 week, in parallel)",
+   "Set up an exempt-referrer arrangement with 1-2 licensed mortgage broker firms (1-2 weeks, in parallel)",
+   "Publish SEO pages and share in r/AusFinance, r/AusProperty and with community legal centres (ongoing)",
+   "Prepare updates for each upcoming RBA decision (recurring, 1 day each)"
+  ],
+  "risques": [
+   "Breaching credit licensing rules: legal review, information-only content, referrals limited to passing contact details",
+   "Reputational risk of monetizing distress: keep core tools free, no aggressive upsells, prominent free help links",
+   "Calculation errors: test against lender calculators and show assumptions",
+   "Rates fall and demand drops: pivot to a general mortgage health check tool"
+  ],
+  "mots_cles": [
+   "RBA rate rise calculator",
+   "mortgage hardship letter Australia",
+   "mortgage stress Australia",
+   "hardship variation request",
+   "RBA 4.85",
+   "AFCA complaint mortgage"
+  ],
+  "sources": [
    {
-    "date": "2026-11-01T10:02:19+00:00",
-    "note": "Noticias de Navarra rapporte la fermeture de la clinique Los Arcos & Deprit Oralis en Navarre : d'autres patients espagnols de cliniques dentaires se retrouvent potentiellement avec des soins inachevés, ce qui élargit la cible de la plateforme au-delà du seul réseau Vivanta (à vérifier selon le détail de l'article)."
+    "titre": "RBA interest rates: Bullock says ‘pain now’ will prevent worse later as Reserve Bank hikes rates for fifth time",
+    "url": "https://www.theguardian.com/australia-news/2026/nov/03/rba-interest-rates-decision-cash-rate-november-reserve-bank-australia",
+    "source": "The Guardian World",
+    "langue": "en",
+    "date": "2026-11-03T07:36:42+00:00"
    },
    {
-    "date": "2026-11-02T09:22:17+00:00",
-    "note": "Asescon asks Brussels to intervene over the Vivanta closure and patient uncertainty; another clinic closure in Pamplona (Los Arcos & Deprit) has consumer groups advising patients, showing the need extends beyond Vivanta to dental-clinic closures in general."
+    "titre": "Australia hikes rates to 18-year high to fight inflation",
+    "url": "https://www.cnbc.com/2026/11/03/australia-hikes-rates-18-year-high-finflation.html",
+    "source": "CNBC Top News",
+    "langue": "en",
+    "date": "2026-11-03T03:46:20+00:00"
+   },
+   {
+    "titre": "Australia sube los tipos un 0,25% por IA e inflación, hasta su nivel más alto desde 2008",
+    "url": "https://www.infobae.com/america/agencias/2026/11/03/australia-sube-los-tipos-un-025-por-ia-e-inflacion-hasta-su-nivel-mas-alto-desde-2008/",
+    "source": "Infobae (Amérique latine)",
+    "langue": "es",
+    "date": "2026-11-03T05:30:37+00:00"
+   },
+   {
+    "titre": "호주 기준금리 4.85%로 인상…18년 만에 최고 - 월간조선",
+    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1vaXpPVjRyTzNPLTR6dmlzeV82anhVVFdxNjJES0tWY2RWNkM3VF9DNy1XU2tkaGZnY1dIb3hyVi02eHRnaXM0QjBfY2t1ZndJSDdNdTZPbHVqQW1wT2JwVVVYODlJT1MwUk5sTQ?oc=5",
+    "source": "Google News recherche KR",
+    "langue": "ko",
+    "date": "2026-11-03T06:13:02+00:00"
+   },
+   {
+    "titre": "Reserve Bank interest rate hikes fail to stop inflation as mortgage holders suffer - Real Estate",
+    "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNcUJCT1BWUXFxZDVUZkpyams3QVZncGFCWS1EWDNCRFZJejVpTXZYTDJHbTd1eEkxTm9ZU1laZmNRRHVmWW5NckZyQ2dsOTByZmdmN180bXd1Y1U4TXJ2bmR0Z0gxTDJWR01jSDNLTzR0UG9ocXp1Y0o4OS1JWXBrMTV4ZFhITktQb281bXdwdXp1dGpVSkc4WTNueGpzd2lqbHZxc2JpMlBBZnhhM3VDb3pPSE43QkNOVXc?oc=5",
+    "source": "Google News AU",
+    "langue": "en-AU",
+    "date": "2026-11-03T02:43:53+00:00"
+   },
+   {
+    "titre": "Big bank predicts worst housing crash on record - Real Estate",
+    "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPV2ZJbTlYTUNEYUJzTHV6VFlINTFja1BVeUVha2tpS05ZNmdYQTc0RlQ3cHVVRFpaeUZ2Mk9XWlpyOENHNUNQNU1Rdm5IVUFvRUV4NWxOM2pVVXA4Vk1fVGhlTWdGWkdtTy1LRjVHb29NZDc4QjRLNGNXTmVMY2xvMFBrSDNMVVBWYmVR?oc=5",
+    "source": "Google News AU",
+    "langue": "en-AU",
+    "date": "2026-11-03T04:18:54+00:00"
+   },
+   {
+    "titre": "RBA interest rates: Bullock says ‘some pain now’ will prevent worse pain later as Reserve Bank hikes rates for fifth time - The Guardian",
+    "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOUlp5bzRrSEJJTUxIZ084TzdGdzhQTy16eTZtS3c3aWFBOWg5WC12UVFDMWJSdzhfSHZhSDZtRXZ5S2RZZlljYUE3UWtCTDBpQ09nSGpZX1U5b3VjcDBJSmw5Qm50MkxjWXVJbGxiVW9BdnMxY0cwSkhjM0JFeFJyZHE0LTVsenUxQWVnUEtSY3JiVWpLSlJ3MVU1aDBRWF9vdFkzMjFHVnY3ZWhiWU9BWTlmcGFtejFBcURzQm8yTjVZUQ?oc=5",
+    "source": "The Guardian",
+    "langue": "en",
+    "date": "2026-11-03T03:30:00+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Cash rate rise a sure bet as RBA heads for 4.85% - Mortgage Professional America",
+    "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOU0p3SWs2bUtKZVZqdV94OTZDbHdUMzkyX25TanY2aFc4N01uemlUN1VXaFJSSFhrNEoxcFNyOGt4UjB5SHh0ZG9CN1lEUGRuaWJoOXByczhfNTB6b204QjhiVkZORm9XWGxBVG50cS0zRWVESGF6cnFHbDIyX0NaZ3hZQUtRa2JDN1g0Mm9WR1dVX1FwY1RB?oc=5",
+    "source": "Mortgage Professional America",
+    "langue": "en",
+    "date": "2026-11-02T22:36:35+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "RBA interest rates: Reserve Bank hikes cash rate for fifth time this year in blow to mortgage holders - inkl",
+    "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNVVExdEtCSXZyVVdORUFEUjByWFRFcjRWV2JTNU44TEdHUUtwXzgxTHZESWFublJIYjhKUVRlT3B3bEIxYTNpdlh2T1RkOVppaDBEU3hlM09aZUpHSE5GbXhnMXBGUVhhUnVZV3hQdDd6cUhZb19DRTIwSi16MjZTVWhBQWlkYTg1WDExTlZVRUE3bi04MXpEQWVqUm9tZzFMNklqTEtqRkxrZTZEYlV1b2Q0UUJiY2xYaHBtWmFIZTdVS3h5?oc=5",
+    "source": "inkl",
+    "langue": "en",
+    "date": "2026-11-03T03:45:33+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "RBA delivers households another brutal blow as interest rates lifted to 18-year high - News24",
+    "url": "https://news.google.com/rss/articles/CBMirAJBVV95cUxPTFdadjAzdEQtTTBOdEtFWEhtTlMxWUdMUlJOZHpiYTFDS19rU25IMGlKR3lpT1VEUnp6ZWRBUWkwY2VNT3RFaHNLUHhOb1NNSHNBakRIaTFtd0hMQWt0eFVVQnpBcnhVcGloVHl5MWpLMFhBUkIwcW1OZ3YySnh4Zy1PdEV5TVdfYVQwNWdYSGI1dF9FWDdueUpnTUVoczktTExpRUY1NllybVI1b29PSkxBTm82cWtmSVRiVUFKbXRQWW91NWMwRnNhSkR3OVZranFwZmV3UnZqSmFqTGlvM2xZUmxORE5fY2ZDWkcwa2JFTEFPS1FpUFdIVzVaelYxR3d4ZDRlMnFUcERGLUJhMFJJS3BGZ3RWR3JGNkdJcjBxZXpDNm9xWHU2am3SAbICQVVfeXFMT2tVNVJCbU9VQXFFMkJvT2VydE1LbzZJR3BTRnN4UG50dUJrczUwSHZIVUdrV2xYakRPOUdLUllrSkVvb1hNeG5LV3JSNWlEakRfY1hXZzh1UnQ1ZDVOQ09vRWRNX2p2aHIzN2o4WG56V1BTMHhBbWFGT3FRMV9CY3lZLTJiSXZOSGJrTm1IelFLM0xGSXZ4VVo3eUJkZGRrMEp5TlR1dTc1Q3FfTHFjS2l6QVdOZkVtUDhNdHl2ZFlZdXh5NEFmaGMxSTdrbkEzSkJvWlhITDBLdnRPOHl2dXVSQ2hmZ2s0b0pJY183ckoxT0xwLVNWZktnZWdKQmNja3BLbS10QTdYWjhNVF83d0xmQTFPVElza1I4VzMxZzhBaUJ4a1BuTWZXVklDeklYOEpn?oc=5",
+    "source": "News24",
+    "langue": "en",
+    "date": "2026-11-03T05:07:41+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "RBA hikes rates as Bullock warns of recession-like pain for households - Australian Property Update",
+    "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOblpWOXRuUzFRVzZpT3NQNTM1bEhQN21ocHR2VUtrNExvc3RSbDBja2RmR3NTcUUxcERoYnlFOG53alI3ZmVJUGFRcDI2U28zZjJVWFdHbUV4bmRWZmtqUUpMTmVSR01nbzlONTBLSjFBMVJGTFpkRXBNYTZnREhib2ZrMXBudzBWSk5Qdk9fdlVtMzg1eHEtTmFVejJ2TFRIaFBpVWdteTVnX1N3dW5mbHFFWlU?oc=5",
+    "source": "Australian Property Update",
+    "langue": "en",
+    "date": "2026-11-03T07:47:20+00:00",
+    "confirmation": true
    }
-  ]
+  ],
+  "ethique": {
+   "acceptable": true,
+   "raison": "The tools help stressed borrowers understand their situation and exercise their legal rights for free; monetization is limited to opt-in referrals and ads with no manipulation."
+  },
+  "id": "idee-1350c1f7",
+  "signaux": 1,
+  "cree_le": "2026-11-03T08:00:18+00:00",
+  "mis_a_jour_le": "2026-11-03T08:00:18+00:00",
+  "statut": "active",
+  "notifiee": true,
+  "langue_redaction": "en",
+  "note_globale": 6.5,
+  "sources_confirmation": 5
  },
  {
   "titre": "Observatoire français des prix de la mémoire (RAM, SSD) et des consoles : indice, alertes et guides « acheter ou attendre »",
@@ -802,6 +1167,90 @@
     "source": "Google News recherche US",
     "langue": "en-US",
     "date": "2026-11-02T06:56:15+00:00"
+   },
+   {
+    "titre": "Apple Sees Holiday Margins Shrinking to 45-46% on Memory Price Surge; iPhone Duo Supply Crunch Persists - BigGo Finance",
+    "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE91OUNnWEIzSkhtV2RBaGxtMl95TEFhTElHYkY5VzRQd3VMUmVUUDZjWFFzNHNnSXUzMDZndDhlUFFoVWdvMUtZQWYxQ2o3djVYb21meXFjOEhOZmZoMWM4VnY2RHFheC1fbnM4amE3ZTZuNVE0V0E?oc=5",
+    "source": "Google News recherche US",
+    "langue": "en-US",
+    "date": "2026-11-03T03:55:00+00:00"
+   },
+   {
+    "titre": "Memory Price Surge Crushes Entry-Level Phones; Smartphone Chip Shipments Could Fall 20% This Year, Another 4% in 2027 - BigGo Finance",
+    "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1YdkN1MzNRMndQakwtVlZjME4taS04UHFYWVBsMlVFMHQ4RmNsa2RmMHNWc19QaGhkbVRuRS1rWERWVzE3WGlWdU9HRjVUajlRMldVWGFOa1NqY1Y3YTlaQ3ZuX0JBa1RBRkxsQlJtQi1IMVJjZGc?oc=5",
+    "source": "Google News recherche US",
+    "langue": "en-US",
+    "date": "2026-11-03T03:05:00+00:00"
+   },
+   {
+    "titre": "No solo la PS5 y los portátiles: la Raspberry Pi también tiene un aumento de precio por la crisis de componentes - Computer Hoy",
+    "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxONXRvRXpFSlotWldlcTEzcWtUNVZOTXRXaGdqaDZGbnlXbzlicWRZYmFXVWwxZEVDbC1iYkhSNVVMeFNFYzRBSlB3RW9oY1NyUWxoSWE1MDAyYnlnUFg2NW9XOTBLVXp4eV81dlVNakN4RGlMVEdOUFQ0ZWNoSTc3MFRhTDV4S0FablRNMTRIOUhmdXhkLWRrZXRsa2pSdlQzZjdhVkhFX1ZBRmNSbWVpSW1FdTI5SGFkaFFTYVpEYjJ4dXR0U2NwN29wTXduREsxOVdmcjVCcGQyWWJkQ01Fb0w5OWJsUWtE?oc=5",
+    "source": "Google News recherche MX",
+    "langue": "es-419",
+    "date": "2026-11-02T20:38:22+00:00"
+   },
+   {
+    "titre": "애플, 4분기 매출 1조1448억 달러 기록…가격 인상으로 메모리 위기 상쇄 - 스페셜타임스",
+    "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFB1bFNuXzFDcW45V3JfdGFPOEFqZlRaRUdSa0h1N0ZaTnVlZy1qUVdnTUxmZF82NURtTXhRTlRUN1V2NWRQc3YtME1ydXpRSDdKbjhSellGa09LMHNRaEVXcGVEVnZISVRQWmVFcTI5SktqZEk?oc=5",
+    "source": "Google News recherche KR",
+    "langue": "ko",
+    "date": "2026-11-03T01:24:06+00:00"
+   },
+   {
+    "titre": "NVIDIA RTX 5090 Records A Staggering 370% Hike In Price Since Launch While Every RTX 50 GPU Saw A Price Hike In 40-120% Range - Wccftech",
+    "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxORkY5M1pqSVpDUFozN2RERlpYSmJNeU42cm9IZUEwYkJqem15b2JmWnd1M25pM0RTVnVReTNNcFZScDJRN0ZBRlVyMm5pajdjcFp5MzZDTks3WTBGamZSVU8wd1g4bi1Ld0ZvQUVIRWxmTzBsdkJKWWhyN3hDM3llQTZDaUcwVnRNQ2ZSakJ5R283M3fSAZgBQVVfeXFMTWF1RHhPTTFjdV9QZzVUUU0ta2lGQW9vbkdxS3JXSkVRZjU0d1Q1dlBMMGNJQnZzYnlCckNsRU1RWUl1VFFLWmVaUVdoZW5MNDRxTUZZejJhSkdmNWNMejdYbzlKejhZR05zS1A2d1lvLXBIcGV4V1dNeHI1YTV4VUtGaV80T3k5S0E4bWtfbTgwZG1sVEMyd3k?oc=5",
+    "source": "Google News recherche IN",
+    "langue": "en-IN",
+    "date": "2026-11-02T15:50:03+00:00"
+   },
+   {
+    "titre": "La saison 2 de la pénurie de RAM : une autre révolution technologique menace de faire grimper les prix des smartphones et des PC - Journal du Geek",
+    "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxQQ2VTQThTLXVqUDBjUjY1RUpxMnNsYnRfZmNtVTlwYW5UNGl6dklzbDlUczBQYXp2UG1US3VrZlBmV3RrT3M0UWpEdk9lSjgzVjNQZks1VDItOVdyc3c1c2ZKaUVlZ0ZQZk1RT2tmVDh6S29ObHphUy1rUEd6NjFaUHNzXzBhV1o5bVZ6Y0hFVGc2MVZxS1pZVFo0V1lXSFFSQnR1WU1WS3VubVVZTjNrVjhoYnRsSTFHYVRzUWV4Y3lDSzFXS3Y1aW9BN09NWEZzN2xDS0pKd3BiQ01uT3BqakxHMzRBYkhwYkEtM0hhUXpzS3p5Y3FxbHl4aVM?oc=5",
+    "source": "Google News recherche FR",
+    "langue": "fr",
+    "date": "2026-11-02T12:32:58+00:00"
+   },
+   {
+    "titre": "DRAM prices double in 2026 as AI focus squeezes PC makers",
+    "url": "https://asia.nikkei.com/business/tech/semiconductors/dram-prices-double-in-2026-as-ai-focus-squeezes-pc-makers",
+    "source": "Nikkei Asia",
+    "langue": "en",
+    "date": "2026-11-03T07:43:43+00:00"
+   },
+   {
+    "titre": "Apple’s inventory surges 154% as memory chip costs climb",
+    "url": "https://techcrunch.com/2026/11/02/apples-inventory-surges-154-as-memory-chip-costs-climb/",
+    "source": "TechCrunch",
+    "langue": "en",
+    "date": "2026-11-02T23:04:57+00:00"
+   },
+   {
+    "titre": "애플, 가격 인상으로 메모리 비용 방어…7~9월 매출 154조원 - 매일일보",
+    "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1hSkt1c0otdmpEY2x1RW0tNF9JVm9zX2lOT0V3bFphU0xqR0paR2RUam5mYzVnX0pIcDlHUzhHYVllV1JWdUgtUURfcHFfdnlIeGVmMTlWdVVjYlBIUE4yczFUTHA?oc=5",
+    "source": "Google News recherche KR",
+    "langue": "ko",
+    "date": "2026-11-03T07:25:30+00:00"
+   },
+   {
+    "titre": "Apple Expects Memory Shortage to Affect Future Earnings - Gizmodo",
+    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOV0VTSXBUVzVydmRCN2dDeHRuYUtDT3BIVjhPdmVzRmRfa0liNmRaZXZUT3pDUjljSDhTdzJ2RDM1MWxudHV6WDVZM2x1Y2YwNzBTcHZsTHBCWFFteURtTDFNQ0JRT1lWWGUwQ0szVkZhbkYwT0ZiUlZhVF9ldXRrMVJsODYwNWdseVpoWm02dFNHMDZmVGN1ODZjSFVuTGZJUm1RajB4UWVrZw?oc=5",
+    "source": "Google News recherche US",
+    "langue": "en-US",
+    "date": "2026-11-03T03:25:14+00:00"
+   },
+   {
+    "titre": "AI demand, resin shock stretch India PCB shortage into 2027 - digitimes",
+    "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQYnUwVUVwcFI2MGNHbm9DSHJjQTdpUUh5UUk3YXl1NG9adUZQVnRzbkUzUi1GRDc3ejB1RmRla2gwWmRTMzlnR2xnV1JQQUcybkVteHQtME9HVzFSeEo4X3JscEF1TWtLRkllX3NVelNpVFJrbjZzWkpIWVNkSjlRdnp3MUQtSFNVaEtjcUdTVng?oc=5",
+    "source": "Google News recherche US",
+    "langue": "en-US",
+    "date": "2026-11-03T03:00:50+00:00"
+   },
+   {
+    "titre": "AI server capacitor shortage set to peak in 2027, boosting Samsung Electro-Mechanics - The Korea Herald",
+    "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9OOXc2YS1xVWpveFp1M3ZxbTNWUjV6T2JrdHgxSFVqZWNrZlhscEZJRWRPRFJFYmp2TEFteEZWNWtjeGd1QjJzemdDWGZRSEMyWUJFRkRfcw?oc=5",
+    "source": "Google News recherche US",
+    "langue": "en-US",
+    "date": "2026-11-03T05:18:09+00:00"
    }
   ],
   "ethique": {
@@ -809,6 +1258,168 @@
    "raison": "Le site aide les consommateurs à acheter au meilleur prix pendant une pénurie, sans spéculation ni revente : uniquement de l'information et de l'affiliation au prix du marché."
   },
   "id": "idee-70f114e3",
+  "signaux": 4,
+  "cree_le": "2026-10-31T14:01:44+00:00",
+  "mis_a_jour_le": "2026-11-03T08:00:18+00:00",
+  "statut": "active",
+  "notifiee": false,
+  "note_globale": 6.4,
+  "historique": [
+   {
+    "date": "2026-11-01T10:02:19+00:00",
+    "note": "La tension sur les composants s'étend : Kioxia affiche des carnets de commandes NAND complets, les data centers IA absorbent l'offre de condensateurs MLCC avec un pic de pénurie attendu au premier semestre 2027, Sam Altman relance le débat sur l'usage de la RAM des PC, et les processeurs Intel Core Series 3 sont en pénurie. Cela confirme la durée de la hausse des prix et justifie d'élargir l'observatoire aux processeurs et aux PC complets."
+   },
+   {
+    "date": "2026-11-02T09:22:17+00:00",
+    "note": "The memory shortage is spreading to graphics cards: NVIDIA and AMD GPU prices up to 45% in a month, AMD raising GPU+GDDR6 bundle prices again, PCB lead times of 30 months, smartphone price hikes (Lava, OPPO/vivo/Honor cutting specs). Kioxia hints the flash price surge may be fading, which strengthens the 'buy or wait' angle; consider adding GPUs to the observatory."
+   },
+   {
+    "date": "2026-11-03T08:00:18+00:00",
+    "note": "Further confirmation of the memory price surge: DRAM prices doubled in 2026 (Nikkei), Apple warns of rising memory costs and shrinking margins, Raspberry Pi and PS5 prices rise, RTX 50 GPU prices up 40-120%, Journal du Geek announces a 'season 2' of the RAM shortage, and PCB/capacitor shortages are expected to last into 2027. Strengthens demand for a buy-or-wait price observatory."
+   }
+  ]
+ },
+ {
+  "titre": "Plateforme d'aide aux patients des cliniques dentaires Vivanta fermées (Espagne) : réclamation aux organismes de crédit et reprise des soins",
+  "pitch": "Des milliers de patients espagnols se retrouvent avec un traitement dentaire inachevé et un crédit qui continue d'être prélevé. Un site en espagnol leur fournit gratuitement les lettres de réclamation, la marche à suivre et un annuaire de dentistes prêts à reprendre leur traitement.",
+  "evenement_declencheur": "Fermeture définitive de la chaîne de cliniques dentaires Vivanta en Espagne, avec des patients aux traitements inachevés et financés à crédit.",
+  "contexte_declencheur": "Fin octobre 2026, la chaîne Vivanta ferme définitivement ses cliniques dentaires en Espagne. Des patients sont touchés dans plusieurs régions : Móstoles (Madrid), Murcie (une cinquantaine de patients selon La Opinión de Murcia), Ceuta, Pays basque et Navarre. L'institut basque de la consommation Kontsumobide appelle les victimes à réclamer les sommes versées. L'association de consommateurs Irache organise une réunion d'information à Pamplona. À Ceuta, un cabinet d'avocats explique comment se retourner contre les organismes de crédit. Beaucoup de traitements (implants, orthodontie) ont été payés d'avance via des crédits liés. Or la loi espagnole sur le crédit à la consommation (Ley 16/2011, crédits liés) permet au consommateur de faire valoir contre le prêteur les droits qu'il avait contre le prestataire défaillant. Le scénario des faillites iDental (2018) et Dentix (2020) va probablement se répéter : des mois de démarches, des prélèvements qui continuent, des patients qui doivent récupérer leur dossier médical et trouver un nouveau dentiste. L'information est dispersée entre presse locale, associations et avocats.",
+  "pourquoi_maintenant": "Les patients cherchent de l'aide maintenant, au moment où les prélèvements tombent et où les médias en parlent. Dans les cas iDental et Dentix, les premières semaines ont été décisives : c'est là que se sont formés les collectifs et que les avocats ont capté l'essentiel de la demande. Dans deux ou trois mois, les patients seront déjà regroupés autour d'associations ou de cabinets, et la recherche Google se sera tassée.",
+  "description_detaillee": "Le site est entièrement en espagnol, sous un nom neutre comme reclamaclinicadental.es, sans reprendre la marque Vivanta dans le domaine. Page 1 : un guide gratuit « Qué hacer si tu clínica dental cierra ». On y trouve les étapes clés : demander son historial clínico, suspendre les prélèvements, saisir l'organisme de crédit, remplir la hoja de reclamaciones, contacter l'OMIC ou l'organisme régional de consommation. Page 2 : un générateur gratuit de lettres. L'utilisateur saisit son nom, la clinique, la financiera (par exemple les organismes de crédit habituels du secteur), le montant et l'état du traitement. Il obtient un PDF prêt à envoyer par burofax : réclamation au prêteur au titre du crédit lié, demande de dossier médical, réclamation à l'administration de la faillite. Page 3 : un annuaire de dentistes par province qui acceptent de reprendre des traitements commencés, avec un bilan de diagnostic à tarif annoncé. Page 4 : une mise en relation avec des cabinets d'avocats et associations de consommateurs partenaires pour les dossiers complexes ou collectifs. Parcours type : une patiente de Murcie tape « Vivanta cierre qué hacer » et lit le guide. Elle génère gratuitement sa lettre à la financiera, puis trouve un dentiste à Murcie qui propose un bilan de reprise à 30 €. Le positionnement est celui d'un outil d'aide pratique et gratuit, pas d'un vendeur de promesses. Monétisation : abonnement des dentistes à l'annuaire (49 à 99 € par mois et par province) et forfait publicitaire fixe des cabinets d'avocats partenaires (150 à 300 € par mois), sans commission sur les dossiers. En option, un « pack suivi » à 19 € avec relances automatiques et modèles complémentaires. Premiers visiteurs : SEO sur les requêtes « Vivanta cierre », « reclamar financiera clínica dental cerrada » et « Vivanta [ville] ». S'y ajoutent les groupes Facebook d'afectados, le contact des journalistes locaux qui couvrent l'affaire et des associations comme Irache. Ordre de grandeur réaliste : 1 500 à 5 000 € de CA sur les 6 premiers mois. Le site peut ensuite servir de base durable pour toute future faillite de clinique dentaire ou esthétique, un phénomène récurrent en Espagne.",
+  "categorie": "outil-web",
+  "cible": "Patients espagnols des cliniques Vivanta ayant un traitement payé ou financé à crédit et inachevé ; secondairement dentistes et avocats en droit de la consommation.",
+  "pays_cibles": [
+   "ES"
+  ],
+  "langues": [
+   "es"
+  ],
+  "modele_revenus": "Générateur et guide gratuits ; abonnements des dentistes à l'annuaire de reprise (49-99 €/mois) ; forfaits publicitaires fixes des avocats partenaires ; pack suivi optionnel à 19 €.",
+  "budget_estime_eur": 1100,
+  "delai_lancement_jours": 14,
+  "duree_opportunite": "3 à 12 mois pour le pic lié à Vivanta, puis besoin récurrent à chaque faillite de clinique.",
+  "notes": {
+   "potentiel": 5,
+   "cout": 7,
+   "travail": 6,
+   "risque": 5,
+   "urgence": 9,
+   "durabilite": 5,
+   "fiabilite": 8,
+   "concurrence": 6
+  },
+  "notes_explications": {
+   "potentiel": "Le nombre de victimes est significatif et réparti dans plusieurs régions, mais leur capacité à payer est limitée et la plupart des démarches doivent rester gratuites. Les revenus viennent surtout des dentistes et avocats, ce qui plafonne le CA à quelques milliers d'euros, sauf extension à d'autres faillites.",
+   "cout": "Un site WordPress avec formulaire générateur de PDF et une relecture juridique par un avocat espagnol freelance suffisent. Le budget reste autour de 1 100 € ; sans publicité payante, il descend sous 800 €.",
+   "travail": "Il faut rédiger les modèles de lettres en espagnol juridique correct et les faire valider, puis monter l'annuaire. Comptez environ deux semaines pour une personne aidée d'un freelance.",
+   "risque": "Fournir des modèles juridiques sans être avocat impose une rédaction prudente (information, pas conseil) et une validation professionnelle. En Espagne, la publicité des avocats est autorisée, mais il faut éviter toute rémunération au résultat. La sensibilité d'un public en détresse crée aussi un risque réputationnel si l'offre paraît mercantile.",
+   "urgence": "Les fermetures datent de fin octobre 2026 et la demande d'information culmine dans les semaines qui suivent. C'est maintenant que les patients cherchent et que les médias citent des ressources.",
+   "durabilite": "Le pic Vivanta retombera en quelques mois. En revanche, les faillites de chaînes dentaires et esthétiques sont récurrentes en Espagne (iDental, Dentix, Vivanta), ce qui donne une seconde vie au site.",
+   "fiabilite": "Cinq articles de médias différents (Móstoles, Murcie, Ceuta, Pays basque, Navarre) confirment la fermeture et les patients lésés. La demande est évidente.",
+   "concurrence": "Associations de consommateurs (OCU, FACUA, Irache) et cabinets d'avocats occupent le terrain, mais avec du contenu dispersé et peu d'outils pratiques. Aucun générateur de lettres ni annuaire de reprise des soins n'a été identifié."
+  },
+  "budget_detail": [
+   "Nom de domaine .es + hébergement 1 an : 80 €",
+   "Thème WordPress + plugin formulaires/PDF (Gravity Forms + extension PDF) : 200 €",
+   "Relecture et validation des modèles de lettres par un avocat espagnol freelance : 400 €",
+   "Rédaction/traduction du guide par un rédacteur natif : 150 €",
+   "Promotion (Google Ads ciblé + boost Facebook groupes d'afectados) : 250 €",
+   "Divers (burofax test, logo) : 20 €"
+  ],
+  "concurrents": [
+   "Associations de consommateurs (OCU, FACUA, Irache, Kontsumobide) : information gratuite mais générale, pas d'outil de génération de lettres ni d'annuaire de reprise.",
+   "Cabinets d'avocats spécialisés (ex. Clemente Cerdeira Abogados à Ceuta) : approche commerciale cabinet par cabinet, pas de vue nationale ; ils deviennent partenaires plutôt que concurrents.",
+   "Plateformes de réclamation généralistes (Reclamador.es) : centrées sur l'aérien et la banque, pas sur les cliniques dentaires."
+  ],
+  "analyse": "C'est une idée utile, alignée éthiquement et très directement liée à l'événement, avec une fenêtre courte. Il faut y aller vite et seulement si vous pouvez faire valider les modèles par un avocat espagnol sous dix jours. Le point de vigilance principal est le ton : le cœur de l'offre (guide et lettres) doit rester gratuit, sans promesse de remboursement. Le revenu viendra des professionnels, pas des victimes. À plus long terme, le site gagne à devenir la référence espagnole « clínica cerrada, qué hacer ».",
+  "etapes": [
+   "Jour 1-2 : recenser les articles, les communiqués de Kontsumobide, Irache et des OMIC, ainsi que les financieras citées ; vérifier le cadre légal des crédits liés (Ley 16/2011).",
+   "Jour 2-3 : réserver le domaine neutre et installer WordPress (hébergement o2switch ou Hostinger) avec un thème léger.",
+   "Jour 3-6 : rédiger le guide et 4 modèles de lettres en espagnol (freelance natif via Malt ou Fiverr), puis les faire valider par un avocat espagnol.",
+   "Jour 6-8 : monter le générateur PDF (Gravity Forms + Gravity PDF, ou Tally + Documint en no-code).",
+   "Jour 8-10 : créer l'annuaire de dentistes de reprise (plugin Directorist) et démarcher par email 50 cliniques dans les provinces touchées.",
+   "Jour 10-12 : contacter 10 cabinets d'avocats et les associations pour des partenariats, et mettre en place Stripe pour les abonnements annuaire et le pack suivi.",
+   "Jour 12-14 : mettre en ligne, poster dans les groupes Facebook d'afectados, envoyer un communiqué aux médias locaux et lancer Google Ads sur « Vivanta cierre ».",
+   "Semaines 3-8 : produire des pages par ville, mettre à jour le guide selon l'évolution de la procédure collective, mesurer les conversions et ajuster les prix."
+  ],
+  "risques": [
+   "Exercice illégal du conseil juridique : présenter le contenu comme de l'information générale, faire valider les modèles par un avocat et renvoyer vers des professionnels pour les cas particuliers.",
+   "Usage de la marque Vivanta : ne pas l'utiliser dans le nom de domaine ni le logo, seulement de manière descriptive dans les contenus.",
+   "Image de profiteur de crise : garder gratuit tout l'essentiel, afficher clairement les sources de revenus et refuser toute commission au résultat.",
+   "Évolution rapide de la procédure (administrateur judiciaire, accords avec les financieras) : prévoir une mise à jour hebdomadaire du guide et une date de mise à jour visible.",
+   "Données de santé et données personnelles : ne stocker aucune donnée médicale, générer les PDF côté navigateur si possible et respecter le RGPD."
+  ],
+  "mots_cles": [
+   "Vivanta cierre",
+   "reclamar financiera clínica dental",
+   "afectados Vivanta",
+   "crédito vinculado tratamiento dental",
+   "clínica dental cerrada qué hacer",
+   "continuar tratamiento dental"
+  ],
+  "sources": [
+   {
+    "titre": "El cierre de las clínicas Vivanta también afecta a pacientes de Móstoles con tratamientos dentales pendientes - mostoleshoy.com",
+    "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOV2Q5V1JtOG56OTJOak16NHB4TWJ1dEVhUEtNVm1md094RWNIZmpLVWNha2hWSjZyb1M3aUl6dlotbVUtSUdLQ2l0bUdsWFE5bTlzWHU3bEN4b1YyYWZRZzFnMHpoZFE0Z3pHcnJ2N3VJZWtlNXI2Q21aOXNuQ2lxdVpSNTRKaEZrb3NJTW5HdGFhNVBvRjg1dWRxQ0xWZlFSNHdkR1pkTFVyWnViaE8tTmc1cGxabUtOX2JUenFfNVdNbTBqYlFSanF1M2dadw?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-10-31T12:31:43+00:00"
+   },
+   {
+    "titre": "Clemente Cerdeira Abogados explica cómo reclamar a las entidades financieras tras el cierre de Vivanta en Ceuta - Ceuta Ahora",
+    "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxNdFdlQXJLRDlTbGVHTlo0cGhCaGlKb29acnpUMDJZbFA4akYzTTJscExON2RpclRGcF8yNzN2RWpaX19DQk1PUmNqYTlqcXpUajFFbzItamM5cXY0S19pXzhKb3RDU09mbktVUTRJZlJyQXhrMUVwOWFWR3N4V1V3bnh4cl9pc19nTU1aQzN3NjBpWEEzOU5LSWlvZURFckpWT3UwanpRM09fb0FWb0V6czdJU3c0cEV3aEk1UHVzUnF2anpIS29MYVV1ejVBdnp3Z1hYWDNBNTVIbVlk?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-10-31T08:34:06+00:00"
+   },
+   {
+    "titre": "Kontsumobide insta a afectados por el cierre de clínicas a exigir lo abonado - El Diario Vasco",
+    "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQWGQ4SHYtQTZJYm0taTAwNVJIR3JFWGN0bThsOVNfeXJvaW1PUmFnYnFQN2I5ZFFnanp4Rzl6LUxPQWZaVFdnRjI3S00zTG5mNUFYQzJzSTRKUHJGSGFGU1RiTkQ4OFVQdnhDMjJqempUNEhHUzhEUWdtNmlWQnYzdFl4UlpRWmtUNmxKaDlmMzktRVpmbW5ucV9yQnJ5eElTY3NxQ2VqZ2dUR252djQzUlFFb2d4akVRb0UxbllwZ3XSAcABQVVfeXFMUFhkOEh2LUE2SWJtLWkwMDVSSEdyRVhjdG04bDlTX3lyb2ltT1JhZ2JxUDdiOWRRZ2p6eEc5ei1MT0FmWlRXZ0YyN0tNM0xuZjVBWEMyc0k0SlByRkhhRlNUYk5EODhVUHZ4QzIyanpqVDRIR1M4RFFnbTZpVkJ2M3RZeFJaUVprVDZsSmg5ZjM5LUVaZm1ubnFfckJyeXhJU2NzcUNlamdnVEdudnY0M1JRRW9neGpFUW9FMW5ZcGd1?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-10-31T06:52:51+00:00"
+   },
+   {
+    "titre": "El cierre definitivo de Vivanta Dental deja a medio centenar de pacientes murcianos con tratamientos sin acabar - La Opinión de Murcia",
+    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPUllTcEN6UEoyeDUyNHl3NHp4N3hRSnU3NE9NVmpIRVo3WXdhX05OeTZiQnBxSU84TGFNZlVUdUtKVEUzZzZDcjRlSEZhVi1qS1hJRDc5eVJvS2tOTzE3VXA4SWRqYTVNa0M0WjJfZ19OeW93VEtvTlNDMURKZ1RZcEhIS2xkLVRpWmptNVZyX1M0TjRSQlAtd0JwS1ZQeFloTVdZX19xNGRwZ9IBrwFBVV95cUxPS0lTZlRJZ0N4MTNkNzZEc3VIRFdkVXlMTlFmYWM0MWYyQm11V2hnUW5yV0VEaW1GZUJwWEZpUG5aLUYyU1dQZkpTSF9wenRfbVNEMW9rYlI2c1hmWGwxTmhhaFNnSHZaU1d6NV9aZld2clZ5S3R2QS1aRzhQUzY3OFVJWDJ5bmZiOGM5dGZCa1NKSmZQNV9hZHJyMmNST1ZwZWVZa0UtM0k2QjQ2ZTRV?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-10-31T05:01:09+00:00"
+   },
+   {
+    "titre": "Irache organiza una charla en Pamplona para los afectados por el cierre de la clínica dental Los Arcos & Deprit - Pamplona Actual",
+    "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPbUowUFZyd1M0VWJjcVhmbEtwSlI2Y1BLWi1jZEFmMmFRczlySDAzYWhsUUdzZ2p3UkRvYkc1ZDNZdTJRb0JUNkR2bWI0aTY0WmtWRDFjSEFucjRxZ0dSYXE0bGx5REltazF5Y291elRSTzZPU0xZbGtWNDB3NjJBYTRjRkJXaTRjbkdSSEFQaGxEY1lJbVJnczRudlRnT29IbF94OUdSV2JIVjhzeDhLZFFQaEdzYnVUTHFvSk54cV9uWEpkQnFFRlp2ZHF2QU11ZjQwY3R0c0dSRVFvbld6U3phcWVCd0N2?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-10-31T13:04:03+00:00"
+   },
+   {
+    "titre": "Cierre de la clínica Los Arcos & Deprit Oralis - Noticias de Navarra",
+    "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPX0ZIOGkzZVFvTzR5Si1rX25WWTgxakdRc19LekUtREhfWUZzRmJmN0MwWjZMZEVuUUwxVWdXemhRcjdlSWxLM3BnSGNnem9EMnM4d2N2NjExNExHQ05ucTRiejFQS0c2SWFfc2p3SHFhSV9lWHY3R2xndi1QNmRIS3FfVkVYR3JPazh2czdKRE9qSTJxX2lhUlE2RTFjODZ5TWtvRURxaUs0YVRPRmpuT3RMZTFiRFZ3ODR3VtIBwgFBVV95cUxQV1UyYjliQ1U1WGN3dWQtb01CdjJPQjYyVkVDOUlvMXlvMTFldFhOT1dkU0pLbnpXbUg4VVpvakNiRnlGOTE0WlUzeVE0RVVEY1JwSnMxeWk5NlRDSDVmZjJVUmgxS2Y4REJNXzdCOXJwMEtLUWpRcmRzQUgxcW40UUFjVzRDaWp6WUtwbVhNSFBMMGc3UDUyMmNQb2ZQNkV5R1hEdzVGSlplY3RBVmg3WDdDdW5ZX04taGdLbzU1RW5EQQ?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-11-01T09:46:48+00:00"
+   },
+   {
+    "titre": "Asescon pide a Bruselas que intervenga ante el cierre de Vivanta y la incertidumbre de sus pacientes - El Faro de Ceuta",
+    "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOQ3FkVGRuM2wwaWpXZEhsZG9ieGRta0ZqQndBc1FJdUo0OWRTaUhBWHBHbl9HdFBVendaTGgzelRRbFlQaUhjMHZ6enRRaXZScTFHMmtVbGpFV1pPNFA0QUhCM0ZubGtDNWFwV2VrN3Q4ODZaamtoejJFMnRrcEg5N1dkb3hEWFdQbTJ4Y1JNal92eEFDWmRBMk8yYVdPUdIBowFBVV95cUxNeE5jeEU2ODE1azVsQ0k2N1NaM2Q3a0J2M0o2cXAtTHQ2NkZCRURpTG9EeGNuWG1ieUx1NzZZX2tTbmY2cmNwOUU5b21qZzVzSTBudW80cmJVclU1RGtpYjlHTTVSXy14VmJNbnVmRG1kVVd4RTYwaWJyaWVVVXFxSHVIMWtZb3NiOTF2ZjgwZGhBV2hMdm9YYzFYNUlVbGs5bkhZ?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-11-02T09:00:32+00:00"
+   },
+   {
+    "titre": "Irache asesora a los afectados por el cierre de la clínica dental Los Arcos & Deprit de Pamplona para que reclamen sus derechos - COPE",
+    "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxNQktidDZrMk5wXzRUcUxxc0wyd2FfV2VpWTd1NG5nOVJKNy10TjhwbDQ3OEtuUkQybFdLSHc4eHlyMFRSTTBwZGVfQTdvOV9HVWhxUWFicUQ3eC1HSEtwRmFqNGk4ZW96M0ltbzJicGR2bWsyeXhzMnU0MGJwbjFucGo2LU5oSGVKOHlRSzhOUGlHdVVSY2JvWGljY0RTNFJvd19oYmZ5ZGExTHZ0Vjd3SlE0TjZyVUI1NElXd19vTDdpazRZM2VGSjN4dUJYNDBpNnpLM2pKa2FnaEFaU2NmbWJtc3A0ZEk1SUHSAe8BQVVfeXFMTjVERE9qRk9QXzdxOWZwNGR1RjdaZUNzcXNnVjlDNXNrNTFSTklic0UtNEVjWGk3Ry1kWFh6bVdGSk5hNjI1R210WEtCaU5nZzQyRjFlQWJTWkkzdVhRVkxVbGhfdVNma2RxVGxVYnladkI3YXE0MlhPa21PRmhMXzZyS3A4ZnVjTE1tQU1TbmlKd2toQ3pLNk03aFpZdjdVM2RRUl8tY0tMQ1ZhendxamZzWGx0M1dnbzVnamZTMWNRMkJoS2xLeW5PVTM1ZUJCQVpEWEgyYzdFWS1qOFl0NXB5OVJ3bndja3BIczc1NDQ?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-11-02T09:07:03+00:00"
+   }
+  ],
+  "ethique": {
+   "acceptable": true,
+   "raison": "L'outil aide concrètement les patients lésés à faire valoir leurs droits, avec un guide et des lettres gratuits. La monétisation repose sur les professionnels (dentistes, avocats) et une option modeste, sans prix abusif ni promesse trompeuse."
+  },
+  "id": "idee-a271c8a5",
   "signaux": 3,
   "cree_le": "2026-10-31T14:01:44+00:00",
   "mis_a_jour_le": "2026-11-02T09:22:17+00:00",
@@ -818,13 +1429,356 @@
   "historique": [
    {
     "date": "2026-11-01T10:02:19+00:00",
-    "note": "La tension sur les composants s'étend : Kioxia affiche des carnets de commandes NAND complets, les data centers IA absorbent l'offre de condensateurs MLCC avec un pic de pénurie attendu au premier semestre 2027, Sam Altman relance le débat sur l'usage de la RAM des PC, et les processeurs Intel Core Series 3 sont en pénurie. Cela confirme la durée de la hausse des prix et justifie d'élargir l'observatoire aux processeurs et aux PC complets."
+    "note": "Noticias de Navarra rapporte la fermeture de la clinique Los Arcos & Deprit Oralis en Navarre : d'autres patients espagnols de cliniques dentaires se retrouvent potentiellement avec des soins inachevés, ce qui élargit la cible de la plateforme au-delà du seul réseau Vivanta (à vérifier selon le détail de l'article)."
    },
    {
     "date": "2026-11-02T09:22:17+00:00",
-    "note": "The memory shortage is spreading to graphics cards: NVIDIA and AMD GPU prices up to 45% in a month, AMD raising GPU+GDDR6 bundle prices again, PCB lead times of 30 months, smartphone price hikes (Lava, OPPO/vivo/Honor cutting specs). Kioxia hints the flash price surge may be fading, which strengthens the 'buy or wait' angle; consider adding GPUs to the observatory."
+    "note": "Asescon asks Brussels to intervene over the Vivanta closure and patient uncertainty; another clinic closure in Pamplona (Los Arcos & Deprit) has consumer groups advising patients, showing the need extends beyond Vivanta to dental-clinic closures in general."
    }
   ]
+ },
+ {
+  "titre": "Ghost bike owners' survival hub: spare-parts finder, derailleur hanger lookup and warranty guide after the brand's shutdown",
+  "pitch": "Ghost, the 33-year-old German bike brand, is closing for good after failing to find a buyer within the Accell group. An independent multilingual hub helps owners find the proprietary parts they will soon struggle to get, starting with the derailleur hanger, and explains what happens to their warranty.",
+  "evenement_declencheur": "German bike maker Ghost announces its permanent closure after 33 years, another victim of the Accell group crisis.",
+  "contexte_declencheur": "Brujulabike reported on November 3, 2026, in English, French and Spanish, that Ghost will shut down permanently after 33 years. TodoMountainBike confirms the brand found no buyer and will cease operations. Ghost is one of Europe's best-known mid-range mountain bike and e-MTB brands, sold mainly through dealers in Germany, Austria, Spain, France and the Benelux. There are likely hundreds of thousands of Ghost bikes in circulation. When a brand disappears, owners lose the official source of proprietary parts, especially model-specific derailleur hangers, frame bearings, e-bike battery mounts, linkage bolts and crash-replacement frames. Manufacturer frame warranties become worthless, and many owners do not know that EU legal guarantees run through the selling dealer, not the manufacturer. Dealers will clear remaining stock, and forums will soon fill with 'where can I find a hanger for my Ghost Kato 2021?' questions.",
+  "pourquoi_maintenant": "Search demand peaks in the weeks after the announcement, when owners realize they need to stock spare parts before official inventory runs out. The first site to build a credible model-by-model parts database will capture search traffic and backlinks from forums. If you wait 3-4 months, Reddit threads and dealer posts will already have answered the most common questions.",
+  "description_detaillee": "An independent site (no use of Ghost logos; descriptive wording such as 'parts for Ghost bikes') in English, German, French and Spanish. Core feature: a model-and-year lookup (Kato, Lector, Riot, Hybride ASX, E-Teru, etc.) that returns the derailleur hanger reference, compatible aftermarket hangers (Pilo, Wheels Manufacturing, Sigeyi, generic CNC), bearing sizes, axle standards, and e-bike motor/battery system (Shimano, Bosch, Yamaha), with affiliate links. Second section: a 'Your rights' guide by country explaining the EU 2-year legal guarantee via the dealer, what happens to frame warranties and crash-replacement programs, and how Bosch/Shimano still service motors. Third section: a classifieds board for used Ghost frames, parts and donor bikes, with a small listing fee. The typical customer breaks a hanger on a Sunday ride, searches 'Ghost Lector hanger', lands on the model page and orders a compatible one, ideally from your own small stock of the 15-20 most common references. Seed traffic by answering questions on r/MTB, MTB-News.de forum, Forocoches/foromtb and Facebook groups, and by publishing a 'What Ghost owners should do now' article in four languages. Revenue: hanger sales at €19-29 (cost €6-10), affiliate commissions from Bike24, bike-components and Amazon (3-8%), listings at €3-5 and display ads. Realistic outcome: €500-2,000 per month for a year or two, with an option to extend the model to other dead Accell brands or future brand failures.",
+  "categorie": "site-contenu",
+  "cible": "Owners of Ghost bicycles and e-bikes in Europe and North America, independent bike workshops servicing them",
+  "pays_cibles": [
+   "DE",
+   "AT",
+   "CH",
+   "ES",
+   "FR",
+   "NL",
+   "BE",
+   "GB",
+   "US"
+  ],
+  "langues": [
+   "en",
+   "de",
+   "fr",
+   "es"
+  ],
+  "modele_revenus": "Small-stock sales of replacement hangers and bearings, affiliate commissions on parts, paid used-parts listings, display ads",
+  "budget_estime_eur": 900,
+  "delai_lancement_jours": 21,
+  "duree_opportunite": "Peak demand over the next 6-12 months, long tail of parts searches for 5+ years while the bikes stay in use",
+  "notes": {
+   "potentiel": 5,
+   "cout": 7,
+   "travail": 6,
+   "risque": 7,
+   "urgence": 8,
+   "durabilite": 6,
+   "fiabilite": 6,
+   "concurrence": 8
+  },
+  "notes_explications": {
+   "potentiel": "Niche audience but with a recurring, urgent need (hangers break often) and good purchase intent. Income is capped by the size of the Ghost fleet, so this is a solid side business rather than a large one.",
+   "cout": "Main costs are a modest stock of the most common hangers and some targeted ads. The rest is hosting and domain, which keeps the total under €1,000.",
+   "travail": "Building the model database is the time-consuming part: compiling hanger references across model years from old catalogues, dealer sites and forums. A first version covering the top 40 models is feasible in 2-3 weeks.",
+   "risque": "The main risks are trademark misuse and selling a hanger that does not fit. Both are manageable with descriptive wording, clear disclaimers and an easy return policy.",
+   "urgence": "Owners act now to stock parts before official inventory disappears. Early movers will capture search rankings and forum links.",
+   "durabilite": "Bikes last 10+ years and hangers keep breaking, so long-tail search traffic will persist. Interest in the shutdown itself will fade, though.",
+   "fiabilite": "The closure is reported by Brujulabike in three languages and independently by TodoMountainBike, but each article counts as a single outlet. The need for orphan-brand parts is well documented by past brand failures.",
+   "concurrence": "No dedicated owner hub exists. Generic hanger finders (e.g., Pilo, Wheels Manufacturing catalogues) are not organized around Ghost or oriented toward owners' rights."
+  },
+  "budget_detail": [
+   "Domain + hosting (1 year): €80",
+   "Initial stock of ~150 hangers across 15 common references: €500",
+   "Targeted ads (Reddit, Meta, Google) in DE/ES/FR: €250",
+   "Shipping supplies and labels: €70"
+  ],
+  "requete_verification": "Ghost bikes shutdown Accell no buyer",
+  "concurrents": [
+   "Pilo and Wheels Manufacturing hanger catalogues: broad but not owner-oriented, no warranty guidance",
+   "MTB-News.de and foromtb forums: scattered answers, no structured database",
+   "eBay and Kleinanzeigen: used parts available but hard to verify compatibility; the hub adds a compatibility layer"
+  ],
+  "analyse": "A good low-risk niche play if you act within the next few weeks while search interest peaks. The value lies in the accuracy of the model-to-part database, so prioritize the 40 best-selling models and verify references with forum users. Keep it clearly independent to avoid trademark issues. Consider designing it as a reusable 'orphan bike brand' template so you can add other failed brands later.",
+  "etapes": [
+   "Compile a list of Ghost models 2015-2026 and their hanger, bearing and axle references from archived catalogues, dealer pages and forums (5 days)",
+   "Build the lookup site with Next.js or Astro plus a simple database, in four languages via machine translation then manual review (7 days)",
+   "Write the 'Your rights after the Ghost shutdown' guides for DE, ES, FR, NL and UK (3 days)",
+   "Set up affiliate accounts (Bike24, bike-components, Amazon) and a Stripe checkout for your own hanger stock (2 days)",
+   "Order an initial stock of the 15 most common hangers from Pilo or a CNC supplier (1 week lead time, in parallel)",
+   "Add a simple classifieds section for used frames and parts with €3-5 Stripe listing fees (3 days)",
+   "Seed traffic on Reddit, MTB-News.de, foromtb and Facebook owner groups with genuinely helpful answers (ongoing, 1 hour/day)",
+   "Launch small ads on 'Ghost [model] hanger' keywords and track conversion (1 week)"
+  ],
+  "risques": [
+   "Trademark complaint from the liquidator or a future buyer of the brand: use only descriptive wording, no logo, clear 'independent, not affiliated' notice",
+   "Wrong compatibility leading to returns: show confidence levels per reference, invite user corrections, offer free returns on hangers",
+   "A buyer revives the brand and restores official parts: the site still helps with legacy models and can pivot to an owner community",
+   "Low volume of own-stock sales: keep stock small and rely mostly on affiliate links"
+  ],
+  "mots_cles": [
+   "Ghost bikes shutdown",
+   "Ghost derailleur hanger",
+   "Ghost Kato hanger",
+   "Ghost Lector spare parts",
+   "Ghost e-bike warranty",
+   "Accell crisis"
+  ],
+  "sources": [
+   {
+    "titre": "Ghost announces it is shutting down for good after 33 years, becoming another victim of Accell’s crisis - Brujulabike.com",
+    "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPVllIdWpENWJ6WWt5V3M1cmlUNHNwRll3ZUlBTlQ2Z19mVUlzUEhwSzhhMi1RcUxYbGd0OEwxYU1ySVFneHloVC1uSlV5NXVJNzNqbmJRVk9kUTJBaDNIWFZTSldXam1rWFNyYVcteDUzLTRON3JsZUFFT0ZOMDJNOUwzeVVUSTg3WE9CNEx6Y0NXM0puZTZoYnVNdDRjQ0drYW82WlppbDBqVks4R3ZFeXJnd1BzblBwSk9nZEg3RmZteDVJZjFHaw?oc=5",
+    "source": "Google News recherche US",
+    "langue": "en-US",
+    "date": "2026-11-03T06:46:00+00:00"
+   },
+   {
+    "titre": "Ghost annonce sa fermeture définitive après 33 ans d’histoire et devient une nouvelle victime de la crise d’Accell - brujulabike.com",
+    "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPT3Vha2FONFhIbjBKc29ic2FZZFdHZm1JX0I5dEp6a3dIakhZSVFMR01RWXZZQVN2aVFHcVlneXdlaV9ia0xXdXRqRkRvamN0N0tibV9DUERhV1BDVllwUWFWdmtNYlBXMzRCY3I0eVRNR1F0NHBtOFpSTWI0ZWN2QmZZNTRmd1VLZzRNWVd2Qy16eVlKMml3eXlSenFEd3JURDVQWGlpOXhEUnpZWkNTQ2FsSm9CZlMtMjMwQUxqLThUY3hHckYtd0tyOWNOOW8?oc=5",
+    "source": "Google News recherche FR",
+    "langue": "fr",
+    "date": "2026-11-03T06:46:00+00:00"
+   },
+   {
+    "titre": "Ghost anuncia su cierre definitivo tras 33 años de historia y se convierte en otra víctima de la crisis de Accell - Brujulabike.com",
+    "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5LZXpINnpQZl8tU1ZPM3dxNmNrdWkzVEFVUV9hU0IwX1g0Mm1jMkNRVXV3R2NiNTROS1pRbXBGRDZVbVNIMHgxclMzNFk1OGdzOW9ORzUtR1JWUXNqVkl0X2pNa3oxQTl6ejd0aVlqcEZ4ZVVnZFE?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-11-03T06:46:00+00:00"
+   },
+   {
+    "titre": "Ghost Bikes echa el cierre: la histórica marca alemana de Mountain Bike no encuentra comprador y cesará su actividad - TodoMountainBike",
+    "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNS0JJODA2RlpnQVpWdlNkQWpQd3MyYnRxVHFfR3djWHZUbGd0RWZOaG5ET2tFTGdkR2xtNDNWdVd2cnRTdGhRZVdpZUp4OTBtS25QQUFuUFR4aURkT0k2RFBFTzJkUl9RQVdKUWk2eURDMlZXUU9iTjNjaF9rbTZSYmRqYnVnRzcwc29mYTdENDhiaUs3RmRr?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-11-03T06:18:40+00:00"
+   },
+   {
+    "titre": "Ghost Bikes to Close After Finding \"No Viable Solution\" to Continue - Pinkbike",
+    "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPT0oyanhqSmsxR3dTY2g1aU9MMkFDYjhiTlF6YzBZRGxRajNaeXNCVjlfenNWTjgwMUs1SVZYTENITTdCWFRiRHZTMHpCdXJvb2UyUjAzX3RJeVN1NTBSRTgzcTJuQzVCc3hFMkpxbm1LcmswZmhKZ2V3TEppSjZsX214dkNJd2JzYlp1STkyZTVqNmFkT0hMeHdNTnlseDRiYlE?oc=5",
+    "source": "Pinkbike",
+    "langue": "en",
+    "date": "2026-11-02T17:41:37+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Ghost Bikes Is Shutting Down After Failed Rescue Efforts, Leaving Its Brand's Future Uncertain - TodoMountainBike",
+    "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQRXFBYlZGWE5nMjRmNVE2anlZdjJXc0c5bHl0Q1JRMHRCVDhKQkUzX3NCWlBZaTN3YkVYZnNKTjB1R0VHc1ZST1NNRXBQOVdQNlNmVVh2WmZIMDk1Vy1BT3FqdEw0M3Q2TktYU2xub1VtRjRpWHFCZS1nQWEwNHYzRG5ibw?oc=5",
+    "source": "TodoMountainBike",
+    "langue": "en",
+    "date": "2026-11-03T06:20:24+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Dutech acquires German Haibike and Winora producer - Bike Europe",
+    "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE56WW9NNW9vcWZfMElad1RRM3hsdXNvQXFlanNQc2xuYUg4aERVRjZmaklpS2VuZkwwUVZ0eDJsN3NDc0NDODJBVUlpNFRKNi1NTDdOVHAwUms1Ykt5M2FSSDlyMlQzOEZxVEU1ODlGYlhkbklqd2pZLQ?oc=5",
+    "source": "Bike Europe",
+    "langue": "en",
+    "date": "2026-11-02T10:08:29+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Haibike and Winora taken over by Bike Tree, a DuTech subsidiary: 87 employees stay in Sennfeld - www.velodisco.com",
+    "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFAxWnFwbVZLTF9nOVZPT2JQLTRxQUlIcnlCWXk2V3dQM1ExbTZuc3k0bDM3RHJNVFpfRnVsNDBfSVcyaWxQc1dRaTd5QWhyTlZrYVRxQklFYXRnSHVvdlpoNzJlU0FFd0lDbVlfbVR4anFMMVE?oc=5",
+    "source": "www.velodisco.com",
+    "langue": "en",
+    "date": "2026-10-31T13:14:00+00:00",
+    "confirmation": true
+   }
+  ],
+  "ethique": {
+   "acceptable": true,
+   "raison": "Helps owners keep their bikes running at fair prices after the brand's closure; no exploitation of distress or counterfeiting, provided no brand logos are used."
+  },
+  "id": "idee-9682b71f",
+  "signaux": 1,
+  "cree_le": "2026-11-03T08:00:18+00:00",
+  "mis_a_jour_le": "2026-11-03T08:00:18+00:00",
+  "statut": "active",
+  "notifiee": false,
+  "langue_redaction": "en",
+  "note_globale": 6.3,
+  "sources_confirmation": 4
+ },
+ {
+  "titre": "iPhone Duo stock tracker: real-time in-store and delivery availability alerts across countries while Apple's foldable stays sold out",
+  "pitch": "Apple's $2,000 foldable iPhone Duo has sold out and Apple says it is 'hard to predict' when supply will catch up, with delivery times stretching into next year. A tracker that watches store pickup availability and shipping estimates sends instant alerts so buyers can grab one before Christmas.",
+  "evenement_declencheur": "Apple says it cannot predict when iPhone Duo supply constraints will ease as its foldable remains sold out and shipping delays extend into 2027.",
+  "contexte_declencheur": "In its fourth-quarter earnings released November 2, 2026, Apple reported record iPhone revenue of $57.58 billion while acknowledging that its foldable iPhone Duo is sold out. CEO John Ternus said production is ramping up but it is hard to predict when supply will meet demand, and shipping delays now stretch into next year. TechCrunch, the BBC, Beebom and BigGo Finance all report persistent supply constraints, made worse by a global memory price surge. Buyers wanting one for the holidays face random restocks at Apple Stores and carriers. Past launches with severe shortages saw stock trackers attract hundreds of thousands of users. The holiday season makes the need particularly acute in the next eight weeks.",
+  "pourquoi_maintenant": "The window is the holiday season: from now until late December, demand far exceeds supply. Once supply normalizes, likely in early 2027, the tracker loses its value. Launching in a week captures most of the opportunity.",
+  "description_detaillee": "A web app (with optional PWA push notifications) where users choose their country, model configuration (storage, color) and nearby Apple Stores or ZIP code. The backend polls public pickup availability and online delivery estimates at reasonable intervals and shows a live grid of which stores have stock, plus a history chart of restock times per store to help users predict when to check. Users get alerts by push or email for free; a $4.99 'priority' plan adds SMS alerts and faster checks. Separate pages track carrier and retailer availability (Best Buy, carriers, major retailers in the UK, France, Germany, Japan, Australia) with affiliate links. Content pages answer 'iPhone Duo restock schedule', 'iPhone Duo in stock near me' and 'when will iPhone Duo ship'. Traffic comes from Reddit (r/apple, r/iphone), X, MacRumors forums and SEO on stock-related keywords. Revenue: premium alerts, retailer affiliate commissions and ads. A realistic outcome over eight weeks is 50,000-200,000 visits and €2,000-8,000 in revenue, with the codebase reusable for the next hot hardware launch (consoles, GPUs).",
+  "categorie": "outil-web",
+  "cible": "Consumers in the US, UK, Europe, Japan and Australia trying to buy the iPhone Duo before the holidays",
+  "pays_cibles": [
+   "US",
+   "GB",
+   "CA",
+   "FR",
+   "DE",
+   "AU",
+   "JP"
+  ],
+  "langues": [
+   "en",
+   "fr",
+   "de"
+  ],
+  "modele_revenus": "Premium SMS/priority alerts, retailer affiliate commissions, display ads",
+  "budget_estime_eur": 300,
+  "delai_lancement_jours": 7,
+  "duree_opportunite": "About 2 months (until supply normalizes, likely early 2027); code reusable for future hardware shortages",
+  "notes": {
+   "potentiel": 6,
+   "cout": 9,
+   "travail": 8,
+   "risque": 5,
+   "urgence": 10,
+   "durabilite": 3,
+   "fiabilite": 7,
+   "concurrence": 5
+  },
+  "notes_explications": {
+   "potentiel": "High traffic potential around a flagship product during the holidays, but monetization per user is low and the window short.",
+   "cout": "Server, proxies and SMS credit are the only costs. Under €500.",
+   "travail": "A polling backend, a store grid and notifications are buildable in a week by a developer. Multi-country support adds some days.",
+   "risque": "Apple may block automated polling or object to the use of its trademarks. Reasonable polling rates, clear independence and no Apple logos reduce the risk.",
+   "urgence": "Demand peaks now through Christmas. Every week of delay loses a large share of the window.",
+   "durabilite": "The need disappears once supply catches up. Durability comes only from reusing the tracker for future shortages.",
+   "fiabilite": "Shortage confirmed by Apple itself and reported by TechCrunch, BBC, Beebom and BigGo Finance. Holiday demand for sold-out Apple products is well established.",
+   "concurrence": "Some generic stock trackers and Discord bots exist, and tech blogs post restock news. A clean multi-country tracker with restock history is still a viable entry."
+  },
+  "budget_detail": [
+   "VPS + rotating proxies (2 months): €150",
+   "Domain: €20",
+   "SMS credits and push service: €80",
+   "Contingency: €50"
+  ],
+  "requete_verification": "iPhone Duo supply shortage sold out Ternus",
+  "concurrents": [
+   "Generic stock trackers (e.g., Discord restock bots, HotStock-type apps): noisy, not Apple-focused",
+   "MacRumors and 9to5Mac restock news: articles, no personalized alerts",
+   "Apple's own 'notify me' features: limited and not cross-store; this tool adds restock history and multi-retailer coverage"
+  ],
+  "analyse": "Worth doing only if you can launch within a week; after mid-December the value collapses. Keep polling respectful to avoid blocks and design the code as a reusable 'hot hardware tracker'. Revenue will be modest but the cost is tiny, making the risk-reward favorable. Main vigilance point: Apple's terms and potential blocking.",
+  "etapes": [
+   "Identify public pickup availability and delivery estimate endpoints per country and test polling limits (1 day)",
+   "Build the polling backend with queues and caching (Node or Python, on a VPS) (2 days)",
+   "Build the store grid UI, restock history charts and alert subscription (2 days)",
+   "Add Stripe for the $4.99 priority plan and Twilio for SMS (1 day)",
+   "Add retailer and carrier pages with affiliate links (1 day)",
+   "Launch on Reddit, X and Apple forums; publish restock-schedule SEO pages (ongoing)"
+  ],
+  "risques": [
+   "Apple blocks requests: rate limiting, caching, proxies, fall back to user-reported sightings",
+   "Trademark complaint: no Apple logos, clear 'independent, not affiliated' notice",
+   "Supply normalizes faster than expected: keep spend minimal and reuse the code for other products",
+   "Alert reliability complaints from paying users: offer refunds and transparent status page"
+  ],
+  "mots_cles": [
+   "iPhone Duo in stock",
+   "iPhone Duo restock",
+   "iPhone Duo availability tracker",
+   "foldable iPhone sold out",
+   "iPhone Duo shipping delay",
+   "iPhone Duo near me"
+  ],
+  "sources": [
+   {
+    "titre": "Apple CEO John Ternus Addresses iPhone Duo Supply Shortage and Display Issues - Beebom Gadgets",
+    "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNS3VOOXVtbXlGTmZySkFhNUtGYlJHdERVUXJJVlVkNXVQWW01YldiX3BJeUJvbFBXVUVpRURoMzQ3c1pTUXhRVjU0U05xMmxvMGdRVV9Id1lCVXNxWUlzRFJQZ19hZi1aalo1QTdLT0o3TUVxaEsxM3gzM1B2TjBYcXpVM1lVNUw3RUhHbDFtYlkzSFZfc2RtSW5ycHRncVVHQWF4eDd0MUc?oc=5",
+    "source": "Google News recherche US",
+    "langue": "en-US",
+    "date": "2026-11-03T05:47:52+00:00"
+   },
+   {
+    "titre": "Apple says it’s ‘hard to predict’ when iPhone Duo constraints will improve",
+    "url": "https://techcrunch.com/2026/11/02/apple-says-its-hard-to-predict-when-iphone-duo-constraints-will-improve/",
+    "source": "TechCrunch",
+    "langue": "en",
+    "date": "2026-11-02T23:25:32+00:00"
+   },
+   {
+    "titre": "Apple unsure when more foldable iPhones will be available after selling out",
+    "url": "https://www.bbc.co.uk/news/articles/c6n8dn457ypko?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Business",
+    "langue": "en",
+    "date": "2026-11-03T07:03:03+00:00"
+   },
+   {
+    "titre": "Apple Sees Holiday Margins Shrinking to 45-46% on Memory Price Surge; iPhone Duo Supply Crunch Persists - BigGo Finance",
+    "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE91OUNnWEIzSkhtV2RBaGxtMl95TEFhTElHYkY5VzRQd3VMUmVUUDZjWFFzNHNnSXUzMDZndDhlUFFoVWdvMUtZQWYxQ2o3djVYb21meXFjOEhOZmZoMWM4VnY2RHFheC1fbnM4amE3ZTZuNVE0V0E?oc=5",
+    "source": "Google News recherche US",
+    "langue": "en-US",
+    "date": "2026-11-03T03:55:00+00:00"
+   },
+   {
+    "titre": "Apple's new CEO delivers first earnings as sales hit record",
+    "url": "https://asia.nikkei.com/business/technology/apple-s-new-ceo-delivers-first-earnings-as-sales-hit-record",
+    "source": "Nikkei Asia",
+    "langue": "en",
+    "date": "2026-11-03T07:43:43+00:00"
+   },
+   {
+    "titre": "Apple set an iPhone sales record even without a new standard iPhone",
+    "url": "https://www.theverge.com/tech/1024748/apple-q4-2026-iphone-sales-earnings",
+    "source": "The Verge",
+    "langue": "en",
+    "date": "2026-11-02T22:02:36+00:00"
+   },
+   {
+    "titre": "Apple can’t predict when iPhone Duo supply will catch up with demand - The Apple Post",
+    "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPbWxhM1JXaVJ3aUlSbk8xYm1PWnh3RlVUc1cwOUhYcXp0UHduM0otRjBTS3lLeHJWdmVsbE85T3ZpRmwtVUtXZkJ2dHoxVDUtWGNDUEV6cHI2VjRWbzhfRWRpQTRfemhzYXFLempCZWtkSDROYnBVZWlPNWdmNDFabzBLcmdmS1FubWxOZGtwelNhOUtoTDJyZm95NTZyV2p6dHo2U3ZFaEdjUDc3SWxYSV9ZWFHSAboBQVVfeXFMTWlWTmV6WWN4cnNHYUZRLXlPbU9CSGg1RFIxMjR0Q2ZlRjVTbk1RbXowM1BuOGtSSjRLZ0laTXlRR2ZSYi1XNXRHeTRIUFBsOW9tVUtDQjRzclZPOUphaFY0b1BTUHFDUjdKNGI2SVBZSEpnOWJBdjRjckpzNGQtbXB1ZUdzd2FRT1kxd0VLVGVqRlF4MW9Xc202MVFUY3ZCWjVTRnpVdWNGOGF3WnhuWm9ZZlhESjBheUFn?oc=5",
+    "source": "The Apple Post",
+    "langue": "en",
+    "date": "2026-11-02T22:46:20+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Apple still can't meet iPhone Duo demand, and Ternus won't say when it will - AppleInsider",
+    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNYUFOekhLUDFPSUloenJnX0I0TkJ3dWQ2Q3YwUmhLTHhyQ05vaTNmNHJYTDJYMi05N1VYWF9WaVFpUXZRRUczWnVCMlpINjB0bk1yRUdFdThJTkozdnNRZjZySXFqaDUtRlA4SkFtTWszaFFMTkdmd29jSElVX21zUzdHdUlXenVJdy00OGVxdGZLV0x3VWV5allyT1UxTVhEQ2JtMUxnOE9uM096SGpMaFJzbXFydw?oc=5",
+    "source": "AppleInsider",
+    "langue": "en",
+    "date": "2026-11-02T22:22:00+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "New Apple CEO John Ternus chalks up some early wins, but the honeymoon is over - Fortune",
+    "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPSWx6YldvVnBXbi1JaTFVYUp0c2dwMy00WC1acXhHb0xnLV9yaVdMakJwNUtfVHZrZHNzakV4eW5kM05ocHR4dk5yNDFXZXJzN0V6c3lDWmVoWWw3LTU4dkRNdjRfZU5POVJfSU5PQ1ZjTkpJU0hnMWoydGpfVURIZjdWalRDUFpEdXpBdkpIYmwtQUZ2TEJnTVZKeF9PbGlBZC1lazhqUXQ0eVk5dEE?oc=5",
+    "source": "Fortune",
+    "langue": "en",
+    "date": "2026-11-03T02:03:00+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "iPhone Duo Supply: 5 Risks Apple Can Miss [2026] - shattered.io",
+    "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQNEJ2N0xNOU9VZFoyTU9NNG1ZaGhPaW52azdRRmZTWEZpeVVEeEF4VThBUDE0Y1M2TFlXek9pekM5TmxIZ3lYZGpmTnUxdDBDZkRiUktyZ1F1eUJKeWNRX0VSbTJjMkFpV1NBNUpIZ3FYZF8tSHVOSWxlb3FwekZwRQ?oc=5",
+    "source": "shattered.io",
+    "langue": "en",
+    "date": "2026-11-03T06:17:23+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Apple CEO Ternus Says iPhone Duo Shortages Have No End Date in Sight - MacRumors",
+    "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1uOGNTaDVUNk1DcXB2NFUycU8yNlpmY3g3MGFYN092ZERVb1hILWcxUGRla01uOVRSaFB4OHFacFVrM1IzV0gtNWtTZGdwYy1FNXg1WHVYNmhqd1pUZTY1V3dOcmZKUEo0cjRIOGRiekEwbEE?oc=5",
+    "source": "MacRumors",
+    "langue": "en",
+    "date": "2026-11-02T22:03:23+00:00",
+    "confirmation": true
+   }
+  ],
+  "ethique": {
+   "acceptable": true,
+   "raison": "Helps consumers buy at retail price from official sellers; it does not facilitate scalping or reselling at inflated prices."
+  },
+  "id": "idee-aa6db203",
+  "signaux": 1,
+  "cree_le": "2026-11-03T08:00:18+00:00",
+  "mis_a_jour_le": "2026-11-03T08:00:18+00:00",
+  "statut": "active",
+  "notifiee": false,
+  "langue_redaction": "en",
+  "note_globale": 6.3,
+  "sources_confirmation": 5
  },
  {
   "titre": "'Asli LPG Rate': crowdsourced LPG price tracker for Pakistan comparing street prices with the official OGRA rate",
@@ -962,6 +1916,146 @@
   "langue_redaction": "en",
   "note_globale": 6.1,
   "sources_confirmation": 4
+ },
+ {
+  "titre": "UK analogue switch-off checker: device-by-device readiness tool for households and small businesses before Openreach's final deadline",
+  "pitch": "Openreach has confirmed there will be no further delay to shutting down the UK's analogue phone network. A simple checker tells households and small businesses which of their devices (alarms, telecare, card terminals, lift lines, faxes) will stop working and exactly what to do.",
+  "evenement_declencheur": "Openreach confirms there will be no further extension to the deadline for switching off the UK analogue telephone network.",
+  "contexte_declencheur": "On November 2, 2026, Openreach confirmed that the deadline for shutting down the analogue PSTN network will not be extended again. The switch-off was already delayed once after incidents involving telecare alarms for elderly users, and the final cut-over is scheduled for January 2027. Millions of lines still carry devices that depend on analogue signalling: telecare pendants, burglar and fire alarms with diallers, lift emergency phones, franking machines, older card payment terminals, faxes and some EPOS systems. Many small businesses and older households have no idea which of their devices are affected. Providers send generic letters, but nobody gives a device-specific, plain-English answer. With the deadline locked, a wave of last-minute searches and migrations is coming in the next three months.",
+  "pourquoi_maintenant": "Now that the deadline is final, procrastinators have to act within roughly three months. Search interest will peak between November and January and fall sharply after the switch-off. Launching in December would miss most of the window.",
+  "description_detaillee": "A free web tool where users answer a short questionnaire: type of premises, provider, and a checklist of devices (with photos to help identify them). The tool outputs a personalized report: which devices are at risk, what to ask the provider, whether the device can be plugged into the router's phone port, and which replacements exist. Pages target specific searches: 'will my burglar alarm work after the digital switchover', 'telecare digital switchover', 'lift phone PSTN switch off', 'card machine analogue line'. A small-business version produces a printable action plan and a ready-to-send email to the landlord, alarm company or telecom provider. Revenue comes from referral partnerships: business VoIP providers and 4G alarm/telecare suppliers typically pay £30-£100 per qualified lead, plus affiliate commissions on digital-ready alarms and DECT phones. An optional £9 'done-for-you report' gives a PDF audit with supplier contacts for businesses with multiple sites. Initial traffic comes from Google Ads on high-intent keywords, local business Facebook groups, and outreach to parish councils and community groups who help older residents. A realistic target is 20,000-60,000 visitors over three months and £3,000-£10,000 in referral revenue, with a smaller tail afterwards as late migrations and faults continue.",
+  "categorie": "outil-web",
+  "cible": "UK small businesses (shops, restaurants, landlords, offices) and households with alarms or telecare, plus family members helping elderly relatives",
+  "pays_cibles": [
+   "GB"
+  ],
+  "langues": [
+   "en"
+  ],
+  "modele_revenus": "Lead referrals to VoIP, alarm and telecare providers, affiliate commissions on compatible equipment, optional paid PDF audit",
+  "budget_estime_eur": 1200,
+  "delai_lancement_jours": 14,
+  "duree_opportunite": "3-4 months of peak demand until early 2027, then a smaller tail of troubleshooting searches",
+  "notes": {
+   "potentiel": 7,
+   "cout": 6,
+   "travail": 6,
+   "risque": 7,
+   "urgence": 9,
+   "durabilite": 4,
+   "fiabilite": 6,
+   "concurrence": 5
+  },
+  "notes_explications": {
+   "potentiel": "Millions of UK lines are affected and business VoIP leads are valuable. The window is short, which limits total revenue.",
+   "cout": "Most of the budget is Google Ads on high-intent keywords; the tool itself is cheap to host. Without ads it could run on under €200, but growth would be slower.",
+   "travail": "A questionnaire, a device knowledge base and 20-30 SEO pages are achievable in about two weeks. Partner agreements take additional time in parallel.",
+   "risque": "Main risk is giving wrong advice about a safety-critical device such as a telecare alarm. Clear disclaimers, pushing users to confirm with their provider and never claiming to be official keep it low.",
+   "urgence": "The deadline is fixed for January 2027, so the window is now. Every week of delay costs a meaningful share of the demand.",
+   "durabilite": "Demand drops after the switch-off, though fault-related searches continue for some months. The tool could be adapted to other countries switching off copper networks.",
+   "fiabilite": "Only one article in the batch, which caps the score at 6. The switch-off program itself is widely known and documented by Ofcom and Openreach.",
+   "concurrence": "Ofcom, Openreach, BT and Age UK publish generic guides, and alarm firms push their own products. None offers a neutral, device-by-device checker for small businesses."
+  },
+  "budget_detail": [
+   "Domain + hosting: €80",
+   "Google Ads on high-intent switchover keywords: €800",
+   "Privacy policy and disclaimer templates: €100",
+   "Email marketing tool (3 months): €60",
+   "Device photos and stock illustrations: €60",
+   "Contingency: €100"
+  ],
+  "requete_verification": "Openreach analogue switch off deadline no extension",
+  "concurrents": [
+   "Openreach and BT Digital Voice pages: official but generic, provider-centric",
+   "Ofcom and Age UK guides: trustworthy but not device-specific or interactive",
+   "Alarm and VoIP companies' landing pages: biased toward their own products; this tool is neutral and personalized"
+  ],
+  "analyse": "A strong short-window opportunity with real usefulness, especially for small businesses that ignored provider letters. Launch within two weeks and secure 2-3 referral partners before spending on ads. The key point of vigilance is safety-critical devices: never tell a telecare user they are fine, always direct them to verify with their provider. Treat it as a 3-month campaign and plan a reuse for other copper switch-offs.",
+  "etapes": [
+   "Research the device categories affected and official guidance from Ofcom, Openreach and major providers (3 days)",
+   "Build the questionnaire and report generator (Next.js + a JSON rules engine) with printable PDF output (5 days)",
+   "Write 25 SEO pages targeting device-specific switchover questions (4 days)",
+   "Sign up for referral programs with 2-3 business VoIP providers and 1-2 4G alarm/telecare suppliers (1-2 weeks, in parallel)",
+   "Add Stripe checkout for the optional £9 PDF audit (1 day)",
+   "Launch Google Ads on 'digital switchover' + device keywords with a tight budget (ongoing)",
+   "Reach out to local business associations, parish councils and community Facebook groups (ongoing, 1 week)"
+  ],
+  "risques": [
+   "Wrong advice on a life-safety device: conservative wording, explicit disclaimers, always recommend provider confirmation",
+   "Referral partners slow to sign: start with affiliate products and email capture, add leads later",
+   "Ad costs higher than expected: shift budget toward SEO pages and community outreach",
+   "Perceived as exploiting worried elderly people: keep the core tool free and neutral, no pressure tactics"
+  ],
+  "mots_cles": [
+   "digital switchover checker",
+   "PSTN switch off 2027",
+   "analogue phone line switch off",
+   "telecare digital switchover",
+   "burglar alarm digital phone line",
+   "Openreach deadline"
+  ],
+  "sources": [
+   {
+    "titre": "Openreach confirms there will be no further extension to the deadline for shutting down analogue telephone network - www.systemtek.co.uk",
+    "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxOTXZXTVBXT195bjJFUzMtblR0d0ZiczBmbnBuMVRMMklnOWlKcllXQlJrYVRJaEo5TDBzZFVvY2Z4cXB5REpmOG1UMnJjbTBDaUppdmc2OGJ4cExJNkRiMlpzSmlTRWd5T0M1YnZMZ0ZyNFkwMGtLLVR6NDRsRXZKYUZURmJZVEJFNEJuaU1xdTBLQlp3bnpvZk1mSm91d3pNTkxrQnlNODJsZFZ6SzU4cHJMeVV4MnlZYWtKZHh1RXVEYzFMclpLRTdLeWxFOUotYUJGVEMxaC05X0Z0eGJfRXVINXNxZlVJdnN4bmFKcVdqT3NqR2pzUHlkdE4?oc=5",
+    "source": "Google News recherche US",
+    "langue": "en-US",
+    "date": "2026-11-02T19:16:00+00:00"
+   },
+   {
+    "titre": "Openreach Landline Switch-Off: Jan. 31, No Extensions - shattered.io",
+    "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQeUlwakJnLXFFaVRoQld1alBJc0hfc2VBclJ6ZkEwQ0RzUWxZYjlCUmxOTUY5RFJmTUdTSVQya3EzVDdjSUNhakYzVElKWjljMUEyX1pkOXA1VGNMNGdOeGZTUUlhZXhua0FPcVlhUzBpUk9GWGxtZ3VTNF9VS0FqZ29NNmYtWF9KQkE?oc=5",
+    "source": "shattered.io",
+    "langue": "en",
+    "date": "2026-10-27T11:27:22+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Landline phones will switch off across Britland in 100 days, no extensions – Openreach - The Register",
+    "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQbWFqdzI0M0pvYXM2NGYzcEVzWDI3c2tPSXZhM29FaWxTUVJfNEtyZ2JXME1yYnVuM3hfbUY3am9PQmdLYXYyU0dmZ3EtS1dCeW43bFlnQ1JfcXotWXRlSWlWdjE1RG1JMEJSN2x1YXhqUi0xaldrLWdnZlpnVGE0TDdTRmd0Qlowd25IcWZyaUJSRUFfdThzczRYUmlxandNQ2JoTElUNlNhTDFwRV9vM1FoQjVPQnlSTUo4VUNMU0RLdldSRzVqbHZxRXlPeEFsNVhTRzhR?oc=5",
+    "source": "The Register",
+    "langue": "en",
+    "date": "2026-11-01T09:04:00+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Openreach: UK landline phones will be switched off in 100 days, so make sure your connections are ready - Yahoo Tech",
+    "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQU1d1VVZNLWpRX2VxZk0tWWJPSmNYYnpnaGc3azdHbFlPa3M1OUZyWVlmU1pwWVcxMTBqZXBLbHJxTEJYQXhUVzhwY0dmRjVHWUxkWDdTcUN0UTRYT1B3cUR3dmRIc2wzU2JTUnJjd1NIdGpZT1hCbkFSM2h2c0ZWUl9kdTJWOXJHUVdQemRoa2w5bnpEQThz?oc=5",
+    "source": "Yahoo Tech",
+    "langue": "en",
+    "date": "2026-11-02T11:07:37+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Openreach: Under 100 Days Until UK Analogue Phone Network Shutdown - News and Statistics - IndexBox",
+    "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQcm9YTjc4YWtISGhIUlpra1BSc25kemxzTVdlRmJhSUZoTFRqSmdpMlk1NzRQX0xWVWQwbE1BcGl6TGw2alpxd2pXVTI2b09nam5ZLXR1TDFzeGphZzU0MWJuWVV6N2VYZ0Qxa0diY2ZiM0JrOV9KdnNwekJVN1Awcjd6T3U3SUtrYkRhZjFuQjBNU2tCN1NlNnR5Ti1pMkVhaGlYMVM4YjJHbGtKdnhXa3JNb00?oc=5",
+    "source": "IndexBox",
+    "langue": "en",
+    "date": "2026-11-02T12:54:17+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Landline phones to switch off across Britain in about 100 days, Openreach says - news.lavx.hu",
+    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNRGxRbnlSOE5XX0xrR09hRDdTWEJBNHpNeWF2blkyZTZFWFBCTFplbXZlMG42MU1ocnowZURYOWd0TGJuRVVheXBCU2pRME1KT0ptV2pRQ284RWcxclYyekFjSUZhM214b2VJZ1BBRjktbGN2cnNOdWN4WkhOdXdnZnZjVWZFd0tHb3RwbG9sZ09RZF9uSUlBbldGbXo5ZTdSVHVhSHZaRUVodw?oc=5",
+    "source": "news.lavx.hu",
+    "langue": "en",
+    "date": "2026-11-01T12:14:00+00:00",
+    "confirmation": true
+   }
+  ],
+  "ethique": {
+   "acceptable": true,
+   "raison": "Provides free, neutral and practical information that helps people avoid losing alarms or phone service; monetization through referrals does not exploit distress if kept transparent."
+  },
+  "id": "idee-5b84704f",
+  "signaux": 1,
+  "cree_le": "2026-11-03T08:00:18+00:00",
+  "mis_a_jour_le": "2026-11-03T08:00:18+00:00",
+  "statut": "active",
+  "notifiee": false,
+  "langue_redaction": "en",
+  "note_globale": 6.1,
+  "sources_confirmation": 5
  },
  {
   "titre": "Kit EUDR « clé en main » pour TPE/PME françaises : diagnostic gratuit, modèles et questionnaires fournisseurs",
@@ -1167,6 +2261,161 @@
   "statut": "active",
   "notifiee": false,
   "note_globale": 6.0
+ },
+ {
+  "titre": "Independent cold-chain watchdog: plug-in temperature sensors with SMS alerts and automatic HACCP logs for shops hit by the fridge cyber-attacks",
+  "pitch": "Supermarket fridges and freezers in seven European countries have had their thermostats remotely cranked up in a second suspected cyber-attack within weeks. An independent, offline-from-the-controller monitoring kit alerts independent grocers, butchers and restaurants the moment temperatures drift, whoever caused it.",
+  "evenement_declencheur": "A second suspected cyber-attack in weeks remotely tampers with supermarket fridge and freezer thermostats in seven European countries.",
+  "contexte_declencheur": "The Guardian reported on November 2, 2026, that supermarket refrigeration units across seven European countries malfunctioned, with thermostats remotely turned up, in a second apparent cyber-attack within a few weeks. The incident has also been covered in Australia. Investigators are examining possible culprits and motives, but the attack shows that networked refrigeration controllers can be compromised without staff noticing until food spoils. Food businesses are legally required to keep chilled food at safe temperatures and record checks under EU hygiene rules (HACCP). A compromised controller can also report false readings, so monitoring through the same system is not enough. Independent and mid-sized food retailers rarely have enterprise monitoring and are now looking for a cheap, separate safety net. Insurers are likely to start asking about such measures.",
+  "pourquoi_maintenant": "Two attacks in a few weeks have made the risk tangible for every food retailer, and media attention is at its peak. Store owners searching for solutions now will choose whichever simple offer they find first. In a few months the topic will cool and established players will have adapted their marketing.",
+  "description_detaillee": "The offer is a starter kit of 3-5 battery-powered wireless temperature sensors (off-the-shelf LoRaWAN or Wi-Fi sensors such as Milesight or Shelly, pre-configured) connected to your own cloud dashboard, completely separate from the store's refrigeration control network. When a fridge or freezer exceeds a threshold or rises abnormally fast, the owner receives SMS, push and email alerts, with escalation to a second contact. The dashboard automatically produces daily HACCP temperature logs as PDFs ready for health inspectors, replacing paper sheets. A 'Cyber check' page explains in plain language how to secure refrigeration controllers (change default passwords, disconnect from the internet, ask your installer). Customer journey: a butcher reads about the attack, lands on the site, orders a €149 kit for three units, installs it in 10 minutes with magnetic mounts and pays €19 per month per site. Launch in France, Belgium and the Netherlands, then Germany, through Google Ads on 'surveillance température frigo alerte SMS', food trade federations, LinkedIn and direct outreach to local grocers. Pricing: €149-249 hardware kit plus €19-39/month subscription. With 100 sites after 6 months, that is roughly €2,500 MRR plus hardware margin, with a durable B2B business beyond the news cycle.",
+  "categorie": "saas",
+  "cible": "Independent supermarkets, grocers, butchers, bakeries, restaurants and small food warehouses in Western Europe",
+  "pays_cibles": [
+   "FR",
+   "BE",
+   "NL",
+   "DE",
+   "LU",
+   "CH"
+  ],
+  "langues": [
+   "fr",
+   "en",
+   "nl",
+   "de"
+  ],
+  "modele_revenus": "Hardware kit sold at a margin plus monthly SaaS subscription per site",
+  "budget_estime_eur": 2500,
+  "delai_lancement_jours": 45,
+  "duree_opportunite": "Media-driven peak over 2-3 months, then a durable B2B need driven by HACCP compliance and insurance",
+  "notes": {
+   "potentiel": 7,
+   "cout": 3,
+   "travail": 4,
+   "risque": 5,
+   "urgence": 7,
+   "durabilite": 8,
+   "fiabilite": 7,
+   "concurrence": 5
+  },
+  "notes_explications": {
+   "potentiel": "Hundreds of thousands of food businesses in the target countries must log temperatures, and recurring revenue compounds. Even a small share gives a meaningful MRR.",
+   "cout": "Sensor stock and professional liability insurance drive the budget to around €2,500. Starting with fewer units on pre-order could reduce it.",
+   "travail": "Integrating sensors, building alerting, escalation and HACCP PDF reports, and testing reliability takes 5-6 weeks. Hardware logistics add work compared with pure software.",
+   "risque": "A missed alert could lead to spoiled stock and a liability claim. Clear contractual limits, redundancy in alerting and insurance mitigate this.",
+   "urgence": "The attacks are fresh and repeated, so demand is high right now. The underlying need does not disappear quickly, so the window is not only days.",
+   "durabilite": "Temperature logging is a permanent legal obligation, and the subscription replaces manual paper records. The cyber angle is the hook, the compliance value keeps customers.",
+   "fiabilite": "Reported by The Guardian and another outlet, with a confirmed pattern of two attacks. The demand for affordable monitoring among small shops is well established.",
+   "concurrence": "Testo Saveris, Checkit, SafetyCulture, Kelsius and others exist but target chains with higher prices and sales-led onboarding. A self-serve, cheap kit positioned on independence from the controller has room."
+  },
+  "budget_detail": [
+   "Initial stock of 40 wireless temperature sensors: €1,400",
+   "2 LoRaWAN gateways for testing and starter kits: €200",
+   "SMS credit (Twilio or equivalent): €150",
+   "Domain + hosting + monitoring: €100",
+   "Professional liability insurance (first year, prorated): €400",
+   "Google and LinkedIn ads: €250"
+  ],
+  "requete_verification": "supermarket fridges freezers cyber attack Europe thermostats",
+  "concurrents": [
+   "Testo Saveris: professional but expensive and complex for small shops",
+   "Checkit and SafetyCulture sensors: aimed at chains, sales-led onboarding",
+   "Kelsius and Monnit: enterprise-oriented; this offer is self-serve, cheap and explicitly independent from the refrigeration network"
+  ],
+  "analyse": "A worthwhile idea because the news hook leads into a permanent compliance need with recurring revenue. The condition is reliability: alerts must never fail, so invest heavily in testing and redundancy before selling. Start with a pilot of 5-10 local shops to refine onboarding. Do not overclaim cyber protection: the product detects temperature anomalies, it does not secure the controller.",
+  "etapes": [
+   "Select and order 2-3 sensor models and a gateway; test range and battery life in real fridges (1 week)",
+   "Build ingestion, dashboard, threshold and rate-of-change alerts, SMS/email escalation (2 weeks)",
+   "Add automatic daily HACCP PDF logs and an inspector-ready export (4 days)",
+   "Write the landing pages and the 'secure your refrigeration controller' guide in French, Dutch and English (4 days)",
+   "Run a free 30-day pilot with 5-10 local grocers and butchers (2 weeks, in parallel)",
+   "Set up Stripe subscriptions and a kit checkout with Shopify or a custom page (2 days)",
+   "Contact trade federations and launch targeted Google/LinkedIn campaigns (ongoing)"
+  ],
+  "risques": [
+   "Missed alert leading to a damages claim: liability cap in T&Cs, redundant alert channels, professional liability insurance",
+   "Hardware defects or connectivity issues: test before shipping, keep spare stock, choose proven sensors",
+   "Sales cycle slower than expected: offer a free trial and pre-orders to fund stock",
+   "Overselling the cyber angle: market as independent monitoring, not as a cybersecurity product"
+  ],
+  "mots_cles": [
+   "fridge cyber attack supermarkets",
+   "temperature monitoring alerts",
+   "HACCP temperature log automatic",
+   "surveillance température frigo",
+   "cold chain monitoring small business",
+   "freezer alarm SMS"
+  ],
+  "sources": [
+   {
+    "titre": "Who is hacking Europe’s supermarket fridges and freezers, and why?",
+    "url": "https://www.theguardian.com/technology/2026/nov/02/europe-supermarket-fridges-freezers-who-hacking-why",
+    "source": "The Guardian World",
+    "langue": "en",
+    "date": "2026-11-02T19:07:40+00:00"
+   },
+   {
+    "titre": "Supermarket freezers and fridges in Europe hit by cyberattack - Nine.com.au",
+    "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPa3NRNy1HY3VyaHFuTWZXTVVXd1dLOEZLN1V4T3dyVENUQlFWTnBpUFFQcVg1WGFmQklLOHpwU2k3RlZta19fU213dXZsMGVIUjZWclBQeVNxUjRJZFp0MVh6VkNuc0lCYkQ1OXVna2xtRU16QkZsdFJZOW1tSHZ4TEs1angxSlU5c2ZrNzdVTmZHY19GRmxkQnQ3TElyckVtSVljQkhHTE9WS0hLN2ZvMHg0akZ2UGRE?oc=5",
+    "source": "Google News AU",
+    "langue": "en-AU",
+    "date": "2026-11-02T21:33:44+00:00"
+   },
+   {
+    "titre": "Who is hacking Europe’s supermarket fridges and freezers, and why? - The Guardian",
+    "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPT0hnYzNYZFFUWW05NDhXeXd3M0FUTVhCNnNPSXB6Y04taTlHeXVzZXhyRjR1VVg0bHU5R1ZZSGlqYnVqcWdmWTVCYml1M29VdTJ0ZVkxcXpMb0pwRG9Vb2lTNGhkdnFwbGV5QlJIU1NKMzE1TlhBN1R5S2FYTnc2dXI1TTctQlB3TGtSSXFtQzRLbFJsLU5FWFl6QktpZzRmU0ttVw?oc=5",
+    "source": "The Guardian",
+    "langue": "en",
+    "date": "2026-11-03T02:29:00+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Hackers are targeting something the world cannot do without: Food - The Economic Times",
+    "url": "https://news.google.com/rss/articles/CBMihgJBVV95cUxOdEQyRHZvTlJpZHRXeFZVTUdXNjBiWmFtV3MyZGlvcGFYa1pwQVdpRGJZNTVhQ01sUkhTbjRuNnVCWnVjVnRJZ21SRV9jSHJDWVdKY2oybmhyU3dxTG5lX09MMVpscnhNdkNQQjc1Z21SSlViUXVWTEpIWlQya3pYQ2VnbG5TdWZUSU9sWTk2cndEQVBTS1dFakIyMTZfdm1McUZ4cUhoZDBQcHg0X2xHTktDbmNaQTljc213aTVZb2ZfVXp3Rk9DUGFaTHo0cnI0bDlyRFRWdXpLT2htbmFwdERIWE1VT1drLXVVX0FIRzRlRGtJTlg4azNZdUtFS01rUDhOUEl30gGLAkFVX3lxTE5GXzJLV1J2RjZERDBOWXlCR0JES2V3ZzJOZElkZUprSjZVUWlNYnNqcjAzanoyRGxEWWRqLXV5ZlJ4Z2FrRXZmZ0l4c1N4V2xGRzhkWnFfSkJQSjUxdWtoM2FMUXJOemc4WExFdDRrQUs1aERocEJoOUpNYW1zQndZQmR2R041Y2pNdFQ2bWFkSWkzUFpLRXNQc0hlaEI3ZEtzNTJvZ1M2TjRqcXZmVlIxSTI3TXptUDVjc2stMXh1YW9GVFBPMDhUMEkwMVR6czYyYW5OaktFSmRvYWhjQTBtS3Y5X3N3NjdXZ3R5WnV5eUFiUjZHMVN6MVVyMEZYSXV3LTh6NWFoUkJOUQ?oc=5",
+    "source": "The Economic Times",
+    "langue": "en",
+    "date": "2026-11-03T07:20:33+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Who is hacking Europe’s supermarket fridges and freezers, and why? - inkl",
+    "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOTENSOGhGZmdJQk5HSnlLazdGbFZyLTBnN0ozQWw0X25BRXJQLU1NYWY4blVKa2ZoMF9MRmJuM1I3R3RvMXRQR3NVNXhMeTRmM1cyNmd6V3RCQ0FtOEx3aUpybEEyYS15ZlJUcWl5S2Fzd1hYdDRFdm0wVWRKckEyVnFBQ1JoSjVhdnRUX0loN2hOYmM?oc=5",
+    "source": "inkl",
+    "langue": "en",
+    "date": "2026-11-02T19:07:40+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Freezers at supermarkets across Europe hit by apparent cyberattacks - Yahoo News UK",
+    "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOeTVjUHdVRTkxcFhSUGlSdTZLcGlJZVNra0Q1anozYnBCS0R2TUtlU2o0NE9ka1RLR25MZzM5VVZDSUQ0Yi1xT1k1Mko1OVdybXkyZC00Y0ZZWUxRUHZjS2lVSW5qaE9xRnVhdFc0NGRuQU5pSEpkQTBYMGNTT2JUakpKWFN0cEU?oc=5",
+    "source": "Yahoo News UK",
+    "langue": "en",
+    "date": "2026-11-02T15:30:00+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Explained: Could hackers get inside my fridge? - Deccan Herald",
+    "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPdG9wUkZWeW1ROHpaNjZiT1NEeVVIbG1YS0tpNnBzYUhFUVVNUFY3b2gxVno5U2x3QmRKVUJKUDNYMTAxcGtmSW53T3J5TC1ZVWc3ajVtUDh2bTNBVURmTUVZZkZsMlFRb1cyUGxENl9VMjk3Uy03eEdVaHhMSVJpOUkxQ3U2ODlUc1NCNEZJSFN1Ty13VURLNkdxejNvV1ZkUzBOenVpWQ?oc=5",
+    "source": "Deccan Herald",
+    "langue": "en",
+    "date": "2026-11-03T04:45:48+00:00",
+    "confirmation": true
+   }
+  ],
+  "ethique": {
+   "acceptable": true,
+   "raison": "Offers a genuine safety tool at a fair price that protects food safety and business stock; no fearmongering beyond the documented attacks."
+  },
+  "id": "idee-4fdfa6e3",
+  "signaux": 1,
+  "cree_le": "2026-11-03T08:00:18+00:00",
+  "mis_a_jour_le": "2026-11-03T08:00:18+00:00",
+  "statut": "active",
+  "notifiee": false,
+  "langue_redaction": "en",
+  "note_globale": 6.0,
+  "sources_confirmation": 5
  },
  {
   "titre": "« Madrid-Barcelona sin AVE » : statut en temps réel, comparateur d'alternatives et guide des remboursements",
