@@ -1,5 +1,232 @@
 [
  {
+  "titre": "TakeHome Guard: a scanner that checks recruiter coding tests for malware before developers run them, launched after the $6.3B Binance heist",
+  "pitch": "North Korean hackers stole $6.3 billion from Binance by sending one engineer a fake job interview and a booby-trapped project. TakeHome Guard lets any developer paste a take-home repo or zip and get a malware red-flag report in 30 seconds, without running the code.",
+  "evenement_declencheur": "Binance's postmortem shows that the largest crypto theft ever, $6.3 billion, began with fake job interviews and a tampered installer sent to one of its developers.",
+  "contexte_declencheur": "On November 3, 2026, Binance published a security postmortem on the $6.34 billion theft, the largest crypto heist on record. The attack started in June, when a developer contacted through a legitimate job-hunting platform attended bogus interviews and downloaded a tampered installer. Over several months the attackers moved laterally and abused an internal AI tool. Binance and US officials link the attack to North Korean hackers, which Pyongyang denies. The story was covered by The Verge, CNA, CNBC, BBC, NPR, The Register, TechCrunch, ABC Australia, The Guardian, Al Jazeera and Thai media. Binance says it has replenished 98% of the affected assets. TechCrunch notes that researchers had warned about this 'fake interview' tactic for years. Millions of developers who receive take-home assignments from recruiters now know that an ordinary coding test can be the entry point for an attack. They need a simple way to check these projects before running them.",
+  "pourquoi_maintenant": "Fear of fake recruiters peaks right after a record breach, while every tech outlet is explaining the technique. 'How to tell if a coding test is malware' searches and Reddit threads will spike over the next few weeks. A tool launched within 3-4 weeks can ride this coverage and get Show HN and newsletter mentions. Six months from now, the topic will be crowded by Socket, Snyk and security vendors' content.",
+  "description_detaillee": "TakeHome Guard is a web app where a developer pastes a GitHub, GitLab or Bitbucket URL, or uploads a zip they received from a recruiter. The code is never executed. It is unpacked in an isolated worker and statically analyzed. Checks include: npm, pip and composer install hooks (preinstall, postinstall, setup.py); VS Code tasks.json set to run on folder open, a documented DPRK technique; obfuscated or minified JS in unexpected places; eval or Function calls on remote content; hidden binaries; and dependencies flagged in OSV, GitHub Advisory and abuse.ch. It also matches domains and hashes from public threat reports on 'Contagious Interview'-style campaigns. The report gives a traffic-light verdict, each finding explained in plain English (with optional LLM explanation), and safe next steps such as opening the project in a disposable VM, Codespace or devcontainer. A companion 'Recruiter red flags' checklist page and a blog analyzing real (defanged) samples drive SEO. The free tier offers 3 scans per month. Pro costs $9/month for unlimited scans, a browser extension that adds a 'Scan' button on GitHub repos, and email forwarding (forward the recruiter email, get a report). Team costs $199/month for crypto, fintech and Web3 companies: a GitHub App plus Slack alerts, and a 20-minute awareness module on fake-interview attacks with completion tracking for compliance. First users come from a Show HN post, r/webdev, r/cscareerquestions, r/CryptoCurrency, crypto-security X accounts and dev.to write-ups tied to the Binance postmortem. A realistic goal is 150-300 Pro users and 5-15 Team accounts within 6-12 months, or roughly $2,500-5,000 MRR. Upside comes from security newsletters and partnerships with job platforms.",
+  "categorie": "saas",
+  "cible": "Software and blockchain developers who receive take-home coding tests from recruiters, plus security leads at crypto, fintech and Web3 companies",
+  "pays_cibles": [
+   "United States",
+   "United Kingdom",
+   "India",
+   "Singapore",
+   "Germany",
+   "France",
+   "Canada",
+   "Australia"
+  ],
+  "langues": [
+   "English"
+  ],
+  "modele_revenus": "Freemium SaaS: free scans, $9/month Pro, $199/month Team with GitHub App, Slack alerts and awareness training module",
+  "budget_estime_eur": 760,
+  "delai_lancement_jours": 30,
+  "duree_opportunite": "Peak demand over 1-3 months after the postmortem; the underlying need lasts for years because fake-recruiter attacks are ongoing",
+  "notes": {
+   "potentiel": 7,
+   "cout": 6,
+   "travail": 5,
+   "risque": 6,
+   "urgence": 8,
+   "durabilite": 8,
+   "fiabilite": 9,
+   "concurrence": 6
+  },
+  "notes_explications": {
+   "potentiel": "Tens of millions of developers worldwide receive coding tests, and crypto and fintech companies pay for security tooling. B2B Team plans raise revenue per customer significantly. Consumer willingness to pay is limited, which is why this is not a 9.",
+   "cout": "The main costs are isolated scanning workers, a small ad budget, legal disclaimers and some LLM credits, about €1,250. Vulnerability feeds (OSV, GitHub Advisory, abuse.ch) are free. A larger ad budget would lower this score.",
+   "travail": "A useful static scanner, a report UI, Stripe billing and a browser extension take about 3-4 weeks for a solo developer. A GitHub App and a training module add another week or two. Executing code dynamically in a sandbox would add much more work, so the MVP stays static.",
+   "risque": "The main risk is liability for false negatives: a user runs a malicious repo the tool marked as clean. Handling live malware samples on servers also requires care. Strong disclaimers, a 'never a guarantee' message and no code execution keep this manageable.",
+   "urgence": "The postmortem is fresh and covered worldwide, and attention to fake interviews is at its highest now. Launching within a month captures coverage and SEO. Waiting a quarter means competing against content from large security vendors.",
+   "durabilite": "Fake-recruiter malware campaigns have run since at least 2022 and keep evolving. Companies will keep needing awareness training and checks. The product can expand into general 'untrusted repo' scanning.",
+   "fiabilite": "The event is confirmed by Binance itself and covered by a dozen independent outlets (The Verge, BBC, CNBC, NPR, CNA, TechCrunch, The Guardian, Al Jazeera, etc.). The attack vector is clearly documented. Demand for checking coding tests is logical but not yet proven by paid products.",
+   "concurrence": "Socket, Snyk and Aikido scan dependencies, and VirusTotal scans files, but none offers a simple 'is this recruiter test safe?' flow aimed at job seekers. Large vendors could add this quickly, so the score stays at 6."
+  },
+  "budget_detail": [
+   "Hosting + isolated scanning workers (Hetzner/Fly.io, 3 months): €180",
+   "LLM API credits for plain-English explanations: €200",
+   "Terms of service, privacy policy and liability disclaimer (lawyer review or premium template): €300",
+   "Chrome Web Store fee + logo/visual assets: €80"
+  ],
+  "requete_verification": "Binance hack fake job interview North Korea",
+  "concurrents": [
+   "Socket.dev: detects malicious npm/PyPI packages in dependencies, but is aimed at companies' supply chains, not job seekers checking a one-off test repo",
+   "Snyk / GitHub Dependabot / Aikido: scan known vulnerabilities, not malicious autorun tasks or obfuscated payloads in a received project",
+   "VirusTotal: scans files and URLs but does not understand repo structure (install hooks, VS Code tasks)",
+   "Security Alliance (SEAL) and Mandiant reports: useful free warnings, but no tool. TakeHome Guard turns this knowledge into a one-click check plus team training"
+  ],
+  "analyse": "This is the strongest idea in this batch: a globally covered event, a clearly documented attack vector and a product a developer can build alone. Success depends on credibility. Publish your detection rules openly, write detailed analyses of real samples and never promise a guarantee. Monetize through B2B Team plans rather than individual developers, because crypto and fintech companies now have a board-level reason to train staff. The main point of vigilance is liability for missed detections, which requires clear disclaimers.",
+  "etapes": [
+   "Collect public IOCs and techniques from 'Contagious Interview' / fake-recruiter campaign reports and define 25-40 static detection rules (3 days)",
+   "Build the scanner: repo fetch or zip upload into an isolated worker, no execution, rules engine + OSV/GitHub Advisory dependency checks (Node/Go or Python, 8 days)",
+   "Build the report UI with a traffic-light verdict, findings in plain English and safe next steps; add optional LLM explanation (4 days)",
+   "Add accounts, quotas and Stripe billing for Free/Pro/Team (3 days)",
+   "Write a landing page plus 3 SEO articles: 'How the Binance hack started', 'Red flags of a fake recruiter', 'How to open a take-home test safely' (3 days)",
+   "Launch on Show HN, Product Hunt, r/webdev, r/cscareerquestions and crypto-security X; publish one defanged sample analysis (2 days)",
+   "Ship a Chrome extension adding a 'Scan with TakeHome Guard' button on GitHub repo pages (4 days)",
+   "Build the Team plan: GitHub App, Slack alerts and a 20-minute awareness module with completion tracking (7 days)",
+   "Prospect 50 crypto/fintech security leads on LinkedIn with a free team pilot (ongoing, from week 5)"
+  ],
+  "risques": [
+   "False negative leading a user to run malware: never execute code, show clear 'not a guarantee' warnings, recommend a VM/devcontainer in every report, and cap liability in the terms",
+   "Hosting malware samples gets the account flagged by the host: store uploads only briefly in isolated buckets, auto-delete after the scan and inform the host in advance",
+   "Large vendors (Socket, GitHub) add a similar feature: focus on the job-seeker experience, email forwarding and training, and build an audience through content",
+   "Defamation if users report 'fake recruiters': only publish verified indicators (domains, hashes) and never accuse named individuals without evidence",
+   "Low willingness to pay from individuals: keep the free tier as a funnel and push B2B Team plans"
+  ],
+  "mots_cles": [
+   "fake job interview malware",
+   "take-home coding test scanner",
+   "Binance hack North Korea",
+   "recruiter scam developers",
+   "malicious repository check",
+   "Contagious Interview",
+   "developer security awareness"
+  ],
+  "sources": [
+   {
+    "titre": "Binance says hackers used fake job interviews and an internal AI tool to pull off the $6.3 billion heist",
+    "url": "https://www.theverge.com/news/1025576/binance-cyrpto-theft-explained",
+    "source": "The Verge",
+    "langue": "en",
+    "date": "2026-11-03T22:04:02+00:00"
+   },
+   {
+    "titre": "Binance reveals hackers used fake job interviews, malicious code in US$6-bn heist",
+    "url": "https://www.channelnewsasia.com/business/binance-reveals-hackers-used-fake-job-interviews-malicious-code-in-us6-bn-heist-6517421",
+    "source": "CNA (Singapour, business)",
+    "langue": "en",
+    "date": "2026-11-03T14:51:00+00:00"
+   },
+   {
+    "titre": "Researchers warned of North Korean hacking tactics years before record $6.3B Binance heist",
+    "url": "https://techcrunch.com/2026/11/03/researchers-warned-of-north-korean-hacking-tactics-years-before-record-6-3b-binance-heist/",
+    "source": "TechCrunch",
+    "langue": "en",
+    "date": "2026-11-03T19:45:48+00:00"
+   },
+   {
+    "titre": "Fake jobs and malicious code used by hackers in largest crypto-heist",
+    "url": "https://www.abc.net.au/news/2026-11-04/binance-released-details-of-largest-crypto-heist/107345208",
+    "source": "ABC News (Australie)",
+    "langue": "en",
+    "date": "2026-11-04T03:28:52+00:00"
+   },
+   {
+    "titre": "Binance says fake job interviews used as part of $6.3bn crypto hack",
+    "url": "https://www.bbc.co.uk/news/articles/ck5ynwz9gy67o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC World",
+    "langue": "en",
+    "date": "2026-11-03T16:19:29+00:00"
+   },
+   {
+    "titre": "North Korean fake job interview led to $6.3B Binance heist - The Register",
+    "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPUk13ZW5vUVRaNjlxcmNqUlFaNDVNVkZfWmczSnB4dHZ2MVVUZ1VuVGgzaWxNTVZOb1J4UFI2NnZWdklVd2E4NnVGaHdmZ0YzemgwZnJET3lBNTB1bVdJbXNBSjVwUGpYbmZlaDFvQkFxdWZvYnFlWEZvWWMxTXI1NkVXMHhuM3dERmNBWTNDU3pEVXZqajFZNThONU9EQ28yeU5Qb0NEV2xBTmIyR2g3Q2ln?oc=5",
+    "source": "Google News US",
+    "langue": "en-US",
+    "date": "2026-11-03T22:04:45+00:00"
+   },
+   {
+    "titre": "A Binance engineer thought he was interviewing for a job. Then the hackers pounced",
+    "url": "https://www.npr.org/2026/11/03/nx-s1-6027799/binance-crypto-exchange-cyber-heist",
+    "source": "NPR Business",
+    "langue": "en",
+    "date": "2026-11-03T21:30:20+00:00"
+   },
+   {
+    "titre": "Binance co-CEO Richard Teng says hackers used fake job interviews, AI tool to steal $6.3 billion in crypto",
+    "url": "https://www.cnbc.com/2026/11/03/binance-co-ceo-teng-says-hackers-used-fake-job-interviews-to-steal-6point3-billion-in-crypto.html",
+    "source": "CNBC Top News",
+    "langue": "en",
+    "date": "2026-11-03T18:40:37+00:00"
+   },
+   {
+    "titre": "Binance breach puts custody at center of crypto infrastructure trade",
+    "url": "https://www.cnbc.com/2026/11/03/binance-breach-puts-custody-at-center-of-crypto-infrastructure-trade.html",
+    "source": "CNBC Top News",
+    "langue": "en",
+    "date": "2026-11-03T20:13:37+00:00"
+   },
+   {
+    "titre": "Binance battles to save its brand after record $6.3bn crypto hack",
+    "url": "https://www.theguardian.com/technology/2026/nov/02/binance-cryptocurrency-exchange-hack",
+    "source": "The Guardian Business",
+    "langue": "en",
+    "date": "2026-11-03T14:45:30+00:00"
+   },
+   {
+    "titre": "N Korea fires multiple missiles, denies US claims on Binance hack",
+    "url": "https://www.aljazeera.com/news/2026/11/4/n-korea-fires-multiple-missiles-denies-us-claims-on-binance-hack?traffic_source=rss",
+    "source": "Al Jazeera",
+    "langue": "en",
+    "date": "2026-11-04T05:11:00+00:00"
+   },
+   {
+    "titre": "CZ เปิดใจหลัง Binance โดนแฮก! ชี้ AI เร่งภัยไซเบอร์จี้ดึงรัฐร่วมมือ - Thunhoon",
+    "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE4xT0w4OGdKZzZUakxkcVJuTURDajRIaHQ4RGlpM0VsbHVDWHBxc0JwQ0VVLTZrRjhxMG1hQnFCVURxX2ZDdWhNN2ItYmEyc3k2X0VDdTN4UjBoTnZBQTN4RWdFTjZMSXZISmc?oc=5",
+    "source": "Google News TH",
+    "langue": "th",
+    "date": "2026-11-04T05:39:10+00:00"
+   },
+   {
+    "titre": "North Korea used LinkedIn, fake job interviews to trick Binance engineer in $6.3 billion hack - Fortune",
+    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5MVDdJbWk1SDUxMmZNcXFtUXRKTHA2X0N6RGpILWQ0ZVVJZ0hPM1FRU2g1SGtmakxWX0ktSUxlbjBFbTVWMmNHdUpsNWttSmlmQklMb19JTXM4MHo1WHB0WTJtODI3UkE0TUdUR2dR?oc=5",
+    "source": "Fortune",
+    "langue": "en",
+    "date": "2026-11-03T15:16:00+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "That dream job offer might be from a North Korean hacker - Axios",
+    "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE0tMUtnX3RnOGRndVNTSjV6M1BsZ3ptVDBuY0syWkJ2TndlVk40bUppNFQ0MGxtMEhwdWVRd1UzUnY5blpXQ29NZ3MzMmxtdkhzOHJiak9kelVDd0NRUmlpdFp1N2VUaXFUT2tFaGhpdG9GSGs1S3U4dVcyRFI?oc=5",
+    "source": "Axios",
+    "langue": "en",
+    "date": "2026-11-04T01:14:48+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Binance hackers used fake job interview in $6.3 billion attack - Reuters",
+    "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNOHZFVzJneVFEOFFQSm5yVXh2T0Z4Nk1mZkhpSzZHQkJvbkdDVVhyMjJ6dnRZb2J6cEowUVB3UU4tRUVJX2wtRVkxdE5xVjh4WFMwVkFMeGRnUTIwd0lkNERVNUpETVQta2paOWV4bkVfczhVWE9OTzNqa3hLWlBxY1JJV0pablZ3dDVIdUd3RVJmaFRrMkNOeGdyaWRNeGRkVHZhOHUwWnlHV3g4cUVPbS1KZkM3aWc?oc=5",
+    "source": "Reuters",
+    "langue": "en",
+    "date": "2026-11-03T17:35:37+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Binance says fake job interview helped North Korean hackers steal $6.3 billion in crypto - Nextgov/FCW",
+    "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPcEYyeGRFRk1QVnMyTm5URklPT09yWEFxdVNLc3czajZ3R055LUp4LXdZb0xrQXpKZ2tnX0RmQ0ZRTWVFeTc5SzRJT0xUaTEtTDJWSVdSWnpnOXZvSGZOYnRGQlFzSGc5QURRQWgtS2NLcDhYeWItU3Ezak5ldUhuT3FHb1ppQ1ROSUJKNWlvNVZEOHFhNHNPQ2F1cVRObUM3WmlwNHRsY0ZVRFZfSFVHejhad0pLVWdsRTZrMFdYVk1aSXlSbmg1bjY0bnk0QWx4ZVh3?oc=5",
+    "source": "Nextgov/FCW",
+    "langue": "en",
+    "date": "2026-11-03T18:41:00+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Binance says hackers used fake job interview to breach computer before $6.3 billion attack - NBC News",
+    "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOSTVmOGtsWUJ6d3FuazFtYzAyM1c3X0xiYVhPMEZNTXZUTFBLSkxJcFUxcjk5WlVVWkRXOHFDa25xZm5OYWVTTklFYjJCSFhIdWRweWpKYlFPaXlQU3BSQ2NveFAycnBNUWV0OEFMTFUyY0lGZWxSOW1EOXUxcF9YaExTczVfbTgyby1yM2ZSQTlkZzg?oc=5",
+    "source": "NBC News",
+    "langue": "en",
+    "date": "2026-11-03T15:56:05+00:00",
+    "confirmation": true
+   }
+  ],
+  "ethique": {
+   "acceptable": true,
+   "raison": "The tool protects developers and companies against a real, documented attack technique. It relies on facts, not artificial fear, and helps potential victims without exploiting anyone."
+  },
+  "id": "idee-90e8b255",
+  "signaux": 1,
+  "cree_le": "2026-11-04T06:37:31+00:00",
+  "mis_a_jour_le": "2026-11-04T06:37:31+00:00",
+  "statut": "active",
+  "notifiee": true,
+  "langue_redaction": "en",
+  "note_globale": 7.0,
+  "sources_confirmation": 5
+ },
+ {
   "titre": "« Mon gaz indexé » : simulateur fixe ou indexé et alerte mensuelle du prix repère pour les foyers français chauffés au gaz",
   "pitch": "Le prix repère du gaz a pris 42 % depuis janvier et six millions de foyers à tarif indexé subissent chaque hausse de plein fouet. Un outil simple leur dit chaque mois combien ils vont payer et s'ils ont intérêt à bloquer un prix fixe.",
   "evenement_declencheur": "Nouvelle hausse du prix repère du gaz au 1er novembre 2026, +42 % depuis janvier à cause de la guerre au Moyen-Orient.",
@@ -486,6 +713,402 @@
   "sources_confirmation": 5
  },
  {
+  "titre": "'Rate Rise Rescue' Australia: repayment impact calculator and hardship request generator after the RBA's fifth hike to 4.85%",
+  "pitch": "The Reserve Bank of Australia has raised rates for the fifth time this year, to an 18-year high of 4.85%. A free tool shows mortgage holders their new repayments and walks those under stress through their legal right to request hardship relief from their lender, with a ready-to-send letter.",
+  "evenement_declencheur": "The Reserve Bank of Australia hikes its cash rate to 4.85%, its fifth increase of 2026 and the highest level since 2008.",
+  "contexte_declencheur": "On November 3, 2026, the RBA lifted the official cash rate by 25 basis points to 4.85%, its fifth hike this year and the highest level since 2008, citing AI-driven demand and persistent inflation. Governor Michele Bullock said 'some pain now' would prevent worse later. Reports note that the hikes have so far failed to tame inflation while mortgage holders suffer, and a major bank is predicting the worst housing crash on record. Lenders will pass on the increase within days, raising monthly repayments for millions of variable-rate borrowers. Under Australian credit law, borrowers facing financial difficulty can request a hardship variation, and lenders must respond within set timeframes, but many people do not know this or how to ask. A clear, free tool that combines the numbers with practical next steps addresses a growing need.",
+  "pourquoi_maintenant": "Lenders pass on the hike within days and the first higher repayment hits in December, right before Christmas spending. Search demand for 'mortgage hardship' and 'rate rise calculator' peaks in the weeks after each decision. With more hikes possible, launching now also positions the site for the next RBA meetings.",
+  "description_detaillee": "The site has three tools. First, a 'Five hikes later' calculator: users enter their loan balance, rate and remaining term and see how much more they pay per month and per year since January, plus the impact of a further hike. Second, a stress check that compares repayments to income and expenses and flags serious mortgage stress. Third, a hardship request generator: for people in difficulty, a guided form produces a clear, factual letter to their lender requesting a hardship variation (payment pause, reduced repayments, term extension), with guidance on what to include, response timeframes and how to escalate to the Australian Financial Complaints Authority (AFCA) if refused. Every page prominently links to the free National Debt Helpline and financial counsellors. The core tools are completely free. Revenue comes from an opt-in refinance comparison referral to licensed mortgage brokers (as an exempt referrer passing contact details only), display ads on calculator pages and a small optional donation. Traffic comes from SEO on 'RBA rate rise calculator', 'mortgage hardship letter template', sharing in Australian Reddit communities (r/AusFinance, r/AusProperty) and outreach to community legal centres. Realistic: 30,000-100,000 visits around each RBA decision and €1,000-3,000 per month in referral and ad revenue.",
+  "categorie": "outil-web",
+  "cible": "Australian variable-rate mortgage holders, especially recent first-home buyers under repayment stress",
+  "pays_cibles": [
+   "AU"
+  ],
+  "langues": [
+   "en"
+  ],
+  "modele_revenus": "Opt-in referrals to licensed mortgage brokers, display ads, optional donations; core tools free",
+  "budget_estime_eur": 1000,
+  "delai_lancement_jours": 14,
+  "duree_opportunite": "High demand while rates stay elevated (likely 12-24 months), with spikes after each RBA meeting",
+  "notes": {
+   "potentiel": 6,
+   "cout": 7,
+   "travail": 6,
+   "risque": 5,
+   "urgence": 8,
+   "durabilite": 7,
+   "fiabilite": 8,
+   "concurrence": 5
+  },
+  "notes_explications": {
+   "potentiel": "Millions of variable-rate borrowers and valuable refinance leads. Monetization must stay restrained given the audience, which caps revenue.",
+   "cout": "The main expense is a legal review by an Australian lawyer to keep the site within general information and referral rules. Hosting and ads are cheap.",
+   "travail": "Calculators are simple; the hardship generator and accurate legal content need careful writing. About two weeks.",
+   "risque": "Australian credit law restricts giving credit assistance without a licence, and the audience is financially stressed. Staying strictly factual, free and referral-only with legal review reduces the risk.",
+   "urgence": "Repayments rise within weeks and search demand spikes now. Each new RBA meeting adds further windows.",
+   "durabilite": "Rates are at an 18-year high and housing stress will last, so the tools remain useful for at least a year. Demand fades if rates fall significantly.",
+   "fiabilite": "The rate decision is confirmed by The Guardian, CNBC, Infobae and Korean media. Demand for hardship information is evident from coverage of mortgage holders' suffering.",
+   "concurrence": "Canstar, RateCity and bank calculators cover repayments, and Moneysmart has guidance. Few combine the numbers with a practical hardship letter generator in one flow."
+  },
+  "budget_detail": [
+   "Domain + hosting: €80",
+   "Legal review of disclaimers and referral setup by an Australian lawyer: €500",
+   "Google Ads on rate-rise and hardship keywords: €350",
+   "Contingency: €70"
+  ],
+  "requete_verification": "RBA cash rate 4.85 fifth hike Bullock mortgage",
+  "concurrents": [
+   "Canstar and RateCity: repayment calculators focused on product comparison, not hardship",
+   "Moneysmart (ASIC) and National Debt Helpline: trustworthy guidance but no letter generator; this site links to them rather than competing",
+   "Bank calculators: tied to one lender"
+  ],
+  "analyse": "A useful, durable tool if built with restraint: free core features, honest content and visible links to free financial counselling. Get the legal review before launch to stay clearly on the information side of Australian credit licensing rules. The hardship letter generator is the differentiator and the reason people will share it. Do not push refinancing to people in real hardship; reserve referrals for those whose numbers make it sensible.",
+  "etapes": [
+   "Research hardship provisions, lender response timeframes and AFCA escalation from official sources (Moneysmart, AFCA, National Debt Helpline) (3 days)",
+   "Build the repayment impact calculator and stress check (Next.js, client-side calculation) (3 days)",
+   "Build the hardship letter generator with a guided form and PDF/email output (3 days)",
+   "Get an Australian lawyer to review content, disclaimers and the referral model (1 week, in parallel)",
+   "Set up an exempt-referrer arrangement with 1-2 licensed mortgage broker firms (1-2 weeks, in parallel)",
+   "Publish SEO pages and share in r/AusFinance, r/AusProperty and with community legal centres (ongoing)",
+   "Prepare updates for each upcoming RBA decision (recurring, 1 day each)"
+  ],
+  "risques": [
+   "Breaching credit licensing rules: legal review, information-only content, referrals limited to passing contact details",
+   "Reputational risk of monetizing distress: keep core tools free, no aggressive upsells, prominent free help links",
+   "Calculation errors: test against lender calculators and show assumptions",
+   "Rates fall and demand drops: pivot to a general mortgage health check tool"
+  ],
+  "mots_cles": [
+   "RBA rate rise calculator",
+   "mortgage hardship letter Australia",
+   "mortgage stress Australia",
+   "hardship variation request",
+   "RBA 4.85",
+   "AFCA complaint mortgage"
+  ],
+  "sources": [
+   {
+    "titre": "RBA interest rates: Bullock says ‘pain now’ will prevent worse later as Reserve Bank hikes rates for fifth time",
+    "url": "https://www.theguardian.com/australia-news/2026/nov/03/rba-interest-rates-decision-cash-rate-november-reserve-bank-australia",
+    "source": "The Guardian World",
+    "langue": "en",
+    "date": "2026-11-03T07:36:42+00:00"
+   },
+   {
+    "titre": "Australia hikes rates to 18-year high to fight inflation",
+    "url": "https://www.cnbc.com/2026/11/03/australia-hikes-rates-18-year-high-finflation.html",
+    "source": "CNBC Top News",
+    "langue": "en",
+    "date": "2026-11-03T03:46:20+00:00"
+   },
+   {
+    "titre": "Australia sube los tipos un 0,25% por IA e inflación, hasta su nivel más alto desde 2008",
+    "url": "https://www.infobae.com/america/agencias/2026/11/03/australia-sube-los-tipos-un-025-por-ia-e-inflacion-hasta-su-nivel-mas-alto-desde-2008/",
+    "source": "Infobae (Amérique latine)",
+    "langue": "es",
+    "date": "2026-11-03T05:30:37+00:00"
+   },
+   {
+    "titre": "호주 기준금리 4.85%로 인상…18년 만에 최고 - 월간조선",
+    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1vaXpPVjRyTzNPLTR6dmlzeV82anhVVFdxNjJES0tWY2RWNkM3VF9DNy1XU2tkaGZnY1dIb3hyVi02eHRnaXM0QjBfY2t1ZndJSDdNdTZPbHVqQW1wT2JwVVVYODlJT1MwUk5sTQ?oc=5",
+    "source": "Google News recherche KR",
+    "langue": "ko",
+    "date": "2026-11-03T06:13:02+00:00"
+   },
+   {
+    "titre": "Reserve Bank interest rate hikes fail to stop inflation as mortgage holders suffer - Real Estate",
+    "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNcUJCT1BWUXFxZDVUZkpyams3QVZncGFCWS1EWDNCRFZJejVpTXZYTDJHbTd1eEkxTm9ZU1laZmNRRHVmWW5NckZyQ2dsOTByZmdmN180bXd1Y1U4TXJ2bmR0Z0gxTDJWR01jSDNLTzR0UG9ocXp1Y0o4OS1JWXBrMTV4ZFhITktQb281bXdwdXp1dGpVSkc4WTNueGpzd2lqbHZxc2JpMlBBZnhhM3VDb3pPSE43QkNOVXc?oc=5",
+    "source": "Google News AU",
+    "langue": "en-AU",
+    "date": "2026-11-03T02:43:53+00:00"
+   },
+   {
+    "titre": "Big bank predicts worst housing crash on record - Real Estate",
+    "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPV2ZJbTlYTUNEYUJzTHV6VFlINTFja1BVeUVha2tpS05ZNmdYQTc0RlQ3cHVVRFpaeUZ2Mk9XWlpyOENHNUNQNU1Rdm5IVUFvRUV4NWxOM2pVVXA4Vk1fVGhlTWdGWkdtTy1LRjVHb29NZDc4QjRLNGNXTmVMY2xvMFBrSDNMVVBWYmVR?oc=5",
+    "source": "Google News AU",
+    "langue": "en-AU",
+    "date": "2026-11-03T04:18:54+00:00"
+   },
+   {
+    "titre": "RBA interest rates: Bullock says ‘some pain now’ will prevent worse pain later as Reserve Bank hikes rates for fifth time - The Guardian",
+    "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOUlp5bzRrSEJJTUxIZ084TzdGdzhQTy16eTZtS3c3aWFBOWg5WC12UVFDMWJSdzhfSHZhSDZtRXZ5S2RZZlljYUE3UWtCTDBpQ09nSGpZX1U5b3VjcDBJSmw5Qm50MkxjWXVJbGxiVW9BdnMxY0cwSkhjM0JFeFJyZHE0LTVsenUxQWVnUEtSY3JiVWpLSlJ3MVU1aDBRWF9vdFkzMjFHVnY3ZWhiWU9BWTlmcGFtejFBcURzQm8yTjVZUQ?oc=5",
+    "source": "The Guardian",
+    "langue": "en",
+    "date": "2026-11-03T03:30:00+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Cash rate rise a sure bet as RBA heads for 4.85% - Mortgage Professional America",
+    "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOU0p3SWs2bUtKZVZqdV94OTZDbHdUMzkyX25TanY2aFc4N01uemlUN1VXaFJSSFhrNEoxcFNyOGt4UjB5SHh0ZG9CN1lEUGRuaWJoOXByczhfNTB6b204QjhiVkZORm9XWGxBVG50cS0zRWVESGF6cnFHbDIyX0NaZ3hZQUtRa2JDN1g0Mm9WR1dVX1FwY1RB?oc=5",
+    "source": "Mortgage Professional America",
+    "langue": "en",
+    "date": "2026-11-02T22:36:35+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "RBA interest rates: Reserve Bank hikes cash rate for fifth time this year in blow to mortgage holders - inkl",
+    "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNVVExdEtCSXZyVVdORUFEUjByWFRFcjRWV2JTNU44TEdHUUtwXzgxTHZESWFublJIYjhKUVRlT3B3bEIxYTNpdlh2T1RkOVppaDBEU3hlM09aZUpHSE5GbXhnMXBGUVhhUnVZV3hQdDd6cUhZb19DRTIwSi16MjZTVWhBQWlkYTg1WDExTlZVRUE3bi04MXpEQWVqUm9tZzFMNklqTEtqRkxrZTZEYlV1b2Q0UUJiY2xYaHBtWmFIZTdVS3h5?oc=5",
+    "source": "inkl",
+    "langue": "en",
+    "date": "2026-11-03T03:45:33+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "RBA delivers households another brutal blow as interest rates lifted to 18-year high - News24",
+    "url": "https://news.google.com/rss/articles/CBMirAJBVV95cUxPTFdadjAzdEQtTTBOdEtFWEhtTlMxWUdMUlJOZHpiYTFDS19rU25IMGlKR3lpT1VEUnp6ZWRBUWkwY2VNT3RFaHNLUHhOb1NNSHNBakRIaTFtd0hMQWt0eFVVQnpBcnhVcGloVHl5MWpLMFhBUkIwcW1OZ3YySnh4Zy1PdEV5TVdfYVQwNWdYSGI1dF9FWDdueUpnTUVoczktTExpRUY1NllybVI1b29PSkxBTm82cWtmSVRiVUFKbXRQWW91NWMwRnNhSkR3OVZranFwZmV3UnZqSmFqTGlvM2xZUmxORE5fY2ZDWkcwa2JFTEFPS1FpUFdIVzVaelYxR3d4ZDRlMnFUcERGLUJhMFJJS3BGZ3RWR3JGNkdJcjBxZXpDNm9xWHU2am3SAbICQVVfeXFMT2tVNVJCbU9VQXFFMkJvT2VydE1LbzZJR3BTRnN4UG50dUJrczUwSHZIVUdrV2xYakRPOUdLUllrSkVvb1hNeG5LV3JSNWlEakRfY1hXZzh1UnQ1ZDVOQ09vRWRNX2p2aHIzN2o4WG56V1BTMHhBbWFGT3FRMV9CY3lZLTJiSXZOSGJrTm1IelFLM0xGSXZ4VVo3eUJkZGRrMEp5TlR1dTc1Q3FfTHFjS2l6QVdOZkVtUDhNdHl2ZFlZdXh5NEFmaGMxSTdrbkEzSkJvWlhITDBLdnRPOHl2dXVSQ2hmZ2s0b0pJY183ckoxT0xwLVNWZktnZWdKQmNja3BLbS10QTdYWjhNVF83d0xmQTFPVElza1I4VzMxZzhBaUJ4a1BuTWZXVklDeklYOEpn?oc=5",
+    "source": "News24",
+    "langue": "en",
+    "date": "2026-11-03T05:07:41+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "RBA hikes rates as Bullock warns of recession-like pain for households - Australian Property Update",
+    "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOblpWOXRuUzFRVzZpT3NQNTM1bEhQN21ocHR2VUtrNExvc3RSbDBja2RmR3NTcUUxcERoYnlFOG53alI3ZmVJUGFRcDI2U28zZjJVWFdHbUV4bmRWZmtqUUpMTmVSR01nbzlONTBLSjFBMVJGTFpkRXBNYTZnREhib2ZrMXBudzBWSk5Qdk9fdlVtMzg1eHEtTmFVejJ2TFRIaFBpVWdteTVnX1N3dW5mbHFFWlU?oc=5",
+    "source": "Australian Property Update",
+    "langue": "en",
+    "date": "2026-11-03T07:47:20+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "호주 중앙은행, 기준금리 4.85%로 인상…18년 만에 최고 - 서울경제",
+    "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1TUW5tbmh5djhJTHlOMDZiaE5NYnZWT1J6WDE0VUdsbGl1RWlqb1ZTcjU4Rk9KXzJkS25ZaUdpYlNGcEhmVnhtNVJwVVU2bDlCc0Fv0gFTQVVfeXFMTVNRbm1uaHl2OElMeU4wNmJoTk1idlZPUnpYMTRVR2xsaXVFaWpvVlNyNThGT0pfMmRLbllpR2liU0ZwSGZWeG01UnBVVTZsOUJzQW8?oc=5",
+    "source": "Google News recherche KR",
+    "langue": "ko",
+    "date": "2026-11-03T13:30:49+00:00"
+   },
+   {
+    "titre": "호주중앙은행, 기준금리 4.85%로 인상 - 위클리코리아",
+    "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxPazJack85TGctVERSWHBHNHM2VklOaGNqa3hTM2RJNExyVkJuZkdhb2NHbk5UMGdwOWhXZ2Z5X1pORXdKS3l6WXZ5Z0twZjNMQUdOMWswWXlOdS1URGFwbTBWcUVFb28xTlBlNHRlV2NPdnktNG5VazcxUThnY3N0WUNpTXA4eGpobllRZkpFWjVJN1c0cW5abkYzd1B5WnhvczJ2aFozYUFEcFpOdVdVQ3pOdURvZHZPVjFFTEdPMHlmY3UtNXkxdTR3NGlGUENZWXZlanVuZFkxZ3hmejNDZ1ZZNnJFM0xlQVNEOUx5YVk5Zw?oc=5",
+    "source": "Google News recherche KR",
+    "langue": "ko",
+    "date": "2026-11-03T17:31:39+00:00"
+   },
+   {
+    "titre": "호주중앙은행, 기준금리 4.85%로 인상…18년 만의 최고치 - 뉴스 및 통계 - IndexBox",
+    "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQeHBObVpwWnJqOEtPWVR6UjNMNU5PZmFWbWlpTXRBeUVNZHRZOTdDNzNQcmpwN1c3a01sTUdVYkZxeXZFQ29oU0g5TUYzbV8zNGwzYXJHTVZnU1c2NW5YZWNpQUVKZjh6eTVxZi1kV1phQ2VJOUhBeTVCLWgtOGRIN1dhaktDV0sxcFRiMDhKNWh6dw?oc=5",
+    "source": "Google News recherche KR",
+    "langue": "ko",
+    "date": "2026-11-03T10:53:41+00:00"
+   },
+   {
+    "titre": "호주, AI 붐과 에너지 비용으로 인플레이션 압력 커지며 금리 18년 만에 최고 수준으로 인상 - TradingView",
+    "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1ZcTNMVmdteDFNemFKWHdFSEMyMmJndzB0X0M2U2hkNUlZeE95OFA1N1BlSndtR3lyV3ZJSEYzRjR4U05yYVN4a2Y4enJQLVhxdUx6QjRqOUhGTHYxd3o2YkdWOHNBUFI0dmI1QnhJRQ?oc=5",
+    "source": "Google News recherche KR",
+    "langue": "ko",
+    "date": "2026-11-03T11:48:06+00:00"
+   },
+   {
+    "titre": "Grim warning as Aussies brace for another rate hike - The Nightly",
+    "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxQQmpsY1J4MkxSdV8tNld4dXpZTHpjRmJqNHBVekppZ2puOUhOZHlTOTU4aW54YmJicUkxbmNTZ1FfeV9XVmRDLUlVWE5tdG85QVFPX3RsV3JOUk9hcnVLRFdETTNORGlMTTI0VUJzTS1td0NXMXB3LU1aZmdZN3hfeC1tbXRkV1JZMlVTdDVMQXV0LXFUTHpTZWdvbk8yd2pTR2RhMXl0NlNwUl9TZW1ieEFhOTNiMjR0X2JfVEt6ZjZSSG5zaFBhX19JRk1kTTdBOEtqWGNZTm5HVldmYW12TnZZOGNxdw?oc=5",
+    "source": "Google News recherche NG",
+    "langue": "en-NG",
+    "date": "2026-11-03T16:39:37+00:00"
+   },
+   {
+    "titre": "Renters anticipating more price pain after RBA hikes rates again - News24",
+    "url": "https://news.google.com/rss/articles/CBMimgJBVV95cUxOd2VXN0FkR0VuVXl4Z3RtaUJOMTAxMHhFbGJCVndDRWJnUGctUnN0TVVnWmx1Ul93OXp4WGozUFJBN05xUjJXMzM3Z1o2YWpyc2J2ZHhyRTAxbFFpa1NDaGlhMFhuNEJrZU9OaGZQUEYxM3FaUUc0N0hKaklnZkhZMHMyNm9sSU11Sk81R09jQXBhSWV0RjZNUXo2MFVDVzhLTVpVTlgxdWRpcngtNUFMU09BZzNEYWVtYjVpYmZQWVlLNlBIQzI2NlRZeWpQZ3J3WHYtQzRCYjhheDdham9ZVDNvUkJCdkJYZTU4WFZTZnJoQTYwNjQ2RGxqTHE3RzNoRThxbVFtaV9mWUV3ZUlzU3BoZW5nWFN6c0HSAZ8CQVVfeXFMTTdNUjl2dVdsS0hLZDVqMVUyVDlKeXF4bFRYOWpxM2c0dGU0UE01STJjRkhYV3VtVGFIM1J2eHQ0cEdfd0lJbGt3dDdsOHJYYi1sWTB2SU05N1NVNkFrdjVZN2NFemI0WkFhVjBadG9vNThzUTRpa2NnbVhMWERUbktiSGhTWjBqRVlCazVGbWtnWjNCOUpoTXlNRndVNHJZWEVaTDZpRzZCQl9aekFxc1BOOGI3TDNONjFRTllUVWhSNmVmM3V2Qm02djR6TEp2T2NnYXp6eFYyQlBFNmFBaFYzZFBBWGVJOG81cWYyN1p3c3BxMFo3ZnlOT0syd043ZEotNXR4U0NYRU91QVRDY203Z3V4S1pGNDBSVnRsY0U?oc=5",
+    "source": "Google News recherche IN",
+    "langue": "en-IN",
+    "date": "2026-11-03T18:01:51+00:00"
+   }
+  ],
+  "ethique": {
+   "acceptable": true,
+   "raison": "The tools help stressed borrowers understand their situation and exercise their legal rights for free; monetization is limited to opt-in referrals and ads with no manipulation."
+  },
+  "id": "idee-1350c1f7",
+  "signaux": 2,
+  "cree_le": "2026-11-03T08:00:18+00:00",
+  "mis_a_jour_le": "2026-11-04T06:37:31+00:00",
+  "statut": "active",
+  "notifiee": true,
+  "langue_redaction": "en",
+  "note_globale": 6.6,
+  "sources_confirmation": 5,
+  "historique": [
+   {
+    "date": "2026-11-04T06:37:31+00:00",
+    "note": "Several additional outlets (Korean financial press, The Nightly, News24) confirm the RBA hike to 4.85%, an 18-year high, and report that renters expect more price pain and that further hikes are feared."
+   }
+  ]
+ },
+ {
+  "titre": "AGOA Exit Desk: tariff impact calculator and alternative-market guide for South African and Rwandan exporters losing US duty-free access on January 1, 2027",
+  "pitch": "Washington is removing South Africa and Rwanda from AGOA's duty-free program from January 1, 2027. A simple tool shows exporters, product by product, what their US shipments will cost in duties and which markets offer better terms.",
+  "evenement_declencheur": "The Trump administration announced on November 2, 2026 that it will withdraw South Africa and Rwanda from the AGOA trade preference program, effective January 1, 2027.",
+  "contexte_declencheur": "On November 2, 2026, the US government announced its intention to withdraw South Africa's and Rwanda's benefits under the African Growth and Opportunity Act, effective January 1, 2027, after a 60-day advance notice period. Pretoria acknowledged the decision, Cosatu is urging the government to save the deal, and Jeune Afrique and BBC Afrique report that the move follows months of failed negotiations and recent US sanctions on Rwanda's defense ministry. AGOA has given these countries duty-free access to the US for thousands of products, including citrus, wine, macadamia nuts, auto parts, apparel and processed foods for South Africa, and coffee, tea and textiles for Rwanda. TechCabal notes that the fallout could reach startups and businesses with little direct exposure. Thousands of SMEs and their freight forwarders must now work out, line by line, what duty will apply from January, whether US buyers will absorb it, and whether to redirect volumes to the EU, UK or AfCFTA markets. This information exists in raw tariff databases, but no simple tool focuses on the AGOA exit.",
+  "pourquoi_maintenant": "Exporters have only about 60 days to renegotiate prices and contracts for 2027 shipments, so the need is immediate and concentrated in November and December 2026. Being the first clear resource in Google results for 'AGOA tariff calculator' and in exporter WhatsApp and LinkedIn groups is decisive. After January, the need shifts to ongoing market diversification, which is smaller but steady.",
+  "description_detaillee": "AGOA Exit Desk is a bilingual English/French website. The core tool is an HS code search, by code or plain product name (e.g. 'fresh mandarins', 'macadamia nuts in shell'). It shows the current duty under AGOA, the US duty from January 1, 2027 (MFN rate from the official USITC HTS API, plus any additional US tariffs in force, clearly dated and sourced), and the duty in alternative markets: the EU (SADC EPA), the UK (SACUM-UK EPA), China and AfCFTA partners. A landed-cost simulator lets the user enter the shipment value and volume to see the extra cost per container and the price increase needed to keep the margin. Content pages cover sector impact (citrus, wine, nuts, auto components, apparel, Rwandan coffee), a timeline of the withdrawal and negotiations, a buyer renegotiation letter template, and a checklist (rules of origin, contract clauses, shipments in transit on January 1). A weekly newsletter tracks negotiations and any reversal. Free: basic lookup and 3 simulations. Paid: a €29 downloadable PDF 'AGOA exit report' for a list of HS codes, or €49/month Pro for unlimited products, multi-market comparison, alerts on rate changes and an Excel export. This suits freight forwarders and export consultants. Additional revenue comes from sponsorships by freight forwarders, trade finance providers and customs brokers, plus referral fees for leads sent to market-entry consultants. First users come from LinkedIn posts in South African export groups, outreach to industry associations (Citrus Growers' Association, wine and nut bodies, NAACAM), Rwandan exporter networks and the francophone press. A realistic target is €1,000-3,000/month during the 3-month peak, then €500-1,500/month as a niche trade-intelligence site.",
+  "categorie": "outil-web",
+  "cible": "South African and Rwandan exporting SMEs, freight forwarders, customs brokers and export consultants dealing with the US market",
+  "pays_cibles": [
+   "South Africa",
+   "Rwanda",
+   "United States"
+  ],
+  "langues": [
+   "English",
+   "French"
+  ],
+  "modele_revenus": "Freemium tool: paid PDF impact reports (€29), Pro subscription (€49/month), sponsorships by freight forwarders and trade finance providers, consultant referral fees",
+  "budget_estime_eur": 600,
+  "delai_lancement_jours": 18,
+  "duree_opportunite": "Very strong demand over the 60-day notice period and Q1 2027; then a durable but smaller market-diversification niche",
+  "notes": {
+   "potentiel": 5,
+   "cout": 8,
+   "travail": 6,
+   "risque": 7,
+   "urgence": 9,
+   "durabilite": 5,
+   "fiabilite": 8,
+   "concurrence": 7
+  },
+  "notes_explications": {
+   "potentiel": "South Africa exports several billion dollars a year to the US under AGOA, so thousands of exporters are affected, but the number of SMEs willing to pay for a tool remains limited. Sponsorships and the B2B Pro plan lift revenue. Large exporters have in-house trade teams, which caps the score at 5.",
+   "cout": "The data is free (USITC HTS API, EU Access2Markets, UK tariff API, WTO data), so costs are limited to the domain, hosting, a small LinkedIn ad budget and a translation check, about €600. Paid data from providers like the ITC would lower the score.",
+   "travail": "Importing and mapping tariff schedules for 4-5 markets and building a clean search with a simulator takes about 2-3 weeks. Sector content pages take a few more days. Handling rules of origin precisely would add work, so the MVP stays indicative.",
+   "risque": "Displaying a wrong rate could lead to bad business decisions. Showing sources and dates for every figure and calling the tool 'indicative, check with your broker' limits this. There is no regulatory or reputational risk beyond that.",
+   "urgence": "The withdrawal takes effect January 1, 2027 after 60 days' notice, so exporters must decide in November and December. A tool launched after mid-December would miss most of the peak.",
+   "durabilite": "Once the shock is absorbed, the need becomes ongoing diversification and tariff monitoring, which is smaller. A possible US reversal or new deal could also reduce demand, though it would create renewed tracking needs.",
+   "fiabilite": "The announcement is confirmed by the South African government (SAnews via AllAfrica), Jeune Afrique, BBC Afrique, eNCA and TechCabal, five independent outlets. The decision is official, with a set date. The demand for a simple tool is logical but not yet proven.",
+   "concurrence": "ITC Market Access Map and USITC DataWeb exist but are generic and complex. Tralac publishes analysis but no calculator. No AGOA-exit-specific simple tool for SMEs has been identified."
+  },
+  "budget_detail": [
+   "Domain name (.co.za or .com): €25",
+   "Hosting + database (3 months): €60",
+   "LinkedIn and Google ads targeting South African exporters: €350",
+   "French translation review and proofreading: €80",
+   "Newsletter tool + PDF report generation service: €40",
+   "Stripe/Paystack setup and misc: €45"
+  ],
+  "requete_verification": "AGOA South Africa Rwanda withdrawal January 2027",
+  "concurrents": [
+   "ITC Market Access Map / Trade Map: comprehensive and free but complex, not focused on AGOA exit, no landed-cost simulator",
+   "USITC HTS search and DataWeb: official US rates only, no comparison with alternative markets, not SME-friendly",
+   "Tralac (Trade Law Centre): quality analysis, no interactive tool",
+   "Customs brokers and consultants: paid, case by case; AGOA Exit Desk can refer leads to them rather than compete"
+  ],
+  "analyse": "This is a good, low-cost, time-boxed opportunity with an official date and a clear need, as long as you launch in under three weeks. Data accuracy and sourcing will build credibility, so show the source and date for every rate. Revenue will come mainly from freight forwarder sponsorships and Pro plans, not mass consumers. Watch for a last-minute diplomatic reversal and be ready to turn the site into a negotiation tracker if that happens.",
+  "etapes": [
+   "Download and structure tariff data: USITC HTS API (MFN rates), current AGOA eligibility lists, EU Access2Markets, UK Trade Tariff API (4 days)",
+   "Build the HS code and plain-language product search with a 'before/after January 1, 2027' comparison (Next.js + Postgres, 5 days)",
+   "Add the landed-cost simulator and alternative market comparison (EU, UK, China, AfCFTA) (3 days)",
+   "Write 6 sector pages (citrus, wine, nuts, auto parts, apparel, Rwandan coffee), the timeline and the renegotiation letter template (3 days)",
+   "Translate key pages into French for Rwanda and francophone readers (1 day)",
+   "Set up Stripe or Paystack for €29 reports and the €49/month Pro plan, plus a newsletter on Beehiiv (2 days)",
+   "Launch: LinkedIn posts in South African export groups, outreach to industry associations, Cosatu-related and trade press, Rwandan exporter networks (ongoing from day 18)",
+   "Pitch sponsorship slots to 20 freight forwarders and trade finance providers (week 4)",
+   "Update weekly with negotiation news and any rate change; send alerts to Pro users (ongoing)"
+  ],
+  "risques": [
+   "Wrong or outdated tariff rate: display source and update date on every figure, add an 'indicative, confirm with your broker' warning, and automate the weekly HTS refresh",
+   "US reversal or a new bilateral deal before January: pivot quickly to a negotiation tracker and new-terms calculator",
+   "Few exporters willing to pay: rely on sponsorships and lead referrals rather than subscriptions alone",
+   "Payment friction in South Africa and Rwanda: offer Paystack or local options in addition to Stripe"
+  ],
+  "mots_cles": [
+   "AGOA South Africa",
+   "AGOA tariff calculator",
+   "AGOA withdrawal 2027",
+   "US duty South African exports",
+   "Rwanda AGOA",
+   "export diversification EU UK AfCFTA",
+   "HS code duty lookup"
+  ],
+  "sources": [
+   {
+    "titre": "South Africa: South Africa Responds to U.S. Decision On AGOA Benefits Withdrawal",
+    "url": "https://allafrica.com/stories/202611030459.html",
+    "source": "AllAfrica",
+    "langue": "en",
+    "date": "2026-11-03T12:33:59+00:00"
+   },
+   {
+    "titre": "Agoa : pourquoi les États-Unis excluent l’Afrique du Sud et le Rwanda de l’accord commercial",
+    "url": "https://www.jeuneafrique.com/1858341/economie-entreprises/agoa-pourquoi-les-etats-unis-excluent-lafrique-du-sud-et-le-rwanda-de-laccord-commercial/",
+    "source": "Jeune Afrique",
+    "langue": "fr",
+    "date": "2026-11-03T14:21:20+00:00"
+   },
+   {
+    "titre": "Trump va retirer le Rwanda et l'Afrique du Sud de l'AGOA",
+    "url": "https://www.bbc.com/afrique/articles/cq3dj33808vko?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Afrique (français)",
+    "langue": "fr",
+    "date": "2026-11-03T15:51:28+00:00"
+   },
+   {
+    "titre": "South Africa’s AGOA troubles could reach beyond exporters to its startups",
+    "url": "https://techcabal.com/2026/11/03/south-africa-agoa-fallout-us-startups/",
+    "source": "TechCabal (tech africaine)",
+    "langue": "en",
+    "date": "2026-11-03T13:29:15+00:00"
+   },
+   {
+    "titre": "AGOA Fallout | Govt must save US duty-free trade deal: Cosatu - eNCA",
+    "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOclNmU3VlMWIxeEZjRmFkMUkxR19fV0xtTFNOWnNLMnZfVG1iMlY1eUJGMEl4V3hvRFhKWjItTm9tZnlieTRTcE50dW9Ub1haODBRb0s2dC00Q2NYdTR5SkxHVHcyZ2Y5UmRDUC1zQy0wbDVpVnNaWkVJS3U5ejNxTTY3c3kwTHhtRTBwb1pkWFVKek92VUhpTmp4R3d0SHY3bVVEbEpNWE8?oc=5",
+    "source": "Google News ZA",
+    "langue": "en-ZA",
+    "date": "2026-11-03T13:41:30+00:00"
+   },
+   {
+    "titre": "South Africa Faces AGOA Removal: Can the US Legally Cut Its Trade Benefits? - Diplomacy and Law",
+    "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBqSUJjQU5xbU1HQVNSY05aeFhZM0cyWkV3RHRINWNzOEptWUNsemlyanJOLWI4WEhlWGQzQWE5VGZlZUI1Nk1zRms0MTU5XzhqVWp6Y2FoNGtKOEx1WnFsRThrVzRab2MwNXdSM0ZVTDhKdklUZ3dN?oc=5",
+    "source": "Diplomacy and Law",
+    "langue": "en",
+    "date": "2026-11-02T20:36:36+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "U.S. to Cut South Africa, Rwanda from AGOA Trade Deal - allAfrica.com",
+    "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5lUGpTWUZhN25hTEc3TUUzdnVKS1J5a2x4YUZWbURmdjFyT2FIbkZpbHk4bzZmUFBvZFlWRjZScG5zUFlQMGZQb0d5SHB5dDg0U29CaUl6SFh3NlNLY2tFdmJHWkZoTHhwVVdz?oc=5",
+    "source": "allAfrica.com",
+    "langue": "en",
+    "date": "2026-11-03T07:14:42+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "AGOA: Washington plans to exclude South Africa and Rwanda starting January 2027 - Bénin Web TV",
+    "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOLTR3RktGZzJ2VlJnZ3g1ckZOajlCaC1mQWVLRlJRbWxxSGRvQzdXWEk0eHZEYVl0d1BMSlZ1Zko3U3dCWEJqZVRYRk5pcVVpcEZneG4xQ1RrWjk4ZnRxUEFSUnVVVlZTTGdsWVpzUlV5eGQ1TEZYZzdORm94UUhILUo3Rk95RDZvZ05WRkE2d2R6VVRFbGFhUXd3b3lBVG9ZclBMejYzQQ?oc=5",
+    "source": "Bénin Web TV",
+    "langue": "en",
+    "date": "2026-11-02T22:18:16+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "US Plans AGOA Suspension for South Africa and Rwanda - https://kulu-media.com/",
+    "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQdkpBbVJYd0R1OURhNW0zeVpNZEl4WUgwYXJrd2Q0WGNrMVpZQndURldKQ1RyamppVU82QUkzUzBIUHY0NkRQYkI3d3dULUF4UDdjZEdqamlWTlVreEI1Qk1nMGFLLTZxUGZiVEVTZXNUVGVBQUROOGdPNS0xbjA5Q0g5RUdRUTFTalFYRzdicVUwR29vS0E?oc=5",
+    "source": "https://kulu-media.com/",
+    "langue": "en",
+    "date": "2026-11-02T20:32:19+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "SA challenges Trump’s AGOA decision - Mail & Guardian",
+    "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPY3N6cVVWZk53cThFRDIwRU9pN2tfanZodFVmY2ZZZGNBSHVuSWd2VDl3d3A5TnFQdEpabllyd2F3a1R1cmhWYXJUSmo0Q0RaSGVWbm5TUDZzMUFaQVVWcHdza2k4V3lURm4ydDdmS29Dd2h3TFQxQzhCZnBQTTZkZV9zbUlHV3M1Y3c?oc=5",
+    "source": "Mail & Guardian",
+    "langue": "en",
+    "date": "2026-11-03T05:09:27+00:00",
+    "confirmation": true
+   }
+  ],
+  "ethique": {
+   "acceptable": true,
+   "raison": "The tool gives reliable, sourced information to businesses affected by a trade decision and helps them adapt. It does not exploit distress or circumvent any law."
+  },
+  "id": "idee-a24b0192",
+  "signaux": 1,
+  "cree_le": "2026-11-04T06:37:31+00:00",
+  "mis_a_jour_le": "2026-11-04T06:37:31+00:00",
+  "statut": "active",
+  "notifiee": true,
+  "langue_redaction": "en",
+  "note_globale": 6.6,
+  "sources_confirmation": 5
+ },
+ {
   "titre": "'Aceita VR e VA': guide and comparator for Brazilian merchants and workers as meal-voucher cards become interoperable on November 7",
   "pitch": "From November 7, meal and food voucher cards in Brazil can be accepted on any enabled card machine regardless of operator. A Portuguese site helps small restaurants and grocers pick the right machine and fees, and helps workers find where their card works.",
   "evenement_declencheur": "Brazil's meal (VR) and food (VA) voucher cards become accepted across operators on any enabled card machine starting November 7, 2026.",
@@ -724,179 +1347,6 @@
    "raison": "Provides free, factual security information and neutral replacement advice; does not create artificial fear since the threat is officially confirmed."
   },
   "id": "idee-f6c7af07",
-  "signaux": 1,
-  "cree_le": "2026-11-03T08:00:18+00:00",
-  "mis_a_jour_le": "2026-11-03T08:00:18+00:00",
-  "statut": "active",
-  "notifiee": true,
-  "langue_redaction": "en",
-  "note_globale": 6.5,
-  "sources_confirmation": 5
- },
- {
-  "titre": "'Rate Rise Rescue' Australia: repayment impact calculator and hardship request generator after the RBA's fifth hike to 4.85%",
-  "pitch": "The Reserve Bank of Australia has raised rates for the fifth time this year, to an 18-year high of 4.85%. A free tool shows mortgage holders their new repayments and walks those under stress through their legal right to request hardship relief from their lender, with a ready-to-send letter.",
-  "evenement_declencheur": "The Reserve Bank of Australia hikes its cash rate to 4.85%, its fifth increase of 2026 and the highest level since 2008.",
-  "contexte_declencheur": "On November 3, 2026, the RBA lifted the official cash rate by 25 basis points to 4.85%, its fifth hike this year and the highest level since 2008, citing AI-driven demand and persistent inflation. Governor Michele Bullock said 'some pain now' would prevent worse later. Reports note that the hikes have so far failed to tame inflation while mortgage holders suffer, and a major bank is predicting the worst housing crash on record. Lenders will pass on the increase within days, raising monthly repayments for millions of variable-rate borrowers. Under Australian credit law, borrowers facing financial difficulty can request a hardship variation, and lenders must respond within set timeframes, but many people do not know this or how to ask. A clear, free tool that combines the numbers with practical next steps addresses a growing need.",
-  "pourquoi_maintenant": "Lenders pass on the hike within days and the first higher repayment hits in December, right before Christmas spending. Search demand for 'mortgage hardship' and 'rate rise calculator' peaks in the weeks after each decision. With more hikes possible, launching now also positions the site for the next RBA meetings.",
-  "description_detaillee": "The site has three tools. First, a 'Five hikes later' calculator: users enter their loan balance, rate and remaining term and see how much more they pay per month and per year since January, plus the impact of a further hike. Second, a stress check that compares repayments to income and expenses and flags serious mortgage stress. Third, a hardship request generator: for people in difficulty, a guided form produces a clear, factual letter to their lender requesting a hardship variation (payment pause, reduced repayments, term extension), with guidance on what to include, response timeframes and how to escalate to the Australian Financial Complaints Authority (AFCA) if refused. Every page prominently links to the free National Debt Helpline and financial counsellors. The core tools are completely free. Revenue comes from an opt-in refinance comparison referral to licensed mortgage brokers (as an exempt referrer passing contact details only), display ads on calculator pages and a small optional donation. Traffic comes from SEO on 'RBA rate rise calculator', 'mortgage hardship letter template', sharing in Australian Reddit communities (r/AusFinance, r/AusProperty) and outreach to community legal centres. Realistic: 30,000-100,000 visits around each RBA decision and €1,000-3,000 per month in referral and ad revenue.",
-  "categorie": "outil-web",
-  "cible": "Australian variable-rate mortgage holders, especially recent first-home buyers under repayment stress",
-  "pays_cibles": [
-   "AU"
-  ],
-  "langues": [
-   "en"
-  ],
-  "modele_revenus": "Opt-in referrals to licensed mortgage brokers, display ads, optional donations; core tools free",
-  "budget_estime_eur": 1000,
-  "delai_lancement_jours": 14,
-  "duree_opportunite": "High demand while rates stay elevated (likely 12-24 months), with spikes after each RBA meeting",
-  "notes": {
-   "potentiel": 6,
-   "cout": 7,
-   "travail": 6,
-   "risque": 5,
-   "urgence": 8,
-   "durabilite": 7,
-   "fiabilite": 8,
-   "concurrence": 5
-  },
-  "notes_explications": {
-   "potentiel": "Millions of variable-rate borrowers and valuable refinance leads. Monetization must stay restrained given the audience, which caps revenue.",
-   "cout": "The main expense is a legal review by an Australian lawyer to keep the site within general information and referral rules. Hosting and ads are cheap.",
-   "travail": "Calculators are simple; the hardship generator and accurate legal content need careful writing. About two weeks.",
-   "risque": "Australian credit law restricts giving credit assistance without a licence, and the audience is financially stressed. Staying strictly factual, free and referral-only with legal review reduces the risk.",
-   "urgence": "Repayments rise within weeks and search demand spikes now. Each new RBA meeting adds further windows.",
-   "durabilite": "Rates are at an 18-year high and housing stress will last, so the tools remain useful for at least a year. Demand fades if rates fall significantly.",
-   "fiabilite": "The rate decision is confirmed by The Guardian, CNBC, Infobae and Korean media. Demand for hardship information is evident from coverage of mortgage holders' suffering.",
-   "concurrence": "Canstar, RateCity and bank calculators cover repayments, and Moneysmart has guidance. Few combine the numbers with a practical hardship letter generator in one flow."
-  },
-  "budget_detail": [
-   "Domain + hosting: €80",
-   "Legal review of disclaimers and referral setup by an Australian lawyer: €500",
-   "Google Ads on rate-rise and hardship keywords: €350",
-   "Contingency: €70"
-  ],
-  "requete_verification": "RBA cash rate 4.85 fifth hike Bullock mortgage",
-  "concurrents": [
-   "Canstar and RateCity: repayment calculators focused on product comparison, not hardship",
-   "Moneysmart (ASIC) and National Debt Helpline: trustworthy guidance but no letter generator; this site links to them rather than competing",
-   "Bank calculators: tied to one lender"
-  ],
-  "analyse": "A useful, durable tool if built with restraint: free core features, honest content and visible links to free financial counselling. Get the legal review before launch to stay clearly on the information side of Australian credit licensing rules. The hardship letter generator is the differentiator and the reason people will share it. Do not push refinancing to people in real hardship; reserve referrals for those whose numbers make it sensible.",
-  "etapes": [
-   "Research hardship provisions, lender response timeframes and AFCA escalation from official sources (Moneysmart, AFCA, National Debt Helpline) (3 days)",
-   "Build the repayment impact calculator and stress check (Next.js, client-side calculation) (3 days)",
-   "Build the hardship letter generator with a guided form and PDF/email output (3 days)",
-   "Get an Australian lawyer to review content, disclaimers and the referral model (1 week, in parallel)",
-   "Set up an exempt-referrer arrangement with 1-2 licensed mortgage broker firms (1-2 weeks, in parallel)",
-   "Publish SEO pages and share in r/AusFinance, r/AusProperty and with community legal centres (ongoing)",
-   "Prepare updates for each upcoming RBA decision (recurring, 1 day each)"
-  ],
-  "risques": [
-   "Breaching credit licensing rules: legal review, information-only content, referrals limited to passing contact details",
-   "Reputational risk of monetizing distress: keep core tools free, no aggressive upsells, prominent free help links",
-   "Calculation errors: test against lender calculators and show assumptions",
-   "Rates fall and demand drops: pivot to a general mortgage health check tool"
-  ],
-  "mots_cles": [
-   "RBA rate rise calculator",
-   "mortgage hardship letter Australia",
-   "mortgage stress Australia",
-   "hardship variation request",
-   "RBA 4.85",
-   "AFCA complaint mortgage"
-  ],
-  "sources": [
-   {
-    "titre": "RBA interest rates: Bullock says ‘pain now’ will prevent worse later as Reserve Bank hikes rates for fifth time",
-    "url": "https://www.theguardian.com/australia-news/2026/nov/03/rba-interest-rates-decision-cash-rate-november-reserve-bank-australia",
-    "source": "The Guardian World",
-    "langue": "en",
-    "date": "2026-11-03T07:36:42+00:00"
-   },
-   {
-    "titre": "Australia hikes rates to 18-year high to fight inflation",
-    "url": "https://www.cnbc.com/2026/11/03/australia-hikes-rates-18-year-high-finflation.html",
-    "source": "CNBC Top News",
-    "langue": "en",
-    "date": "2026-11-03T03:46:20+00:00"
-   },
-   {
-    "titre": "Australia sube los tipos un 0,25% por IA e inflación, hasta su nivel más alto desde 2008",
-    "url": "https://www.infobae.com/america/agencias/2026/11/03/australia-sube-los-tipos-un-025-por-ia-e-inflacion-hasta-su-nivel-mas-alto-desde-2008/",
-    "source": "Infobae (Amérique latine)",
-    "langue": "es",
-    "date": "2026-11-03T05:30:37+00:00"
-   },
-   {
-    "titre": "호주 기준금리 4.85%로 인상…18년 만에 최고 - 월간조선",
-    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1vaXpPVjRyTzNPLTR6dmlzeV82anhVVFdxNjJES0tWY2RWNkM3VF9DNy1XU2tkaGZnY1dIb3hyVi02eHRnaXM0QjBfY2t1ZndJSDdNdTZPbHVqQW1wT2JwVVVYODlJT1MwUk5sTQ?oc=5",
-    "source": "Google News recherche KR",
-    "langue": "ko",
-    "date": "2026-11-03T06:13:02+00:00"
-   },
-   {
-    "titre": "Reserve Bank interest rate hikes fail to stop inflation as mortgage holders suffer - Real Estate",
-    "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNcUJCT1BWUXFxZDVUZkpyams3QVZncGFCWS1EWDNCRFZJejVpTXZYTDJHbTd1eEkxTm9ZU1laZmNRRHVmWW5NckZyQ2dsOTByZmdmN180bXd1Y1U4TXJ2bmR0Z0gxTDJWR01jSDNLTzR0UG9ocXp1Y0o4OS1JWXBrMTV4ZFhITktQb281bXdwdXp1dGpVSkc4WTNueGpzd2lqbHZxc2JpMlBBZnhhM3VDb3pPSE43QkNOVXc?oc=5",
-    "source": "Google News AU",
-    "langue": "en-AU",
-    "date": "2026-11-03T02:43:53+00:00"
-   },
-   {
-    "titre": "Big bank predicts worst housing crash on record - Real Estate",
-    "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPV2ZJbTlYTUNEYUJzTHV6VFlINTFja1BVeUVha2tpS05ZNmdYQTc0RlQ3cHVVRFpaeUZ2Mk9XWlpyOENHNUNQNU1Rdm5IVUFvRUV4NWxOM2pVVXA4Vk1fVGhlTWdGWkdtTy1LRjVHb29NZDc4QjRLNGNXTmVMY2xvMFBrSDNMVVBWYmVR?oc=5",
-    "source": "Google News AU",
-    "langue": "en-AU",
-    "date": "2026-11-03T04:18:54+00:00"
-   },
-   {
-    "titre": "RBA interest rates: Bullock says ‘some pain now’ will prevent worse pain later as Reserve Bank hikes rates for fifth time - The Guardian",
-    "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOUlp5bzRrSEJJTUxIZ084TzdGdzhQTy16eTZtS3c3aWFBOWg5WC12UVFDMWJSdzhfSHZhSDZtRXZ5S2RZZlljYUE3UWtCTDBpQ09nSGpZX1U5b3VjcDBJSmw5Qm50MkxjWXVJbGxiVW9BdnMxY0cwSkhjM0JFeFJyZHE0LTVsenUxQWVnUEtSY3JiVWpLSlJ3MVU1aDBRWF9vdFkzMjFHVnY3ZWhiWU9BWTlmcGFtejFBcURzQm8yTjVZUQ?oc=5",
-    "source": "The Guardian",
-    "langue": "en",
-    "date": "2026-11-03T03:30:00+00:00",
-    "confirmation": true
-   },
-   {
-    "titre": "Cash rate rise a sure bet as RBA heads for 4.85% - Mortgage Professional America",
-    "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOU0p3SWs2bUtKZVZqdV94OTZDbHdUMzkyX25TanY2aFc4N01uemlUN1VXaFJSSFhrNEoxcFNyOGt4UjB5SHh0ZG9CN1lEUGRuaWJoOXByczhfNTB6b204QjhiVkZORm9XWGxBVG50cS0zRWVESGF6cnFHbDIyX0NaZ3hZQUtRa2JDN1g0Mm9WR1dVX1FwY1RB?oc=5",
-    "source": "Mortgage Professional America",
-    "langue": "en",
-    "date": "2026-11-02T22:36:35+00:00",
-    "confirmation": true
-   },
-   {
-    "titre": "RBA interest rates: Reserve Bank hikes cash rate for fifth time this year in blow to mortgage holders - inkl",
-    "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNVVExdEtCSXZyVVdORUFEUjByWFRFcjRWV2JTNU44TEdHUUtwXzgxTHZESWFublJIYjhKUVRlT3B3bEIxYTNpdlh2T1RkOVppaDBEU3hlM09aZUpHSE5GbXhnMXBGUVhhUnVZV3hQdDd6cUhZb19DRTIwSi16MjZTVWhBQWlkYTg1WDExTlZVRUE3bi04MXpEQWVqUm9tZzFMNklqTEtqRkxrZTZEYlV1b2Q0UUJiY2xYaHBtWmFIZTdVS3h5?oc=5",
-    "source": "inkl",
-    "langue": "en",
-    "date": "2026-11-03T03:45:33+00:00",
-    "confirmation": true
-   },
-   {
-    "titre": "RBA delivers households another brutal blow as interest rates lifted to 18-year high - News24",
-    "url": "https://news.google.com/rss/articles/CBMirAJBVV95cUxPTFdadjAzdEQtTTBOdEtFWEhtTlMxWUdMUlJOZHpiYTFDS19rU25IMGlKR3lpT1VEUnp6ZWRBUWkwY2VNT3RFaHNLUHhOb1NNSHNBakRIaTFtd0hMQWt0eFVVQnpBcnhVcGloVHl5MWpLMFhBUkIwcW1OZ3YySnh4Zy1PdEV5TVdfYVQwNWdYSGI1dF9FWDdueUpnTUVoczktTExpRUY1NllybVI1b29PSkxBTm82cWtmSVRiVUFKbXRQWW91NWMwRnNhSkR3OVZranFwZmV3UnZqSmFqTGlvM2xZUmxORE5fY2ZDWkcwa2JFTEFPS1FpUFdIVzVaelYxR3d4ZDRlMnFUcERGLUJhMFJJS3BGZ3RWR3JGNkdJcjBxZXpDNm9xWHU2am3SAbICQVVfeXFMT2tVNVJCbU9VQXFFMkJvT2VydE1LbzZJR3BTRnN4UG50dUJrczUwSHZIVUdrV2xYakRPOUdLUllrSkVvb1hNeG5LV3JSNWlEakRfY1hXZzh1UnQ1ZDVOQ09vRWRNX2p2aHIzN2o4WG56V1BTMHhBbWFGT3FRMV9CY3lZLTJiSXZOSGJrTm1IelFLM0xGSXZ4VVo3eUJkZGRrMEp5TlR1dTc1Q3FfTHFjS2l6QVdOZkVtUDhNdHl2ZFlZdXh5NEFmaGMxSTdrbkEzSkJvWlhITDBLdnRPOHl2dXVSQ2hmZ2s0b0pJY183ckoxT0xwLVNWZktnZWdKQmNja3BLbS10QTdYWjhNVF83d0xmQTFPVElza1I4VzMxZzhBaUJ4a1BuTWZXVklDeklYOEpn?oc=5",
-    "source": "News24",
-    "langue": "en",
-    "date": "2026-11-03T05:07:41+00:00",
-    "confirmation": true
-   },
-   {
-    "titre": "RBA hikes rates as Bullock warns of recession-like pain for households - Australian Property Update",
-    "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOblpWOXRuUzFRVzZpT3NQNTM1bEhQN21ocHR2VUtrNExvc3RSbDBja2RmR3NTcUUxcERoYnlFOG53alI3ZmVJUGFRcDI2U28zZjJVWFdHbUV4bmRWZmtqUUpMTmVSR01nbzlONTBLSjFBMVJGTFpkRXBNYTZnREhib2ZrMXBudzBWSk5Qdk9fdlVtMzg1eHEtTmFVejJ2TFRIaFBpVWdteTVnX1N3dW5mbHFFWlU?oc=5",
-    "source": "Australian Property Update",
-    "langue": "en",
-    "date": "2026-11-03T07:47:20+00:00",
-    "confirmation": true
-   }
-  ],
-  "ethique": {
-   "acceptable": true,
-   "raison": "The tools help stressed borrowers understand their situation and exercise their legal rights for free; monetization is limited to opt-in referrals and ads with no manipulation."
-  },
-  "id": "idee-1350c1f7",
   "signaux": 1,
   "cree_le": "2026-11-03T08:00:18+00:00",
   "mis_a_jour_le": "2026-11-03T08:00:18+00:00",
@@ -1251,6 +1701,90 @@
     "source": "Google News recherche US",
     "langue": "en-US",
     "date": "2026-11-03T05:18:09+00:00"
+   },
+   {
+    "titre": "Apple warns of ‘unprecedented’ rise in memory chip prices",
+    "url": "https://www.theguardian.com/technology/2026/nov/02/apple-third-quarter-revenue-earnings",
+    "source": "The Guardian Business",
+    "langue": "en",
+    "date": "2026-11-03T09:01:19+00:00"
+   },
+   {
+    "titre": "Apple advierte de un aumento “sin precedentes” en los precios de los chips de memoria - Infobae",
+    "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPNGhDUjl5U1Bnel9IQXlVc0ktU3pNU0F0bGJIRXljcEM4bnVPdHZ1dEdlajBGZEZ3bzNLYUo2aTZaTGlLcG9KbnZhZmRycFAwVEoyMmtiaVhPWGFraDVMU0lUUi1wSXFVUV96SlRlN25NSzI1RmMxUUNaaGdWOGxTZnV5RFlUMEhxVzhZRHVBeHMydUp2NHhtdmJGWUFjeGx0WTk4ekNEUWdkMmhxQTZ1US1yMmcxakc0RVhSSmxrYnBsRTDSAd4BQVVfeXFMTmlHRVIxTUgybHpGR2ZXZ2tfZlY0RTZfLTFBYjJLS0RHYWFUZkt5NXA3Mzhka1IzS2kwNWhEaXY3Q0M4MEtTUFkwbHBVUTRXUnZTN1RZbzEwQjBTSVVWNU5aNmRRU3J2aGpIU05xQlA1eGIzQnRQSDFUZ3pyQVBibFdYcEJiRDBlYkIxQjZHRWdnX3VucjNtaDd5TFZQOS1DZ3hQUE1zbU00d0padVQwWFlMVUZ1RXFNWVk1bXVhb0xpOU51UnhtbWJ2TGFONV9FSHBxQ3N5NGVGcmFzNE1R?oc=5",
+    "source": "Google News recherche MX",
+    "langue": "es-419",
+    "date": "2026-11-03T18:32:00+00:00"
+   },
+   {
+    "titre": "Apple supera expectativas trimestrales, pero advierte presión sobre márgenes por aumento en costos de memoria - Revista ADVFN",
+    "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxQdGFrMGtiYVBIcEZ1UTRrRGpiVXo4SS1tWE8taVk2VUxtUHlROWlJVmI5WGhtRmlBQjlacTNXXzA0ODJNMGZQNUlTWWlvcGhnVWFmU3RBMmdFUFFoOUdqMjMtSEIzV1gzMUJoRnB4SnlEUmg2d0pQVmZSUlIwQy1vRmZQR0RlYUU3b1BoMTNpSkhFTW5GLWZLNWVya1R6NWF1YjJ4WHVraUgxYlFmbndhR182RjNxbms0ZllFcmxWQlZ3V2RuNVN4RjV1U3dnYlUxeFFkMk1OUm5fa21BN0VISTE5TGNibUczWmRJWV9YdW1Bei1j?oc=5",
+    "source": "Google News recherche MX",
+    "langue": "es-419",
+    "date": "2026-11-03T11:25:52+00:00"
+   },
+   {
+    "titre": "Apple 메모리 가격 상승이 가격 인상을 부추기고 있다. 경영진은 추가 가격 인상 가능성에 대한 질문에는 답변을 회피했다. - Jablíčkář.cz",
+    "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOa0t5RzNHeGNSSEZNYWRjaGRxWXJfUUlZVERBWU1vNVJWZ29uWFpZV0NCMmNCRlU2V3pJVkNUQV8wanFkV2Y4QmN5cmJTb3NXN05ucW0xMlBrd0dxZ3MtZEJBVTB5WUJkcVA4YUY3a2VRelRyLVRTMkh3LXNCWnBteE1LSHBnSGg3TkFveXNpdnpoMVNUblZsaUZCQklvVldBU3RYcg?oc=5",
+    "source": "Google News recherche KR",
+    "langue": "ko",
+    "date": "2026-11-03T15:26:17+00:00"
+   },
+   {
+    "titre": "Apple menghadapi masalah memori yang lebih mahal. Dia tidak menutup kemungkinan kenaikan harga lebih lanjut. - Jablíčkář.cz",
+    "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQb0JvaXlxU2E0NlNpODZtZUMxVzdkZUZkRXh1WHYyQm5veUFBalRITzZBNnlOWWU4Tl81c21ubnZiWUpkMnczdmhDV3BPLTNkMmJwYUxIV1EzTDNOX1NvTG8xb3BHWnNKc2ZTbVduREQwWDhsOFlTaFpWRnJUSlRNNGlVaGZpQThFTmdUZzVfaHFVOEpqbks2UkZpWlhrYXlxX1VJTQ?oc=5",
+    "source": "Google News recherche ID",
+    "langue": "id",
+    "date": "2026-11-03T15:26:17+00:00"
+   },
+   {
+    "titre": "CEO Apple Peringatkan Kenaikan Harga RAM Makin Tak Terkendali - Telset.id",
+    "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPRUdZel9sV1Nic3hGMGFFTjlSYk9NRE5ZQnp2TURMY0NjNkdtWC1jbUw2LVZxNEZ2ejBtdk8ybXNUYy1EejRFei1pOHY0OXZtZ0VGN2R5VWszWU9oNXBpUkllcDByS1otajN6bUhESVBrenczWG9vMmNzSlRDYWZqdXgyNVZISDVQRW1GdjRn?oc=5",
+    "source": "Google News recherche ID",
+    "langue": "id",
+    "date": "2026-11-03T14:01:45+00:00"
+   },
+   {
+    "titre": "Apple Antisipasi Kenaikan Harga Memori, Strategi Borong & Timbun Komponen Dilakukan - Koran Jakarta ®",
+    "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOR2VfYmJjNEVUbVRHSWl0VmVaZndHSll3TE1qck94V3c4Nm1leGJFNnlrMWFmamJPSjhLcEpDLW4wTjl0T3pTZ0p5RWVMcFhBZE9pemh1bTdIM0JKLURITmhwSDI2aVZfVllMVDctWHJGUGRwREJCNjQ1X1l3WkV5ZlplTmRPVlBWUTZ0bGctWS1IeGJOZy1fdUJZU1h1bzRSRTdvU21Dd2ppVGN6M3Y2VzBoWjZxM21T0gG-AUFVX3lxTE54clBJYmFmRnNhaFdTQXQ0RFhEVTZOYklMbWh5azJqaXlFODhkZDA3NnZvSHN3WDlSdlBmWUx6UW1ndXE5NzRWNzNZaExvUTZvNTQ0ajY5eFRFaV9HOC1JN1FUbEhUR1paMld4SkJ4T21GVElVaWpxY1RveFZBd2lRVzdPVzZUU3B0RWQzMGJ1dGo3S0h0aDRfSElPcEVuVUlFQjcwbTlmLXpMdXZpbW5kRi1PeEZzZ2xhSFVUOWc?oc=5",
+    "source": "Google News recherche ID",
+    "langue": "id",
+    "date": "2026-11-03T14:36:00+00:00"
+   },
+   {
+    "titre": "혁신은 주춤, 가격 인상은 한계…애플 성장 공식 흔들리나 - SR타임스",
+    "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5OQ0ItNjlILTNGeVNOZThsREQ4dG9kUE5QaXRNSHdOVjl0ZVFVWm1tZjBCQ3E3emc1MUlqQjY5SC10VzBLMXB2UU0wUDB5SkwwcE8zeVJpT0RzeC1FMmpDdE9aWmZjaGVGTTRV0gFrQVVfeXFMTk5DQi02OUgtM0Z5U05lOGxERDh0b2RQTlBpdE1Id05WOXRlUVVabW1mMEJDcTd6ZzUxSWpCNjlILXRXMEsxcHZRTTBQMHlKTDBwTzN5UmlPRHN4LUUyakN0T1paZmNoZUZNNFU?oc=5",
+    "source": "Google News recherche KR",
+    "langue": "ko",
+    "date": "2026-11-03T13:43:58+00:00"
+   },
+   {
+    "titre": "Apple's New CEO's First Earnings: Shares Fall 4% on Memory Price Surge; Gross Margin Seen at 45-46% - BigGo Finance",
+    "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5TcGlWRUliRG1OZENPTE5nOW13R0puN0pzanFSUGNnWTJfRHJqQkZGaEtmWDg1MklPdU5MaVFOV2xlSUpOenA4Q1NrXzAtLUVLczRIcGdFWTNXMEtCMHZHdU9pQ1FVdC16Nm15NnBnTjJ5SXJOOHc?oc=5",
+    "source": "Google News recherche US",
+    "langue": "en-US",
+    "date": "2026-11-03T22:05:00+00:00"
+   },
+   {
+    "titre": "iPhone 18 Pro price report: Apple confirms price hikes - Mashable",
+    "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9JWHhpRVlQeFQ4Mk1BSjBtNUlmUWI4NmZqTi1Mc2doUUZScUVUSWRNSHByUEt3V3ZYQkdlaW9VU1JkUGN4R0pqUDZMV1d2Q1BJX3N3NjhRWXBVU1lmVzg1Z19mSjZYZC1HWm9tMQ?oc=5",
+    "source": "Google News recherche IN",
+    "langue": "en-IN",
+    "date": "2026-11-03T23:00:00+00:00"
+   },
+   {
+    "titre": "Apple is reportedly preparing iPhone price hikes (because of course they are) - Mashable",
+    "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5TY1FUd2FJaEtkSzUzVU4zbWlhVU9lRTZKSTdtMnprTmRaT0psbl9oY1VVMkl0R2ZqSWszXy1OVlRpTTB3b1NiY0RpVERUS2pXOEtFenR0bi1FVkE0NUNDZ3ZHcVZrV2tFUHV4azBB?oc=5",
+    "source": "Google News recherche IN",
+    "langue": "en-IN",
+    "date": "2026-11-03T22:00:00+00:00"
+   },
+   {
+    "titre": "iPhone, MacBook and iPad price hike: Will Apple devices get costlier or cheaper? here’s what the CEO says - India.com",
+    "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxPNzExN1NXLVFMMXUzMm9xeHJnLXg5cDRBSmxONnA2YXNyUWFqeGFuYV9mN0ZsWDByOFFvcTc3SVBpTHVGRzRDSjNJdENQdms4YUtiVXRPRVc3c1NtUURTeHhJVGZlX2JVQU1TTDU0Wmc3UlpYS3JsdDlkNDNSUlhuX0hRdjFlWjVwOGtTeHRsX2FwMXdIRzk5RDY4MkNpRm9iLXlMeWhqcW5tRC1OaWstdUdqa09nRVRsWk9fdjlmSVRMTFNFNEllaVFRYW9Dc25Hc3VtSnVFdmpXbU3SAeABQVVfeXFMUHNaaEFsbFk0eks0Vk5QZnE0d1pwQmVNNElLVU5SZFg2OUNkenVRUV9YaVkxX003Q1d0MDRCN2J2cUo4cmJWc21GemNHMkpWS2FVOGx0b0pLN3V2LWVtUHN6QkdvSHdNRW5XdTJlQjE1X0VpWXJiQnpDdzhiRUVVWW4zQWYzYzZob1h2NGkxMlcyZmJ1TG92Qm1KcjFOSzJ5RW9ud1JnQ3BlMEVDR1p5aURYMU1MeTBzaVQ1dmlOUjljbDMybTJ4ZFA2c0k0RDYydVo1SjluT3NNZElIRndFYno?oc=5",
+    "source": "Google News recherche IN",
+    "langue": "en-IN",
+    "date": "2026-11-03T16:01:54+00:00"
    }
   ],
   "ethique": {
@@ -1258,12 +1792,12 @@
    "raison": "Le site aide les consommateurs à acheter au meilleur prix pendant une pénurie, sans spéculation ni revente : uniquement de l'information et de l'affiliation au prix du marché."
   },
   "id": "idee-70f114e3",
-  "signaux": 4,
+  "signaux": 5,
   "cree_le": "2026-10-31T14:01:44+00:00",
-  "mis_a_jour_le": "2026-11-03T08:00:18+00:00",
+  "mis_a_jour_le": "2026-11-04T06:37:31+00:00",
   "statut": "active",
   "notifiee": false,
-  "note_globale": 6.4,
+  "note_globale": 6.5,
   "historique": [
    {
     "date": "2026-11-01T10:02:19+00:00",
@@ -1276,6 +1810,10 @@
    {
     "date": "2026-11-03T08:00:18+00:00",
     "note": "Further confirmation of the memory price surge: DRAM prices doubled in 2026 (Nikkei), Apple warns of rising memory costs and shrinking margins, Raspberry Pi and PS5 prices rise, RTX 50 GPU prices up 40-120%, Journal du Geek announces a 'season 2' of the RAM shortage, and PCB/capacitor shortages are expected to last into 2027. Strengthens demand for a buy-or-wait price observatory."
+   },
+   {
+    "date": "2026-11-04T06:37:31+00:00",
+    "note": "Apple warns of an 'unprecedented' rise in memory chip prices and is preparing iPhone price hikes. Google is raising Pixel 11 prices, Microsoft is raising prices, and Nvidia RTX 50 GPUs face new increases, with the RTX 5090 at 262-370% over MSRP. Raspberry Pi 16GB has tripled in price, and Team Group says the shortage will peak through Q2 2027. This strongly confirms the demand for a memory/hardware price observatory with 'buy now or wait' guides."
    }
   ]
  },
@@ -2058,6 +2596,125 @@
   "sources_confirmation": 5
  },
  {
+  "titre": "'Robôs de IA Fora': AI crawler blocking, monitoring and evidence reports for Brazilian news sites and creators after the court ban on Meta's scraping",
+  "pitch": "A São Paulo court has barred Meta from scraping articles of outlets in three press associations to train its AI, but thousands of other Brazilian sites remain unprotected. A Portuguese-language WordPress plugin and dashboard blocks AI bots, logs every visit and generates timestamped evidence reports.",
+  "evenement_declencheur": "On November 3, 2026, a São Paulo court prohibited Meta from using bots to collect reporting, photos and videos from media outlets affiliated with three press associations to train its AI.",
+  "contexte_declencheur": "On Tuesday, November 3, 2026, the São Paulo courts barred Meta (Facebook, Instagram, WhatsApp, Threads) from using robots to collect articles, photos, videos and other content from news outlets affiliated with three industry associations, Folha reports. The ruling only protects members of those associations. Thousands of regional outlets, independent journalists, blogs and content creators in Brazil are not covered and have no simple way to know whether AI crawlers are collecting their content. Most Brazilian news sites run on WordPress, and many have never configured robots.txt for AI agents such as Meta-ExternalAgent, GPTBot, ClaudeBot or Bytespider. The ruling sets a precedent that could encourage other publishers to document scraping and take legal action, which requires evidence. This creates a need for a simple Portuguese-language tool to block, monitor and document AI bot access.",
+  "pourquoi_maintenant": "The ruling is fresh, and the Brazilian media sector is discussing it right now. Publishers outside the three associations will ask 'how do I protect myself?' over the coming weeks. Launching within a month positions the tool as the reference answer, before Brazilian WordPress agencies or Cloudflare communicate locally on the topic.",
+  "description_detaillee": "The product has two parts. First, a free WordPress plugin in Portuguese that adds up-to-date robots.txt rules for 40+ known AI crawlers, a TDM reservation notice (opt-out from text and data mining), and optional server-side blocking by user agent and published IP ranges. Second, a SaaS dashboard (paid) that receives anonymized logs from the plugin or from a simple JS/server snippet for non-WordPress sites. It shows which AI bots visited, how often and which pages, and detects bots that ignore robots.txt. The key paid feature is a monthly evidence report in PDF with timestamps, IPs, user agents and the robots.txt version in force, which a publisher can hand to a lawyer or association. A page explains the São Paulo ruling, Brazilian copyright law (Lei 9.610/98) and the options available, with a clear 'this is not legal advice' notice. Pricing: free plugin; Pro at R$49/month (about €8) per site for the dashboard and evidence reports; Agency at R$290/month (about €48) for 20 sites. Target customers are regional news outlets, independent digital media, specialized blogs and WordPress agencies serving them. Acquisition comes from the WordPress.org plugin directory, posts in Brazilian journalism communities (Abraji, Ajor), LinkedIn and partnerships with Brazilian WordPress hosting providers. A realistic target is 2,000-5,000 free installs and 100-250 paying sites within a year, roughly €1,000-2,500/month.",
+  "categorie": "saas",
+  "cible": "Brazilian regional news sites, independent digital media, bloggers, content creators and the WordPress agencies that manage them",
+  "pays_cibles": [
+   "Brazil",
+   "Portugal"
+  ],
+  "langues": [
+   "Portuguese"
+  ],
+  "modele_revenus": "Freemium: free WordPress plugin, R$49/month Pro dashboard with evidence reports, R$290/month agency plan for multiple sites",
+  "budget_estime_eur": 450,
+  "delai_lancement_jours": 25,
+  "duree_opportunite": "News peak over 1-2 months; durable need as AI scraping and copyright disputes grow",
+  "notes": {
+   "potentiel": 5,
+   "cout": 9,
+   "travail": 6,
+   "risque": 7,
+   "urgence": 6,
+   "durabilite": 7,
+   "fiabilite": 5,
+   "concurrence": 5
+  },
+  "notes_explications": {
+   "potentiel": "Brazil has thousands of digital news outlets and a huge WordPress base, but small publishers have tight budgets. Agencies and evidence reports raise revenue per customer. The market is regional, which limits the score.",
+   "cout": "Costs are limited to a domain, light hosting for log ingestion, Portuguese proofreading and a small ad budget, about €450. The free WordPress.org directory provides distribution at no cost.",
+   "travail": "The robots.txt plugin is quick to build, but log ingestion, bot detection, the dashboard and PDF reports take 2-3 weeks. Keeping the AI bot list and IP ranges up to date is ongoing work.",
+   "risque": "Promising legal protection would be risky, so the tool must present itself as technical blocking plus documentation, not legal advice. Handling server logs requires LGPD compliance, which anonymization makes manageable.",
+   "urgence": "The ruling creates momentum, but the need for AI bot blocking already existed and will not disappear in a few weeks. Launching within a month remains important to catch the media debate.",
+   "durabilite": "Disputes between publishers and AI companies are growing worldwide, and Brazil is debating AI regulation. Bot lists change constantly, which justifies a subscription. A reversal on appeal would not remove the technical need.",
+   "fiabilite": "Only one outlet (Folha) reports the ruling in this batch, so the score cannot exceed 6. The decision is concrete and dated, but the demand from non-member publishers is an assumption to validate.",
+   "concurrence": "Cloudflare offers free AI bot blocking, Dark Visitors provides AI agent analytics in English, and several WordPress plugins block AI crawlers. None offers a Portuguese-language product with evidence reports tied to Brazilian law, which leaves room but not a lot."
+  },
+  "budget_detail": [
+   "Domain name (.com.br): €15",
+   "Hosting for log ingestion and dashboard (3 months): €90",
+   "Native Portuguese proofreading of the plugin, site and legal explainer pages: €120",
+   "Legal review of the terms and LGPD privacy policy: €100",
+   "LinkedIn and Instagram ads targeting Brazilian publishers: €125"
+  ],
+  "requete_verification": "Meta Brazil court AI training news content ban",
+  "concurrents": [
+   "Cloudflare 'Block AI bots' and AI Audit: free and powerful, but requires Cloudflare, is in English and produces no evidence report",
+   "Dark Visitors: robots.txt generator and agent analytics, English only, US-focused",
+   "WordPress plugins such as 'Block AI Crawlers': basic robots.txt rules, no monitoring or documentation",
+   "Differentiation: Portuguese, Brazilian legal context, detection of bots ignoring robots.txt and timestamped evidence reports"
+  ],
+  "analyse": "This is a modest but cheap and sensible idea, with a useful product even beyond the news. Reliability is limited by a single source, so validate quickly by contacting 20 Brazilian regional outlets before building the paid dashboard. The free plugin is low-risk and builds an audience. The main point of vigilance is Cloudflare's free offering, so the evidence report and Portuguese positioning must be the core of the value.",
+  "etapes": [
+   "Validate demand: message 20 regional Brazilian outlets and 5 WordPress agencies about the ruling and their AI bot exposure (3 days)",
+   "Build the WordPress plugin: AI bot robots.txt rules, TDM reservation, optional user-agent/IP blocking, Portuguese interface (5 days)",
+   "Submit the plugin to WordPress.org (review takes a few days, in parallel)",
+   "Build log ingestion, bot identification (user agents + published IP ranges) and detection of robots.txt violations (6 days)",
+   "Build the dashboard and monthly PDF evidence report with timestamps (5 days)",
+   "Write the explainer page on the São Paulo ruling and options, reviewed for accuracy with a 'not legal advice' notice (2 days)",
+   "Set up Stripe or Mercado Pago billing in BRL for Pro and Agency plans (2 days)",
+   "Launch in Brazilian journalism communities, on LinkedIn and with WordPress hosting partners (ongoing)"
+  ],
+  "risques": [
+   "Cloudflare's free blocking makes the product redundant: focus on evidence reports, robots.txt violation detection and Portuguese support",
+   "The ruling is overturned or narrowed on appeal: the technical need for AI bot control remains; adapt the messaging",
+   "Users treat the tool as legal protection: clear disclaimers and partner with lawyers for actual legal advice",
+   "LGPD issues with log data: anonymize visitor IPs, keep only bot traffic and publish a clear privacy policy",
+   "AI bots spoofing user agents: combine user agents with published IP ranges and behavioral heuristics, and be transparent about limits"
+  ],
+  "mots_cles": [
+   "bloquear robôs de IA",
+   "Meta proibida treinar IA reportagens",
+   "robots.txt IA WordPress",
+   "GPTBot Meta-ExternalAgent bloqueio",
+   "direitos autorais IA Brasil",
+   "proteção conteúdo jornalístico"
+  ],
+  "sources": [
+   {
+    "titre": "Justiça proíbe Meta de usar reportagens para treinar IA no Brasil",
+    "url": "https://redir.folha.com.br/redir/online/mercado/rss091/*https://c-level.folha.uol.com.br/negocios/2026/11/justica-proibe-meta-de-usar-reportagens-para-treinar-ia-no-brasil.shtml",
+    "source": "Folha (Brésil, économie)",
+    "langue": "pt",
+    "date": "2026-11-04T00:06:00+00:00"
+   },
+   {
+    "titre": "Court orders Meta to halt training on Brazilian media content - Bangladesh Sangbad Sangstha (BSS)",
+    "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBQREs0QldabVJTZzdlTFFVbWppNDg5eU45RGlvVF80c1RPVWtXekZqV0RGemtDV0loUHQwQXREbUI4RFpkRFdNUGdDeUFySEhLbkxaZ3dJUQ?oc=5",
+    "source": "Bangladesh Sangbad Sangstha (BSS)",
+    "langue": "en",
+    "date": "2026-11-04T02:40:15+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "UK probes Meta over 'exploitative' new terms for media as global pushback mounts - Euronews.com",
+    "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQeHJpY0Z2Sk5xclFYbHBrM19kZ0VmalJGeENoU3laZXNad0VXdWV6RlhHYzBrWFJfM2xlLVBUVjh3OXp0bWZtLVFidFJocWR4TjU2WmhRSWd3UWNkTDZMbWo4ckI3ckZuTU5KejNnbENWd2Jra2s5QnlYMXV5NkEzSmN6anVSZnl2RlJDeko3Z2tiRDI0N0NLaXV3QjZGRUxrMTFuSXBlQUhKeWwteGF6NWJKb3g?oc=5",
+    "source": "Euronews.com",
+    "langue": "en",
+    "date": "2026-10-30T14:43:02+00:00",
+    "confirmation": true
+   }
+  ],
+  "ethique": {
+   "acceptable": true,
+   "raison": "The tool helps publishers and creators control the use of their content in line with a court decision and copyright law. It relies on transparency and accurate information, without fear-mongering or illegal activity."
+  },
+  "id": "idee-3945a942",
+  "signaux": 1,
+  "cree_le": "2026-11-04T06:37:31+00:00",
+  "mis_a_jour_le": "2026-11-04T06:37:31+00:00",
+  "statut": "active",
+  "notifiee": false,
+  "langue_redaction": "en",
+  "note_globale": 6.1,
+  "sources_confirmation": 2
+ },
+ {
   "titre": "Kit EUDR « clé en main » pour TPE/PME françaises : diagnostic gratuit, modèles et questionnaires fournisseurs",
   "pitch": "Le règlement européen contre la déforestation (EUDR) va s'appliquer aux importateurs et vendeurs de café, cacao, bois, cuir, caoutchouc, soja, huile de palme et bovins. Les petites entreprises françaises n'ont ni le budget pour les SaaS spécialisés ni les ressources en français pour s'y préparer. Un kit pratique à prix TPE comble ce vide.",
   "evenement_declencheur": "Les guides de mise en conformité au règlement européen sur la déforestation (EUDR) se multiplient avant son entrée en application, après les reports successifs.",
@@ -2557,6 +3214,69 @@
     "source": "Google News recherche ES",
     "langue": "es",
     "date": "2026-11-01T04:45:21+00:00"
+   },
+   {
+    "titre": "La dimisión de Óscar Puente deja ahora en el aire el cierre de la línea de alta velocidad a su paso por Aragón - heraldo.es",
+    "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxPQlIxNGRkU1RXOTE3djl0WVpfbEVXRTVrd3YtdlhVQm1HYVZsUEV0QzVVbWdCemlPczl4eDVZZ0FwVkptdU1Tb3pnenNTbVljcUZscnh3NTNfRnlxeGNaRFh2MHhLclhGZ0xJV2xzWXlEbGlnU3lyNDhRYkpsa1VlS1E4bng0Q25tSEFOOWh3b2g4aXB2cDRoa3E0OWgtYnNIanBqckJmSERBVVFIdGpDRXBEMllOVjJmSEhYYkJRbjAxQXViZW8zNUZjUG1zekdhMUtoclJSSEZtdnNROGZtZA?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-11-04T04:00:00+00:00"
+   },
+   {
+    "titre": "Spanish transport minister resigns days after deadly train crash",
+    "url": "https://www.bbc.co.uk/news/articles/c6wydqd4yxdyo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC World",
+    "langue": "en",
+    "date": "2026-11-03T22:45:59+00:00"
+   },
+   {
+    "titre": "Espagne: après l'accident ferroviaire mortel, le ministre des Transports présente sa démission",
+    "url": "https://www.rfi.fr/fr/europe/20261103-espagne-apr%C3%A8s-l-accident-ferroviaire-mortel-le-ministre-des-transports-pr%C3%A9sente-sa-d%C3%A9mission",
+    "source": "RFI",
+    "langue": "fr",
+    "date": "2026-11-03T20:47:57+00:00"
+   },
+   {
+    "titre": "Spain's transport minister resigns after deadly high-speed train crash - ABC News & Headlines – Australian Broadcasting Corporation",
+    "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNdm5GOVBWbGJmS1FJQk1adXF0bGM4SjJqakhqV3hpcHRSRUNkRzVUdFZhemJLUDJ6RXZVX1k2dTREQkZ4TmpCU2hIN21odmpDaThWT1o4TUxLRFBWQ1FpM2ltNlFjaHJfelNaWk5WQmlCVS0tTnpPcjdxWXJEZk1oX1lCOVJqYW5PcU1fcTVXRWM3VktnUWFBMkJMVXRRMHhWazRTbQ?oc=5",
+    "source": "Google News AU",
+    "langue": "en-AU",
+    "date": "2026-11-04T00:27:20+00:00"
+   },
+   {
+    "titre": "İspanya Ulaştırma Bakanı, 69 kişinin öldüğü tren kazasının ardından istifa etti",
+    "url": "https://www.bbc.com/turkce/articles/cmx23v6nx3n2o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Turkish",
+    "langue": "tr",
+    "date": "2026-11-03T22:08:36+00:00"
+   },
+   {
+    "titre": "Spanish transport minister resigns after deadly train crash",
+    "url": "https://www.theguardian.com/world/2026/nov/03/spain-transport-minister-oscar-puente-resigns-deadly-train-crash",
+    "source": "The Guardian World",
+    "langue": "en",
+    "date": "2026-11-03T21:46:02+00:00"
+   },
+   {
+    "titre": "Spain’s transport minister resigns after train crash that killed 69",
+    "url": "https://www.scmp.com/news/world/europe/article/3373189/spains-transport-minister-resigns-after-train-crash-killed-69",
+    "source": "South China Morning Post",
+    "langue": "en",
+    "date": "2026-11-03T21:55:32+00:00"
+   },
+   {
+    "titre": "Accident de train mortel en Espagne : le ministre des Transports annonce sa démission après la catastrophe - Ouest-France",
+    "url": "https://news.google.com/rss/articles/CBMinwJBVV95cUxPOEdveG13YTMzTmNnV29sWURaU1I0c2ljeU5qcGxKLXRFWWR2dFdWQ2NDWFNiX0YtcmlsRE9NX2NFQ1dmUEZSZEhQWTYxakd0UXl1SHhjWEU3S0lQckdXcDVwQjZBNDY4a0hTYW5zUEtrMHFCdF9XLUZRYlBKQ0FjSDRLR2hxLU9xRG1BNHpuelBwODBpTE1WOUFlUTJPMWVhaEpteFpPbE5pTFVVSTlwaVh1NjZ0WjRjNU9mVlgyNF93RlNIRWIzdm5SQ2xHNHVDaUNkdWs3YmVjcDhjejRmRzVINER0WHhOWW1FVDZiUm1RT1FZWDZVOVlzUTNsdkFYamFRQTIxZTY5cU8zaTl3anUtQlZzNmRmUVpXSndQcw?oc=5",
+    "source": "Google News FR",
+    "langue": "fr",
+    "date": "2026-11-03T20:33:52+00:00"
+   },
+   {
+    "titre": "İspanya'da 69 kişinin öldüğü tren kazasının ardından bakan istifa etti - Sözcü Gazetesi",
+    "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNTHdsN1dxSVVvVDBoQkFXN1hWYTZ6Q0w2aVZ5amk5N25pbHdyZnVHSl8zX3lkRGhXbGtjQjRyUWpOc1pHS19la01vMGxXS0NkcS1sbVdLM2E4U21mdmpJMEJBak9GNGtJTEtSWHpyMTNjUHFKbURja1lmYVIyX1FucVotVWlDVmJuWHhBTDhWUndwenVYbHludUdJRG9nYWdSNnFzcQ?oc=5",
+    "source": "Google News TR",
+    "langue": "tr",
+    "date": "2026-11-03T23:44:00+00:00"
    }
   ],
   "ethique": {
@@ -2564,16 +3284,20 @@
    "raison": "Le site fournit une information pratique et des alternatives aux voyageurs, sans exploiter les victimes de l'accident ni créer de peur. La monétisation se fait par affiliation classique, au prix normal."
   },
   "id": "idee-5e111883",
-  "signaux": 2,
+  "signaux": 3,
   "cree_le": "2026-10-31T14:01:44+00:00",
-  "mis_a_jour_le": "2026-11-01T10:02:19+00:00",
+  "mis_a_jour_le": "2026-11-04T06:37:31+00:00",
   "statut": "active",
   "notifiee": false,
-  "note_globale": 5.8,
+  "note_globale": 5.9,
   "historique": [
    {
     "date": "2026-11-01T10:02:19+00:00",
     "note": "OkDiario indique que la fermeture du corridor Madrid-Barcelone priverait Renfe de sa seule ligne rentable et de 600 millions d'euros de revenus : le scénario de fermeture reste sur la table et alimente le débat public, ce qui maintient l'intérêt pour un site de statut et d'alternatives."
+   },
+   {
+    "date": "2026-11-04T06:37:31+00:00",
+    "note": "Spanish transport minister Óscar Puente resigned after the high-speed train crash that killed at least 69 people. Heraldo reports that his resignation leaves the planned closure of the high-speed line through Aragón up in the air, so uncertainty for Madrid-Barcelona travelers persists."
    }
   ]
  },
