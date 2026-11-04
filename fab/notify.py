@@ -76,7 +76,8 @@ def build_idea_embeds(idea: dict, dashboard_url: str = "") -> list[dict]:
             3000,
         ),
         "fields": [
-            {"name": "Type", "value": _cut(idea.get("categorie", "?"), 100), "inline": True},
+            {"name": "Type", "value": _cut(idea.get("categorie", "?")
+                                             + (" · en ligne" if idea.get("realisable_en_ligne", True) else " · sur place"), 100), "inline": True},
             {"name": "Budget estimé", "value": _eur(idea["budget_estime_eur"]), "inline": True},
             {"name": "Délai de lancement", "value": f"~{idea['delai_lancement_jours']} jours", "inline": True},
             {"name": "Fenêtre d'opportunité", "value": _cut(idea.get("duree_opportunite", "?"), 200), "inline": True},

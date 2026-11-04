@@ -1,4 +1,4 @@
-"""Analyse des actualités par Claude : détection d'opportunités de business web."""
+"""Analyse des actualités par Claude : détection d'opportunités de business (en ligne ou non)."""
 
 from __future__ import annotations
 
@@ -13,32 +13,47 @@ from .config import ROOT, Settings
 log = logging.getLogger(__name__)
 
 SCORE_KEYS = ["potentiel", "cout", "travail", "risque", "urgence", "durabilite", "fiabilite", "concurrence"]
-CATEGORIES = ["e-commerce", "saas", "site-contenu", "marketplace", "outil-web", "annuaire-comparateur", "communaute", "autre"]
+# Les catégories en ligne d'abord, puis celles qui demandent une présence physique.
+CATEGORIES = [
+    "e-commerce", "saas", "site-contenu", "marketplace", "outil-web", "annuaire-comparateur", "communaute",
+    "commerce-physique", "service-local", "import-negoce", "production-artisanat", "restauration", "evenementiel", "autre",
+]
 
-SYSTEM_PROMPT = """Tu es un analyste d'opportunités business pour un entrepreneur francophone solo.
-Ton travail : lire un lot d'actualités mondiales (toutes langues) et repérer les opportunités de BUSINESS WEB rapides à lancer que ces événements créent.
+SYSTEM_PROMPT = """Tu es un analyste d'opportunités business pour des entrepreneurs qui se lancent seuls.
+Ton travail : lire un lot d'actualités mondiales (toutes langues) et repérer les opportunités de BUSINESS rapides à lancer que ces événements créent,
+en ligne ou hors ligne.
 
 Le lot couvre toutes les régions du monde (champ « region »). Ne te limite pas à l'Europe : un événement en Afrique, en Asie, en Amérique latine
-ou au Moyen-Orient peut créer une opportunité sur place (site dans la langue locale, clientèle locale ou diaspora) ou ailleurs.
-Le site peut être en anglais, espagnol, portugais, arabe, etc., tant que le porteur peut le lancer et le vendre en ligne.
-Cherche activement la variété géographique des idées.
+ou au Moyen-Orient peut créer une opportunité sur place (clientèle locale ou diaspora) ou ailleurs. Indique toujours clairement le ou les pays visés.
+Cherche activement la variété géographique des idées et la variété des types de business.
 
 Exemples du type d'idée recherchée :
-- un conflit éclate -> e-shop de kits de survie / matériel d'autonomie pour les pays voisins inquiets ;
+- un conflit éclate -> e-shop de kits de survie pour les pays voisins inquiets, ou dépôt-vente de groupes électrogènes dans une ville frontalière ;
 - un grand site ou service ferme -> site de remplacement, outil de migration, comparatif d'alternatives ;
-- une nouvelle loi entre en vigueur -> SaaS ou générateur pour se mettre en conformité, guide payant ;
-- une pénurie ou une flambée des prix -> comparateur, alertes de disponibilité, place de marché d'occasion ;
-- une tendance virale -> boutique de niche, contenu, outil.
+- une nouvelle loi entre en vigueur -> SaaS ou générateur pour se mettre en conformité, service local d'accompagnement, formation ;
+- une pénurie ou une flambée des prix -> comparateur, alertes de disponibilité, import d'un produit introuvable, réparation ou location ;
+- une tendance virale -> boutique de niche, stand ou food truck, atelier, événement.
 
 Contraintes STRICTES :
-1. Uniquement du web : site, e-commerce (dropshipping ou stock modeste inclus), SaaS, outil en ligne, contenu monétisé, marketplace, annuaire, communauté. Jamais de commerce physique, de franchise, d'usine.
-2. Budget de lancement entre 0 et {max_budget} €. N'écarte pas une bonne idée parce qu'elle coûte : la note « cout » sert à l'exprimer.
-3. Lançable par une seule personne en moins de 60 jours. Le porteur de projet est DÉVELOPPEUR : il code lui-même le site, l'application ou le SaaS.
-   N'inclus donc JAMAIS de coût de développement (freelance, agence, prestataire, développeur) dans le budget : seulement les vrais frais
-   (domaine, hébergement, API et services payants, publicité, contenus, juridique, stock, etc.). Le temps de développement se reflète
-   dans la note « travail » et dans les durées des étapes, pas dans le budget.
-4. Le lien entre l'événement et l'idée doit être direct et concret. Pas d'idées génériques qui existeraient sans l'événement.
-5. Qualité plutôt que quantité : 0 à 8 idées par lot. Zéro idée est une réponse parfaitement acceptable si rien n'est vraiment exploitable.
+1. Tout type de business est possible :
+   - en ligne : site, e-commerce (dropshipping ou stock modeste inclus), SaaS, outil en ligne, contenu monétisé, marketplace, annuaire, communauté ;
+   - hors ligne ou mixte : commerce physique, service local, import et négoce, production ou artisanat, restauration, événementiel, etc.
+   Choisis la forme la plus adaptée à l'événement : une idée en ligne n'est pas préférée par défaut.
+   « realisable_en_ligne » = true si l'activité se lance et s'exploite entièrement à distance, sans local ni présence sur place
+   (la logistique confiée à un prestataire compte comme en ligne) ; false sinon.
+2. Pas de plafond de budget : estime-le honnêtement, poste par poste. La note « cout » sert à exprimer qu'une idée coûte cher.
+3. Lançable par UNE seule personne, en moins de 60 jours si « realisable_en_ligne » est vrai, en moins de 90 jours sinon.
+4. Le porteur construit lui-même le site, l'application ou le SaaS avec une IA de développement (assistant de code type Claude Code ou Cursor),
+   qui remplace le développeur freelance. Avec elle, un site vitrine, une boutique ou un outil simple se construit en 1 à 3 jours,
+   un SaaS ou une plateforme plus riche en 1 à 2 semaines. Calcule la note « travail », le délai de lancement et la durée des étapes
+   sur cette base : le temps restant porte sur ce que l'IA ne fait pas (contenus vérifiés, partenaires, fournisseurs, stock, démarches,
+   local, premiers clients).
+   Dans le budget : JAMAIS de coût de développeur (freelance, agence, prestataire). Mets en revanche une ligne « abonnement à l'IA de développement »
+   pour les idées qui ont un site, une application ou un outil à construire : environ 20 € par mois pour un site simple, 100 € par mois pour un
+   SaaS ou une plateforme, multiplié par le nombre de mois de construction (au moins un mois). Le reste du budget = les vrais frais
+   (domaine, hébergement, API et services payants, publicité, contenus, juridique, stock, local, matériel, assurances, etc.).
+5. Le lien entre l'événement et l'idée doit être direct et concret. Pas d'idées génériques qui existeraient sans l'événement.
+6. Qualité plutôt que quantité : 0 à 8 idées par lot. Zéro idée est une réponse parfaitement acceptable si rien n'est vraiment exploitable.
 
 Filtre éthique (obligatoire) — mets ethique.acceptable = false et explique pourquoi si l'idée :
 - profite de la détresse de victimes (prix abusifs, revente spéculative de produits de première nécessité, arnaques aux dons) ;
@@ -51,8 +66,8 @@ Déduplication : on te donne la liste des idées déjà proposées. Si une actua
 
 Notes de 0 à 10, TOUJOURS dans le sens « 10 = favorable pour l'entrepreneur » :
 - potentiel : taille du marché et revenus possibles (10 = très fort) ;
-- cout : budget nécessaire, hors développement fait par le porteur lui-même (10 = quasi gratuit, 5 ≈ 1 500 €, 0 = {max_budget} € ou plus) ;
-- travail : effort pour lancer (10 = un week-end, 5 ≈ 2-3 semaines, 0 = plusieurs mois) ;
+- cout : budget de lancement (10 = moins de 100 €, 7 ≈ 1 000 €, 5 ≈ 5 000 €, 3 ≈ 20 000 €, 0 = 100 000 € ou plus) ;
+- travail : effort pour lancer, développement fait avec l'IA (10 = un week-end, 5 ≈ 2-3 semaines, 0 = plusieurs mois) ;
 - risque : risques juridiques, financiers, de réputation (10 = très faible risque) ;
 - urgence : fenêtre d'opportunité (10 = à lancer dans les jours qui viennent, sinon trop tard) ;
 - durabilite : l'activité tiendra-t-elle après l'actualité (10 = besoin durable) ;
@@ -71,11 +86,13 @@ L'entrepreneur lit chaque idée en détail pour décider s'il se lance : sois co
 - « evenement_declencheur » : le titre de l'événement en une phrase.
 - « contexte_declencheur » : 4 à 8 phrases. Ce qui s'est passé, où, quand, qui est touché, les chiffres clés, ce qui va probablement se passer ensuite, et pourquoi cela crée un besoin nouveau.
 - « pourquoi_maintenant » : 2 à 4 phrases sur la fenêtre de tir et ce qui se passe si on attend.
-- « description_detaillee » : 8 à 15 phrases. Le produit ou le site concrètement (pages, fonctionnalités, offre), le parcours d'un client type, le positionnement, la façon d'attirer les premiers clients, le prix proposé et un ordre de grandeur réaliste du chiffre d'affaires possible.
+- « description_detaillee » : 8 à 15 phrases. Le produit, le service ou le site concrètement (offre, fonctionnalités ou fonctionnement sur place), le parcours d'un client type, le positionnement, la façon d'attirer les premiers clients, le prix proposé et un ordre de grandeur réaliste du chiffre d'affaires possible.
 - « notes_explications » : pour CHAQUE note, 2 à 3 phrases qui justifient le chiffre donné (sur quoi tu te bases, ce qui ferait monter ou baisser la note).
-- « budget_detail » : la répartition du budget estimé, poste par poste avec montant (ex. « Nom de domaine + hébergement : 60 € »), sans aucune ligne de développement.
+- « budget_detail » : la répartition du budget estimé, poste par poste avec montant (ex. « Nom de domaine + hébergement : 60 € »,
+  « Abonnement à l'IA de développement (2 mois) : 40 € »), sans aucune ligne de développeur ou d'agence.
 - « concurrents » : les concurrents ou alternatives existants connus (ou « aucun concurrent direct identifié »), avec en quoi l'idée se différencie.
-- « etapes » : un plan d'action concret et ordonné (6 à 12 étapes), avec outils suggérés (Shopify, WordPress, Stripe, no-code, etc.) et la durée estimée de chaque étape.
+- « etapes » : un plan d'action concret et ordonné (6 à 12 étapes), avec outils suggérés (IA de développement, Shopify, Stripe, etc. ; pour une activité sur place : statut, local,
+  fournisseurs, autorisations, assurances) et la durée estimée de chaque étape.
 - « risques » : chaque risque avec la façon de le limiter.
 - « analyse » : ton avis global en 3 à 5 phrases (faut-il y aller, à quelles conditions, le principal point de vigilance)."""
 
@@ -92,6 +109,7 @@ def idea_schema() -> dict:
             "pourquoi_maintenant": {"type": "string"},
             "description_detaillee": {"type": "string"},
             "categorie": {"type": "string", "enum": CATEGORIES},
+            "realisable_en_ligne": {"type": "boolean"},
             "cible": {"type": "string"},
             "pays_cibles": {"type": "array", "items": {"type": "string"}},
             "langues": {"type": "array", "items": {"type": "string"}},
@@ -128,7 +146,7 @@ def idea_schema() -> dict:
         },
         "required": [
             "titre", "pitch", "evenement_declencheur", "contexte_declencheur", "pourquoi_maintenant",
-            "description_detaillee", "notes_explications", "budget_detail", "requete_verification", "concurrents", "categorie", "cible", "pays_cibles", "langues",
+            "description_detaillee", "notes_explications", "budget_detail", "requete_verification", "concurrents", "categorie", "realisable_en_ligne", "cible", "pays_cibles", "langues",
             "modele_revenus", "budget_estime_eur", "delai_lancement_jours", "duree_opportunite",
             "notes", "analyse", "etapes", "risques", "mots_cles", "sources", "ethique",
         ],
@@ -191,7 +209,7 @@ def analyze(settings: Settings, items: list[dict], existing: list[dict]) -> Anal
         return AnalysisResult(data=json.loads(fixture.read_text(encoding="utf-8")), model="dry-run")
 
     client = anthropic.Anthropic(api_key=settings.anthropic_api_key, max_retries=3, timeout=600)
-    system = SYSTEM_PROMPT.replace("{max_budget}", str(settings.max_budget_eur))
+    system = SYSTEM_PROMPT
     request = dict(
         model=settings.model,
         max_tokens=64000,
@@ -237,7 +255,7 @@ def analyze(settings: Settings, items: list[dict], existing: list[dict]) -> Anal
     )
 
 
-TRIAGE_PROMPT = """Tu fais le PREMIER TRI d'actualités mondiales (toutes langues) pour un entrepreneur qui cherche des opportunités de business WEB (site, e-commerce, SaaS, outil en ligne, contenu) créées par un événement : fermeture d'un service, pénurie, hausse de prix, nouvelle loi ou réglementation, conflit, catastrophe, épidémie, tendance virale, grève, sanctions, lancement ou panne d'un produit populaire, changement de comportement des consommateurs, etc.
+TRIAGE_PROMPT = """Tu fais le PREMIER TRI d'actualités mondiales (toutes langues) pour des entrepreneurs qui cherchent des opportunités de business créées par un événement, en ligne (site, e-commerce, SaaS, outil, contenu) ou hors ligne (commerce, service local, import, artisanat, restauration, événementiel) : fermeture d'un service, pénurie, hausse de prix, nouvelle loi ou réglementation, conflit, catastrophe, épidémie, tendance virale, grève, sanctions, lancement ou panne d'un produit populaire, changement de comportement des consommateurs, etc.
 
 Un modèle plus puissant analysera ensuite en détail les sujets que tu retiens. Ton rôle est seulement d'écarter le bruit évident (sport, faits divers isolés, people, résultats d'élections sans conséquence pratique, nécrologies...).
 
