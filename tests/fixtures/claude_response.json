@@ -5,6 +5,7 @@
    "pitch": "Un service web qui exporte en un clic toute la bibliothèque PixNest (photos, albums, légendes) vers Google Photos, iCloud ou un disque, avant la fermeture du 31 décembre.",
    "evenement_declencheur": "Fermeture annoncée de PixNest le 31 décembre.",
    "categorie": "outil-web",
+   "realisable_en_ligne": true,
    "cible": "Utilisateurs de PixNest qui ne veulent pas perdre leurs photos",
    "pays_cibles": [
     "Monde"
@@ -81,6 +82,7 @@
    "pitch": "Un SaaS simple qui permet aux artisans et TPE d'émettre des factures électroniques conformes à la réforme 2027.",
    "evenement_declencheur": "Nouvelle loi sur la facturation électronique obligatoire.",
    "categorie": "saas",
+   "realisable_en_ligne": true,
    "cible": "TPE, artisans, indépendants en France",
    "pays_cibles": [
     "FR"
@@ -151,6 +153,7 @@
    "pitch": "Acheter du stock de bâches et le revendre trois fois plus cher dans les zones inondées.",
    "evenement_declencheur": "Inondations dans le sud.",
    "categorie": "e-commerce",
+   "realisable_en_ligne": true,
    "cible": "Sinistrés",
    "pays_cibles": [
     "FR"

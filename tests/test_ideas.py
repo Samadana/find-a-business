@@ -147,3 +147,39 @@ def test_forbidden_match_in_english():
 def test_new_ideas_are_marked_as_written_in_english():
     from fab.analyze import SYSTEM_PROMPT
     assert "en ANGLAIS américain" in SYSTEM_PROMPT
+
+
+def test_no_budget_cap_by_default_and_online_flag_is_kept():
+    ideas = []
+    shop = idea(titre="Dépôt-vente de groupes électrogènes à Rafah", categorie="commerce-physique",
+                budget_estime_eur=45000, realisable_en_ligne=False, mots_cles=["generateurs"])
+    new, rej, _ = process_analysis({"idees": [shop, idea()]}, ITEMS, ideas)
+    assert not rej
+    assert new[0]["budget_estime_eur"] == 45000 and new[0]["realisable_en_ligne"] is False
+    assert new[1]["realisable_en_ligne"] is True  # absent = en ligne (anciennes réponses)
+    # Un plafond explicite reste possible.
+    _, rej, _ = process_analysis({"idees": [idea(titre="Autre boutique", mots_cles=["autre"], budget_estime_eur=9000)]}, ITEMS, [], 5000)
+    assert rej and "9000" in rej[0]["raison"]
+
+
+def test_ai_coding_subscription_stays_in_budget_but_freelancers_do_not():
+    from fab.ideas import strip_dev_costs
+    i = idea(budget_estime_eur=1260, budget_detail=[
+        "AI coding assistant subscription (2 months): €200",
+        "Abonnement à l'IA de développement (1 mois) : 20 €",
+        "Freelance developer to integrate the AI API: €1,000",
+        "Domain: €40",
+    ])
+    assert strip_dev_costs(i) == 1000
+    assert i["budget_estime_eur"] == 260
+    assert len(i["budget_detail"]) == 3
+
+
+def test_prompt_and_schema_cover_every_kind_of_business():
+    from fab.analyze import CATEGORIES, SYSTEM_PROMPT, TRIAGE_PROMPT, idea_schema
+    props = idea_schema()["properties"]["idees"]["items"]
+    assert props["properties"]["realisable_en_ligne"] == {"type": "boolean"}
+    assert "realisable_en_ligne" in props["required"]
+    assert {"commerce-physique", "service-local", "restauration"} <= set(CATEGORIES)
+    assert "{max_budget}" not in SYSTEM_PROMPT
+    assert "IA de développement" in SYSTEM_PROMPT and "hors ligne" in TRIAGE_PROMPT

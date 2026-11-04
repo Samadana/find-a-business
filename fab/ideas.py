@@ -139,7 +139,11 @@ def reinforce(idea: dict, sources: list[dict], comment: str = "") -> None:
     idea["note_globale"] = global_score(idea["notes"], idea["signaux"])
 
 
-# Le porteur de projet développe lui-même : aucun coût de développement externe dans les budgets.
+# Le porteur développe lui-même avec une IA de développement : aucun coût de développeur externe dans les budgets.
+# L'abonnement à l'IA de développement, lui, est un vrai frais et reste dans le budget.
+_AI = r"(?:\b(?:IA|AI)\b|claude|cursor|copilot|chatgpt|windsurf|lovable|bolt\.new)"
+_SUB = r"(?:abonnement|subscription|plan\b|forfait|licen[cs]e)"
+AI_TOOL_RE = re.compile(rf"{_AI}.*{_SUB}|{_SUB}.*{_AI}", re.IGNORECASE)
 DEV_COST_RE = re.compile(
     r"d[ée]velopp|develop(?:er|ment)|programm|codage|coding|\bdev\b|int[ée]grateur|agence (?:web|digitale)|"
     r"(?:web|digital|development) agency",
@@ -166,7 +170,7 @@ def strip_dev_costs(idea: dict) -> int:
     """
     kept, removed = [], 0
     for line in idea.get("budget_detail") or []:
-        if DEV_COST_RE.search(line):
+        if DEV_COST_RE.search(line) and not AI_TOOL_RE.search(line):
             removed += _amount(line)
         else:
             kept.append(line)
@@ -180,10 +184,11 @@ def process_analysis(
     data: dict,
     items: list[dict],
     ideas: list[dict],
-    max_budget_eur: int,
+    max_budget_eur: int = 0,
 ) -> tuple[list[dict], list[dict], int]:
     """Intègre la réponse de Claude dans la base d'idées.
 
+    `max_budget_eur` : 0 = pas de plafond (réglage par défaut depuis l'ouverture à tous les types d'idées).
     Retourne (nouvelles_idées, idées_écartées, nb_renforcements). `ideas` est modifiée sur place.
     """
     items_by_ref = {it["ref"]: it for it in items}
@@ -206,7 +211,8 @@ def process_analysis(
         strip_dev_costs(idea)
 
         ok, reason = ethics_check(idea)
-        if ok and idea["budget_estime_eur"] > max_budget_eur:
+        idea["realisable_en_ligne"] = bool(raw.get("realisable_en_ligne", True))
+        if ok and max_budget_eur > 0 and idea["budget_estime_eur"] > max_budget_eur:
             ok, reason = False, f"Budget estimé {idea['budget_estime_eur']} € > {max_budget_eur} €."
         if ok and not idea["sources"]:
             ok, reason = False, "Aucune source vérifiable associée."
