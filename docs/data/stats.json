@@ -1,6 +1,37 @@
 {
  "historique": [
   {
+   "date": "2026-11-05T06:30:36+00:00",
+   "statut": "ok",
+   "sources_total": 149,
+   "sources_en_echec": 6,
+   "articles_collectes": 4941,
+   "articles_nouveaux": 3815,
+   "idees_archivees": 0,
+   "sujets_candidats": 1500,
+   "sujets_analyses": 150,
+   "regions_analysees": {
+    "afrique": 29,
+    "asie": 18,
+    "amerique-nord": 18,
+    "amerique-latine": 18,
+    "monde": 15,
+    "moyen-orient": 14,
+    "europe": 14,
+    "oceanie": 13,
+    "business": 11
+   },
+   "modele": "claude-opus-5-5",
+   "tokens_entree": 30388,
+   "tokens_sortie": 18597,
+   "cout_usd": 0.5044,
+   "idees_nouvelles": 4,
+   "idees_ecartees": 0,
+   "renforcements": 4,
+   "sources_confirmation": 6,
+   "idees_notifiees": 2
+  },
+  {
    "date": "2026-11-04T06:30:17+00:00",
    "statut": "ok",
    "sources_total": 149,
@@ -132,10 +163,10 @@
    "idees_notifiees": 0
   }
  ],
- "dernier_bilan": "2026-11-04",
- "derniere_execution": "2026-11-04T06:30:17+00:00",
- "cout_aujourdhui_usd": 0.409,
+ "dernier_bilan": "2026-11-05",
+ "derniere_execution": "2026-11-05T06:30:36+00:00",
+ "cout_aujourdhui_usd": 0.504,
  "modele": "claude-opus-5-5",
  "seuil_notification": 6.5,
- "budget_max_eur": 5000
+ "budget_max_eur": 0
 }
