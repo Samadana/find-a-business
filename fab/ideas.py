@@ -257,6 +257,22 @@ def process_analysis(
     return new_ideas, rejected, reinforced
 
 
+def _parse_utc(value: str) -> datetime | None:
+    """Date ISO -> datetime avec fuseau (UTC si absent) ; None si illisible."""
+    try:
+        dt = datetime.fromisoformat(str(value))
+    except ValueError:
+        return None
+    return dt if dt.tzinfo else dt.replace(tzinfo=timezone.utc)
+
+
+def _signals(idea: dict) -> int:
+    try:
+        return max(1, int(idea.get("signaux") or 1))
+    except (TypeError, ValueError):
+        return 1
+
+
 def archive_old(ideas: list[dict], days: int) -> int:
     """Archive les idées actives sans nouvelle actualité depuis `days` jours.
 
@@ -266,8 +282,10 @@ def archive_old(ideas: list[dict], days: int) -> int:
     cutoff = datetime.now(timezone.utc) - timedelta(days=days)
     count = 0
     for idea in ideas:
-        last = idea.get("dernier_signal_le") or idea["mis_a_jour_le"]
-        if idea.get("statut") == "active" and datetime.fromisoformat(last) < cutoff:
+        if idea.get("statut") != "active":
+            continue
+        last = _parse_utc(idea.get("dernier_signal_le") or idea.get("mis_a_jour_le") or "")
+        if last is not None and last < cutoff:
             idea["statut"] = "archivee"
             count += 1
     return count
@@ -283,7 +301,7 @@ def rescore(ideas: list[dict]) -> int:
     for idea in ideas:
         if idea.get("statut") != "active" or not isinstance(idea.get("notes"), dict):
             continue
-        score = global_score(clamp_scores(idea["notes"]), idea.get("signaux", 1))
+        score = global_score(clamp_scores(idea["notes"]), _signals(idea))
         if score == idea.get("note_globale"):
             continue
         if not idea.get("dernier_signal_le") and idea.get("mis_a_jour_le"):

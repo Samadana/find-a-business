@@ -274,3 +274,15 @@ def test_prompt_has_numeric_anchors_for_every_score():
     for anchor in ("20 000 €", "géants installés", "mise perdue < 500 €", "besoin permanent", "fenêtre de quelques jours",
                    "fait officiel", "ne peut pas dépasser 6 en fiabilité", "utilise toute l'échelle"):
         assert anchor in SYSTEM_PROMPT, anchor
+
+
+def test_rescore_and_archive_tolerate_odd_data():
+    from fab.analyze import SCORE_KEYS
+    from fab.ideas import rescore
+    odd = [
+        {"statut": "active", "notes": {k: 7 for k in SCORE_KEYS}, "signaux": None, "note_globale": 0,
+         "mis_a_jour_le": "2020-01-01T00:00:00"},
+        {"statut": "active", "notes": {k: 7 for k in SCORE_KEYS}, "signaux": "x", "note_globale": 0},
+    ]
+    assert rescore(odd) == 2
+    assert archive_old(odd, 30) == 1  # date sans fuseau lue en UTC ; idée sans date ignorée
