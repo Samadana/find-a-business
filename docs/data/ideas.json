@@ -522,153 +522,6 @@
   "sources_confirmation": 0
  },
  {
-  "titre": "'Can my car enter Delhi?': BS6 eligibility checker and options guide for NCR drivers facing the older-vehicle entry ban",
-  "pitch": "Delhi is about to block non-BS6 vehicles at its borders. A bilingual Hindi/English checker tells drivers in seconds whether their vehicle is allowed and what to do if it is not: sell, scrap, switch to CNG or EV.",
-  "evenement_declencheur": "Delhi prepares to stop older vehicles that fail BS6 emission standards from entering the city, with ANPR cameras at border points.",
-  "contexte_declencheur": "The Times of India reports that Delhi is set to implement restrictions barring older vehicles that do not meet BS6 emission standards from entering the city. Officials are struggling with how to monitor numerous entry points during rush hours and plan to rely on technology such as automatic number plate recognition. Millions of commuters drive daily from Gurugram, Noida, Ghaziabad, Faridabad and other NCR towns, and many still own BS4 or older cars, two-wheelers and commercial vehicles. Most owners do not know their vehicle's emission norm offhand, nor the exact rules, exemptions or penalties. Once ANPR enforcement starts, fines and refused entries will push owners to check eligibility, sell or scrap their vehicle, or buy a compliant one. This creates a sudden, massive information need and a wave of purchase decisions.",
-  "pourquoi_maintenant": "Searches peak in the days before and right after enforcement begins, when the first fines and viral videos of turned-back vehicles appear. A tool live before the start date can rank for 'BS6 check by number' style queries before the large auto portals react. After a few months, the content becomes a slower evergreen guide.",
-  "description_detaillee": "The homepage is a simple checker: the user selects vehicle type, fuel, state of registration and month/year of registration (or first sale), and gets a clear verdict (likely BS6 / likely not BS6 / check needed) with an explanation, since BS6 became mandatory for new registrations from April 2020. A link explains how to confirm the exact emission norm on the official Vahan/mParivahan records and on the RC. Pages cover the rules in plain language: which roads and borders, timings, exemptions, penalties, and the latest official notifications, updated as orders are published. A 'What now?' section compares options with calculators: selling the vehicle (lead forms or affiliate links to used-car buyers), scrapping at a registered vehicle scrapping facility and the scrappage certificate benefits, CNG retrofit where legal, buying a BS6 used car, or switching to public transport or EV with monthly cost comparison. Everything is in Hindi and English, mobile-first and WhatsApp-shareable, since much traffic will come from family and housing-society WhatsApp groups. First users come from SEO, a Google Ads test on 'BS6 vehicle ban Delhi' keywords, posts in r/delhi and r/gurgaon, and outreach to local news sites who often embed or link useful tools. Revenue comes from display ads (high traffic volume), affiliate or lead-gen fees from used-car platforms, scrapping facilities, CNG kit installers and EV dealers (typically ₹200-₹1,000 per qualified lead). With hundreds of thousands of affected vehicles, a realistic outcome is 200,000-500,000 visits in the enforcement month and €1,000-€4,000 per month in combined ads and leads during the first quarter.",
-  "categorie": "outil-web",
-  "cible": "Car, two-wheeler and small commercial vehicle owners in Delhi NCR (Gurugram, Noida, Ghaziabad, Faridabad) with pre-2020 vehicles",
-  "pays_cibles": [
-   "India"
-  ],
-  "langues": [
-   "English",
-   "Hindi"
-  ],
-  "modele_revenus": "Display ads, lead generation for used-car buyers, scrapping facilities, CNG installers and EV dealers, affiliate links",
-  "budget_estime_eur": 450,
-  "delai_lancement_jours": 10,
-  "duree_opportunite": "Strong spike around enforcement start, then 6-12 months of steady demand as vehicles are replaced",
-  "notes": {
-   "potentiel": 6,
-   "cout": 8,
-   "travail": 8,
-   "risque": 7,
-   "urgence": 9,
-   "durabilite": 5,
-   "fiabilite": 7,
-   "concurrence": 6
-  },
-  "notes_explications": {
-   "potentiel": "Traffic potential is very large given the NCR population, but Indian ad CPMs are low. Lead-gen deals with used-car and scrapping players would push revenue higher if secured early.",
-   "cout": "Only domain, hosting, a small ads test and Hindi proofreading are needed, under €500. No paid data API is required if users enter their registration date.",
-   "travail": "The checker logic is simple and the guide pages are few; a developer can ship it in about a week. Keeping rules updated with official notifications is the recurring effort.",
-   "risque": "The main risk is giving a wrong verdict; framing results as 'likely' and pointing to official Vahan records limits liability. No sensitive data needs to be stored.",
-   "urgence": "The restriction is described as imminent; being ready before enforcement and the first fines is essential to capture the spike.",
-   "durabilite": "Once most owners have checked and decided, traffic declines, but rules tend to tighten over time (other cities, other standards) and the replacement decisions last months.",
-   "fiabilite": "The plan is covered by the Times of India and a second outlet, and Delhi has a long track record of vehicle restrictions. The exact start date and scope still need confirmation.",
-   "concurrence": "Big auto portals (CarDekho, Cars24, CarWale) will publish articles, and Vahan provides raw data, but none offers a dedicated, bilingual checker focused on this ban with an options guide."
-  },
-  "budget_detail": [
-   "Domain name (.in) and hosting: €40",
-   "Hindi copy proofreading by a native speaker: €120",
-   "Google Ads test on ban-related keywords: €250",
-   "Logo and social share images (Canva Pro, 1 month): €12",
-   "Miscellaneous (form tool, analytics): €28"
-  ],
-  "requete_verification": "Delhi BS6 vehicle ban border enforcement ANPR",
-  "concurrents": [
-   "Vahan/mParivahan official portals: raw data, no plain-language verdict or options",
-   "CarDekho, CarWale, Cars24 news articles: static articles designed to sell cars, not a neutral checker",
-   "Local news explainers: one-off, not updated, no tools"
-  ],
-  "analyse": "A quick, low-cost and helpful tool with a clear spike in demand, well suited to a developer who can ship in days. Go if you can launch before enforcement and secure at least one or two lead-gen partners, since ads alone in India pay little. The main point of vigilance is accuracy: track official notifications closely and never present a verdict as legal certainty.",
-  "etapes": [
-   "Collect official rules, notifications and exemptions from Delhi transport department and CAQM sources (1 day)",
-   "Build the checker and result pages with Astro or Next.js, mobile-first, deployed on Cloudflare Pages (3 days)",
-   "Write and translate guide pages: rules, penalties, sell/scrap/CNG/EV options with cost calculators (3 days)",
-   "Add WhatsApp share buttons and Open Graph images for viral sharing (half a day)",
-   "Apply to affiliate/lead programs of used-car buyers and contact registered scrapping facilities and CNG installers in NCR (2 days)",
-   "Launch with a Google Ads test, posts in r/delhi, r/gurgaon, r/noida and outreach to local news sites (1 day)",
-   "Monitor search console and update rules within hours of each official announcement (ongoing)"
-  ],
-  "risques": [
-   "Wrong verdict for edge cases (late registrations, imported vehicles): use 'likely' wording and link to official records",
-   "Policy delayed or changed: keep content focused on official sources and pivot to general pollution-rule guides",
-   "Low ad revenue: prioritize lead-gen partnerships early",
-   "Copycats from big portals: win on speed, bilingual UX and WhatsApp shareability"
-  ],
-  "mots_cles": [
-   "BS6 check Delhi",
-   "Delhi vehicle ban",
-   "BS4 car entry Delhi",
-   "vehicle scrappage NCR",
-   "ANPR Delhi border",
-   "can my car enter Delhi"
-  ],
-  "sources": [
-   {
-    "titre": "Delhi's vehicle ban faces big test at borders: Can enforcement keep up?",
-    "url": "https://timesofindia.indiatimes.com/city/delhi/delhis-massive-vehicle-ban-faces-its-biggest-test-at-the-borders-can-enforcement-keep-up/articleshow/135445979.cms",
-    "source": "Times of India",
-    "langue": "en",
-    "date": "2026-11-02T05:08:45+00:00"
-   },
-   {
-    "titre": "Delhi's massive vehicle ban faces its biggest test at the borders: Can enforcement keep up? - The Times of India",
-    "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxOR2tMbXFtR0RkdmREWEF4U2UydHZUVUhGVUs5eW9SOUVKWUp4SEJ0cEZsdFdUN3VqQWJfdEtHZkJ4c3A2clNyaE5TdnozM0JlbnA1Q3E1cWd0a1MxLWFpTU1iTC1RTlJLR1NONGRnamV5MTFRWklfS2FYV001d1dOc1lCX2VYQmEtc0oxWExIbVZtU21WVDJpVllJNlRQYTR3M2xyUU8xVHFzOWdOLUdxY3dqWWZBVzBlS1B2cXQyRy1FVkQ4b2RHLW5DUld0ZzJ5bUJ2alNFN2tGUzYtQTJDdTd6UmFVN1JxT2lXUVdoWjFRbXM?oc=5",
-    "source": "Google News IN",
-    "langue": "en-IN",
-    "date": "2026-11-02T05:08:00+00:00"
-   },
-   {
-    "titre": "Delhi-NCR's New Pollution Rules Explained: Older Vehicles Banned, 50% WFH, And Strict Commute Curbs - NDTV",
-    "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPOE1hQTNma0FOSjVGTlpBdmkxX0c2T1hYbW1ZUW9kOU1XLUQyelQ0UGp4ZEJ5VThKbURBamVXeHpkZWlCZXlkblVMUkNUYWtQcFVlSGMwelhDdDNNazc3UFdkaXA0M0xVQUtaLXRGSldVaWRVS1hxQWFsbUlQdHY4R0tveFdBdEEyalhKRXhYNDY3QnhSN0M1SGh0VHh3SUU0alN6VEMzWFcwUTBxRFB6YnlWejl2SXhFYURqVlVzSWtrVHNrZHcwazVlVTBNWUtI0gHYAUFVX3lxTE4yTFFOR3JveHJmRW9oT2ItTXVEamYycVBsZFQyejU4aVVLYXd5c2l1RklyMC1PZmRQRjBUbzEtb1RNWnZva2d3dndWeklHcy1vMzM1T205U1dDVlhQVXQ5Q2FHalZWaEtla3ZQSVFtYkE3WEZzRV92LS1CUzNmZ2pGck9mNEc0VkVVMDdKY2FJaHpEbXhlaTM4dzBvb1BPM2ZUaklITlg4UW1yaWtVOGFvUDN1Ym1KVHNUQXp3WXE5Mjd6TkJKci12TkxSWXNCalFTeVVrY0JLNw?oc=5",
-    "source": "NDTV",
-    "langue": "en",
-    "date": "2026-11-01T02:53:08+00:00",
-    "confirmation": true
-   },
-   {
-    "titre": "Delhi pollution curbs: Non-BS-VI vehicles barred from Nov 1, check rules - Business Standard",
-    "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOUVVIY29uMzFWcGRfWGpjcWVjb0VhZXZWMmFxb20tQUxmcV9sc1VOdXM1SWZybHV0OVZ5djZud3FMRTRjaURvYktDRHNocnlRZmxmSlBwVWlRWVFLd1o3aTVBYXRZdVlGUXdrY2xiUmFOc3NlUjdXbnVtRjN5V05VeDZIaVFXZDZZRXU1d04wWE9XMC0wRUdXVTBvdDI0bkY0YkNCVXdaQkd3ZDAzQk45TGJ3OVlQNkM2bmNXVGVhMkVqN1FDYmN5bi1lTEFhSkVMdmRxSm930gHbAUFVX3lxTE1WbEMyeFdkTVlyc0gtRXFSNzBoWkE3RGt5cmVnSjB0S3lHR3hXakVJTFBOR2loTXBZanFUNFU0STBQUGxZbjQ3X3JTSG9DQ1pnYTlxeTRZSFpzMlNFMURPcHlrTHp6NnppWGxWSFpRZl92NGEybWQwU09mWV9sTlpyb1RKV3lGakhnSGVYNXRCWVlNdlZobTE1aC1vMFdMM2hPand6QlFuYjlmN1o3OHZHRTdobmhtY2xvLU42b1BXR1ZPVHJLMTYwRldlTXdocEdodjVXTE15dVo3OA?oc=5",
-    "source": "Business Standard",
-    "langue": "en",
-    "date": "2026-10-27T05:21:36+00:00",
-    "confirmation": true
-   },
-   {
-    "titre": "Delhi’s BS6 rule is coming: Is your NCR vehicle on the banned list? Here's how to check - The Times of India",
-    "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxPOXZUUE1lTlk5eDBya1NhSWM4SHJQQ3lfaWU0dDVnYzVzUHNVWnBsczV0Q09RNGFZZjJoVlpmMExMQVlhdUt5azJVNFkwOW9XNVpTMWJkNDF5TzVBc0FlQ1d2bWx3TlR2bjRja2x3dUVxdU1lWnpXZUVHa282ams2VXdsVXVMLUVEVkEyc1Zqc2lVT0tRUHFMNVdUa1JvTV9HZ3VIWkpmeGc5d2lna2s5VzE1Qno4NE1KLXk0eC1tWlh4c0JrMXNpUkhtY2U0WW9QZHRKOW5TSDhDaTN3WERNRnREOEpPeExWOGdDV9IB8gFBVV95cUxONnlOdTUzaGF5WFZYWWNPMi1SdFNDdXg2eV9OeW5UTXZRR1RfcE42WWhWdTAzakROaEl3Mkp0bTNia3JvV09nVUlrWHpSc2Q4d0U3YXN1TE5wV1VWeTlJVi16VTRLbk95VGctTGVwcjd0b0MzS0h2NVRCYm1wZzVVclBDSEJYdHlWRTI1UTlDOEt0WmF5dDJYaTZnWWYxeTFoRzBsckZaWWdUWHFGaWg0MEczN0VZQVZUMml0YllicmxrTnFXaEZIVWQwZTFRbDZHRGxYUkpoUjJweE1zZ0lCeUJ1S3hyMnhDRDJKRXdGeXZLdw?oc=5",
-    "source": "The Times of India",
-    "langue": "en",
-    "date": "2026-10-27T11:33:00+00:00",
-    "confirmation": true
-   },
-   {
-    "titre": "Delhi pollution rules from today: What changes on the road, at the pump and at work - Moneycontrol.com",
-    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOQUtHTGtqMVZ1LXFJZnFtM3RqZHRLNU5XX3RSQlExRWN4U3dhMS1XM3FvSEJIZFhnRU9rQ2FzVWN4cUZEcm1WUnZ4b3k3WUgxeE5NMVd0eWVMTjU3cGMydGFKZ25xbTRPVjkxZUJCYWxjT0NNLWdsbkRjVFQ2Rk5vMU92TEQyWlFhOG1VcFFFcXhBZ1dMdG1ZbmlQdUFVb1VXWGNlNmtoVV9MUG1tNGpfamd2dWxWd9IBuwFBVV95cUxPU3J0RW56d2s5MlRVTVVFZXJSbzNabExvMEZlUHVKWUlZMWx4d19KVUd5azlKbzVObnBqaElVcVBrcVlGTzl3Y2p5cXRsdFFHbWFNb1pvclEySTVLV21DamVCbVFtVFVlYmdwelNBN3N2cWtnWUtfWEg3RUhLaHFSSHNjRHNXM2dFZnNPaktEdjJMVDRSTmQzaUpqakxfQkh4SW1Nazk0TmNCS2ZCdUNKZ1IxODR6QkxRamxJ?oc=5",
-    "source": "Moneycontrol.com",
-    "langue": "en",
-    "date": "2026-11-01T03:56:01+00:00",
-    "confirmation": true
-   },
-   {
-    "titre": "Older vehicles, no entry: Delhi shuts the gate on non-BS6 outsiders from November 1 - India.com",
-    "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNdDl2RHhiazVUNG5uX1hJQnVCMEhULVRSY2tYUzVyV29nYThDdXFvaldvSHpWbldvZzE2cjJSVXFhcWJaMUlEVkQ2WkZhYk0zNGRyaGFJbzluajZvTTJGUXN4UW1zNEwweHcweVBwTjBEQWhPaVV5MzZDdDF1ZjJkMmRBZWEyeXpuMDlYZXpqZG5CSUNTN3NWRkJkcHpxT3dmeWRNdXZkZmpsZWdqWDVMRm1vYkF3c0J1MHhBLU8xQTByTVRLNmfSAcYBQVVfeXFMTXQ5dkR4Yms1VDRubl9YSUJ1QjBIVC1UUmNrWFM1cldvZ2E4Q3Vxb2pXb0h6Vm5Xb2cxNnIyUlVxYXFiWjFJRFZENlpGYWJNMzRkcmhhSW85bmo2b00yRlFzeFFtczRMMHh3MHlQcE4wREFoT2lVeTM2Q3QxdWYyZDJkQWVhMnl6bjA5WGV6amRuQklDUzdzVkZCZHB6cU93ZnlkTXV2ZGZqbGVnalg1TEZtb2JBd3NCdTB4QS1PMUEwck1USzZn?oc=5",
-    "source": "India.com",
-    "langue": "en",
-    "date": "2026-10-31T17:22:36+00:00",
-    "confirmation": true
-   }
-  ],
-  "ethique": {
-   "acceptable": true,
-   "raison": "The tool gives drivers reliable information and helps them comply with an environmental rule; it neither exploits distress nor encourages evasion of enforcement."
-  },
-  "id": "idee-28d20b0c",
-  "signaux": 1,
-  "cree_le": "2026-11-02T09:22:17+00:00",
-  "mis_a_jour_le": "2026-11-02T09:22:17+00:00",
-  "statut": "active",
-  "notifiee": true,
-  "langue_redaction": "en",
-  "note_globale": 6.7,
-  "sources_confirmation": 5
- },
- {
   "titre": "'Ashol LPG Dam': crowdsourced real LPG cylinder price map for Bangladesh versus the official BERC rate",
   "pitch": "Bangladesh's regulator has raised the 12kg LPG cylinder price by Tk223 to Tk2,060, and retailers often charge even more. A Bengali/English site shows the official monthly rate and the prices people actually pay by area, so households can find fair sellers and report overcharging.",
   "evenement_declencheur": "Bangladesh raises the price of a 12kg LPG cylinder by Tk223 to Tk2,060 for November 2026.",
@@ -831,6 +684,13 @@
     "langue": "en",
     "date": "2026-11-02T13:05:15+00:00",
     "confirmation": true
+   },
+   {
+    "titre": "LPG retails Tk 500 above govt rate despite Tk 475 price hike - New Age BD",
+    "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQdTR4ajJ5OVMyWFVtLWRPbVEzV1o0QUJnQUJyeE1hOUNkYXNzOE5Fb0dpdnV0SmZHeVIzY21hY25TNF9Da3dDbXFGdERCOUhaR3dRZ2VCUThqWkt0NG40Ui13cm5UcE9FdXc1cFRQdTlDLWJZNDgyNnFKS29BT0xFdk5NRG1tbG5VMzdsZlU3Vk1kWmx5VkJoWVlLNWdzdG5hc1ZXT0JrWk8?oc=5",
+    "source": "Google News recherche IN",
+    "langue": "en-IN",
+    "date": "2026-11-05T19:08:00+00:00"
    }
   ],
   "ethique": {
@@ -838,9 +698,162 @@
    "raison": "Helps households avoid overcharging on an essential cooking fuel with free information; it does not raise prices or exploit distress."
   },
   "id": "idee-ea74644b",
-  "signaux": 1,
+  "signaux": 2,
   "cree_le": "2026-11-03T08:00:18+00:00",
-  "mis_a_jour_le": "2026-11-03T08:00:18+00:00",
+  "mis_a_jour_le": "2026-11-06T06:45:53+00:00",
+  "statut": "active",
+  "notifiee": true,
+  "langue_redaction": "en",
+  "note_globale": 6.8,
+  "sources_confirmation": 5,
+  "historique": [
+   {
+    "date": "2026-11-06T06:45:53+00:00",
+    "note": "New Age BD reports LPG retailing Tk500 above the government rate in Bangladesh despite a Tk475 official price hike, confirming the gap between street and official prices that the crowdsourced map targets."
+   }
+  ]
+ },
+ {
+  "titre": "'Can my car enter Delhi?': BS6 eligibility checker and options guide for NCR drivers facing the older-vehicle entry ban",
+  "pitch": "Delhi is about to block non-BS6 vehicles at its borders. A bilingual Hindi/English checker tells drivers in seconds whether their vehicle is allowed and what to do if it is not: sell, scrap, switch to CNG or EV.",
+  "evenement_declencheur": "Delhi prepares to stop older vehicles that fail BS6 emission standards from entering the city, with ANPR cameras at border points.",
+  "contexte_declencheur": "The Times of India reports that Delhi is set to implement restrictions barring older vehicles that do not meet BS6 emission standards from entering the city. Officials are struggling with how to monitor numerous entry points during rush hours and plan to rely on technology such as automatic number plate recognition. Millions of commuters drive daily from Gurugram, Noida, Ghaziabad, Faridabad and other NCR towns, and many still own BS4 or older cars, two-wheelers and commercial vehicles. Most owners do not know their vehicle's emission norm offhand, nor the exact rules, exemptions or penalties. Once ANPR enforcement starts, fines and refused entries will push owners to check eligibility, sell or scrap their vehicle, or buy a compliant one. This creates a sudden, massive information need and a wave of purchase decisions.",
+  "pourquoi_maintenant": "Searches peak in the days before and right after enforcement begins, when the first fines and viral videos of turned-back vehicles appear. A tool live before the start date can rank for 'BS6 check by number' style queries before the large auto portals react. After a few months, the content becomes a slower evergreen guide.",
+  "description_detaillee": "The homepage is a simple checker: the user selects vehicle type, fuel, state of registration and month/year of registration (or first sale), and gets a clear verdict (likely BS6 / likely not BS6 / check needed) with an explanation, since BS6 became mandatory for new registrations from April 2020. A link explains how to confirm the exact emission norm on the official Vahan/mParivahan records and on the RC. Pages cover the rules in plain language: which roads and borders, timings, exemptions, penalties, and the latest official notifications, updated as orders are published. A 'What now?' section compares options with calculators: selling the vehicle (lead forms or affiliate links to used-car buyers), scrapping at a registered vehicle scrapping facility and the scrappage certificate benefits, CNG retrofit where legal, buying a BS6 used car, or switching to public transport or EV with monthly cost comparison. Everything is in Hindi and English, mobile-first and WhatsApp-shareable, since much traffic will come from family and housing-society WhatsApp groups. First users come from SEO, a Google Ads test on 'BS6 vehicle ban Delhi' keywords, posts in r/delhi and r/gurgaon, and outreach to local news sites who often embed or link useful tools. Revenue comes from display ads (high traffic volume), affiliate or lead-gen fees from used-car platforms, scrapping facilities, CNG kit installers and EV dealers (typically ₹200-₹1,000 per qualified lead). With hundreds of thousands of affected vehicles, a realistic outcome is 200,000-500,000 visits in the enforcement month and €1,000-€4,000 per month in combined ads and leads during the first quarter.",
+  "categorie": "outil-web",
+  "cible": "Car, two-wheeler and small commercial vehicle owners in Delhi NCR (Gurugram, Noida, Ghaziabad, Faridabad) with pre-2020 vehicles",
+  "pays_cibles": [
+   "India"
+  ],
+  "langues": [
+   "English",
+   "Hindi"
+  ],
+  "modele_revenus": "Display ads, lead generation for used-car buyers, scrapping facilities, CNG installers and EV dealers, affiliate links",
+  "budget_estime_eur": 450,
+  "delai_lancement_jours": 10,
+  "duree_opportunite": "Strong spike around enforcement start, then 6-12 months of steady demand as vehicles are replaced",
+  "notes": {
+   "potentiel": 6,
+   "cout": 8,
+   "travail": 8,
+   "risque": 7,
+   "urgence": 9,
+   "durabilite": 5,
+   "fiabilite": 7,
+   "concurrence": 6
+  },
+  "notes_explications": {
+   "potentiel": "Traffic potential is very large given the NCR population, but Indian ad CPMs are low. Lead-gen deals with used-car and scrapping players would push revenue higher if secured early.",
+   "cout": "Only domain, hosting, a small ads test and Hindi proofreading are needed, under €500. No paid data API is required if users enter their registration date.",
+   "travail": "The checker logic is simple and the guide pages are few; a developer can ship it in about a week. Keeping rules updated with official notifications is the recurring effort.",
+   "risque": "The main risk is giving a wrong verdict; framing results as 'likely' and pointing to official Vahan records limits liability. No sensitive data needs to be stored.",
+   "urgence": "The restriction is described as imminent; being ready before enforcement and the first fines is essential to capture the spike.",
+   "durabilite": "Once most owners have checked and decided, traffic declines, but rules tend to tighten over time (other cities, other standards) and the replacement decisions last months.",
+   "fiabilite": "The plan is covered by the Times of India and a second outlet, and Delhi has a long track record of vehicle restrictions. The exact start date and scope still need confirmation.",
+   "concurrence": "Big auto portals (CarDekho, Cars24, CarWale) will publish articles, and Vahan provides raw data, but none offers a dedicated, bilingual checker focused on this ban with an options guide."
+  },
+  "budget_detail": [
+   "Domain name (.in) and hosting: €40",
+   "Hindi copy proofreading by a native speaker: €120",
+   "Google Ads test on ban-related keywords: €250",
+   "Logo and social share images (Canva Pro, 1 month): €12",
+   "Miscellaneous (form tool, analytics): €28"
+  ],
+  "requete_verification": "Delhi BS6 vehicle ban border enforcement ANPR",
+  "concurrents": [
+   "Vahan/mParivahan official portals: raw data, no plain-language verdict or options",
+   "CarDekho, CarWale, Cars24 news articles: static articles designed to sell cars, not a neutral checker",
+   "Local news explainers: one-off, not updated, no tools"
+  ],
+  "analyse": "A quick, low-cost and helpful tool with a clear spike in demand, well suited to a developer who can ship in days. Go if you can launch before enforcement and secure at least one or two lead-gen partners, since ads alone in India pay little. The main point of vigilance is accuracy: track official notifications closely and never present a verdict as legal certainty.",
+  "etapes": [
+   "Collect official rules, notifications and exemptions from Delhi transport department and CAQM sources (1 day)",
+   "Build the checker and result pages with Astro or Next.js, mobile-first, deployed on Cloudflare Pages (3 days)",
+   "Write and translate guide pages: rules, penalties, sell/scrap/CNG/EV options with cost calculators (3 days)",
+   "Add WhatsApp share buttons and Open Graph images for viral sharing (half a day)",
+   "Apply to affiliate/lead programs of used-car buyers and contact registered scrapping facilities and CNG installers in NCR (2 days)",
+   "Launch with a Google Ads test, posts in r/delhi, r/gurgaon, r/noida and outreach to local news sites (1 day)",
+   "Monitor search console and update rules within hours of each official announcement (ongoing)"
+  ],
+  "risques": [
+   "Wrong verdict for edge cases (late registrations, imported vehicles): use 'likely' wording and link to official records",
+   "Policy delayed or changed: keep content focused on official sources and pivot to general pollution-rule guides",
+   "Low ad revenue: prioritize lead-gen partnerships early",
+   "Copycats from big portals: win on speed, bilingual UX and WhatsApp shareability"
+  ],
+  "mots_cles": [
+   "BS6 check Delhi",
+   "Delhi vehicle ban",
+   "BS4 car entry Delhi",
+   "vehicle scrappage NCR",
+   "ANPR Delhi border",
+   "can my car enter Delhi"
+  ],
+  "sources": [
+   {
+    "titre": "Delhi's vehicle ban faces big test at borders: Can enforcement keep up?",
+    "url": "https://timesofindia.indiatimes.com/city/delhi/delhis-massive-vehicle-ban-faces-its-biggest-test-at-the-borders-can-enforcement-keep-up/articleshow/135445979.cms",
+    "source": "Times of India",
+    "langue": "en",
+    "date": "2026-11-02T05:08:45+00:00"
+   },
+   {
+    "titre": "Delhi's massive vehicle ban faces its biggest test at the borders: Can enforcement keep up? - The Times of India",
+    "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxOR2tMbXFtR0RkdmREWEF4U2UydHZUVUhGVUs5eW9SOUVKWUp4SEJ0cEZsdFdUN3VqQWJfdEtHZkJ4c3A2clNyaE5TdnozM0JlbnA1Q3E1cWd0a1MxLWFpTU1iTC1RTlJLR1NONGRnamV5MTFRWklfS2FYV001d1dOc1lCX2VYQmEtc0oxWExIbVZtU21WVDJpVllJNlRQYTR3M2xyUU8xVHFzOWdOLUdxY3dqWWZBVzBlS1B2cXQyRy1FVkQ4b2RHLW5DUld0ZzJ5bUJ2alNFN2tGUzYtQTJDdTd6UmFVN1JxT2lXUVdoWjFRbXM?oc=5",
+    "source": "Google News IN",
+    "langue": "en-IN",
+    "date": "2026-11-02T05:08:00+00:00"
+   },
+   {
+    "titre": "Delhi-NCR's New Pollution Rules Explained: Older Vehicles Banned, 50% WFH, And Strict Commute Curbs - NDTV",
+    "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPOE1hQTNma0FOSjVGTlpBdmkxX0c2T1hYbW1ZUW9kOU1XLUQyelQ0UGp4ZEJ5VThKbURBamVXeHpkZWlCZXlkblVMUkNUYWtQcFVlSGMwelhDdDNNazc3UFdkaXA0M0xVQUtaLXRGSldVaWRVS1hxQWFsbUlQdHY4R0tveFdBdEEyalhKRXhYNDY3QnhSN0M1SGh0VHh3SUU0alN6VEMzWFcwUTBxRFB6YnlWejl2SXhFYURqVlVzSWtrVHNrZHcwazVlVTBNWUtI0gHYAUFVX3lxTE4yTFFOR3JveHJmRW9oT2ItTXVEamYycVBsZFQyejU4aVVLYXd5c2l1RklyMC1PZmRQRjBUbzEtb1RNWnZva2d3dndWeklHcy1vMzM1T205U1dDVlhQVXQ5Q2FHalZWaEtla3ZQSVFtYkE3WEZzRV92LS1CUzNmZ2pGck9mNEc0VkVVMDdKY2FJaHpEbXhlaTM4dzBvb1BPM2ZUaklITlg4UW1yaWtVOGFvUDN1Ym1KVHNUQXp3WXE5Mjd6TkJKci12TkxSWXNCalFTeVVrY0JLNw?oc=5",
+    "source": "NDTV",
+    "langue": "en",
+    "date": "2026-11-01T02:53:08+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Delhi pollution curbs: Non-BS-VI vehicles barred from Nov 1, check rules - Business Standard",
+    "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOUVVIY29uMzFWcGRfWGpjcWVjb0VhZXZWMmFxb20tQUxmcV9sc1VOdXM1SWZybHV0OVZ5djZud3FMRTRjaURvYktDRHNocnlRZmxmSlBwVWlRWVFLd1o3aTVBYXRZdVlGUXdrY2xiUmFOc3NlUjdXbnVtRjN5V05VeDZIaVFXZDZZRXU1d04wWE9XMC0wRUdXVTBvdDI0bkY0YkNCVXdaQkd3ZDAzQk45TGJ3OVlQNkM2bmNXVGVhMkVqN1FDYmN5bi1lTEFhSkVMdmRxSm930gHbAUFVX3lxTE1WbEMyeFdkTVlyc0gtRXFSNzBoWkE3RGt5cmVnSjB0S3lHR3hXakVJTFBOR2loTXBZanFUNFU0STBQUGxZbjQ3X3JTSG9DQ1pnYTlxeTRZSFpzMlNFMURPcHlrTHp6NnppWGxWSFpRZl92NGEybWQwU09mWV9sTlpyb1RKV3lGakhnSGVYNXRCWVlNdlZobTE1aC1vMFdMM2hPand6QlFuYjlmN1o3OHZHRTdobmhtY2xvLU42b1BXR1ZPVHJLMTYwRldlTXdocEdodjVXTE15dVo3OA?oc=5",
+    "source": "Business Standard",
+    "langue": "en",
+    "date": "2026-10-27T05:21:36+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Delhi’s BS6 rule is coming: Is your NCR vehicle on the banned list? Here's how to check - The Times of India",
+    "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxPOXZUUE1lTlk5eDBya1NhSWM4SHJQQ3lfaWU0dDVnYzVzUHNVWnBsczV0Q09RNGFZZjJoVlpmMExMQVlhdUt5azJVNFkwOW9XNVpTMWJkNDF5TzVBc0FlQ1d2bWx3TlR2bjRja2x3dUVxdU1lWnpXZUVHa282ams2VXdsVXVMLUVEVkEyc1Zqc2lVT0tRUHFMNVdUa1JvTV9HZ3VIWkpmeGc5d2lna2s5VzE1Qno4NE1KLXk0eC1tWlh4c0JrMXNpUkhtY2U0WW9QZHRKOW5TSDhDaTN3WERNRnREOEpPeExWOGdDV9IB8gFBVV95cUxONnlOdTUzaGF5WFZYWWNPMi1SdFNDdXg2eV9OeW5UTXZRR1RfcE42WWhWdTAzakROaEl3Mkp0bTNia3JvV09nVUlrWHpSc2Q4d0U3YXN1TE5wV1VWeTlJVi16VTRLbk95VGctTGVwcjd0b0MzS0h2NVRCYm1wZzVVclBDSEJYdHlWRTI1UTlDOEt0WmF5dDJYaTZnWWYxeTFoRzBsckZaWWdUWHFGaWg0MEczN0VZQVZUMml0YllicmxrTnFXaEZIVWQwZTFRbDZHRGxYUkpoUjJweE1zZ0lCeUJ1S3hyMnhDRDJKRXdGeXZLdw?oc=5",
+    "source": "The Times of India",
+    "langue": "en",
+    "date": "2026-10-27T11:33:00+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Delhi pollution rules from today: What changes on the road, at the pump and at work - Moneycontrol.com",
+    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOQUtHTGtqMVZ1LXFJZnFtM3RqZHRLNU5XX3RSQlExRWN4U3dhMS1XM3FvSEJIZFhnRU9rQ2FzVWN4cUZEcm1WUnZ4b3k3WUgxeE5NMVd0eWVMTjU3cGMydGFKZ25xbTRPVjkxZUJCYWxjT0NNLWdsbkRjVFQ2Rk5vMU92TEQyWlFhOG1VcFFFcXhBZ1dMdG1ZbmlQdUFVb1VXWGNlNmtoVV9MUG1tNGpfamd2dWxWd9IBuwFBVV95cUxPU3J0RW56d2s5MlRVTVVFZXJSbzNabExvMEZlUHVKWUlZMWx4d19KVUd5azlKbzVObnBqaElVcVBrcVlGTzl3Y2p5cXRsdFFHbWFNb1pvclEySTVLV21DamVCbVFtVFVlYmdwelNBN3N2cWtnWUtfWEg3RUhLaHFSSHNjRHNXM2dFZnNPaktEdjJMVDRSTmQzaUpqakxfQkh4SW1Nazk0TmNCS2ZCdUNKZ1IxODR6QkxRamxJ?oc=5",
+    "source": "Moneycontrol.com",
+    "langue": "en",
+    "date": "2026-11-01T03:56:01+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Older vehicles, no entry: Delhi shuts the gate on non-BS6 outsiders from November 1 - India.com",
+    "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNdDl2RHhiazVUNG5uX1hJQnVCMEhULVRSY2tYUzVyV29nYThDdXFvaldvSHpWbldvZzE2cjJSVXFhcWJaMUlEVkQ2WkZhYk0zNGRyaGFJbzluajZvTTJGUXN4UW1zNEwweHcweVBwTjBEQWhPaVV5MzZDdDF1ZjJkMmRBZWEyeXpuMDlYZXpqZG5CSUNTN3NWRkJkcHpxT3dmeWRNdXZkZmpsZWdqWDVMRm1vYkF3c0J1MHhBLU8xQTByTVRLNmfSAcYBQVVfeXFMTXQ5dkR4Yms1VDRubl9YSUJ1QjBIVC1UUmNrWFM1cldvZ2E4Q3Vxb2pXb0h6Vm5Xb2cxNnIyUlVxYXFiWjFJRFZENlpGYWJNMzRkcmhhSW85bmo2b00yRlFzeFFtczRMMHh3MHlQcE4wREFoT2lVeTM2Q3QxdWYyZDJkQWVhMnl6bjA5WGV6amRuQklDUzdzVkZCZHB6cU93ZnlkTXV2ZGZqbGVnalg1TEZtb2JBd3NCdTB4QS1PMUEwck1USzZn?oc=5",
+    "source": "India.com",
+    "langue": "en",
+    "date": "2026-10-31T17:22:36+00:00",
+    "confirmation": true
+   }
+  ],
+  "ethique": {
+   "acceptable": true,
+   "raison": "The tool gives drivers reliable information and helps them comply with an environmental rule; it neither exploits distress nor encourages evasion of enforcement."
+  },
+  "id": "idee-28d20b0c",
+  "signaux": 1,
+  "cree_le": "2026-11-02T09:22:17+00:00",
+  "mis_a_jour_le": "2026-11-02T09:22:17+00:00",
   "statut": "active",
   "notifiee": true,
   "langue_redaction": "en",
@@ -1714,6 +1727,216 @@
     "source": "Google News recherche NG",
     "langue": "en-NG",
     "date": "2026-11-05T03:33:47+00:00"
+   },
+   {
+    "titre": "مبيعات Nintendo Switch 2 تهوي 41% مع ارتفاع الأسعار وأزمة نقص شرائح الذاكرة - العربية",
+    "url": "https://news.google.com/rss/articles/CBMigARBVV95cUxQUkZSUFN2OU1nTW9JbDlvMzF2Vlk4b3Y1TWFYQ1FWV2FWUU1pMF9HdTZjWDJmU0RQV0kzTlF2ZTZSelppV25jOE1GVmxUWTZUYXZvLXZweEJQR1F1al9CUmxpalREVHF5Wlh2NzlnaUlRNXp4d1FfWVZIamN5TGVldExVZlhhazUwNXY2QlpUeTM3QWZVa3dxQVRFY2JZZ1ZSZzNoSDlNbXdHRFdwSXVnSGxGLTFNWWNXRVliRGxWRGhXUHFhV29wRUZPcXY5Vm1Vc0M4UmFySGhaYVdrVm5tVDg4S0RsZmdYWHhoRnlsQWpJRTNtX0l0cFU2ZHlDdHpBdzU5RW05XzVDTTJtWUdYRnNfam1XbzR0SUhvQVAwVUthbjRJVkhLSzRPdjV1WWJMOFJQT2ZUeFlrRUtTdHJwODMxN05VVmMzeE1TMWM5dnZpeWliTTctbDBYX3lyZXQyN1drNGlCcWdha0Zub2E4a2NqVzBoZlA2ZW1MVjdyYldmM0JvcWJhX0lILV9pYWZlelRFazItcEhzQ0steVEyd29lUUZpYUNVSzAydWRPeFVxcE5GSUZhOVZvTTN4bThnRlFralFYdUVoN0ZmSVI4b1BYdi1qNER1a242Zk9XS2dTQ0pYUVdSOW41YjBzcVotUlM5RjZEWFZiVURRaGNCZtIBgARBVV95cUxQUkZSUFN2OU1nTW9JbDlvMzF2Vlk4b3Y1TWFYQ1FWV2FWUU1pMF9HdTZjWDJmU0RQV0kzTlF2ZTZSelppV25jOE1GVmxUWTZUYXZvLXZweEJQR1F1al9CUmxpalREVHF5Wlh2NzlnaUlRNXp4d1FfWVZIamN5TGVldExVZlhhazUwNXY2QlpUeTM3QWZVa3dxQVRFY2JZZ1ZSZzNoSDlNbXdHRFdwSXVnSGxGLTFNWWNXRVliRGxWRGhXUHFhV29wRUZPcXY5Vm1Vc0M4UmFySGhaYVdrVm5tVDg4S0RsZmdYWHhoRnlsQWpJRTNtX0l0cFU2ZHlDdHpBdzU5RW05XzVDTTJtWUdYRnNfam1XbzR0SUhvQVAwVUthbjRJVkhLSzRPdjV1WWJMOFJQT2ZUeFlrRUtTdHJwODMxN05VVmMzeE1TMWM5dnZpeWliTTctbDBYX3lyZXQyN1drNGlCcWdha0Zub2E4a2NqVzBoZlA2ZW1MVjdyYldmM0JvcWJhX0lILV9pYWZlelRFazItcEhzQ0steVEyd29lUUZpYUNVSzAydWRPeFVxcE5GSUZhOVZvTTN4bThnRlFralFYdUVoN0ZmSVI4b1BYdi1qNER1a242Zk9XS2dTQ0pYUVdSOW41YjBzcVotUlM5RjZEWFZiVURRaGNCZg?oc=5",
+    "source": "Google News recherche EG",
+    "langue": "ar",
+    "date": "2026-11-05T10:49:00+00:00"
+   },
+   {
+    "titre": "Raspberry Pi crumbles under memory shortage pressure, as 16GB models hit by another price hike, up to $80 - PC Guide",
+    "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNVC1fUGZjWnJ6cEtodmNkT1BoVDFIOVA0bmFPbEtxU3ZWXy1sWG50MDhwYXB3ckcyQWRjTW9SMmhuemZuSnJ2aWhDVEwzaUlPdTJmVmh6R0xIbzhxVTRPVkNyUnRsX1VNQ2Mzd3VkanF1SXprRnFpSGwwRlFQV1VKcWoySmRhbUx5S01lU19FelhrcjJKUGl2dUk4bVpEdWNldlE3aHRhYzZDNURUMENmalMtN3d0NXB1a2pORGlGeTU2QVYzOEhRV0FwM2FhQjh5WE0yMDhzYw?oc=5",
+    "source": "Google News recherche US",
+    "langue": "en-US",
+    "date": "2026-11-05T16:09:03+00:00"
+   },
+   {
+    "titre": "Nintendo has no plans to raise Switch 2 price despite memory shortage - iXBT.games",
+    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNTnZaTHY1Y3ZxQ3JEaXVESG5vM3dHWHl2T0Z5R1BXaDJSMzFBamhrMHRKVTl1bnk0NWgwd2d4bVBtaV9hZEtleEdkYWxyaHZ3TkpLZVdHQ1c4ejBZSFE5UEFBMV9ZTmYzcFlwSXdoNlZXeVlveTdwSEo1dldKNWxhTnVvUVNFeU9xenFEeWh4S0NZQi1kRHBMeUZxZ1FVaDZ3TGo2SHRkTU1wcXVSd2k1U0ZvV216QdIBuwFBVV95cUxOdnY5SEZkYlhUN3BPYVRIaHRJNmdvYTB0T090dElpNk9GWE55RTJmdXc0dENjYnJ6aUpseU9Jd0dacC1JelNQZ1VYbHZhc1dJSE02dWRyeDhKOTlhbFlqYUxHdndaOFQxQ0JTbktUbGlsM1RNTmlFMEl1WFA2TVhNMU5McW4yLVNEamdPY1lHUDFyT1RlN1pjQzN0QWxqcGJLQ2xEcTI4YTBVd1U3aWVadUlrWE1uQVdBVG40?oc=5",
+    "source": "Google News recherche US",
+    "langue": "en-US",
+    "date": "2026-11-05T15:22:00+00:00"
+   },
+   {
+    "titre": "Memory Shortage Hits Nintendo’s Supply Chain: No Further Switch 2 Price Hike for Now as Macronix Cuts Cartridge Chip Production to Target AI Data Centers - 玩具人 TOY PEOPLE",
+    "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE84MXFQWDl1cW5QN2RSVXpmSW1tQXBmSDRqRzd3aVRmbTdRWm5vM0ZfY2tsSjhQMmxlOFN0S3d2YmlnNkU1cmF3WWZFbjV2OGto?oc=5",
+    "source": "Google News recherche IN",
+    "langue": "en-IN",
+    "date": "2026-11-05T18:06:11+00:00"
+   },
+   {
+    "titre": "Samsung speeds P5 Fab 2 construction as memory chip shortage looks to last through 2028 - digitimes",
+    "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOVmo3a1hQeGhzMGpGSmRwUHVpVmxWU242SlprWlJRTmwwWk1ZWVNOWDdWV2tXRkpFcjlyR3NtZEZfcC1xX3hURkNnUzk5LU1ydTRqbWZpZFBoeXg3eTB5Mkx2VEcza1VNc1BvUzVwemhmR2p0Y2NDVGYyX05oV2tGakJqNHBpZmNKaEpaWkctZmJlNzQ?oc=5",
+    "source": "Google News recherche US",
+    "langue": "en-US",
+    "date": "2026-11-06T03:35:03+00:00"
+   },
+   {
+    "titre": "No more Switch 2 price hikes yet, Nintendo president says as the company weathers the AI-driven memory shortage - GamesRadar+",
+    "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQSW12RGZuWmxNTlhDSURNMDVCckVONkgtb1B3dTd0bE53N2xVR2dEbmk0TWNhbGhhRlZ3UUZ3OHBJRmJndF90d2h6emZWYVlJMDRDb2dnSW1USXhIT216TmhWV0lwUWZHNTNmcGhSSjRjbGgtV0VDLW1iYlZrZWlQclM0WWNHd3JsX3ljaHRSYXFpTGlyVi1tamJlaEdUMzRtb09UQm5Ea19vUjlRUi1rMjFicFVWN2p3QUpYRmhBQnoxdGdVdVVJZTRUZWFoQmFDMVY3VTZWMm1aLWtXWnpsQTF5OS1fZlk?oc=5",
+    "source": "Google News recherche IN",
+    "langue": "en-IN",
+    "date": "2026-11-05T17:13:25+00:00"
+   },
+   {
+    "titre": "Nintendo Switch 2 sales plunge 41% as price hikes and memory crunch bite - CNBC",
+    "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1DMzUteWR1Y3BZNWdaV29ENVMyelZfZHQtLUZsanRHSVQxNWhWTFpjMUdCWDRhS3c4ZWV4bjZEbkxIVklFMDFUZkktV2g5S3QzVHZqSWtndXIyeUNoQW8xNEJUX0JINHV3Njc4aEpPQzAyb2FZZlVySNIBfkFVX3lxTE1VTkdxNGotWTU3RzhEZFI0ekpuek9jX1l0Zi02VWF4Ml82eUlNX29aTmpELXRrZ2dyRFdJaDhvaGVTMGdjZF9UTzJRZmQ3MjVKV1dEOXhuUkVYQkJsZExoenVqLWxCZnNGd0NBNGZIemNmbW1Wdi0yd29aaF91Zw?oc=5",
+    "source": "Google News recherche IN",
+    "langue": "en-IN",
+    "date": "2026-11-05T06:50:12+00:00"
+   },
+   {
+    "titre": "Switch 2 Sales Fall 37.4% After $50 Price Hike [2026] - https://tech-insider.org/",
+    "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPUE5teEE5dUU0WEFuTjVlQzU5LUVhU0RqSlFHYkZNUGZFS1lUTWV5QTBBSDJsb3VfelMxbUR6ZmFBNHdMTVdudURuQkZsbG1HN1VRSTVOa0lLcTNRQXFpT0FHWlZ5c2hDOWdVWnM0V0Jpc1JDU0dWMnh5VFI4UGVtbTFBQld5SDdZUWZMTENJWWgtSThY?oc=5",
+    "source": "Google News recherche IN",
+    "langue": "en-IN",
+    "date": "2026-11-05T12:13:00+00:00"
+   },
+   {
+    "titre": "Nintendo has found a way to avoid another Switch 2 price hike, even as PlayStation and Xbox get more expensive - Operation Sports",
+    "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPLXFrR1MzRTViWUY2UFpBZUkyYzFFN3JPNDczSHlGMm1pMHF2bUZVYmd1dDl1VVRTamNFWFlJMXNiYzhoN1FLTlFWcTJsN3l0d0pJMlc5LTE0Q2JQV3E3MzU4S0hmNlQyY1NrQjZGaGhoMTIwdHNKclNaZ1pHcFNQbUlNM2VvTW9oNkwxTE5heDBpMXZ4Nk44WGVLcGZvY0YzLTMzczk2VzUwVXlXd1cyWmtWdFJKSTdDa3ExQkg2eXo0bjRHMEpoSHhPbXdnU2lhZ0RWRWNpbE1OZw?oc=5",
+    "source": "Google News recherche NG",
+    "langue": "en-NG",
+    "date": "2026-11-05T20:45:00+00:00"
+   },
+   {
+    "titre": "آبل تحذّر من ارتفاع غير مسبوق في أسعار الذواكر.. كيف يؤثر ذلك عليك؟ - الجزيرة نت",
+    "url": "https://news.google.com/rss/articles/CBMizAJBVV95cUxPeUx0MXVUSlhHaC15WkFWV3QwaGJldXk1dzhoQUl5cmtacndvNVlHTVpKU0RqeGFMQ0Vhc0VYVVAzaFEwU04xMU9pME1hVW5QT1VTcS0tSTdtZDNNZlJyemQ4aEotWGRrUWJ5bTNhMWJHemYtQnVjeVJlUGNER2ltRHlCY0JlRmdiR25RRlJtOUFrM3NEMTdDWVNzSFlhMmt2RWZaanRrbWxuSmM4QUJReERyZXNScGl5U3NxM0tuQ3QtVTFIUmhTT2pDY2VPRXVRUnZLbFRqYTdkXzhmX1JPT0dSMnBGYWNkNUNIYWktYl9IRHNRaUJXTUlwTDFHbm40Q3A2d0I1UllQamt3aVlxUy1tTTBRc1lBVjI4STVvT0drcmxqMUI3QlM3NFZsSUYtTjBYbU55a3ppMXBVcS1fNEF4cUZTSjdzTWFSNw?oc=5",
+    "source": "Google News recherche EG",
+    "langue": "ar",
+    "date": "2026-11-05T16:42:08+00:00"
+   },
+   {
+    "titre": "Vendas do Nintendo Switch 2 despencam 41% em meio à alta de preços e à escassez de memória - Times Brasil | CNBC",
+    "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNdGo3bUw5V3ItekJyRzBfM1lOQTRlbWtPWFZTekhsRWJ3QUdUdDV5WHFWbkJxR3paaURzLTRGMkMtRzE0UndQM0c3d0JJR1BBamp0ZTN0ZlBNY29GbENWM1h5bjFPaS1EODhDMWpVaU9IVTVEc0h3S2t3YnFNbDhTRzlkUHRHUTJPZDRqYkJRUjBGWkVyczd0dHQ0ZnRidnphcVdIZV95WmlpRnpPdUlyb294SE4zbnA3bXBjX3pIZl9kSm1hdEFVSGJvUXpUZDdwenhr?oc=5",
+    "source": "Google News recherche BR",
+    "langue": "pt-BR",
+    "date": "2026-11-05T15:16:00+00:00"
+   },
+   {
+    "titre": "Ações da Nintendo caem após alta de preço do Switch 2 e escassez de jogos - CNN Brasil",
+    "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQcXRCcnBqVU5oVXRQVXY0aldUR1lrTEtILWN0OFFTdGdVR1FBSWFhdXd5YlZzSUttQ3phWFlPLVlZeXJNUDZBWHEyT1dPeG5oaEVkTHZFZHVXRVpLSlUwbDhLQkhfRnZRUFZYckRvR2s5T2ZFeVVIRG5GY1c0Y01UaG0yVXZjdkw5Y2lUOFJkc0lzcXQ0ckgwdEQ5LTdzM1NoUnVwQk0tUHdlUDB6MkhZR2ZaUWkyTGpfRjNmbGFqeUtTeVBW?oc=5",
+    "source": "Google News recherche BR",
+    "langue": "pt-BR",
+    "date": "2026-11-05T13:32:22+00:00"
+   },
+   {
+    "titre": "Ventas de Nintendo Switch 2 caen 41% tras aumento de precios - Revista Merca2.0",
+    "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9sazZGX0QwOUctSDRGR1d5bWFpNEdkMzJMaDk1REo0bmtoN1R1TXR2V2tEVVZwTjJQQXdfWVhpS0paNTM0d1BZUHR6bU5FUDFaZVVwUUcxd2RTOHdITWowd0hxYS1fVlJkR1VrUlNTZDhMdE4wc3Vn?oc=5",
+    "source": "Google News recherche MX",
+    "langue": "es-419",
+    "date": "2026-11-05T13:09:44+00:00"
+   },
+   {
+    "titre": "Nintendo Switch 2 pierde impulso: ventas caen 41% entre el alza de precios y la escasez de memoria - DiarioBitcoin",
+    "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxONWFSbGZDdVgwVkRoZllHN2p3S0FLazB0bVJEQlZWTGZqTlE0TDZhckktUE5wSFdDdHhDMDVNQVZCd2hSRno4MTZuZFYzLVBSWWlhWkdFZjQxT0dLX1lmMWFyM2FfSmV1TjlVRTFEZ0pXZ1hYTVhFR2FkY0l5N1JhRGs5TlktTHFWMnlaVWRwTWFlRXhTQmVsWXRBMGFLdTE0VTJnQVNpMGM0aFZjZE5vdUpoNG5qdGNYN3VwTU9JdzJDbU1KbGJMRGtEOW0xUV9RcUo2Nw?oc=5",
+    "source": "Google News recherche MX",
+    "langue": "es-419",
+    "date": "2026-11-05T10:45:22+00:00"
+   },
+   {
+    "titre": "Nintendo Switch 2 Sales Fall 41% as Price Hikes and Memory Crunch Weigh - Operating Income Trends - www.dars.gov.et",
+    "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQLUsyQnNocjlDc0VCdlI2Q3Fody1BakJla3g1cGxBWHJDZi1xR1NVRzdzUFdmLU9ndmtMcGg4b25VcEQ3X0JDZW8xaV9tWGk2djZ2OTRhX1J2M2Jkay01ZVlRLU9pdzNvTWZoaWp2c3RTSWJnVkFmZS1JVHdGRV9xN0hTWWV1MFJ2Wk9idVM0UkY2Vm1UUWQ5RXJTUkFVLWlGNDJfM05XY0oxN2lyaE5MemFNdlN0dw?oc=5",
+    "source": "Google News recherche ZA",
+    "langue": "en-ZA",
+    "date": "2026-11-05T08:26:47+00:00"
+   },
+   {
+    "titre": "TeamGroup advierte de que lo peor de la escasez de chips de memoria está por llegar - Geektopia",
+    "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQcTRZNFF3cHhvM1FLYjgzdjcyVHlTWDAwdk9vYThWdldxei1JMmVSWS1CSDdMblVoUzYzZlhsQVVsdFE1UjAxRXVNMlY5bHJhMVhvVUFaUkhkVWNBem52QTQ2N0NNQnZkSllVbTVpcUhKWTg0UWxxSFZQR2t1LXZNZk4zd2lXSmp6ZTIwM2tZODg0WnpBYWVGWUc2bGNVXzJDS0RKVW1sVUNGbE84b0t5d1BOU211dkxMc0pzWUF5VGsteDFQU1pySERrV1ZWcThIRGxxV253SjBfcHBQeVBQMA?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-11-05T22:05:00+00:00"
+   },
+   {
+    "titre": "任天堂、「スイッチ2」追加値上げを考えず 社長が決算会見で説明 - CNET Japan",
+    "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5xc3BqQ2QyT21VQXVhdkN1cHotdnNjSTBoQjh0MFJXQlpBNVBJZFRHWmtRNDhMbl9EQmQ1YjcxVzctYWNPOS1kZEh1eFlOZVBjc0E?oc=5",
+    "source": "Google News recherche JP",
+    "langue": "ja",
+    "date": "2026-11-06T01:52:00+00:00"
+   },
+   {
+    "titre": "메모리 재고 확보 … 닌텐도 , 스위치2 추가 가격 인상 검토 안 해",
+    "url": "https://zdnet.co.kr/view/?no=20261106082648",
+    "source": "GDELT · zdnet.co.kr",
+    "langue": "Korean",
+    "date": "2026-11-06T01:30:00+00:00"
+   },
+   {
+    "titre": "Nintendo president says they're not considering another Switch 2 price increase, and they have sufficient quantities of memory - GoNintendo",
+    "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNZmo0dVFvWEtWd29qT0Q1NXB2Y3dSVXlvLTYwREtXOTYtVy1YMUxqUVdKUGVaQ3VPVEpzVUlmbEpraGJ5b1d3VkdreHBoUTc3N1VnbFVZM2NncUJ0bWhYVGk5VkdoOThTaGlCaVVIQ1R1OTNKd0FvZ1k4bEppeHowQkR3OTljSFJPQmxhVXJGQUd2Rk5sS0l0UTNNQzJhdm5rbjByS3p6WmFSVzlyU25UM243clhyZTVqMV9jRVhn?oc=5",
+    "source": "Google News recherche IN",
+    "langue": "en-IN",
+    "date": "2026-11-05T21:20:57+00:00"
+   },
+   {
+    "titre": "Nintendo says it’s not planning another Switch 2 price hike - The Verge",
+    "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNbTgxc0VMRDVEOE1rb2FCLVlwb1FRTjZGVUt4N01fVVBWdU55ZFJCVGVOb2xRZWVndVJHdWw4WGUtRnZjUGRKRkZzWUpaTlFiaEF6YVM2am5sYWU0WXBMNVMzZk85UC1wWXd1aGlCc1oxS0pyRjFLYy1yMUlnZnlxZHFlaw?oc=5",
+    "source": "Google News recherche IN",
+    "langue": "en-IN",
+    "date": "2026-11-05T17:24:39+00:00"
+   },
+   {
+    "titre": "Nintendo warns RAM price hikes will impact next year's business, CEO says no imminent price hikes - TweakTown",
+    "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOMlI5UTUtN2FqLUxMTjZnalctTmFTdktQTDZKSVJTUXBkVzhWWEtHMEFYZVhZdlM3ZHUxaWJ1enF5Uk9PWnVCcHF6YjZiTDd3d2dQaEhxeWJFMUJ1Q1R3cFZiNzJoRms4ZXBVZ0RLNDRkRVdUQWtVUVRucTduTFRKcEotNE0zS3RCNGdScWdtTTlXcVpwdWx2OHlBOHlqNTV1WlJQVmxVazU5YlZqMVVRdFJ0dnBLSUQ1UDc0NGZLNXYtc2ZkRzZsWmFvOHpPUGQzZ3dEWV9sVWxiZnZj?oc=5",
+    "source": "Google News recherche IN",
+    "langue": "en-IN",
+    "date": "2026-11-05T18:12:16+00:00"
+   },
+   {
+    "titre": "Nintendo isn’t considering another Switch 2 price increase, for now - KitGuru",
+    "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxONWtsZmhjU2J3cmJVQXEzODh2WHYyWlZIVnhjMFVhSkhKQWxTX2dRZTBBXzhzWEhPUnlBd3ZiQmRBbWZVazc3YWpDTWotRHpSZ3M0UjNUMjBGVDJJX3ZOaUpRZ1llNzB0ZUdMQjRWZ2R2U1Q5TWxKdU5FYld5SmVwVjBaNndKVzhVMVF4NzlZc2F2NVQ5aUljcFNSeDMwWWlCcV8wUkk2NzdtbzRPZV92cWJB?oc=5",
+    "source": "Google News recherche IN",
+    "langue": "en-IN",
+    "date": "2026-11-05T17:27:51+00:00"
+   },
+   {
+    "titre": "Nintendo Officially Addresses Switch 2 Price Hike Concerns - Polygon.com",
+    "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE8xMUZUcWN6MkdPQzJlTy1lVmV5d3J4b1Nyd0J6Nld5WG9pWWtKNlk3VDhTNXFtd0wzS202VjFTWnczbThJOFo1TjdjenpBN0ZaenFOanV5Q2NxX0owSEtwXzdIdXdDYjhSeU5GX2xYQlJtTnp0bVQwSGM4bw?oc=5",
+    "source": "Google News recherche IN",
+    "langue": "en-IN",
+    "date": "2026-11-05T17:27:25+00:00"
+   },
+   {
+    "titre": "Nintendo Is Currently Not Considering More Switch 2 Price Changes - Nintendo Life",
+    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOWVZEdW9JV2V5U09UYmJaQU53MVZmNnBOcXRhWTFTRVFORlphM1RSdEtNTjJ4M2xNU3hYdEV2NFU5OXhQd0xkdEd3bjhfblJpT0JwdC1iU2lLd0gzSTFGN3htaGJKZ1gxbXhycXNnSjhpUWdVaHoyMXJrdDZBaHlYYzF3WlN3NDRFSE5vakY3QjJTZmUzVUVSclNCdEV3WUc2OVpUdVNSRlA3OG8?oc=5",
+    "source": "Google News recherche IN",
+    "langue": "en-IN",
+    "date": "2026-11-05T17:00:00+00:00"
+   },
+   {
+    "titre": "Nintendo Switch 2 sales are down 41%, and the $500 price tag isn't going to help - TechSpot",
+    "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQWm5Xa0llczM0eGFTd3ZpMmNjbkNGNmlmeV93S1VHWFZRNnJvQnFwSmFUTzhDOFhqMmNlN3RjWll2dTZPQnlQaHhQNHV4LWl2WWtDRVFEM2FFUHd4RlhjZXl5cWltRkRZcThVUFAwQTdIVlVGX0FqTUlQQTFCaTFEN0VUUUw4U3dZQ2NV?oc=5",
+    "source": "Google News recherche IN",
+    "langue": "en-IN",
+    "date": "2026-11-05T16:46:00+00:00"
+   },
+   {
+    "titre": "Switch 2 Sales Drop 41% as Nintendo Races to Salvage Its Annual Target - Gadget Review",
+    "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPcFg4a1ZKMFA4LTN2YnNSbTR1MloydHI2WHZKU2hRN09fb05Ra3hRN0tHTFBxTFhkUk9qSFNHalM3RDFYVWdTdkd5Y3VvM2stZVhnMzJyalppaXN5VFhoWTRIRnpBV3Zxd1J1ZXU0bk5vaTQyVHJvZDdCX0pIUHloR0E2UFRnMnNuUkVVY19yMGdnai1fYUVQR3B2RllkNGM?oc=5",
+    "source": "Google News recherche NG",
+    "langue": "en-NG",
+    "date": "2026-11-05T19:34:03+00:00"
+   },
+   {
+    "titre": "Switch 2 Price Stays $449.99: No More Hikes [2026] - https://tech-insider.org/",
+    "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNS1ZhUkFkYUt3RzczbndubXNaV2Q3WkJweGwtZGRlQkJrQUl1RmFQQ2dCdjZvdlNETnVkcDctckxERlA1ZDRsbFpHbHU0VFZsX2k2Q1IzdVUzekpOTmptM0lCdGlYbU1EMjExdEJkUk9mM3pNc043SGtjTENrVHktS2t6aGJJWi1ybGVjeDF2M2R0R00?oc=5",
+    "source": "Google News recherche IN",
+    "langue": "en-IN",
+    "date": "2026-11-05T22:51:29+00:00"
+   },
+   {
+    "titre": "Nintendo Has No Plans for Another Switch 2 Price Hike - TechPowerUp",
+    "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOcV9pck5DWHdqNFhXM1NXQ09CNzVhNjBPYUxINFhXYUpENkZNVzRVR2NITk8tX2w5OXN5TDlVMGdzb2ZyWXBJZTdmdHBzVlFkX1pqTENvRUY5Q1JtLTY4enhIcVBKMEFGelRpeU14RXZMTjFzLVRqZkxveTRsNXFJXzRERkxaMVJJckFmeWx4NjgxUdIBlwFBVV95cUxOU1BGMWpROVJxejQxdnBGUnptSFVvc1pkUWhrUVVnaEw0eVB2dndWU0w0aFV3MVU4SXM3MlFQTVdKdzVtOE9OcWlvVkloT204ZnlTLWxSN29xRFFZOEsyTk9BZjFrT25kcVAtM283Qk5ISlZEX1Fld3FJTktuVEQ3MTV2cjBfeHhjbktMSkZJa1lUemloVVJJ?oc=5",
+    "source": "Google News recherche IN",
+    "langue": "en-IN",
+    "date": "2026-11-05T20:33:53+00:00"
+   },
+   {
+    "titre": "IIJmioで「Galaxy S26」シリーズや未使用品「iPhone 17e」を値上げ - ケータイ Watch",
+    "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBCNzFtSm1OaFVlZF8tSEtfcmZCNy1kOUkxM0R1RkZOZTZuLWZQOGVFbkRtSVZ6SjZsWHBDWFRWMFY4UGV3SmI1M1BHRVNxaFFPS0VLTF82RWZfLUNCcmRpSVV1UVhzMmc?oc=5",
+    "source": "Google News recherche JP",
+    "langue": "ja",
+    "date": "2026-11-06T04:58:31+00:00"
+   },
+   {
+    "titre": "[종목상담 주식민원처리반] MLCC 공급 부족에 가격 인상 흐름 '삼성전기' - 머니투데이 - 머니투데이",
+    "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE03d0wxUS0tSkN6R3NoNUM0c3o2NDM0dE1OQlEtLTNLY25oZi1PUnNGSVYzOEg5ZVdXS1NWNHhtandxVThJYVdLQ19sQWZkVm9tcUpmRTQ3dlVPenh6NURaUkpIWlhwejJD0gFuQVVfeXFMTmoyYXAtOE5RTDA3RG1RMC1hNFEtVkNaelVPcEE4aE9NQlpBQVotYWV5WkE3QWV4WnR5RnQ2V0Y1Um1vdTVEdWNMUWdGRWJURkNWUjhlbjQxTkltYjM0X1VLbnJWb0NBc0prcUhmZlE?oc=5",
+    "source": "Google News recherche KR",
+    "langue": "ko",
+    "date": "2026-11-06T00:11:40+00:00"
    }
   ],
   "ethique": {
@@ -1721,9 +1944,9 @@
    "raison": "Le site aide les consommateurs à acheter au meilleur prix pendant une pénurie, sans spéculation ni revente : uniquement de l'information et de l'affiliation au prix du marché."
   },
   "id": "idee-70f114e3",
-  "signaux": 6,
+  "signaux": 7,
   "cree_le": "2026-10-31T14:01:44+00:00",
-  "mis_a_jour_le": "2026-11-05T06:40:39+00:00",
+  "mis_a_jour_le": "2026-11-06T06:45:53+00:00",
   "statut": "active",
   "notifiee": false,
   "note_globale": 6.6,
@@ -1747,6 +1970,10 @@
    {
     "date": "2026-11-05T06:40:39+00:00",
     "note": "Several articles confirm the memory shortage is deepening and may last until 2030: Apple forced to raise prices, CXMT prepayments up 16x, Tesla cutting DRAM in Optimus, HP's new CEO facing memory costs, and PS6 price hikes expected. This strengthens the need for a memory and console price observatory with buy-or-wait guides."
+   },
+   {
+    "date": "2026-11-06T06:45:53+00:00",
+    "note": "The memory shortage keeps hitting consumer prices: Switch 2 sales down 41% after price hikes, Raspberry Pi 16GB up again, Samsung saying the shortage may last through 2028, TeamGroup warning the worst is yet to come, Apple warning of unprecedented memory prices, and PlayStation and Xbox getting more expensive. This strengthens demand for a price observatory and 'buy or wait' guides."
    }
   ]
  },
@@ -2276,6 +2503,551 @@
     "note": "Levante-EMV reports that the Vivanta closure leaves hundreds of patients in Manises, Aldaia and Mislata (Valencia) with unfinished treatments, confirming local demand for claim and care continuation help."
    }
   ]
+ },
+ {
+  "titre": "'Afectados Ueno': free claim guide, status tracker and safe-banking switch hub for Paraguay's frozen Ueno Bank depositors (Spanish, Guarani, Portuguese)",
+  "pitch": "Almost 3 million Paraguayans and many Brazilian residents have had their Ueno Bank savings, salaries and pensions frozen since the Central Bank intervention. A trilingual hub shows, in plain language, what is guaranteed, how to claim, what changes each day and where to open a new account to keep receiving income.",
+  "evenement_declencheur": "Paraguay's Central Bank intervenes digital lender Ueno Bank, freezing millions of accounts and toppling President Santiago Peña.",
+  "contexte_declencheur": "This week, Paraguay's Central Bank intervened Ueno Bank, one of the country's largest financial institutions and a fast-growing digital bank. According to Infobae, almost 3 million savers lost access to their money, 27 people have been charged, and founder Miguel Vázquez, 36, is now in jail. President Santiago Peña announced his resignation on November 5, but Congress refused it and voted to impeach him, with the Senate continuing the trial on Friday. Tagesschau reports blocked pensions and growing anger, there have been street protests, and BBC Brasil reports that many Brazilians who moved to Paraguay to study or open businesses have almost all their savings stuck at Ueno. Even the national football team and celebrity Larissa Riquelme have spoken out. In the coming weeks, depositors will have to navigate the deposit guarantee process, the liquidation or sale of the bank, and the urgent need to redirect salaries, pensions and payments to another institution. Official communication is scattered and technical, and rumors spread fast on WhatsApp. This creates an immediate need for reliable, simple and up-to-date guidance.",
+  "pourquoi_maintenant": "The next 2 to 6 weeks are decisive: the first payout rules, deadlines and documents for the deposit guarantee will be announced, and people must redirect their salaries and pensions now. The site that becomes the trusted reference during the peak of searches will capture the audience; in two months the official process will be routine and the attention gone.",
+  "description_detaillee": "The product is a mobile-first website in Spanish, Guarani and Portuguese, plus a WhatsApp alert channel. Its core is a free 'What happens to my money?' guide: who is covered by Paraguay's deposit guarantee fund (FGD), up to what limit, which products are covered or not, which documents to prepare, and step-by-step how to file a claim, all sourced to official Central Bank (BCP) and FGD communiqués. A daily-updated timeline summarizes every official decision, court step and payout announcement in three lines, with a link to the source document. A 'switch checklist' helps people redirect salaries, pensions, rent and suppliers to a new account, with letter templates for employers and pension funds. A neutral comparison of alternative accounts (traditional banks, cooperatives, e-wallets such as Tigo Money or Personal) shows requirements, fees and opening time, with a specific section for foreign residents and Brazilian students in Ciudad del Este and Pedro Juan Caballero. A directory of lawyers and consumer associations lists only professionals who accept transparent fee terms, with a warning page on scams targeting victims (fake recovery agents, upfront fees). A typical user arrives from a WhatsApp share, checks whether their deposit is covered in 30 seconds, signs up for alerts and downloads the claim checklist. Everything for depositors stays free. Revenue comes from clearly labeled account-opening referrals with banks and fintechs eager to onboard ex-Ueno clients, paid listings for vetted lawyers (around €50 to €100 per month), and display ads on high-traffic days. First users come from Facebook and TikTok posts, WhatsApp groups of affected people, and outreach to local media and consumer associations. A realistic target is 200,000 to 500,000 visits in the first month and €2,000 to €8,000 in total revenue over three months, with the main value being a fast, low-cost launch.",
+  "categorie": "site-contenu",
+  "realisable_en_ligne": true,
+  "cible": "Ueno Bank depositors in Paraguay (individuals, retirees, small merchants) and Brazilian and Argentine residents with frozen accounts",
+  "pays_cibles": [
+   "Paraguay",
+   "Brazil",
+   "Argentina"
+  ],
+  "langues": [
+   "es",
+   "gn",
+   "pt"
+  ],
+  "modele_revenus": "Free for depositors; labeled bank and fintech account-opening referrals, paid listings for vetted lawyers, display ads",
+  "budget_estime_eur": 960,
+  "delai_lancement_jours": 7,
+  "duree_opportunite": "Intense for 1 to 3 months, residual until liquidation and payouts end (6 to 12 months)",
+  "notes": {
+   "potentiel": 5,
+   "cout": 7,
+   "travail": 7,
+   "risque": 6,
+   "urgence": 10,
+   "durabilite": 4,
+   "fiabilite": 9,
+   "concurrence": 6
+  },
+  "notes_explications": {
+   "potentiel": "The audience is huge relative to the country (about 3 million affected), but Paraguay is a small advertising market and much of the content must stay free. Revenue depends on referral deals with banks, which could raise the score if a large bank partners.",
+   "cout": "About €960: hosting, one month of AI coding, a modest ad budget, a legal review and Guarani translation. No stock or office.",
+   "travail": "The site and alert system can be built in 2 to 3 days with an AI coding assistant. The real work is daily monitoring of official sources, translation and moderation, which is demanding but simple.",
+   "risque": "Giving wrong information on guarantees or deadlines could hurt victims and the site's reputation, and the topic is politically charged. A lawyer's review, strict sourcing and a neutral tone keep the risk manageable.",
+   "urgence": "Searches and questions peak right now, as people try to understand what is covered and how to get paid. Waiting even two weeks means official channels and media will have captured the audience.",
+   "durabilite": "The need fades once payouts are made and the bank is liquidated or sold. The site could evolve into a general Paraguayan banking and deposit protection guide, but that is a smaller audience.",
+   "fiabilite": "The collapse is covered by BBC, The Guardian, NPR, Al Jazeera, Infobae, Folha, Tagesschau, Clarín and many others. The demand for guidance is obvious from protests and testimonies.",
+   "concurrence": "Local media, the Central Bank and lawyers already publish information, and Facebook groups exist, but none offers a neutral, trilingual, consolidated and continuously updated guide with a switch checklist. A big outlet could launch a similar explainer, hence a 6."
+  },
+  "budget_detail": [
+   "Domain name + hosting (1 year): €40",
+   "AI coding assistant subscription (1 month): €20",
+   "WhatsApp Business API / SMS alert service (3 months): €100",
+   "Meta and TikTok ads targeting Paraguay and Brazilian border towns: €400",
+   "Legal review of the guide by a Paraguayan lawyer: €300",
+   "Guarani translation and proofreading: €100"
+  ],
+  "requete_verification": "Ueno Bank Paraguay depositors guarantee fund",
+  "concurrents": [
+   "Banco Central del Paraguay and FGD official communiqués: authoritative but technical, scattered and Spanish-only; the hub summarizes and links to them",
+   "Local media (ABC Color, Última Hora, La Nación): news-driven, not a step-by-step guide or switch tool",
+   "Facebook and WhatsApp groups of affected depositors: fast but full of rumors and scam offers; the hub offers verified, sourced information",
+   "Law firms offering class actions: paid and self-interested; the hub stays free and neutral"
+  ],
+  "analyse": "Worth launching within days if you can read Spanish and commit to daily, rigorous updates; it is a fast, cheap project with real social value. Revenue will be modest, so treat it as a short-term opportunity or a way to build a Paraguayan personal finance audience. The main point of vigilance is accuracy: every claim about guarantees and deadlines must be sourced and reviewed, and the site must never charge victims or promote dubious recovery services.",
+  "etapes": [
+   "Day 1: collect all official BCP, FGD and Superintendency communiqués and the deposit guarantee law; draft the coverage FAQ with sources (ChatGPT/Claude for summaries, manual verification).",
+   "Day 1-2: build the site with an AI coding assistant (Next.js or Astro, hosted on Vercel), with the guide, timeline, checklist and comparison pages, mobile-first.",
+   "Day 2: set up WhatsApp channel and email/SMS alerts (WhatsApp Business, Brevo or Twilio).",
+   "Day 2-3: get the guide reviewed by a Paraguayan lawyer and translated into Guarani and Portuguese.",
+   "Day 3-4: build the account-switch comparison (banks, cooperatives, e-wallets) and the employer and pension letter templates.",
+   "Day 4-5: launch and post in affected-depositor groups, on TikTok and Facebook; contact consumer associations and local radio.",
+   "Day 5-10: approach 3 to 5 banks and fintechs for labeled referral deals and recruit vetted lawyers for paid listings.",
+   "Ongoing (30 min to 2 h per day): update the timeline after each official announcement and push alerts.",
+   "Week 3-4: add an anti-scam page based on reports received and an FAQ for Brazilian residents.",
+   "Month 2-3: assess traffic; if steady, broaden to a Paraguayan banking safety and deposit protection guide."
+  ],
+  "risques": [
+   "Wrong or outdated information on guarantees: link every statement to an official source, timestamp updates and get a legal review.",
+   "Perception of profiting from victims: keep all depositor services free, label referrals clearly and refuse any fee-based recovery agents.",
+   "Political and legal pressure in a heated context: stay strictly factual, avoid political commentary and publish a correction policy.",
+   "Scammers using the site's name: register social handles early and publish an official-channels page.",
+   "Low monetization: keep costs minimal and stop or pivot after 3 months if referrals do not materialize."
+  ],
+  "mots_cles": [
+   "Ueno Bank",
+   "Paraguay",
+   "frozen deposits",
+   "deposit guarantee",
+   "FGD",
+   "bank collapse",
+   "Santiago Peña",
+   "claim guide"
+  ],
+  "sources": [
+   {
+    "titre": "Paraguay’s president impeached amid bank collapse crisis",
+    "url": "https://www.aljazeera.com/video/newsfeed/2026/11/6/paraguays-president-impeached-amid-bank-collapse-crisis?traffic_source=rss",
+    "source": "Al Jazeera",
+    "langue": "en",
+    "date": "2026-11-06T03:49:33+00:00"
+   },
+   {
+    "titre": "Paraguay's president tangled up in Ueno banking crisis",
+    "url": "https://www.abc.net.au/news/2026-11-06/banking-crisis-plunges-paraguay-into-political-disarray/107355316",
+    "source": "ABC News (Australie)",
+    "langue": "en",
+    "date": "2026-11-06T05:39:34+00:00"
+   },
+   {
+    "titre": "Por qué el Congreso de Paraguay no aceptó la renuncia de Santiago Peña como presidente y qué supone ahora el juicio político en su contra",
+    "url": "https://www.bbc.com/mundo/articles/crwyddpl789do?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Mundo",
+    "langue": "es",
+    "date": "2026-11-06T02:16:10+00:00"
+   },
+   {
+    "titre": "Paraguay’s president quits after millions of people’s savings frozen in bank crisis",
+    "url": "https://www.theguardian.com/world/2026/nov/05/paraguay-president-santiago-pena-resigns",
+    "source": "The Guardian World",
+    "langue": "en",
+    "date": "2026-11-06T06:16:22+00:00"
+   },
+   {
+    "titre": "Crise do Ueno Bank no Paraguai: Senado continuará análise de impeachment de Peña nessa 6ªf",
+    "url": "https://www.bbc.co.uk/portuguese/live/cqwy7zykezl6t?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Brasil",
+    "langue": "pt",
+    "date": "2026-11-06T06:30:36+00:00"
+   },
+   {
+    "titre": "Crisis en Paraguay, EN VIVO: renunció el presidente Santiago Peña tras el escándalo con Ueno Bank, minuto a minuto - Clarin.com",
+    "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQWmJyaEF0eHkzMktacnNCb252ckxmaVg4YlV4cWtibFA2RW9KMTFjVERwNllQa2V5MWlWVG9hTmlJbEJ1cU9BcUNMd1F3X2M5OWNWQXh5X2ZwN1c0LW1KWWJHdDNKdW5Zb1ZlZGVKbWFYQnlGMUVmZHBBbjU5eThYVVNkeXBELThaSlRiSkxCTk1hVlU?oc=5",
+    "source": "Google News AR",
+    "langue": "es-419",
+    "date": "2026-11-06T03:44:50+00:00"
+   },
+   {
+    "titre": "Paraguay President Santiago Peña resigns after bank collapse",
+    "url": "https://www.bbc.co.uk/news/articles/c6p9g39vln3yo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC World",
+    "langue": "en",
+    "date": "2026-11-05T17:40:40+00:00"
+   },
+   {
+    "titre": "Paraguay's president is impeached minutes after resigning following a bank collapse",
+    "url": "https://www.npr.org/2026/11/05/nx-s1-6030842/paraguay-president-impeached-bank-collapse",
+    "source": "NPR World",
+    "langue": "en",
+    "date": "2026-11-05T18:30:16+00:00"
+   },
+   {
+    "titre": "Bankenpleite stürzt Paraguay in eine Krise",
+    "url": "https://www.tagesschau.de/wirtschaft/weltwirtschaft/bankenkrise-paraguay-100.html",
+    "source": "Tagesschau",
+    "langue": "de",
+    "date": "2026-11-05T10:18:28+00:00"
+   },
+   {
+    "titre": "Crisis en Paraguay: el cierre de Ueno Bank que desencadenó la renuncia del presidente Peña - France 24",
+    "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNMVNidE1fTlNEbDdSdnpVS3J4LTNQaDlUQjBzWVpjVWIwNzc3VmZxLXQ5TDNFcFFQS0lCdGJ2NlRQeFJJZ3JpamZLaUpSR3NEWEpUdlcyd3Q4b2pXY29yY3pzWDBkNmNCR1BlelRsRWl2ZF9qb3lxRjFoNDEyQlRPd1BHOWd2TTlvV2xoaVpYNlZ6cnV6OUtNdFlLd0J1NnNhZEl4WDVUbXJJOFFPeG00SDFrQ1l1LTFlSk1PVXBRODVwTE0zMXlVZTE3RHdOc0w2TmtTNENwYnR3Zw?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-11-06T00:18:58+00:00"
+   },
+   {
+    "titre": "Peña renuncia a presidencia de Paraguay arrastrado por crisis tras el cierre de Ueno bank - ABC",
+    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQaTZDbGVjOVlZRi0xbG9iUUJjNkR2T3FmdXE2Q3otQXB1Q2tVQ05URDdXTjZwclZDYjllekd6WUlqYUNBRXdpMnZoR2NjQ21Nb042VzFsalQ3Y1pzeG1zaFlkTnA1MldhWVhQVjJoTXJLTTg2SmRvSFd3NUxQSmJOX1piQUZJa2hzS3BrN1ZvSWo4MnZfSGdaaVhMODlkWERJWnN4UHZJa0J5Z9IBrwFBVV95cUxOcG5RWUthNlktNnJNWmlrRzdCOVBJSkhxWk8wX195anJZa2V1aVQ5MzUteEVGNTJEeVNtLUFHS2JtQWpTSmVnZlp1YVM0bkJNR2dUNWt6bHFNbTFLcVFaLVkwc19XcGVONEV3T285S1k0Y0JCSHZDR2JjeG9hSGFBLVhqRzBpcGZVek9BSzM0RE1GX2hFalBUQmgxa2ZBUmJXOENsaHgxaFdiczVBNjNN?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-11-05T17:17:54+00:00"
+   },
+   {
+    "titre": "El presidente de Paraguay, Santiago Peña, dimite tras la crisis desatada por el cierre de uno de los mayores bancos del país - El HuffPost",
+    "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQdk50em5XUXVXTDRNOVV4cDg3amltV21hRHFiLTJ1Rm9oWEZyMmhLVmZuZDBPUVJzOThQb0tNV2FuUGsxbGZ2U3NQSkpkcTVSbXlVT2pTMXZ0aTd3RTBnazRXWjdYMGtfX2ZMazNxYnVvWmZtYnlVeUJTTmtpLUlHWUtaekViVFpmU3F2bU5ZUlJnYjJhT0FCUERMUnJ1WWxHeTExQXRtaHQyZlZrNlcySGlDWnhTOGw1SWotWElITDhkbDgt0gHYAUFVX3lxTE5oRHFuNzNBYnY1a2xKN1Q4T2tvYmVoYmQwMHBzbEd1MmZSaG5BbUpqV2J0QzI5aWZMVXc5ejhPczUtcWpYOGN2ZkpHS19DUXdQN2U5Rlcyb2RHSjFaSTMyZnJlNjdXVFQyZC1faTRKOU1Hd2s2MEM1RjJRajFxUnc3SENCRTJhaEpPYmRDc2R1a3ZVX3UyRnBwYmtydTF4ai0yMGR2UnYtVlgyZEVieWRTSG9aQ3RlQ1NKSUhjU0E1ZzJCYkk2RVBZSGNpNVVhUnFfR2FlVjh6Qg?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-11-05T16:33:00+00:00"
+   },
+   {
+    "titre": "Una por una, las claves para entender el escándalo del Ueno Bank en Paraguay que derivó en una fuerte crisis política",
+    "url": "https://www.infobae.com/economia/2026/11/06/una-por-una-las-claves-para-entender-el-escandalo-del-ueno-bank-en-paraguay-que-derivo-en-una-fuerte-crisis-politica/",
+    "source": "Infobae (Amérique latine)",
+    "langue": "es",
+    "date": "2026-11-06T04:50:17+00:00"
+   },
+   {
+    "titre": "¿Qué está pasando en Paraguay? El cierre de Ueno Bank abre una crisis que salpica a millones de ciudadanos - MUNDIARIO",
+    "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxONU5kWlBmSDFBbThBb1V4ekV2cUVaLWpsT0gxRkxYRy16bXVURTR5X3ZoVzI3ZzRwdTRBbzloTENqMlc1RkNYZGRLY2VCY196R3k4Q0xFdFhSakN4ajlEOEkxOV9kbl9CUmJPSzFuamdZU1h4Q2ZKSm9mdzNNS3U4SmhkaFBvNDdFU0tNV29PZDRmcGtmWlFZVGhrdngxQnZJaEhDQ1pmWXFXOVQ2TjVaWXU0bmRpOFpybDMtWEJfSEhDWXpPckdmd0FXUnpnbF9ESzA2ZkhqY3k0UdIB3wFBVV95cUxQckhVZno4VzNTM3dvTVJub2N2aGpucjlzbFpjR0pPYzJqVWx3TUQzcVVMeVFRVWV3N0tEVmszTDBBOXNxSWl0Yl9nMWZiQ0xnRUlrS1hXekw1YVNnLUVPR2dUampzUWhSMmhSakk0cVA2TlgzaklrTVNDYzFnZFhUYldOb3RUc0lFQzlFeEZMUU42cVBvbXMxQkxuY25qWGlsanFhNGg1c19NVHlSeGpGS2pLcmhhRnQwWVU1cjVHV3lmSlZKLWxZUk9meGRrZ2M2WmVQNllvVDBSeThzZElF?oc=5",
+    "source": "Google News recherche ES",
+    "langue": "es",
+    "date": "2026-11-05T15:32:45+00:00"
+   },
+   {
+    "titre": "Del sueño de Wall Street a la cárcel: quién es el banquero millennial, heredero y triatleta que está detrás de la crisis de Paraguay",
+    "url": "https://www.infobae.com/economia/2026/11/06/del-sueno-de-wall-street-a-la-carcel-quien-es-el-banquero-millennial-heredero-y-triatleta-que-esta-detras-de-la-crisis-de-paraguay/",
+    "source": "Infobae (Amérique latine)",
+    "langue": "es",
+    "date": "2026-11-06T04:48:44+00:00"
+   },
+   {
+    "titre": "'Caso Master do Paraguai': entenda a crise de banco que pode derrubar o presidente Santiago Peña",
+    "url": "https://www.bbc.com/portuguese/articles/cmq8njl81978o?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Brasil",
+    "langue": "pt",
+    "date": "2026-11-06T02:16:08+00:00"
+   },
+   {
+    "titre": "'Quase todo meu dinheiro está preso no banco': brasileiros que foram para o Paraguai são afetados pela crise no país",
+    "url": "https://www.bbc.com/portuguese/articles/c804064l5ppyo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Brasil",
+    "langue": "pt",
+    "date": "2026-11-06T01:56:13+00:00"
+   },
+   {
+    "titre": "La indignación llegó a las calles de Encarnación por la crisis de Ueno Bank - El Territorio",
+    "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNdHVGYlYyY1dqZHd1WXhCNVQxRmlqalViMmhsSlo5TjFGVDJuaG5kaGlaejdCOVhqcHlRc1o1S005RzFOZFNJVnoxSWlDYlJlRnZVNjlCNnA0LWFTOFZMVHR1OVU0LWRGbFFVRXZ6YnFKd3JhbG4wSU9aUmdzYWgyaFRoMlFUN1ZMVmFBUDkxZjZ6QUJqdGI5cHNhbHFpR3ljRzVFeWwtLVMtVlFsQVVSenZMTkpPTlVGV3FydWw5TGhjNl9nR1JhWWlSLUZQd0HSAdQBQVVfeXFMTW53S1ZwLVE3VHNwVWVmNXlBc1c2YVJSNE9idmtuWjZpeDRja1V5M3NoOTdCXzZVUzRGQUR1WEtERFhFS1hsNGx1QXVCaEpFTER3ZVVVSXdsWE0yOXo4ejdqWk9TNENaNkZoNXlQbllFYUNmdE1fMkJDNTIzX3hITjZHcXJELWpoUmVwZV95a1B5Tzk2UGEwWVVxMERZaXl4U2tMV0NZUlNzRDF6UC1pcThDXzFmclJvRE5JMXpabUtQaEFUM0dmemtsTEd1ckNRRnNsNFU?oc=5",
+    "source": "Google News AR",
+    "langue": "es-419",
+    "date": "2026-11-06T00:02:00+00:00"
+   },
+   {
+    "titre": "Qué es Ueno Bank y qué provocó la crisis por la que Santiago Peña renunció como presidente de Paraguay",
+    "url": "https://www.bbc.com/mundo/articles/cqx28zrgd0yxo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC Mundo",
+    "langue": "es",
+    "date": "2026-11-05T17:38:18+00:00"
+   },
+   {
+    "titre": "Crise no Ueno Bank afeta jogadores da seleção do Paraguai, que cobram Justiça",
+    "url": "https://redir.folha.com.br/redir/online/mercado/rss091/*https://c-level.folha.uol.com.br/financas/2026/11/crise-no-ueno-bank-afeta-jogadores-da-selecao-do-paraguai-que-cobram-justica.shtml",
+    "source": "Folha (Brésil, économie)",
+    "langue": "pt",
+    "date": "2026-11-05T14:55:00+00:00"
+   },
+   {
+    "titre": "Santiago Pena, Paraguay President, steps down as banking crisis sows chaos - The Hindu",
+    "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPdzZqYThTUlB1M3I4ZUllQXp4Yy15LUZaQ2QtdnBYb18tZkxzMGhzME5VQ0hrWTEyXzkwelEzYVFFU2d0WHNDcWh1eDFqRUtzX19fNlhnZUpHeFZFUkJDbGFncEtGOFNaU0RIVzd4Uk0tZjhMNDlnS3FCWXBTWktDUUxTaFFadk5Udkt4N1Y5U0U0RkZlV0I1c2hHdmt0M2djMUlncVBPZUM3Q1FCSFpSbmZDclVvZm1vNnhFNEFYVktPUW1nS1FsTGtkdENFYzJLTFHSAdgBQVVfeXFMUGtYTFJPMW10ZEEwekFRX3phT0tzVU94TFd5UzRWYzY5ZFk2TkhvcUg0cVpEaFpoYXZhdDRnXzRMeElBV1J2a1NUSXVBRWhFcHlLSU53Vi16akQ1X3hPc29iNEJ2aW5JblJHRFdFc0dLMjVJaUNlTElKX1VxSDZpRVhueExHcmdXc1Q0ZndYcmdkVmVoVHdrdVBHVVVfcDVpbnI1a3VtazNyTkdUU0xMQzlLMkxDZDJHNTBIYjJmOU93QXJHeHA1eHJkUFFLZWtaaDh2djRtRWZP?oc=5",
+    "source": "Google News IN",
+    "langue": "en-IN",
+    "date": "2026-11-06T05:00:44+00:00"
+   },
+   {
+    "titre": "Paraguay : le président Peña annonce sa démission dans la foulée d'une crise bancaire - Boursorama",
+    "url": "https://news.google.com/rss/articles/CBMihgJBVV95cUxOREpzMzBZNUctc0tRbWp3aHZPbzlvQ0dTc0FwRVlzc3p5WVcwdV9DN0l5OVZVOFhiYktiR054VTJfUUg4LVB6N2UwOExaNThMZlRXMzRJMUFuNkpvWW9sY0tXU0p2eG5Kak05RXJsVVJJVmc1RVlSekhnZVVYdFJ0XzRycUI4dTdNWFpfS0ZhcmhMX3phMjF4TlRMazFjMVNoU0Zmb2YxaV9TZnRRNndoR0hFRGtod1JpU0R5OXhsUUxqb09SOEN5ajliWXdXcTJyVS1oUVRXRVJRVkVyLTBwVVo5V0s0WjhGU1RuZ1NQeklNZkZxS3JmS19wX3VYV29sTUdRZG1n0gGLAkFVX3lxTE5zSy02cWNjLWJUcWh3SUZQaEdaY1NkelN0SFFUZ1dHcVg3SllleWttNkEtSDc2TXowemdxMXp5ay1rQ0FueGtaWHJUUmZxRGVmX1QwQk5ZRmRJSjlFRWhUTm5UNEtEOURaUDdVTWVneGxoWnFXb1BRRXYzY0lWaUUyNURFTUlhaXJ6SVBoMUFVd1cwajNwUndLOWowVUw2TUt1Ymppaml3SFNkeVpYLWZCQkNTdzZtdlBxVGp3dUxObzJhSnFKQVJKUFRwZU9adTFOekd5R2ltWkFLZm1WRHZ1NGQ0M28zNng1T3VSYWdlQ1F6eFJkUmhFQ2E2MWlKeXgyM3BTODhXZWJYdw?oc=5",
+    "source": "Google News FR",
+    "langue": "fr",
+    "date": "2026-11-05T21:29:00+00:00"
+   },
+   {
+    "titre": "Entenda a crise do Ueno Bank, que provocou renúncia do presidente do Paraguai",
+    "url": "https://redir.folha.com.br/redir/online/mercado/rss091/*https://c-level.folha.uol.com.br/financas/2026/11/entenda-a-intervencao-no-ueno-bank-e-a-crise-politica-que-ela-provoca-no-paraguai.shtml",
+    "source": "Folha (Brésil, économie)",
+    "langue": "pt",
+    "date": "2026-11-05T02:00:00+00:00"
+   },
+   {
+    "titre": "נשיא פרגוואי התפטר בעקבות קריסת בנק במדינה - הארץ",
+    "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOclp0dHFnVWwtYnlaN1RJbEFReGFSVDR0YnpLS3JLREtyWEYzRE8zUThOS0tlYlVPZ2pVaDRRUllGNnFRaC1yVkNYTG5hT2M5a2ZCbjUzS1pkVWQtQ2RRWEF5UzJUTU5hNERTLWhINlFWQ2ItaE9CSUhVclVxRmhsRmV0bk5tUEROUUhjWWY1QWlvVHlPMVlCakJSVmVPYk93VnlxUmExLUE0YUJNSy1ndml3?oc=5",
+    "source": "Google News IL",
+    "langue": "he",
+    "date": "2026-11-06T02:06:00+00:00"
+   },
+   {
+    "titre": "Larissa Riquelme , musa do Paraguai na Copa , desabafa após ter dinheiro bloqueado em banco : Anos de trabalho ; entenda",
+    "url": "https://revistaquem.globo.com/noticias/noticia/2026/11/larissa-riquelme-musa-paraguai-desabafa-dinheiro-bloqueado-ueno-bank.ghtml",
+    "source": "GDELT · revistaquem.globo.com",
+    "langue": "Portuguese",
+    "date": "2026-11-06T03:00:00+00:00"
+   },
+   {
+    "titre": "Paraguaios dizem que Peña fugiu para a Argentina; governo Milei nega - Poder360",
+    "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPSDhhc3c1ZEt1c25rUHdSNnB6cXdpcmM3cVI5OU50d1dWWkxQcnJHYVZfZXlObENQaU1rczlzNW1KLUVuc3l3cjBxc2JPWVloNkVGSE1lYTlyYXhIdVRRMkJ4Sm12TVY4Uk5GR2lTQnUyclZVM2JSUnpvRVQwNVk1T2VHTkFybHgtTUJaOWdrRkhwQWIwZVJGOE5ybnRCaWVITm45VEdhQlhYeVFIbURHa29pYXY3eDQ?oc=5",
+    "source": "Google News BR",
+    "langue": "pt-BR",
+    "date": "2026-11-06T01:04:41+00:00"
+   },
+   {
+    "titre": "Paraguay's central bank chief resigns at president's request as digital lender crisis deepens - Reuters",
+    "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNQVUyTGYzRVlPTnJHT3pKRFZBdlpYRnEwNmpweE9lRUFFcmREVEtWRVdIU2xyWGEzNV96VzBSOFFDZVhfVGpCZk16V1l4X0NnRjZSNzZ5TVVNdFhDbTIyQUpDMG96RW1fX0w3bm5kM1FJSjdZdHpqbnR5aFZ4cGc1NVZ5RkthZTJ0bXZacGVWZTFLaWI1ak5pSEozMHJTcEwzdDkyX1dSRDIzNjlrcmNrdkNNYWVMNkgtTHNkYTd6ZFdJdHgzVEo1Z1dR?oc=5",
+    "source": "Reuters",
+    "langue": "en",
+    "date": "2026-11-03T22:20:09+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Paraguay prosecutor will seek charges against embattled president after bank collapse - PBS",
+    "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNX1VORlZsQW5ZZHhWMGhvTDJJVUdEMVJXMU1LVkhxQ3JJN0lIZkUzRHpwZ09pbGJKRXV0aGZ4M00tS2ZyUVZYaG9pSElRa3Q0cGRSYnlfaVFaWXItaGw1SlJxcGFRb0E2RW1vUGxCNUJXYlNoM1dhZU9ZTkYyN3hLendhLVVoX2k5dmxzal9ja2dVVUE3dXFYYm1RZEVTOFVvbmpXVGN6WmNpVFhuU2ZNVlRjX0w5REtDMUFWctIBwgFBVV95cUxPZWQ2alJOX0NxaWxGWVYzOHcxVEdyRlpJYjdGTDkxVTMwcl9IZXIxQktwQlJBeEFza082OWhjMUd5aGlONWd3eDZEd0JwZEgxWVkwNFBKSmNLU1pTSC1NbndKWHQ4ellMOTVZTDB1bW9Eb19LSW9GVUc5b2E4Y3hlMkVKa19JOTVmaTI4eGZ0c0tzbDVIMFhwLVhWMVotQkloZXk2YVplVl85QWZmXzI2QzJNdnNVSkdCemo3SENqd1R1UQ?oc=5",
+    "source": "PBS",
+    "langue": "en",
+    "date": "2026-11-05T23:16:26+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Paraguay Names New Central Banker After Lender Is Taken Over - Bloomberg.com",
+    "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOWWh2ZTFUYTF6WnlnVWxyMFM3Q2RsM1dJcWFxVTVrTlVYZTZXaE1CMGVnSTlCUm5CM3hMNHhVc3VrS0lFa3BFbVp0LUxDREU3VkU3VFpjSHVqeXdzUjJpbzlvUVl4T04wUjlyUk02TzM5UG9WSk01dEpycXRnLXBVeElFXzBPdE1XT3dzcEVyRjlWWURlUURPbkdUWUxfcGRIZHVMdDdpZ25ocl9sSWRmUQ?oc=5",
+    "source": "Bloomberg.com",
+    "langue": "en",
+    "date": "2026-11-04T17:05:09+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Paraguay seizes major digital bank tied to president, leaving millions of customers in limbo - Los Angeles Times",
+    "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQbFV3cGU2ZzZCNjEwWm0tMmt1ZHhWSzRJeGJCTm5haWQwNVlUaVBlRTA0UUNxRjBhNEVjOXVqd2htU0h0cnNQZE1ZM2I5OWtiMkpLVWFEVmZXY3NhbzlkcUlSNzAxWDZSMmctMWwycDBNWHZjbkVCYTdXamZrRFNwamdGbXY3N21tNkpWUkFsanlyV2lkTUJ4THppTWxNRkJISkd0NTk0QVZjOHh1Zi1zZXdTRkxDRzNkcDBXMERtRVBoaWFFRTZwU0pOQktEcWd3R2szeW41bHlCdWJwSEE?oc=5",
+    "source": "Los Angeles Times",
+    "langue": "en",
+    "date": "2026-11-03T15:42:43+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Paraguay’s Central Bank Begins Ueno Bank Resolution: What Happens To Depositors? - The Asunción Times",
+    "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNYjlseHFxZFc1dEF5R2xWZ1JNemVUcUg5eEl4VnBxd1pucVAxR2toY1VvMkJHOEZ5MTc1eDk2bk1fYktMWDl6ZzJFUkZXZVNmQXRINERDa0tUS0lHbDRpejk4a1VTQlFmY0tFWjNJelM1MlhreTZGMEFUTVJMUUFtVGJnV05lY21WZld3ZlBaYlNpcEZpeFdvalZGQTNWS2NEOEI3QXRFU3h5ZXdJSzJKT0ZqUV81dzAteEFXV2Q2NXN2bFVKMXBEZTRXQzg?oc=5",
+    "source": "The Asunción Times",
+    "langue": "en",
+    "date": "2026-11-03T12:30:00+00:00",
+    "confirmation": true
+   }
+  ],
+  "ethique": {
+   "acceptable": true,
+   "raison": "The service gives free, verified information and practical tools to victims; revenue comes from labeled referrals and vetted professionals, never from charging affected depositors or from fear tactics."
+  },
+  "id": "idee-a9180c42",
+  "signaux": 1,
+  "cree_le": "2026-11-06T06:45:53+00:00",
+  "mis_a_jour_le": "2026-11-06T06:45:53+00:00",
+  "statut": "active",
+  "notifiee": false,
+  "langue_redaction": "en",
+  "note_globale": 6.4,
+  "sources_confirmation": 5
+ },
+ {
+  "titre": "'Data Center Watch US': county-by-county tracker of proposed data centers, zoning hearings and local ballot bans after the midterm backlash",
+  "pitch": "Voters just used the midterms to block data centers, from Trenton, Ohio's 80% ban to calls for a national moratorium. A searchable map and alert service of every proposed project, hearing and local vote serves residents for free and sells early intelligence to developers, land brokers, utilities and investors.",
+  "evenement_declencheur": "US midterm voters reject data center expansion, wiping $2 trillion off tech stocks and pushing OpenAI to drop NDAs with local officials.",
+  "contexte_declencheur": "In the November 2026 US midterms, voters strongly opposed data center expansion: in Trenton, Ohio, a data center ban passed with nearly 80% of the vote, and other Ohio communities blocked projects. Top Democrats are now calling for a 'national data center moratorium', and investors reacted with a $2 trillion tech sell-off, the Nasdaq dropping over 5% and the Magnificent 7 losing $1 trillion in one day. Meta warned that political backlash could make AI expansion harder, and OpenAI announced it will no longer use non-disclosure agreements with public officials on data center projects. As a result, more project details will become public, and many more local fights, zoning hearings and ballot measures are expected in 2027. Information is fragmented across thousands of county agendas, utility filings and local newspapers. Residents want to know what is planned near them, and developers, land brokers and investors need to know where projects face opposition before committing capital.",
+  "pourquoi_maintenant": "The backlash is fresh and the 2027 project pipeline is being reassessed right now by developers and investors. A tracker launched in the next month can become the reference while the topic dominates the news; in six months, large data providers or newsrooms may have built their own databases.",
+  "description_detaillee": "The product is a web map and database of proposed, approved, blocked and cancelled US data center projects, with for each one: location, developer if known, announced capacity (MW), water and power needs, the next public hearing date, local ordinance or ballot status, and links to source documents. An ingestion pipeline built with an AI coding assistant monitors news, county meeting agendas and state utility commission dockets, and uses an LLM to extract key facts, which the founder validates before publishing. Residents get free email alerts for their county and a plain-language page on how to attend a hearing and read a zoning application. A paid Pro tier (€49 to €99 per month) adds full exports, weekly 'opposition risk' summaries by state, a timeline of local moratoria and ordinances, and API access. A Teams tier (€299 per month) targets land brokers, site-selection consultants, utilities, infrastructure funds and journalists. A typical Pro customer is a site-selection consultant who checks whether a county has had a contested hearing or a ballot ban in the last two years before recommending a site. The positioning is strictly neutral: facts and documents for all sides. First users come from Hacker News, Reddit communities in affected states, LinkedIn posts on data center opposition statistics and outreach to local reporters who need data. A free weekly newsletter ('This week in data center fights') drives sign-ups. A realistic target is 40 to 120 paying subscribers within 6 months, or €2,000 to €10,000 in monthly recurring revenue, plus possible data licensing to media.",
+  "categorie": "saas",
+  "realisable_en_ligne": true,
+  "cible": "US residents and local groups (free), site-selection consultants, land brokers, data center developers, utilities, infrastructure investors and journalists (paid)",
+  "pays_cibles": [
+   "United States"
+  ],
+  "langues": [
+   "en"
+  ],
+  "modele_revenus": "Freemium SaaS: free resident alerts, Pro subscription €49-99/month, Teams €299/month, data licensing to media",
+  "budget_estime_eur": 1865,
+  "delai_lancement_jours": 30,
+  "duree_opportunite": "Durable: data center siting disputes will intensify through 2027-2028 and beyond",
+  "notes": {
+   "potentiel": 6,
+   "cout": 6,
+   "travail": 5,
+   "risque": 7,
+   "urgence": 7,
+   "durabilite": 8,
+   "fiabilite": 7,
+   "concurrence": 5
+  },
+  "notes_explications": {
+   "potentiel": "The B2B audience (consultants, brokers, investors, utilities) has high willingness to pay for early siting intelligence, and media can license data. The niche is limited in size, so reaching several hundred subscribers is ambitious but possible.",
+   "cout": "About €1,900: two months of AI coding, LLM and search API costs, hosting, a small LLC setup and LinkedIn promotion. No stock or premises.",
+   "travail": "The app can be built in 1 to 2 weeks with an AI coding assistant, but seeding a credible initial database of a few hundred projects and validating facts takes 2 to 3 more weeks. Ongoing curation is the real workload.",
+   "risque": "Publishing public information about projects carries little legal risk if sources are cited and facts corrected promptly. The main risk is commercial: buyers may prefer established data vendors.",
+   "urgence": "The midterm results and the tech sell-off make this the moment of maximum attention, but the trend will last, so a launch within 4 to 6 weeks is enough.",
+   "durabilite": "AI compute demand and local opposition will keep generating disputes, hearings and ballot measures for years. The database gains value as history accumulates.",
+   "fiabilite": "The backlash is documented by The Verge, BBC, TechCrunch, CNBC, NPR and local outlets, with concrete results such as the Trenton ban. Each angle is covered by a single source in this batch, so the B2B demand still needs validation.",
+   "concurrence": "Data Center Watch reports, DataCenterMap, Baxtel and trade media like DatacenterDynamics already cover projects, and some newsrooms track opposition. Few combine a live hearing and ballot tracker with local alerts and a neutral, affordable B2B tier."
+  },
+  "budget_detail": [
+   "AI coding assistant subscription (2 months): €200",
+   "Hosting and database (3 months): €150",
+   "News search and web scraping APIs (3 months): €300",
+   "LLM API for document extraction (3 months): €300",
+   "Domain name: €15",
+   "LLC formation and registered agent (if needed): €400",
+   "LinkedIn and Reddit promotion: €500"
+  ],
+  "requete_verification": "data center ban ballot midterms moratorium",
+  "concurrents": [
+   "Data Center Watch (10a Labs): periodic reports on blocked projects, not a live, searchable alert service",
+   "DataCenterMap and Baxtel: inventories of existing facilities, little on hearings, opposition and ballot measures",
+   "DatacenterDynamics and trade media: news articles, no structured county-level database",
+   "Local newspapers: fragmented coverage; the tracker aggregates and structures it"
+  ],
+  "analyse": "A solid, durable bet for someone comfortable with data work and US local politics. Launch a free map and newsletter first to build credibility and traffic, then validate the paid tier by interviewing 10 site-selection consultants or brokers. The main point of vigilance is data quality and neutrality: every entry must be sourced, dated and correctable, or the B2B audience will not trust it.",
+  "etapes": [
+   "Week 1: define the data schema and seed 150 to 300 projects from news archives and existing public lists (Google Sheets + LLM extraction, manual checks).",
+   "Week 1-2: build the map, project pages, county alerts and Stripe subscriptions with an AI coding assistant (Next.js, Supabase, Mapbox, Stripe).",
+   "Week 2: set up the ingestion pipeline (news API, county agenda scraping, LLM summarization) with a validation queue.",
+   "Week 3: write the free resident guides (how to read a zoning application, how to speak at a hearing) and the methodology page.",
+   "Week 3: form an LLC if needed and publish terms of use and a correction policy.",
+   "Week 4: launch with a data post on Hacker News and Reddit, and send the first weekly newsletter.",
+   "Week 4-6: interview 10 to 15 consultants, brokers and journalists; adjust Pro features and pricing.",
+   "Month 2-3: add state-level opposition risk summaries and CSV/API export; pitch data licensing to newsrooms.",
+   "Ongoing: 1 to 2 hours per day of curation and alert validation."
+  ],
+  "risques": [
+   "Inaccurate project data: show sources and dates for every fact and offer a public correction form.",
+   "Perceived bias by developers or activists: keep neutral wording and present both approvals and rejections.",
+   "Scraping limits on some county sites: rely on public documents, respect robots.txt and add manual entry.",
+   "Weak paid conversion: validate demand with interviews before investing more, and test media licensing as an alternative.",
+   "Larger players copying the idea: focus on hearing-level granularity and speed of alerts."
+  ],
+  "mots_cles": [
+   "data center",
+   "moratorium",
+   "zoning",
+   "ballot measure",
+   "midterms",
+   "AI infrastructure",
+   "site selection",
+   "local opposition"
+  ],
+  "sources": [
+   {
+    "titre": "OpenAI is stepping back from NDAs for data center projects",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/1028454/openai-data-center-nda",
+    "source": "The Verge",
+    "langue": "en",
+    "date": "2026-11-06T00:37:56+00:00"
+   },
+   {
+    "titre": "Global tech stocks plunge as US midterms add to AI slowdown fears",
+    "url": "https://www.bbc.co.uk/news/articles/cmn04705rd8jo?at_medium=RSS&at_campaign=rss",
+    "source": "BBC World",
+    "langue": "en",
+    "date": "2026-11-06T06:00:59+00:00"
+   },
+   {
+    "titre": "Meta warns that election backlash against data centers could make AI expansion harder",
+    "url": "https://techcrunch.com/2026/11/05/metas-warns-that-election-backlash-against-data-centers-could-make-ai-expansion-harder/",
+    "source": "TechCrunch",
+    "langue": "en",
+    "date": "2026-11-05T19:12:39+00:00"
+   },
+   {
+    "titre": "Trenton data center ban passes with nearly 80 % of the vote",
+    "url": "https://www.journal-news.com/local/elections/trenton-data-center-ban-passes-with-nearly-80-of-the-vote/article_63a9951a-54e1-5dcc-86b3-e70ed7887ce2.html",
+    "source": "GDELT · journal-news.com",
+    "langue": "English",
+    "date": "2026-11-05T22:30:00+00:00"
+   },
+   {
+    "titre": "OHIO VOTERS BLOCK DATA CENTERS - Investment Watch Blog",
+    "url": "https://www.investmentwatchblog.com/ohio-voters-block-data-centers/",
+    "source": "GDELT · investmentwatchblog.com",
+    "langue": "English",
+    "date": "2026-11-06T05:30:00+00:00"
+   },
+   {
+    "titre": "Top Democrats call to rein in AI buildout after midterms sweep: 'National data center moratorium now'",
+    "url": "https://www.cnbc.com/2026/11/05/democrats-data-center-restrictions-midterms.html",
+    "source": "CNBC Top News",
+    "langue": "en",
+    "date": "2026-11-05T20:17:16+00:00"
+   },
+   {
+    "titre": "Fears of an AI crackdown after midterms spark $2 trillion rout in tech stocks",
+    "url": "https://www.npr.org/2026/11/05/nx-s1-6031987/stock-markets-ai-midterm-elections",
+    "source": "NPR Business",
+    "langue": "en",
+    "date": "2026-11-06T00:16:53+00:00"
+   },
+   {
+    "titre": "Magnificent 7 loses $1 trillion. The most eye-popping stats from Thursday's tech stock plunge",
+    "url": "https://www.cnbc.com/2026/11/05/stock-market-selloff-ai-fears.html",
+    "source": "CNBC Top News",
+    "langue": "en",
+    "date": "2026-11-05T23:39:32+00:00"
+   },
+   {
+    "titre": "Friday's big stock stories: What’s likely to move the market in the next trading session",
+    "url": "https://www.cnbc.com/2026/11/05/fridays-big-stock-stories-whats-likely-to-move-the-market.html",
+    "source": "CNBC Top News",
+    "langue": "en",
+    "date": "2026-11-06T00:50:48+00:00"
+   },
+   {
+    "titre": "Jim Cramer says the AI sell-off isn't over, but it isn't another dot-com crash",
+    "url": "https://www.cnbc.com/2026/11/05/jim-cramer-ai-stocks-sell-off.html",
+    "source": "CNBC Top News",
+    "langue": "en",
+    "date": "2026-11-05T23:17:51+00:00"
+   },
+   {
+    "titre": "Analysts and investors react to AI market rout",
+    "url": "https://www.aol.com/articles/analysts-investors-react-ai-market-011114000.html",
+    "source": "GDELT · aol.com",
+    "langue": "English",
+    "date": "2026-11-06T02:30:00+00:00"
+   },
+   {
+    "titre": "Here’s Where Voters Are Rejecting Data Centers At The Ballot (Full List) - Forbes",
+    "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQWWRsN2ZIektnZXl3dTRGQ01yX1FkQlBTSkl4QWlZZGp6QWNwSUlIODBMWkdBWDZDcWFfZ2FhckhtTi1NQ2h2eXZJSWtlOUhQMWtwMXpwcERwX1JfNHdOU2poZEdldzRfcG5RN3ViSzJkUzdpSjBaamhwM1hJS1NKbDhEVG15NjZIVFg4OWZYV3ZyWGEtbHA3TVJ5dmNDbGwwQWVaMmVvTUZXX0pEamN6WVRiRjA1UHZrVWhabl9EUQ?oc=5",
+    "source": "Forbes",
+    "langue": "en",
+    "date": "2026-11-04T17:17:00+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Voters overwhelmingly reject data centers in their communities on Election Day - KCRA",
+    "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxObnhVQy1yT3hTQ05majlZMTh2dFJKYkZYSi05VTI2ZUhQaXlVS2Z4dkFuYzM5RHZkV0E3bGVtN1dRTFB2elY5UVZIYVBLN2U2aGNCRjBNVFJXWGIxbUx3WGlNS3dUd1I0WXNWVENkc1d1OTY4VEV6UmZqQVJiY1lPUjhyelVfT2JiUlRkN01jNjVkN2VidkV2SEVzbXhKNDFXVlRYenRZT1dLQWRoOEItUGNfNmxkOWhFMHlNQw?oc=5",
+    "source": "KCRA",
+    "langue": "en",
+    "date": "2026-11-05T15:34:00+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Datacenters were on the ballot. US voters rejected them - The Guardian",
+    "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQMjd1X3FyNVRETUU3RUcxaW9aUC1nMFh3NVBfNWtSVWh5UFgwQVNqZ3p2NHYxTjdrZVd6U0lGWlluMkotYjZMaThsZnBpMU5SZ05kbjZXY3kxLTU5SlFRU0lQN0I2OGFvUExIZDRscEpPX0RZV3A5TVhtNS02d2JWNFozSQ?oc=5",
+    "source": "The Guardian",
+    "langue": "en",
+    "date": "2026-11-05T01:30:00+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Voters rebuff data centers in every ballot measure except one during the 2026 midterms - CNBC",
+    "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPTTNmVW16LVVvWHFXQ3NkLTd1VFhYTS10SmF3TnpqTVdpYVFWRzJnMWVJeEtqX3ZxdExMSENRZWhyNUsxOUVtdFYxYWw5c1RWZUZkT2d2dFBVMUVTSG1fQ0lnMXBXNlhaX2VCVDBwTWNIWUR4QXVCb29GWFJYVExlU0VIUdIBiAFBVV95cUxNUEtmbkhxV05pUWVQSzlueTZtMXlRdmctc3RWY3VEQ2xHU0VrZHF0cmZkczlOLUlCaXREeHlzTWV4UVYxUDdfMlh3bk9PWk5xcmFjMFhGVVRTUFFzU3c1X1FYcGZkbmVjaU1jbVp1X1BPb05PZVVuQ2ZlQU5GVzJmNGhxVW5zRjlv?oc=5",
+    "source": "CNBC",
+    "langue": "en",
+    "date": "2026-11-04T18:56:36+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Trump’s AI push collides with data center backlash - Politico",
+    "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQSXJYSjlaY2l6b1lXd2g3NkszMnJkLWZMWS12YWZiYTdBSmxoRGU4MEE4NlJFT1N2N2daN0Z3OWJQcm9OdUpCQ182blF5a3VOLWhkQS1tV3U5M2tnOG92N200U2ZCNHd0XzFVU09OTjI4LUZKQnJsNWNLQUdFVDNpc2NuUnA2X1N1emRmSnZpYTNDMU1I?oc=5",
+    "source": "Politico",
+    "langue": "en",
+    "date": "2026-10-31T18:00:00+00:00",
+    "confirmation": true
+   }
+  ],
+  "ethique": {
+   "acceptable": true,
+   "raison": "The service publishes neutral, sourced public information useful to residents, officials and businesses alike; it does not take sides or spread misinformation."
+  },
+  "id": "idee-3d7d1de2",
+  "signaux": 1,
+  "cree_le": "2026-11-06T06:45:53+00:00",
+  "mis_a_jour_le": "2026-11-06T06:45:53+00:00",
+  "statut": "active",
+  "notifiee": false,
+  "langue_redaction": "en",
+  "note_globale": 6.4,
+  "sources_confirmation": 5
  },
  {
   "titre": "Ghost bike owners' survival hub: spare-parts finder, derailleur hanger lookup and warranty guide after the brand's shutdown",
@@ -3133,6 +3905,151 @@
   "langue_redaction": "en",
   "note_globale": 6.1,
   "sources_confirmation": 2
+ },
+ {
+  "titre": "'No Surcharge, No Loss': card fee comparator, menu repricing calculator and customer signage kit for Australian small merchants after the surcharge ban",
+  "pitch": "Australia's card surcharge ban leaves cafés, salons and shops absorbing 1-2% card fees, and many are hiking prices clumsily. A free tool shows each merchant their real cost, how little they need to adjust prices, and which terminal or least-cost routing setup cuts fees, monetized through provider referrals.",
+  "evenement_declencheur": "Prices rise across Australia after the ban on card payment surcharges takes effect.",
+  "contexte_declencheur": "SBS reports that prices have soared after Australia's ban on card surcharges, which stops merchants from adding a fee when customers pay by card. Small businesses that used to pass on 1% to 2% card fees through surcharges now have to absorb them or reprice their products. Many merchants raise prices by round amounts without calculating their real cost, which irritates customers and attracts consumer criticism. At the same time, fees differ widely between providers (bank terminals, Square, Zeller, Tyro, Stripe) and between debit and credit cards, and least-cost routing can significantly reduce debit fees. Most small merchants do not know their blended rate or how to compare offers. This creates an immediate need for a simple, trusted tool to calculate the right price adjustment and reduce fees.",
+  "pourquoi_maintenant": "Merchants are reviewing their prices and payment setups right now, while customers notice and complain. In a few months, most will have adjusted prices and signed new contracts, and the decision window will close.",
+  "description_detaillee": "The product is a free website for Australian small businesses with three tools. First, a 'real cost' calculator: the merchant enters monthly card turnover, debit and credit share and current provider rates, and sees their effective annual fee cost. Second, a repricing calculator: it shows the exact price increase needed to stay whole (often 1% to 1.5%), with rounded menu suggestions, for example raising a A$5.00 coffee to A$5.10 rather than A$5.50. Third, a provider comparator listing rates, terminal costs, settlement times and least-cost routing support for Square, Zeller, Tyro, Stripe, Smartpay and the big four banks' terminals, with a short explainer on how to request least-cost routing. A downloadable kit adds counter signs and social posts explaining price changes transparently, and an email template to negotiate with the current provider. A typical user is a café owner who arrives from a Facebook group, discovers they pay 1.7% blended, sees that switching and enabling least-cost routing could cut it to 1.1%, and adjusts prices by 2% instead of 10%. Revenue comes from partner referral programs of payment providers (often A$50 to A$200 per activated merchant), a A$29 premium pack with an editable menu repricing spreadsheet and bulk signage, and possibly sponsorship by accounting software or business associations. Acquisition relies on small business Facebook groups, local chambers of commerce, hospitality associations and Google search on 'surcharge ban'. A realistic target is 50 to 200 referrals over six months, or €3,000 to €20,000, plus premium pack sales.",
+  "categorie": "outil-web",
+  "realisable_en_ligne": true,
+  "cible": "Australian small merchants: cafés, restaurants, hairdressers, retailers, trades and market stallholders",
+  "pays_cibles": [
+   "Australia"
+  ],
+  "langues": [
+   "en"
+  ],
+  "modele_revenus": "Payment provider referral commissions, A$29 premium repricing and signage pack, sponsorship",
+  "budget_estime_eur": 930,
+  "delai_lancement_jours": 10,
+  "duree_opportunite": "Peak over 3 to 6 months, then a steady niche for merchant fee comparison",
+  "notes": {
+   "potentiel": 5,
+   "cout": 7,
+   "travail": 8,
+   "risque": 7,
+   "urgence": 8,
+   "durabilite": 6,
+   "fiabilite": 5,
+   "concurrence": 5
+  },
+  "notes_explications": {
+   "potentiel": "Australia has over two million small businesses, many taking card payments, and provider referral fees are meaningful. Revenue depends on getting into partner programs, which would raise the score if confirmed.",
+   "cout": "About €930: a month of AI coding, hosting, an accountant's check of the calculations, and modest ads. No stock or premises.",
+   "travail": "The calculators and comparator can be built in 2 to 3 days with an AI coding assistant. Collecting and verifying provider rates and partner agreements takes about a week.",
+   "risque": "Low legal risk if rates are dated and sourced and the tool avoids giving financial advice. Outdated rates are the main reputational risk.",
+   "urgence": "Merchants are adjusting prices and contracts now; the window is a few months, not days, hence an 8.",
+   "durabilite": "Card fee comparison remains useful after the ban, as merchants change providers regularly, but the search peak will fade.",
+   "fiabilite": "Only one article (SBS) in this batch covers the price impact, so the score is capped. The ban itself is a well-known regulatory change, but local demand should be validated quickly.",
+   "concurrence": "Finder, Canstar and some provider blogs compare merchant fees, and providers publish their own calculators. Few combine repricing, least-cost routing guidance and customer signage in one neutral tool."
+  },
+  "budget_detail": [
+   "AI coding assistant subscription (1 month): €20",
+   "Domain name (.com.au) + hosting (1 year): €60",
+   "Accountant review of calculators and wording: €200",
+   "Signage and social media templates design (Canva Pro, 3 months): €50",
+   "Meta and Google ads targeting Australian small businesses: €500",
+   "ABN registration and business name: €100"
+  ],
+  "requete_verification": "Australia card surcharge ban prices small business",
+  "concurrents": [
+   "Finder and Canstar business sections: general merchant fee comparisons, no repricing calculator or signage kit",
+   "Provider calculators (Square, Zeller, Tyro): self-promotional, not neutral",
+   "Accountants and banks: advice is paid or tied to their own products; the tool is free and neutral"
+  ],
+  "analyse": "A quick, cheap tool to launch if you can get into two or three payment provider partner programs early. Validate demand in Australian small business Facebook groups during the first week before spending on ads. The main point of vigilance is keeping provider rates accurate and dated, and presenting the tool as information, not financial advice.",
+  "etapes": [
+   "Day 1-2: collect current merchant rates, terminal costs and least-cost routing options from provider websites; record sources and dates.",
+   "Day 2-4: build the calculators, comparator and kit download page with an AI coding assistant (Astro or Next.js, Vercel).",
+   "Day 3-5: apply to Square, Zeller, Tyro and Stripe partner or referral programs.",
+   "Day 4-5: create counter signs, social posts and the provider negotiation email template in Canva.",
+   "Day 5-6: have an accountant review the calculations and disclaimers; register ABN and business name.",
+   "Day 7: launch and share in small business Facebook groups, hospitality and retail associations, and local chambers of commerce.",
+   "Day 7-14: run small Meta and Google ads on 'surcharge ban' searches; set up Stripe for the A$29 premium pack.",
+   "Monthly: update rates and publish a short 'state of card fees' report to earn press coverage."
+  ],
+  "risques": [
+   "Outdated or wrong rates: date every rate, review monthly and allow providers to submit corrections.",
+   "Being seen as advice: add clear disclaimers and stay factual.",
+   "Refused partner programs: monetize through the premium pack and sponsorship instead.",
+   "Low demand if merchants already adjusted: validate in community groups in week one and stop early if traction is weak.",
+   "Consumer criticism of price rises: promote transparent, cost-based adjustments rather than opportunistic hikes."
+  ],
+  "mots_cles": [
+   "surcharge ban",
+   "Australia",
+   "merchant fees",
+   "least-cost routing",
+   "small business",
+   "card payments",
+   "repricing",
+   "EFTPOS"
+  ],
+  "sources": [
+   {
+    "titre": "Prices Soar after Australia's card surcharge ban - SBS",
+    "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQdWFZZTRBbHhQY19iejRXX1JpU2x0UUtyc29Nb0FOeTU4SktWNlJMc0Y0NlZLSU9JZktVMWFLZVFfaFN2Rlpza1dCYzRGMk1UalZlRHFPWkdJbDV1b0xGR0ZFZFNQZ05mejhUUzZoR0UzNjc2Y1FqMk5YWUNUelNETFkzVF93WW9xMGxEWW5SV1drVDJhcEd6enpkQklRTDBDT0dxOXI4WjhaaUxHTGF3bC04WjdlbnhFNVVsY2Jka2FVUV9QZzB4Qjl3?oc=5",
+    "source": "Google News recherche US",
+    "langue": "en-US",
+    "date": "2026-11-06T03:12:32+00:00"
+   },
+   {
+    "titre": "Small businesses hit cost tipping point as interest rates, surcharges add up - The Australian",
+    "url": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxNUy0tWkc1OUc4ZWZFNm5PSTYyU1k5TGNPX0pucGlDLUhldUUySWdJQk9tZHlZclVlV19qOHBVU1ZuSWhrT2VrbzIxNzdoWEl6N01oUjJtNkFVODRoc3BiZWN3QUNFV0NDS2h2cFJOOVlUZG8yNlpydUVaYUVjRmhMNWpENFYyRmhzWkFDY011Qk9YMkdpamd3SE90cTI2Sjg5czlmY1p1cC1IR0tmUXNwdExtR3VseTdiTjgzTm94ZWNzZkQzWjRWN0dqQ2hMZ0ZmZTdWamNsMXVKUGdjZWJnRWJTWFJsLWRzOUNhZGlNYlFPQmE3MzM4?oc=5",
+    "source": "The Australian",
+    "langue": "en",
+    "date": "2026-11-03T18:12:00+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Can businesses still charge a card surcharge in Australia? Not on eftpos, Visa or Mastercard since 1 October - Nacionale",
+    "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxONURNVnB0MGFxZmpZZ2ppT3BqNGFlY0FsaGdMLTlFSTlmNlNEZDVGd1VfeUlSUFFyX2ZHMnlZOWkxQ09WM2NrMDZpTklZY05mSC1YRU1WTVp4UXd5amlpUVRrZEV2NVVsMmdNN2RzSVZST2JmU1NWMUFZakctNi1adjFkd2U2SHd2VUFSbU1LX1JhUjdsbDJEdWRsVkFWZXJQUml0Q3RCNjJ5OXY5RzBNR3VIRkNjZVd5NVVObHNpQzNpdw?oc=5",
+    "source": "Nacionale",
+    "langue": "en",
+    "date": "2026-11-05T23:09:32+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "A month after Australia's card surcharge ban, here's what's happened to prices - SBS",
+    "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNLVhjdkk4T1dPeGd1WjNuSUFMTDF2TmdPOG9LRldNRkVhZHQ3YlVNbFhhY1NrdDlYamQ3ajJsSDVjdFk0LUxUXy12MHY5OXpPV0VUbURlNjhpTTdlVDg5NUtEaUhBd0FBeTZvUVZkSFJwNGs3a3pJQ2Uxd2phX0NzYmNDd0doMWRtRG53N0ZfNXFiWFEzZUxqQmtfbUVuUGRNTlIxYXlPU0Q3My1KWExEUA?oc=5",
+    "source": "SBS",
+    "langue": "en",
+    "date": "2026-11-05T18:38:06+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Cafe surcharge ban backfires on shoppers - News.com.au",
+    "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxNUjM1NzltX3VsY3BxMTdPTDJZN3c3eDdad2ZncGIxWGJuR0p4THVyUDdqVlNhRVpjd0Y4WU9rR2lMU3BJQmRoaHBIbC1NQjA0a2c2aDVScXozZTI2aDlEMlhRUmhKZ0ZJdklTY0pEby00ei1nanAxNzNSN0JjMlJKVFMwZi1vRnI0VDhtMnVpbkV0SWhzWFY4Q2RvQ054OWMya0ctU3YzUG1TbHc4Q3pLbzJYc19NUzhxWFB4QmE1aUF2VzkyaHZfZGlYcWFpU014eUZBYm5VWEZEb0c3bi05ZUV0VHBzcHd3RGd30gHwAUFVX3lxTE5sa0RXOVc0cHhkUzFKTl9lLWRqY1VIQ250MVlzNEhmUlRydFhnZGk4Q015Tjd1UTJ4OHhGSTZ6ZUk1ZVJHZ1RXMGZSMWlRNVhsNjFTY0xOSzZJejBKYWwxdmVIczlTUlJuU293UnBMZnozVklTdGV1cVFlZXBxY1BtM3J4STJOSjVCWGlYeUtiMHd4NXJGZ1h0bk1oMi1Gek9rYXppbXFOX3h5Wm1UN3huaDNJNk9TNEtueldkV1RENEk5T1d5Ni12SXRVTURJa1pjamVncFhzYnhYTXUxakYza0wtcUpwRDludUZpMTdZeQ?oc=5",
+    "source": "News.com.au",
+    "langue": "en",
+    "date": "2026-11-02T04:36:26+00:00",
+    "confirmation": true
+   },
+   {
+    "titre": "Weekly tax round-up (2 November 2026) - Deloitte | tax@hand",
+    "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPSHRiVW5wbkpYODBfSjJ5emc0R2EtcV9EMzBIZW1kV1VRYXZwZnVzWlNmR0czM3plMHJwLUJNZTZyVVVwZExYb3Nxc1B5bGJGY3F5TV9FV2tpNkZfRVY3d21IR19nYjVTMG04cjRFcVE3enZCZE5DYk51by04X0w2WDFjemRqUXdkRU5weWRSbDFoUk1f?oc=5",
+    "source": "Deloitte | tax@hand",
+    "langue": "en",
+    "date": "2026-11-02T08:00:00+00:00",
+    "confirmation": true
+   }
+  ],
+  "ethique": {
+   "acceptable": true,
+   "raison": "The tool helps small merchants understand their costs and price transparently and fairly, which also protects consumers from excessive hikes."
+  },
+  "id": "idee-1593e49a",
+  "signaux": 1,
+  "cree_le": "2026-11-06T06:45:53+00:00",
+  "mis_a_jour_le": "2026-11-06T06:45:53+00:00",
+  "statut": "active",
+  "notifiee": false,
+  "langue_redaction": "en",
+  "note_globale": 6.1,
+  "sources_confirmation": 5
  },
  {
   "titre": "Kit EUDR « clé en main » pour TPE/PME françaises : diagnostic gratuit, modèles et questionnaires fournisseurs",
