@@ -3,12 +3,18 @@
 from __future__ import annotations
 
 import hashlib
+import logging
 import re
 from datetime import datetime, timedelta, timezone
 from difflib import SequenceMatcher
 
 from .analyze import SCORE_KEYS
 from .collect import normalize_title
+
+log = logging.getLogger(__name__)
+
+# Au-delà, le titre ne respecte pas la consigne (60 caractères) : on le signale, sans le tronquer.
+TITLE_WARN_LEN = 90
 
 # Poids de chaque note dans la note globale (somme avec TIMING_WEIGHT = 1).
 # Urgence et durabilité s'opposent presque toujours : elles sont combinées en une seule note « timing »
@@ -212,6 +218,9 @@ def process_analysis(
 
     for raw in data.get("idees", []) or []:
         idea = dict(raw)
+        titre = str(idea.get("titre", ""))
+        if len(titre) > TITLE_WARN_LEN:
+            log.warning("Titre trop long (%d caractères) : %r", len(titre), titre)
         idea["notes"] = clamp_scores(raw.get("notes", {}))
         idea["sources"] = resolve_sources(raw.get("sources", []), items_by_ref)
         idea["budget_estime_eur"] = max(0, int(raw.get("budget_estime_eur", 0) or 0))

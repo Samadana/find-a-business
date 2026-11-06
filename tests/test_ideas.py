@@ -185,6 +185,27 @@ def test_prompt_and_schema_cover_every_kind_of_business():
     assert "IA de développement" in SYSTEM_PROMPT and "hors ligne" in TRIAGE_PROMPT
 
 
+def test_prompt_asks_for_short_business_title():
+    from fab.analyze import SYSTEM_PROMPT
+    line = next(row for row in SYSTEM_PROMPT.splitlines() if row.startswith("- « titre »"))
+    assert "60 caractères" in line and "Malware scanner for take-home coding tests" in line
+    assert "sous-titre" in line and "événement" in line and "guillemets" in line
+
+
+def test_long_title_is_logged_but_not_truncated(caplog):
+    long_title = "Outil d'export PixNest " + "x" * 80
+    with caplog.at_level("WARNING", logger="fab.ideas"):
+        new, _, _ = process_analysis({"idees": [idea(titre=long_title)]}, ITEMS, [])
+    assert new[0]["titre"] == long_title
+    assert any("Titre trop long" in r.getMessage() for r in caplog.records)
+
+
+def test_short_title_is_not_logged(caplog):
+    with caplog.at_level("WARNING", logger="fab.ideas"):
+        process_analysis({"idees": [idea()]}, ITEMS, [])
+    assert not any("Titre trop long" in r.getMessage() for r in caplog.records)
+
+
 def test_weights_sum_to_one():
     from fab.ideas import TIMING_WEIGHT, WEIGHTS
     assert "urgence" not in WEIGHTS and "durabilite" not in WEIGHTS
