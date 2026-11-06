@@ -23,12 +23,12 @@ LABELS = {
 
 
 SCORE_MEANING = {
-    "potentiel": "10 = marché et revenus importants",
-    "cout": "10 = presque gratuit, 0 = 5 000 € ou plus",
+    "potentiel": "10 = 20 000 € ou plus par mois après un an, 6 ≈ 3 000 €, 2 ≈ 300 €",
+    "cout": "10 = moins de 100 €, 7 ≈ 1 000 €, 5 ≈ 5 000 €, 0 = 100 000 € ou plus",
     "travail": "10 = lançable en un week-end",
     "risque": "10 = très faible risque",
-    "urgence": "10 = à lancer dans les jours qui viennent",
-    "durabilite": "10 = le besoin restera après l'actualité",
+    "urgence": "10 = fenêtre de quelques jours, 6 = 1 à 3 mois",
+    "durabilite": "10 = besoin permanent, 6 = 6 à 12 mois",
     "fiabilite": "10 = événement confirmé, demande évidente",
     "concurrence": "10 = quasiment aucun concurrent",
 }
@@ -37,7 +37,7 @@ SCORE_MEANING = {
 def color_for(score: float) -> int:
     if score >= 8:
         return 0x1F9D55  # vert
-    if score >= 6.5:
+    if score >= 6.0:
         return 0x3B82F6  # bleu
     return 0xF59E0B  # orange
 
@@ -246,7 +246,7 @@ def _rejected_text(rejected: list[dict]) -> str:
 
 def send_daily_report(
     webhook_url: str, ideas: list[dict], run_info: dict, dashboard_url: str, test: bool = False,
-    attachment: tuple[str, bytes] | None = None, below: list[dict] | None = None, threshold: float = 6.5,
+    attachment: tuple[str, bytes] | None = None, below: list[dict] | None = None, threshold: float = 6.0,
     rejected: list[dict] | None = None,
 ) -> int:
     """Bilan du matin : envoyé chaque jour, avec le détail des nouvelles idées pertinentes s'il y en a."""

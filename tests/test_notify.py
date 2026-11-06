@@ -67,11 +67,11 @@ def test_daily_report_lists_ideas_below_threshold(monkeypatch):
     from fab import notify
     posts = []
     monkeypatch.setattr(notify, "_post", lambda url, payload, attachment=None: posts.append(payload) or True)
-    below = [{"titre": "Idée moyenne", "note_globale": 6.1}, {"titre": "Idée faible", "note_globale": 5.7}]
-    notify.send_daily_report("https://x", [], {"idees_nouvelles": 2}, "", below=below, threshold=6.5)
+    below = [{"titre": "Idée moyenne", "note_globale": 5.9}, {"titre": "Idée faible", "note_globale": 5.7}]
+    notify.send_daily_report("https://x", [], {"idees_nouvelles": 2}, "", below=below, threshold=6.0)
     text = posts[0]["content"]
-    assert "aucune idée n'atteint ta note minimale (6.5/10)" in text
-    assert "6.1/10 · Idée moyenne" in text and "5.7/10 · Idée faible" in text
+    assert "aucune idée n'atteint ta note minimale (6/10)" in text
+    assert "5.9/10 · Idée moyenne" in text and "5.7/10 · Idée faible" in text
 
 
 def test_daily_report_lists_rejected_ideas(monkeypatch):
@@ -81,3 +81,14 @@ def test_daily_report_lists_rejected_ideas(monkeypatch):
     rejected = [{"titre": "Revente à prix abusif", "raison": "Exploite une pénurie."}]
     notify.send_daily_report("https://x", [], {}, "", rejected=rejected)
     assert "écartée" in posts[-1]["content"] and "Exploite une pénurie." in posts[-1]["content"]
+
+
+def test_default_notify_threshold_is_6(monkeypatch):
+    import inspect
+
+    from fab import notify
+    from fab.config import Settings
+    monkeypatch.delenv("FAB_MIN_SCORE_NOTIFY", raising=False)
+    assert Settings().min_score_notify == 6.0
+    assert inspect.signature(notify.send_daily_report).parameters["threshold"].default == 6.0
+    assert notify.color_for(6.0) == notify.color_for(7.9) != notify.color_for(5.9)

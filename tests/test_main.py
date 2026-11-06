@@ -84,3 +84,14 @@ def test_report_sent_even_without_ideas(tmp_path, monkeypatch):
     assert info["statut"] == "rien de neuf" and "Bilan du jour" in texts[0][0]
     assert texts[0][1] is None  # plus de fichier HTML joint par défaut
     assert json.loads(s.stats_path.read_text())["dernier_bilan"]
+
+
+def test_rescore_runs_even_when_nothing_new(tmp_path):
+    s = make_settings(tmp_path)
+    fab_main.run(s)
+    ideas = json.loads(s.ideas_path.read_text())
+    ideas[0]["note_globale"] = 0.1  # note calculée avec une ancienne formule
+    s.ideas_path.write_text(json.dumps(ideas))
+    info = fab_main.run(s)
+    assert info["statut"] == "rien de neuf" and info["idees_renotees"] == 1
+    assert all(i["note_globale"] > 0.1 for i in json.loads(s.ideas_path.read_text()))
