@@ -19,7 +19,7 @@ from .analyze import analyze, triage
 from .collect import Article, collect_all, filter_recent
 from .config import MODEL_PRICES_USD, ROOT, Settings
 from .corroborate import corroborate
-from .ideas import archive_old, now_iso, process_analysis, recent_ideas_for_prompt
+from .ideas import archive_old, now_iso, process_analysis, recent_ideas_for_prompt, rescore
 from .report import build_standalone_dashboard
 from .selection import merge_triage, select_for_analysis
 from .storage import load_json, prune_seen, save_json
@@ -93,6 +93,8 @@ def run(settings: Settings | None = None) -> dict:
 
     archived = archive_old(ideas, settings.idea_archive_days)
     run_info["idees_archivees"] = archived
+    # Recalcul gratuit (sans Claude) des notes globales des idées actives si la formule a changé.
+    run_info["idees_renotees"] = rescore(ideas)
 
     if len(fresh) < settings.min_new_articles:
         run_info["statut"] = "rien de neuf"

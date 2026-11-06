@@ -37,7 +37,7 @@ SCORE_MEANING = {
 def color_for(score: float) -> int:
     if score >= 8:
         return 0x1F9D55  # vert
-    if score >= 6.5:
+    if score >= 6.0:
         return 0x3B82F6  # bleu
     return 0xF59E0B  # orange
 
@@ -246,7 +246,7 @@ def _rejected_text(rejected: list[dict]) -> str:
 
 def send_daily_report(
     webhook_url: str, ideas: list[dict], run_info: dict, dashboard_url: str, test: bool = False,
-    attachment: tuple[str, bytes] | None = None, below: list[dict] | None = None, threshold: float = 6.5,
+    attachment: tuple[str, bytes] | None = None, below: list[dict] | None = None, threshold: float = 6.0,
     rejected: list[dict] | None = None,
 ) -> int:
     """Bilan du matin : envoyé chaque jour, avec le détail des nouvelles idées pertinentes s'il y en a."""

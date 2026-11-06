@@ -183,3 +183,94 @@ def test_prompt_and_schema_cover_every_kind_of_business():
     assert {"commerce-physique", "service-local", "restauration"} <= set(CATEGORIES)
     assert "{max_budget}" not in SYSTEM_PROMPT
     assert "IA de développement" in SYSTEM_PROMPT and "hors ligne" in TRIAGE_PROMPT
+
+
+def test_weights_sum_to_one():
+    from fab.ideas import TIMING_WEIGHT, WEIGHTS
+    assert "urgence" not in WEIGHTS and "durabilite" not in WEIGHTS
+    assert abs(sum(WEIGHTS.values()) + TIMING_WEIGHT - 1) < 1e-9
+
+
+def test_global_score_combines_urgency_and_durability_into_timing():
+    perfect = {k: 10 for k in BASE["notes"]}
+    assert global_score(perfect) == 10.0
+    assert global_score({k: 0 for k in BASE["notes"]}) == 0.0
+    # 0,24×8 + 0,14×9 + 0,11×9 + 0,11×8 + 0,10×6 + 0,10×7 + 0,20×(0,7×10 + 0,3×3) = 7.93
+    assert global_score(BASE["notes"]) == 7.9
+    # Urgent OU durable : même note, l'une ne pénalise pas l'autre.
+    urgent = {**BASE["notes"], "urgence": 10, "durabilite": 2}
+    durable = {**BASE["notes"], "urgence": 2, "durabilite": 10}
+    assert global_score(urgent) == global_score(durable)
+    # Urgent ET durable reste la meilleure combinaison.
+    assert global_score({**BASE["notes"], "urgence": 10, "durabilite": 10}) > global_score(urgent)
+
+
+def _old_global_score(notes):
+    old = {"potentiel": 0.22, "fiabilite": 0.16, "durabilite": 0.14, "risque": 0.12, "cout": 0.10,
+           "travail": 0.10, "concurrence": 0.10, "urgence": 0.06}
+    return round(sum(notes[k] * w for k, w in old.items()), 1)
+
+
+def test_new_formula_does_not_lower_urgent_or_durable_ideas():
+    for u, d in [(10, 10), (10, 3), (3, 10), (9, 8), (8, 9)]:
+        notes = {**BASE["notes"], "urgence": u, "durabilite": d}
+        assert global_score(notes) >= _old_global_score(notes), (u, d)
+
+
+def test_new_idea_has_last_signal_date_and_reinforce_updates_it():
+    from fab.ideas import reinforce
+    ideas = []
+    process_analysis({"idees": [idea()]}, ITEMS, ideas)
+    assert ideas[0]["dernier_signal_le"] == ideas[0]["cree_le"]
+    ideas[0]["dernier_signal_le"] = "2020-01-01T00:00:00+00:00"
+    reinforce(ideas[0], [], "re")
+    assert ideas[0]["dernier_signal_le"] == ideas[0]["mis_a_jour_le"] != "2020-01-01T00:00:00+00:00"
+
+
+def test_archive_old_uses_last_signal_date():
+    from fab.ideas import now_iso
+    recent = now_iso()
+    # Renotée récemment mais sans nouvelle actualité depuis longtemps -> archivée.
+    stale = {"statut": "active", "mis_a_jour_le": recent, "dernier_signal_le": "2020-01-01T00:00:00+00:00"}
+    # Ancien champ seul (idées d'avant) -> repli sur mis_a_jour_le.
+    fresh = {"statut": "active", "mis_a_jour_le": recent}
+    ideas = [stale, fresh]
+    assert archive_old(ideas, 30) == 1
+    assert stale["statut"] == "archivee" and fresh["statut"] == "active"
+
+
+def test_rescore_updates_only_changed_active_ideas():
+    from fab.ideas import rescore
+    old_date = "2026-10-01T07:30:00+00:00"
+    notes = dict(BASE["notes"])
+    good = global_score(notes, 2)
+    unchanged = {"statut": "active", "notes": notes, "signaux": 2, "note_globale": good, "mis_a_jour_le": old_date}
+    changed = {"statut": "active", "notes": notes, "signaux": 1, "note_globale": 5.0, "mis_a_jour_le": old_date}
+    already = {"statut": "active", "notes": notes, "signaux": 1, "note_globale": 5.0, "mis_a_jour_le": old_date,
+               "dernier_signal_le": "2026-09-15T07:30:00+00:00"}
+    archived = {"statut": "archivee", "notes": notes, "signaux": 1, "note_globale": 5.0, "mis_a_jour_le": old_date}
+    before_archived = copy.deepcopy(archived)
+
+    assert rescore([unchanged, changed, already, archived]) == 2
+    assert unchanged["mis_a_jour_le"] == old_date and "dernier_signal_le" not in unchanged
+    assert changed["note_globale"] == global_score(notes, 1)
+    assert changed["dernier_signal_le"] == old_date and changed["mis_a_jour_le"] > old_date
+    assert already["dernier_signal_le"] == "2026-09-15T07:30:00+00:00" and already["mis_a_jour_le"] > old_date
+    assert archived == before_archived
+    # Un second passage ne change plus rien.
+    assert rescore([unchanged, changed, already, archived]) == 0
+
+
+def test_rescored_idea_is_still_archived_on_time():
+    from fab.ideas import rescore
+    old = {"statut": "active", "notes": dict(BASE["notes"]), "signaux": 1, "note_globale": 1.0,
+           "mis_a_jour_le": "2020-01-01T00:00:00+00:00"}
+    assert rescore([old]) == 1
+    assert archive_old([old], 30) == 1
+
+
+def test_prompt_has_numeric_anchors_for_every_score():
+    from fab.analyze import SYSTEM_PROMPT
+    for anchor in ("20 000 €", "géants installés", "mise perdue < 500 €", "besoin permanent", "fenêtre de quelques jours",
+                   "fait officiel", "ne peut pas dépasser 6 en fiabilité", "utilise toute l'échelle"):
+        assert anchor in SYSTEM_PROMPT, anchor

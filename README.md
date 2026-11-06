@@ -18,16 +18,19 @@ Veille automatique de l'actualité mondiale qui détecte des **opportunités de 
 
 | Note | Signification de 10 | Poids dans la note globale |
 |---|---|---|
-| Potentiel | marché et revenus importants | 22 % |
-| Fiabilité | événement confirmé, demande évidente | 16 % |
-| Durabilité | le besoin restera après l'actualité | 14 % |
-| Risque | très faible risque juridique / financier / de réputation | 12 % |
-| Coût | presque gratuit (5 = 5 000 €, 0 = 100 000 €) | 10 % |
+| Potentiel | 20 000 € ou plus par mois après 12 mois | 24 % |
+| Urgence + durabilité (« timing ») | fenêtre de quelques jours / besoin permanent | 20 % |
+| Fiabilité | fait officiel, plusieurs médias, demande déjà visible | 14 % |
+| Coût | presque gratuit (5 = 5 000 €, 0 = 100 000 €) | 11 % |
+| Risque | rien de notable (mise perdue < 500 €) | 11 % |
+| Concurrence | aucun acteur | 10 % |
 | Travail | lançable en un week-end | 10 % |
-| Concurrence | quasiment aucun concurrent | 10 % |
-| Urgence | à lancer dans les jours qui viennent | 6 % |
 
-Les poids se modifient dans `fab/ideas.py` (`WEIGHTS`).
+Urgence et durabilité s'opposent presque toujours : elles comptent ensemble pour 20 % sous forme de « timing »
+= 0,7 × la meilleure des deux + 0,3 × l'autre. Une idée urgente ou durable n'est donc pas pénalisée.
+Bonus : + 0,1 par actualité supplémentaire qui confirme l'idée (au plus + 0,5).
+Les repères chiffrés de chaque note sont dans la consigne (`fab/analyze.py`). Les poids se modifient dans `fab/ideas.py`
+(`WEIGHTS` et `TIMING_WEIGHT`). Quand la formule change, le bilan suivant recalcule la note globale des idées actives.
 
 ## Fonctionnement
 

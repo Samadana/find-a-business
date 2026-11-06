@@ -31,7 +31,7 @@ WORKFLOW = "veille.yml"
 
 STATUTS = ["nouvelle", "a_etudier", "en_cours", "lancee", "abandonnee"]
 SETTINGS = {
-    "FAB_MIN_SCORE_NOTIFY": "6.5",
+    "FAB_MIN_SCORE_NOTIFY": "6.0",
     "FAB_MODEL": "claude-opus-5-5",
     "FAB_DAILY_COST_LIMIT_USD": "2",
 }

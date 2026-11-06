@@ -10,17 +10,18 @@ from difflib import SequenceMatcher
 from .analyze import SCORE_KEYS
 from .collect import normalize_title
 
-# Poids de chaque note dans la note globale (somme = 1).
+# Poids de chaque note dans la note globale (somme avec TIMING_WEIGHT = 1).
+# Urgence et durabilité s'opposent presque toujours : elles sont combinées en une seule note « timing »
+# (voir timing_score), pour qu'une idée urgente OU durable ne soit pas pénalisée.
 WEIGHTS = {
-    "potentiel": 0.22,
-    "fiabilite": 0.16,
-    "durabilite": 0.14,
-    "risque": 0.12,
-    "cout": 0.10,
-    "travail": 0.10,
+    "potentiel": 0.24,
+    "fiabilite": 0.14,
+    "cout": 0.11,
+    "risque": 0.11,
     "concurrence": 0.10,
-    "urgence": 0.06,
+    "travail": 0.10,
 }
+TIMING_WEIGHT = 0.20
 
 # Garde-fou éthique en plus du jugement de Claude : motifs explicitement interdits.
 FORBIDDEN_PATTERNS = [
@@ -69,8 +70,14 @@ def clamp_scores(notes: dict) -> dict:
     return out
 
 
+def timing_score(notes: dict) -> float:
+    """0,7 × la meilleure note entre urgence et durabilité + 0,3 × l'autre."""
+    u, d = notes["urgence"], notes["durabilite"]
+    return 0.7 * max(u, d) + 0.3 * min(u, d)
+
+
 def global_score(notes: dict, signals: int = 1) -> float:
-    base = sum(notes[k] * w for k, w in WEIGHTS.items())
+    base = sum(notes[k] * w for k, w in WEIGHTS.items()) + TIMING_WEIGHT * timing_score(notes)
     bonus = min(0.5, 0.1 * max(0, signals - 1))  # une idée confirmée par plusieurs actualités monte un peu
     return round(min(10.0, base + bonus), 1)
 
@@ -132,6 +139,7 @@ def reinforce(idea: dict, sources: list[dict], comment: str = "") -> None:
     idea.setdefault("sources", []).extend(new)
     idea["signaux"] = idea.get("signaux", 1) + 1
     idea["mis_a_jour_le"] = now_iso()
+    idea["dernier_signal_le"] = idea["mis_a_jour_le"]
     idea["statut"] = "active"
     if comment:
         idea.setdefault("historique", []).append({"date": now_iso(), "note": comment})
@@ -237,6 +245,7 @@ def process_analysis(
             "signaux": 1,
             "cree_le": now_iso(),
             "mis_a_jour_le": now_iso(),
+            "dernier_signal_le": now_iso(),
             "statut": "active",
             "notifiee": False,
             "langue_redaction": "en",
@@ -249,12 +258,39 @@ def process_analysis(
 
 
 def archive_old(ideas: list[dict], days: int) -> int:
+    """Archive les idées actives sans nouvelle actualité depuis `days` jours.
+
+    Se base sur `dernier_signal_le` (création ou dernier renforcement) : un simple recalcul de la note,
+    qui avance `mis_a_jour_le`, ne retarde pas l'archivage.
+    """
     cutoff = datetime.now(timezone.utc) - timedelta(days=days)
     count = 0
     for idea in ideas:
-        if idea.get("statut") == "active" and datetime.fromisoformat(idea["mis_a_jour_le"]) < cutoff:
+        last = idea.get("dernier_signal_le") or idea["mis_a_jour_le"]
+        if idea.get("statut") == "active" and datetime.fromisoformat(last) < cutoff:
             idea["statut"] = "archivee"
             count += 1
+    return count
+
+
+def rescore(ideas: list[dict]) -> int:
+    """Recalcule la note globale des idées actives avec la formule actuelle. Retourne le nombre d'idées renotées.
+
+    Une idée renotée voit `mis_a_jour_le` avancer (sinon SeedFox l'ignore) ; `dernier_signal_le` garde
+    l'ancienne date pour que l'archivage n'en soit pas retardé.
+    """
+    count = 0
+    for idea in ideas:
+        if idea.get("statut") != "active" or not isinstance(idea.get("notes"), dict):
+            continue
+        score = global_score(clamp_scores(idea["notes"]), idea.get("signaux", 1))
+        if score == idea.get("note_globale"):
+            continue
+        if not idea.get("dernier_signal_le") and idea.get("mis_a_jour_le"):
+            idea["dernier_signal_le"] = idea["mis_a_jour_le"]
+        idea["mis_a_jour_le"] = now_iso()
+        idea["note_globale"] = score
+        count += 1
     return count
 
 

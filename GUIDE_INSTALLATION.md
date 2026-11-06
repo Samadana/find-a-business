@@ -101,7 +101,7 @@ Le seuil, le modèle et le plafond se règlent dans l'onglet **Réglages** de l'
 
 | Variable | Défaut | Rôle |
 |---|---|---|
-| `FAB_MIN_SCORE_NOTIFY` | `6.5` | Note globale minimale pour qu'une idée soit détaillée dans le bilan Discord |
+| `FAB_MIN_SCORE_NOTIFY` | `6.0` | Note globale minimale pour qu'une idée soit détaillée dans le bilan Discord |
 | `FAB_REPORT_HOUR` | `9` | Heure du bilan (heure de Paris) ; pense aussi à adapter la ligne `cron` |
 | `FAB_MODEL` | `claude-opus-5-5` | Modèle Claude. `claude-sonnet-5-5` coûte 2× moins, `claude-haiku-5-5` ~40× moins (analyses moins fines) |
 | `FAB_EFFORT` | `high` | Profondeur de réflexion : `low`, `medium`, `high` (plus cher, plus fin) |
