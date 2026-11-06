@@ -81,7 +81,7 @@ class Settings:
     http_timeout: float = field(default_factory=lambda: _env_float("FAB_HTTP_TIMEOUT", 15.0))
 
     # Idées
-    min_score_notify: float = field(default_factory=lambda: _env_float("FAB_MIN_SCORE_NOTIFY", 6.5))
+    min_score_notify: float = field(default_factory=lambda: _env_float("FAB_MIN_SCORE_NOTIFY", 6.0))
     # Plafond de budget des idées (0 = pas de plafond : la note « cout » et le filtre de SeedFox suffisent).
     max_budget_eur: int = field(default_factory=lambda: _env_int("FAB_MAX_BUDGET_EUR", 0))
     idea_archive_days: int = field(default_factory=lambda: _env_int("FAB_ARCHIVE_DAYS", 30))

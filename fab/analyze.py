@@ -64,16 +64,25 @@ Une idée qui AIDE réellement les personnes touchées (information fiable, mise
 
 Déduplication : on te donne la liste des idées déjà proposées. Si une actualité renforce une idée existante, NE la recrée PAS : ajoute-la dans « renforcements » avec l'identifiant de l'idée. Ne propose pas deux fois la même idée dans un lot.
 
-Notes de 0 à 10, TOUJOURS dans le sens « 10 = favorable pour l'entrepreneur » :
-- potentiel : taille du marché et revenus possibles (10 = très fort) ;
+Notes de 0 à 10, TOUJOURS dans le sens « 10 = favorable pour l'entrepreneur ». Repères chiffrés (les valeurs intermédiaires sont permises) :
+- potentiel : revenu mensuel réaliste après 12 mois pour une personne seule
+  (10 = 20 000 € ou plus, 8 ≈ 8 000 €, 6 ≈ 3 000 €, 4 ≈ 1 000 €, 2 ≈ 300 €, 0 = quasi rien) ;
 - cout : budget de lancement (10 = moins de 100 €, 7 ≈ 1 000 €, 5 ≈ 5 000 €, 3 ≈ 20 000 €, 0 = 100 000 € ou plus) ;
 - travail : effort pour lancer, développement fait avec l'IA (10 = un week-end, 5 ≈ 2-3 semaines, 0 = plusieurs mois) ;
-- risque : risques juridiques, financiers, de réputation (10 = très faible risque) ;
-- urgence : fenêtre d'opportunité (10 = à lancer dans les jours qui viennent, sinon trop tard) ;
-- durabilite : l'activité tiendra-t-elle après l'actualité (10 = besoin durable) ;
-- fiabilite : solidité de l'info et de la demande (10 = événement confirmé par plusieurs médias indépendants, demande évidente).
+- risque : risques juridiques, financiers, de réputation (10 = rien de notable, mise perdue < 500 € ;
+  8 = risques mineurs maîtrisables, CGU, RGPD standard ; 6 = un risque réel mais gérable, réglementation à vérifier, dépendance à une plateforme ;
+  4 = risque sérieux, stock important, activité réglementée ; 2 = forte exposition, santé, finance, responsabilité) ;
+- urgence : fenêtre d'opportunité (10 = fenêtre de quelques jours, 8 = 2 à 4 semaines, 6 = 1 à 3 mois, 4 = 3 à 6 mois,
+  2 = pas de fenêtre particulière) ;
+- durabilite : l'activité tiendra-t-elle après l'actualité (10 = besoin permanent, 8 = plus d'un an, 6 = 6 à 12 mois,
+  4 = 2 à 6 mois, 2 = quelques semaines) ;
+- fiabilite : solidité de l'info et de la demande (10 = fait officiel, plusieurs médias indépendants et demande déjà visible ;
+  8 = plusieurs médias et demande probable ; 6 = un seul média sérieux ou demande supposée ; 4 = info partielle ; 2 = spéculatif).
   Un sujet couvert par un seul média (nb_medias = 1, sans autres_sources) ne peut pas dépasser 6 en fiabilité ;
-- concurrence : place disponible (10 = presque aucun concurrent).
+- concurrence : place disponible (10 = aucun acteur, 8 = 1 ou 2 petits acteurs mal positionnés,
+  6 = quelques acteurs mais angle différenciant clair, 4 = marché occupé, 2 = géants installés).
+Étalonnage : utilise toute l'échelle. Une idée solide sur un critère mérite 8 à 10 ; ne te replie pas sur 5-7 par prudence.
+Ne gonfle pas non plus les notes : chaque note doit être justifiée dans « notes_explications » au regard de ces repères.
 
 Utilise UNIQUEMENT les références d'articles (A1, A2...) fournies dans « sources ». Cite toutes les références qui parlent du même événement.
 Rédige TOUS les textes (titre, pitch, descriptions, étapes, risques, budget détaillé, explications des notes, etc.) en ANGLAIS américain naturel et clair :

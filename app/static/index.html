@@ -186,7 +186,7 @@
         <div class="field">
           <label for="sScore">Note minimale pour qu'une idée soit détaillée dans le bilan Discord</label>
           <input type="number" id="sScore" min="0" max="10" step="0.5">
-          <small>Les idées sous ce seuil restent visibles ici. Défaut : 6,5.</small>
+          <small>Les idées sous ce seuil restent visibles ici. Défaut : 6,0.</small>
         </div>
         <div class="field">
           <label for="sModel">Modèle Claude pour l'analyse</label>
@@ -238,7 +238,7 @@ let openIds = new Set();
 const $ = id => document.getElementById(id);
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const safeUrl = u => /^https?:\/\//i.test(u || "") ? esc(u) : "#";
-const color = v => v >= 8 ? "var(--good)" : v >= 6.5 ? "var(--mid)" : v >= 4.5 ? "var(--warn)" : "var(--bad)";
+const color = v => v >= 8 ? "var(--good)" : v >= 6 ? "var(--mid)" : v >= 4.5 ? "var(--warn)" : "var(--bad)";
 const fmtEur = n => new Intl.NumberFormat("fr-FR").format(n || 0) + " €";
 const fmtUsd = n => (n || 0).toLocaleString("fr-FR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " $";
 const statutOf = id => (D.suivi[id] && D.suivi[id].statut) || "nouvelle";

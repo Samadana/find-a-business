@@ -137,7 +137,7 @@ const done = store.get("done", {});
 
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const safeUrl = u => /^https?:\/\//i.test(u || "") ? esc(u) : "#";
-const color = v => v >= 8 ? "var(--good)" : v >= 6.5 ? "var(--mid)" : v >= 4.5 ? "var(--warn)" : "var(--bad)";
+const color = v => v >= 8 ? "var(--good)" : v >= 6 ? "var(--mid)" : v >= 4.5 ? "var(--warn)" : "var(--bad)";
 const fmtEur = n => new Intl.NumberFormat("fr-FR").format(n) + " €";
 function ago(iso) {
   if (!iso) return "—";
