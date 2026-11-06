@@ -187,7 +187,7 @@ def test_prompt_and_schema_cover_every_kind_of_business():
 
 def test_prompt_asks_for_short_business_title():
     from fab.analyze import SYSTEM_PROMPT
-    line = next(l for l in SYSTEM_PROMPT.splitlines() if l.startswith("- « titre »"))
+    line = next(row for row in SYSTEM_PROMPT.splitlines() if row.startswith("- « titre »"))
     assert "60 caractères" in line and "Malware scanner for take-home coding tests" in line
     assert "sous-titre" in line and "événement" in line and "guillemets" in line
 

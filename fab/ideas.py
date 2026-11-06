@@ -212,7 +212,7 @@ def process_analysis(
         idea = dict(raw)
         titre = str(idea.get("titre", ""))
         if len(titre) > TITLE_WARN_LEN:
-            log.warning("Titre trop long (%d caractères) : %s", len(titre), titre)
+            log.warning("Titre trop long (%d caractères) : %r", len(titre), titre)
         idea["notes"] = clamp_scores(raw.get("notes", {}))
         idea["sources"] = resolve_sources(raw.get("sources", []), items_by_ref)
         idea["budget_estime_eur"] = max(0, int(raw.get("budget_estime_eur", 0) or 0))
