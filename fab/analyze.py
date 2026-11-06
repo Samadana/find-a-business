@@ -82,6 +82,7 @@ les idées sont publiées pour un public international. Écris les montants en e
 dans Google News (noms propres, lieu, objet : ex. « Binance hack North Korea withdrawals »). Pas de guillemets ni d'opérateurs.
 
 L'entrepreneur lit chaque idée en détail pour décider s'il se lance : sois complet, précis et concret (chiffres, lieux, dates, noms quand les articles les donnent), sans remplissage.
+- « titre » : le nom du business en 60 caractères au plus, qui dit quoi et pour qui (ex. « Malware scanner for take-home coding tests »), sans sous-titre, sans l'événement déclencheur (il a son propre champ) et sans guillemets.
 - « pitch » : 1 à 2 phrases d'accroche.
 - « evenement_declencheur » : le titre de l'événement en une phrase.
 - « contexte_declencheur » : 4 à 8 phrases. Ce qui s'est passé, où, quand, qui est touché, les chiffres clés, ce qui va probablement se passer ensuite, et pourquoi cela crée un besoin nouveau.
