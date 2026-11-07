@@ -149,6 +149,13 @@ def test_new_ideas_are_marked_as_written_in_english():
     assert "en ANGLAIS américain" in SYSTEM_PROMPT
 
 
+def test_prompt_asks_for_full_country_names():
+    from fab.analyze import SYSTEM_PROMPT
+    line = next(row for row in SYSTEM_PROMPT.splitlines() if row.startswith("- « pays_cibles »"))
+    assert "noms complets des pays en anglais" in line and "jamais de codes" in line
+    assert '"United Kingdom"' in line and '["Worldwide"]' in line
+
+
 def test_no_budget_cap_by_default_and_online_flag_is_kept():
     ideas = []
     shop = idea(titre="Dépôt-vente de groupes électrogènes à Rafah", categorie="commerce-physique",
