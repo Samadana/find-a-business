@@ -109,8 +109,9 @@ Le seuil, le modèle et le plafond se règlent dans l'onglet **Réglages** de l'
 | `FAB_MAX_ARTICLES` | `240` | Nombre maximum de sujets envoyés à l'analyse finale par passage (tous lots confondus) |
 | `FAB_ANALYSIS_BATCHES` | `3` | Nombre de lots (appels successifs) entre lesquels ces sujets sont répartis ; chaque lot mélange toutes les régions |
 | `FAB_TRIAGE_MODEL` | `claude-haiku-5-5` | Modèle du premier tri (bon marché) |
+| `FAB_TRIAGE_KEEP` | `200` | Sujets gardés par le premier tri (avant le filet de sécurité) |
 | `FAB_ALWAYS_KEEP` | `40` | Sujets les plus repris par les médias, toujours envoyés à l'analyse finale |
-| `FAB_MAX_BUDGET_EUR` | `5000` | Budget de lancement maximum d'une idée |
+| `FAB_MAX_BUDGET_EUR` | `0` | Budget de lancement maximum d'une idée (`0` = sans limite) |
 | `FAB_ATTACH_DASHBOARD` | `false` | Joindre en plus un tableau de bord HTML au bilan Discord |
 | `FAB_PAGES` | `false` | Tableau de bord en ligne via GitHub Pages (dépôt public uniquement) |
 

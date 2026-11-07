@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import logging
+import time
 from dataclasses import dataclass
 
 import anthropic
@@ -213,13 +214,47 @@ def build_user_message(items: list[dict], existing: list[dict]) -> str:
     )
 
 
-def analyze(settings: Settings, items: list[dict], existing: list[dict], max_tokens: int = 32000) -> AnalysisResult:
+class BatchError(RuntimeError):
+    """Échec d'un lot après un appel facturé : porte les tokens consommés pour que le coût soit compté."""
+
+    def __init__(self, message: str, input_tokens: int = 0, output_tokens: int = 0, cache_read_tokens: int = 0):
+        super().__init__(message)
+        self.input_tokens, self.output_tokens, self.cache_read_tokens = input_tokens, output_tokens, cache_read_tokens
+
+
+def _usage(usage) -> tuple[int, int, int]:
+    """(entrée, sortie, entrée lue en cache) d'une réponse, même partielle."""
+    if usage is None:
+        return 0, 0, 0
+    return (
+        (getattr(usage, "input_tokens", 0) or 0) + (getattr(usage, "cache_creation_input_tokens", 0) or 0),
+        getattr(usage, "output_tokens", 0) or 0,
+        getattr(usage, "cache_read_input_tokens", 0) or 0,
+    )
+
+
+def _read_stream(stream, deadline: float | None, max_tokens: int):
+    """Lit la réponse en flux ; au-delà de `deadline` (horloge monotone), abandonne le lot."""
+    if deadline is not None:
+        for _ in stream:
+            if time.monotonic() > deadline:
+                snapshot = getattr(stream, "current_message_snapshot", None)
+                tin, tout, tcache = _usage(getattr(snapshot, "usage", None))
+                # Sans décompte fiable, on compte prudemment la sortie maximale.
+                raise BatchError("lot abandonné : durée maximale dépassée", tin, tout or max_tokens, tcache)
+    return stream.get_final_message()
+
+
+def analyze(
+    settings: Settings, items: list[dict], existing: list[dict], max_tokens: int = 40000,
+    deadline: float | None = None, max_retries: int = 3,
+) -> AnalysisResult:
     if settings.dry_run:
         fixture = ROOT / "tests" / "fixtures" / "claude_response.json"
         log.info("Mode DRY_RUN : réponse simulée lue dans %s", fixture)
         return AnalysisResult(data=json.loads(fixture.read_text(encoding="utf-8")), model="dry-run")
 
-    client = anthropic.Anthropic(api_key=settings.anthropic_api_key, max_retries=3, timeout=600)
+    client = anthropic.Anthropic(api_key=settings.anthropic_api_key, max_retries=max_retries, timeout=600)
     system = SYSTEM_PROMPT
     request = dict(
         model=settings.model,
@@ -237,31 +272,37 @@ def analyze(settings: Settings, items: list[dict], existing: list[dict], max_tok
             with client.beta.messages.stream(
                 betas=["server-side-fallback-2026-07-01"], fallbacks="default", **request
             ) as stream:
-                response = stream.get_final_message()
+                response = _read_stream(stream, deadline, max_tokens)
         else:
             with client.messages.stream(**request) as stream:
-                response = stream.get_final_message()
+                response = _read_stream(stream, deadline, max_tokens)
     except anthropic.BadRequestError as exc:
         if not use_fallback:
             raise
         log.warning("Requête avec repli refusée (%s), nouvel essai sans repli.", exc.message)
         with client.messages.stream(**request) as stream:
-            response = stream.get_final_message()
+            response = _read_stream(stream, deadline, max_tokens)
 
+    tin, tout, tcache = _usage(response.usage)
     if response.stop_reason == "refusal":
         details = getattr(response, "stop_details", None)
-        raise RuntimeError(f"Claude a refusé d'analyser ce lot : {details}")
+        raise BatchError(f"Claude a refusé d'analyser ce lot : {details}", tin, tout, tcache)
     if response.stop_reason == "max_tokens":
-        raise RuntimeError("Réponse de Claude tronquée (max_tokens atteint) : réduire FAB_MAX_ARTICLES ou augmenter FAB_ANALYSIS_BATCHES.")
+        raise BatchError(
+            "Réponse de Claude tronquée (max_tokens atteint) : réduire FAB_MAX_ARTICLES ou augmenter FAB_ANALYSIS_BATCHES.",
+            tin, tout, tcache,
+        )
 
     text = next((b.text for b in response.content if b.type == "text"), "")
-    data = json.loads(text)
-    usage = response.usage
+    try:
+        data = json.loads(text)
+    except json.JSONDecodeError as exc:
+        raise BatchError(f"Réponse JSON invalide : {exc}", tin, tout, tcache) from exc
     return AnalysisResult(
         data=data,
-        input_tokens=(usage.input_tokens or 0) + (getattr(usage, "cache_creation_input_tokens", 0) or 0),
-        output_tokens=usage.output_tokens or 0,
-        cache_read_tokens=getattr(usage, "cache_read_input_tokens", 0) or 0,
+        input_tokens=tin,
+        output_tokens=tout,
+        cache_read_tokens=tcache,
         model=response.model,
     )
 

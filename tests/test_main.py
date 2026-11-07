@@ -118,7 +118,7 @@ def batch_run(tmp_path, monkeypatch, behaviours, **kw):
     monkeypatch.setattr(fab_main.notify, "send_daily_report", lambda url, ideas, info, d, **k: reports.append(info) or 0)
     monkeypatch.setattr(fab_main.notify, "send_text", lambda url, text: alerts.append(text) or True)
 
-    def fake_analyze(settings, items, existing, max_tokens=32000):
+    def fake_analyze(settings, items, existing, **kw):
         n = len(calls)
         calls.append({"items": items, "existing": [i["titre"] for i in existing]})
         outcome = behaviours[n]
@@ -177,7 +177,7 @@ def test_credit_exhausted_stops_remaining_batches(tmp_path, monkeypatch):
 
 
 def test_cost_limit_reached_between_batches(tmp_path, monkeypatch):
-    # Un lot coûte 0,64 $ ; coût maximal estimé d'un lot ≈ 0,65 $ : le 2e dépasserait 1 $.
+    # Un lot coûte 0,64 $ ; coût maximal estimé d'un lot ≈ 0,81 $ : le 2e dépasserait 1 $.
     s, info, calls, _, _ = batch_run(tmp_path, monkeypatch, ["ok", "ok", "ok"], daily_cost_limit_usd=1.0)
     assert len(calls) == 1 and [lot["statut"] for lot in info["lots"]][1:] == ["non analysé (plafond)"] * 2
     assert info["statut"].startswith("partiel : 2 lots sur 3")
@@ -198,3 +198,31 @@ def test_dry_run_uses_a_single_batch(tmp_path):
     s = make_settings(tmp_path, analysis_batches=3)
     info = fab_main.run(s)
     assert info["statut"] == "ok" and len(info["lots"]) == 1 and info["lots"][0]["statut"] == "ok"
+
+
+def test_failed_batch_cost_is_counted(tmp_path, monkeypatch):
+    from fab.analyze import BatchError
+    s, info, calls, _, _ = batch_run(tmp_path, monkeypatch, ["ok", BatchError("tronquée", 10_000, 40_000), "ok"])
+    lost = (10_000 * 4 + 40_000 * 20) / 1e6
+    assert info["lots"][1]["cout_usd"] == round(lost, 4)
+    assert info["cout_usd"] == round(2 * (10_000 * 4 + 30_000 * 20) / 1e6 + lost, 4)
+
+
+def test_read_stream_gives_up_after_deadline():
+    from types import SimpleNamespace
+    import pytest
+    from fab.analyze import BatchError, _read_stream
+
+    class Stream:
+        current_message_snapshot = SimpleNamespace(usage=SimpleNamespace(input_tokens=1000, output_tokens=500))
+
+        def __iter__(self):
+            yield "event"
+
+        def get_final_message(self):
+            return "fini"
+
+    with pytest.raises(BatchError) as err:
+        _read_stream(Stream(), deadline=0.0, max_tokens=40000)
+    assert err.value.input_tokens == 1000 and err.value.output_tokens == 500
+    assert _read_stream(Stream(), deadline=None, max_tokens=40000) == "fini"

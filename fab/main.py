@@ -16,7 +16,7 @@ from zoneinfo import ZoneInfo
 import anthropic
 
 from . import notify
-from .analyze import SYSTEM_PROMPT, analyze, build_user_message, triage
+from .analyze import SYSTEM_PROMPT, BatchError, analyze, build_user_message, triage
 from .collect import Article, collect_all, filter_recent
 from .config import MODEL_PRICES_USD, ROOT, Settings
 from .corroborate import corroborate
@@ -27,10 +27,12 @@ from .storage import load_json, prune_seen, save_json
 
 log = logging.getLogger("fab")
 
-# Analyse en lots : sortie maximale d'un lot et échéance après laquelle aucun nouveau lot ne démarre
-# (le workflow est coupé à 50 min ; s'il coupait, rien ne serait sauvegardé).
-BATCH_MAX_TOKENS = 32000
+# Analyse en lots : sortie maximale d'un lot, échéance après laquelle aucun nouveau lot ne démarre,
+# et heure limite où un lot en cours est abandonné (le workflow est coupé à 50 min ; s'il coupait,
+# rien ne serait sauvegardé, ni les idées ni le coût).
+BATCH_MAX_TOKENS = 40000
 BATCH_DEADLINE_S = 25 * 60
+ANALYSIS_END_S = 42 * 60
 clock = time.monotonic  # remplacée dans les tests
 
 
@@ -176,7 +178,9 @@ def run(settings: Settings | None = None) -> dict:
             lot["statut"] = f"non analysé ({stop})"
             continue
         try:
-            result = analyze(settings, batch, existing, max_tokens=BATCH_MAX_TOKENS)
+            # Une seule nouvelle tentative, et abandon du lot à l'heure limite, quoi qu'il arrive.
+            deadline = time.monotonic() + max(60.0, started + ANALYSIS_END_S - clock())
+            result = analyze(settings, batch, existing, max_tokens=BATCH_MAX_TOKENS, deadline=deadline, max_retries=1)
         except anthropic.AuthenticationError:
             fatal = ("erreur : clé API Claude invalide", "la clé API Claude est invalide ou absente (secret ANTHROPIC_API_KEY).")
         except anthropic.PermissionDeniedError as exc:
@@ -184,6 +188,11 @@ def run(settings: Settings | None = None) -> dict:
         except (anthropic.APIError, RuntimeError, json.JSONDecodeError) as exc:
             msg = getattr(exc, "message", None) or str(exc)
             log.error("Analyse d'un lot impossible : %s", msg)
+            if isinstance(exc, BatchError):  # appel facturé malgré l'échec : son coût compte pour le plafond
+                failed_cost = (exc.input_tokens * price_in + exc.cache_read_tokens * price_in * 0.1
+                               + exc.output_tokens * price_out) / 1_000_000
+                spent += failed_cost
+                lot["cout_usd"] = round(failed_cost, 4)
             last_error = msg
             if "credit" in msg.lower() or "billing" in msg.lower():
                 fatal = (f"erreur : {msg[:160]}", "crédit API Claude épuisé : recharge ton compte sur platform.claude.com.")
