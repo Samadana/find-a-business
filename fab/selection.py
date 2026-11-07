@@ -223,3 +223,23 @@ def merge_triage(
             break
         chosen.append(ref)
     return [by_ref[r] for r in chosen]
+
+
+def split_batches(items: list[dict], n_batches: int) -> list[list[dict]]:
+    """Répartit les sujets retenus en lots d'analyse qui mélangent chacun toutes les régions.
+
+    Les sujets sont groupés par région (ordre de priorité gardé), puis distribués aux lots avec un compteur
+    global qui continue d'une région à l'autre : chaque lot reçoit sa part de chaque région.
+    Taille d'un lot : arrondi supérieur de total / lots. Les lots vides sont retirés.
+    """
+    n = max(1, n_batches)
+    groups: dict[str, list[dict]] = defaultdict(list)
+    for it in items:
+        groups[it.get("region", "monde")].append(it)
+    batches: list[list[dict]] = [[] for _ in range(n)]
+    k = 0
+    for group in groups.values():
+        for it in group:
+            batches[k % n].append(it)
+            k += 1
+    return [b for b in batches if b]

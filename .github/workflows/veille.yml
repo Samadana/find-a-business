@@ -23,7 +23,7 @@ concurrency:
 jobs:
   veille:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 50
     steps:
       - uses: actions/checkout@v4
 
@@ -46,6 +46,7 @@ jobs:
           FAB_EFFORT: ${{ vars.FAB_EFFORT }}
           FAB_MIN_SCORE_NOTIFY: ${{ vars.FAB_MIN_SCORE_NOTIFY }}
           FAB_MAX_ARTICLES: ${{ vars.FAB_MAX_ARTICLES }}
+          FAB_ANALYSIS_BATCHES: ${{ vars.FAB_ANALYSIS_BATCHES }}
           FAB_DAILY_COST_LIMIT_USD: ${{ vars.FAB_DAILY_COST_LIMIT_USD }}
           FAB_MAX_BUDGET_EUR: ${{ vars.FAB_MAX_BUDGET_EUR }}
           DASHBOARD_URL: ${{ vars.DASHBOARD_URL }}

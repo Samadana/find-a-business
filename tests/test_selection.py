@@ -1,7 +1,7 @@
 from datetime import datetime, timezone
 
 from fab.collect import Article, article_id
-from fab.selection import cluster_articles, merge_triage, select_for_analysis
+from fab.selection import cluster_articles, merge_triage, select_for_analysis, split_batches
 
 
 def art(title, source):
@@ -60,3 +60,18 @@ def test_region_of():
     from fab.regions import region_of
     assert region_of("NG") == "afrique" and region_of("South Korea") == "asie"
     assert region_of("", "pt-BR") == "amerique-latine" and region_of("", "en", "business") == "business"
+
+
+def test_split_batches_mixes_regions_without_loss():
+    regions = [f"r{k}" for k in range(9)]
+    # Groupés par région comme après un tri par priorité : chaque région a 9 sujets.
+    items = [{"ref": f"A{r}{k}", "region": r} for r in regions for k in range(9)]
+    batches = split_batches(items, 3)
+    assert [len(b) for b in batches] == [27, 27, 27]
+    refs = [it["ref"] for b in batches for it in b]
+    assert sorted(refs) == sorted(it["ref"] for it in items) and len(set(refs)) == len(refs)
+    for b in batches:
+        assert {it["region"] for it in b} == set(regions)
+    # Taille maximale = arrondi supérieur de total / lots ; lots vides retirés ; au moins un lot.
+    assert [len(b) for b in split_batches(items[:10], 3)] == [4, 3, 3]
+    assert len(split_batches(items[:2], 5)) == 2 and len(split_batches(items, 0)) == 1

@@ -5,7 +5,7 @@ Veille automatique de l'actualité mondiale qui détecte des **opportunités de 
 - **Un bilan par jour, lancé à la main** depuis l'application (bouton « Lancer un bilan ») ou l'onglet Actions de GitHub. Le planning automatique de GitHub a été retiré : il sautait trop de déclenchements.
 - **Monde entier, toutes langues** : ~70 médias de tous les continents (Afrique, Asie, Amérique latine, Moyen-Orient, Océanie…), Google News de 31 pays dans leur langue, Google Trends de 24 pays, 17 recherches ciblées en 12 langues, Product Hunt, journaux officiels (UE, États-Unis) et GDELT quand il répond. La sélection alterne les régions : aucune ne dépasse 30 % des sujets analysés.
 - **Idées sourcées** : chaque idée reprend tous les médias qui couvrent l'événement, puis une recherche gratuite ajoute jusqu'à 5 médias qui le confirment.
-- **Analyse en deux temps** : Claude Haiku (très bon marché) lit tous les titres et écarte le bruit évident, puis Claude Opus analyse en profondeur (réflexion poussée) jusqu'à 150 sujets retenus. Les 25 sujets les plus repris par les médias passent toujours, même si le tri les écarte.
+- **Analyse en deux temps** : Claude Haiku (très bon marché) lit tous les titres et écarte le bruit évident, puis Claude Opus analyse en profondeur (réflexion poussée) jusqu'à 240 sujets retenus, en 3 lots de 80 qui mélangent toutes les régions. Les 40 sujets les plus repris par les médias passent toujours, même si le tri les écarte.
 - **Analyse par Claude** : chaque idée reçoit une note globale et 8 notes détaillées, un budget (sans plafond ; l'abonnement à l'IA de développement y figure, jamais de développeur freelance), un délai de lancement et un plan d'action.
 - **Filtre éthique** : les idées qui exploitent la détresse des victimes (prix abusifs, fausses cagnottes, désinformation…) sont écartées et listées à part, pour transparence.
 - **Déduplication** : une idée déjà proposée n'est jamais renvoyée ; si de nouvelles actualités la confirment, elle gagne des « signaux » et un petit bonus de note.
@@ -43,11 +43,12 @@ config/sources.json ──► collecte (RSS, Google News, GDELT)
                     et contenant des mots déclencheurs
                          │
                          ▼
-                    Claude Haiku : premier tri (≈1 500 sujets → ~120)
-                    + les 25 meilleurs sujets heuristiques toujours gardés
+                    Claude Haiku : premier tri (≈1 500 sujets → ~200)
+                    + les 40 meilleurs sujets heuristiques toujours gardés
                          │
                          ▼
-                    Claude Opus : idées + notes + plan + avis éthique
+                    Claude Opus, en 3 lots : idées + notes + plan + avis éthique
+                    (≈1,00 à 1,60 $ par jour, plafond 2,50 $)
                          │
                          ▼
           filtre éthique, budget, sources vérifiables, déduplication

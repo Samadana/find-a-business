@@ -69,14 +69,16 @@ class Settings:
     # Premier tri bon marché : Haiku lit tous les titres et ne garde que les sujets prometteurs.
     triage_model: str = field(default_factory=lambda: _env("FAB_TRIAGE_MODEL", "claude-haiku-5-5"))
     triage_candidates: int = field(default_factory=lambda: _env_int("FAB_TRIAGE_CANDIDATES", 1500))
-    triage_keep: int = field(default_factory=lambda: _env_int("FAB_TRIAGE_KEEP", 120))
+    triage_keep: int = field(default_factory=lambda: _env_int("FAB_TRIAGE_KEEP", 200))
     # Sujets les mieux classés par l'heuristique, toujours envoyés à l'analyse finale (filet de sécurité).
-    always_keep: int = field(default_factory=lambda: _env_int("FAB_ALWAYS_KEEP", 25))
+    always_keep: int = field(default_factory=lambda: _env_int("FAB_ALWAYS_KEEP", 40))
     effort: str = field(default_factory=lambda: _env("FAB_EFFORT", "high"))
 
     # Collecte
     max_article_age_hours: int = field(default_factory=lambda: _env_int("FAB_MAX_ARTICLE_AGE_HOURS", 36))
-    max_articles_per_run: int = field(default_factory=lambda: _env_int("FAB_MAX_ARTICLES", 150))
+    # Sujets envoyés à l'analyse finale (au total), répartis en `analysis_batches` appels successifs.
+    max_articles_per_run: int = field(default_factory=lambda: _env_int("FAB_MAX_ARTICLES", 240))
+    analysis_batches: int = field(default_factory=lambda: max(1, _env_int("FAB_ANALYSIS_BATCHES", 3)))
     min_new_articles: int = field(default_factory=lambda: _env_int("FAB_MIN_NEW_ARTICLES", 5))
     http_timeout: float = field(default_factory=lambda: _env_float("FAB_HTTP_TIMEOUT", 15.0))
 
@@ -87,7 +89,7 @@ class Settings:
     idea_archive_days: int = field(default_factory=lambda: _env_int("FAB_ARCHIVE_DAYS", 30))
 
     # Garde-fou de dépense (0 = pas de plafond)
-    daily_cost_limit_usd: float = field(default_factory=lambda: _env_float("FAB_DAILY_COST_LIMIT_USD", 2.0))
+    daily_cost_limit_usd: float = field(default_factory=lambda: _env_float("FAB_DAILY_COST_LIMIT_USD", 2.5))
 
     dry_run: bool = field(default_factory=lambda: _env_bool("FAB_DRY_RUN", False))
 

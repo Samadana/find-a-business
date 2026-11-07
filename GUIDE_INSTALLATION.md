@@ -105,11 +105,13 @@ Le seuil, le modèle et le plafond se règlent dans l'onglet **Réglages** de l'
 | `FAB_REPORT_HOUR` | `9` | Heure du bilan (heure de Paris) ; pense aussi à adapter la ligne `cron` |
 | `FAB_MODEL` | `claude-opus-5-5` | Modèle Claude. `claude-sonnet-5-5` coûte 2× moins, `claude-haiku-5-5` ~40× moins (analyses moins fines) |
 | `FAB_EFFORT` | `high` | Profondeur de réflexion : `low`, `medium`, `high` (plus cher, plus fin) |
-| `FAB_DAILY_COST_LIMIT_USD` | `2` | Plafond de dépense API par jour. Au-delà, l'analyse se met en pause jusqu'au lendemain (et tu es prévenu sur Discord). `0` = pas de plafond |
-| `FAB_MAX_ARTICLES` | `150` | Nombre maximum de sujets envoyés à l'analyse finale par passage |
+| `FAB_DAILY_COST_LIMIT_USD` | `2.5` | Plafond de dépense API par jour. Au-delà, l'analyse se met en pause jusqu'au lendemain (et tu es prévenu sur Discord). `0` = pas de plafond |
+| `FAB_MAX_ARTICLES` | `240` | Nombre maximum de sujets envoyés à l'analyse finale par passage (tous lots confondus) |
+| `FAB_ANALYSIS_BATCHES` | `3` | Nombre de lots (appels successifs) entre lesquels ces sujets sont répartis ; chaque lot mélange toutes les régions |
 | `FAB_TRIAGE_MODEL` | `claude-haiku-5-5` | Modèle du premier tri (bon marché) |
-| `FAB_ALWAYS_KEEP` | `25` | Sujets les plus repris par les médias, toujours envoyés à l'analyse finale |
-| `FAB_MAX_BUDGET_EUR` | `5000` | Budget de lancement maximum d'une idée |
+| `FAB_TRIAGE_KEEP` | `200` | Sujets gardés par le premier tri (avant le filet de sécurité) |
+| `FAB_ALWAYS_KEEP` | `40` | Sujets les plus repris par les médias, toujours envoyés à l'analyse finale |
+| `FAB_MAX_BUDGET_EUR` | `0` | Budget de lancement maximum d'une idée (`0` = sans limite) |
 | `FAB_ATTACH_DASHBOARD` | `false` | Joindre en plus un tableau de bord HTML au bilan Discord |
 | `FAB_PAGES` | `false` | Tableau de bord en ligne via GitHub Pages (dépôt public uniquement) |
 
@@ -123,13 +125,13 @@ Les sources d'actualité sont dans `config/sources.json` : tu peux ajouter un fl
 | Étape | Lu par le modèle | Écrit par le modèle | Prix (par million de tokens) | Coût |
 |---|---|---|---|---|
 | 1. Tri de ~1 500 titres par Claude Haiku | ~68 000 tokens | ~3 000 tokens | 0,10 $ lu / 0,50 $ écrit | ~0,01 $ |
-| 2. Analyse approfondie de ~150 sujets par Claude Opus 5.5 | ~20 000 tokens | 15 000 à 30 000 tokens (réflexion + idées détaillées) | 4 $ lu / 20 $ écrit | 0,38 à 0,68 $ |
-| **Total par jour** | | | | **~0,40 à 0,70 $** |
+| 2. Analyse approfondie de ~240 sujets par Claude Opus 5.5, en 3 lots de 80 | ~3 × 22 000 tokens | 30 000 à 63 000 tokens (réflexion + idées détaillées) | 4 $ lu / 20 $ écrit | 0,86 à 1,56 $ |
+| **Total par jour** | | | | **~1,00 à 1,60 $** |
 
-- Soit environ **12 à 21 $ par mois**. Avec Claude Sonnet 5.5 (à choisir dans **Réglages** de l'application, 2 $ / 10 $) : ~0,20 à 0,35 $ par jour, soit 6 à 11 $ par mois.
+- Soit environ **30 à 48 $ par mois**, pour 8 à 15 idées par jour. Avec Claude Sonnet 5.5 (à choisir dans **Réglages** de l'application, 2 $ / 10 $) : ~0,50 à 0,80 $ par jour, soit 15 à 24 $ par mois.
 - Les idées sont désormais expliquées en détail (contexte, notes justifiées, plan chiffré) : c'est ce qui augmente un peu le coût par rapport à la première version.
 - Un « token » vaut environ ¾ de mot. L'essentiel du coût vient de ce que le modèle écrit (sa réflexion et les idées) : l'écriture coûte 5 fois plus cher que la lecture.
-- Le plafond `FAB_DAILY_COST_LIMIT_USD` (2 $/jour par défaut) bloque tout appel à Claude au-delà, jusqu'au lendemain. Pour une garantie totale, fixe aussi une limite dans **Limits** sur platform.claude.com et n'achète que 5 ou 10 $ de crédits, sans recharge automatique.
+- Le plafond `FAB_DAILY_COST_LIMIT_USD` (2,5 $/jour par défaut) bloque tout appel à Claude au-delà, jusqu'au lendemain : avant chaque lot, le bilan vérifie que le coût maximal du lot tient encore sous le plafond. Pour une garantie totale, fixe aussi une limite dans **Limits** sur platform.claude.com et n'achète que 5 ou 10 $ de crédits, sans recharge automatique.
 - Le détail réel (tokens et coût de chaque bilan) est visible dans l'onglet **Coûts** de l'application, et par jour et par modèle dans **Usage / Cost** sur platform.claude.com. Ce sont des estimations tant qu'aucun vrai bilan n'a tourné.
 
 **Limite à connaître** : avec un seul passage par jour, le bilan voit ce que les sources affichent au moment où tu le lances. Les flux RSS ne gardent que leurs derniers articles, donc certaines actualités de la nuit peuvent échapper au bilan. GDELT et les recherches Google News couvrent bien les 24 dernières heures et compensent en grande partie.
