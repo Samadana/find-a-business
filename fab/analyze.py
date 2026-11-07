@@ -104,6 +104,7 @@ L'entrepreneur lit chaque idée en détail pour décider s'il se lance : sois co
 - « etapes » : un plan d'action concret et ordonné (6 à 12 étapes), avec outils suggérés (IA de développement, Shopify, Stripe, etc. ; pour une activité sur place : statut, local,
   fournisseurs, autorisations, assurances) et la durée estimée de chaque étape.
 - « risques » : chaque risque avec la façon de le limiter.
+- « pays_cibles » : noms complets des pays en anglais (ex. "France", "United Kingdom"), jamais de codes ; ["Worldwide"] seulement si l'idée vise vraiment le monde entier.
 - « analyse » : ton avis global en 3 à 5 phrases (faut-il y aller, à quelles conditions, le principal point de vigilance)."""
 
 
