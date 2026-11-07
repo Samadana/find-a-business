@@ -9,22 +9,40 @@ import json
 from collections import Counter
 import logging
 import sys
+import time
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 
 import anthropic
 
 from . import notify
-from .analyze import analyze, triage
+from .analyze import SYSTEM_PROMPT, analyze, build_user_message, triage
 from .collect import Article, collect_all, filter_recent
 from .config import MODEL_PRICES_USD, ROOT, Settings
 from .corroborate import corroborate
 from .ideas import archive_old, now_iso, process_analysis, recent_ideas_for_prompt, rescore
 from .report import build_standalone_dashboard
-from .selection import merge_triage, select_for_analysis
+from .selection import merge_triage, select_for_analysis, split_batches
 from .storage import load_json, prune_seen, save_json
 
 log = logging.getLogger("fab")
+
+# Analyse en lots : sortie maximale d'un lot et échéance après laquelle aucun nouveau lot ne démarre
+# (le workflow est coupé à 50 min ; s'il coupait, rien ne serait sauvegardé).
+BATCH_MAX_TOKENS = 32000
+BATCH_DEADLINE_S = 25 * 60
+clock = time.monotonic  # remplacée dans les tests
+
+
+def batch_max_cost(settings: Settings, items: list[dict], existing: list[dict], max_tokens: int = BATCH_MAX_TOKENS) -> float:
+    """Coût maximal d'un lot : entrée estimée (prudemment, 3 caractères par token) + sortie maximale."""
+    price_in, price_out = settings.price()
+    est_in = len(SYSTEM_PROMPT + build_user_message(items, existing)) / 3
+    return (est_in * price_in + max_tokens * price_out) / 1_000_000
+
+
+def _plural(n: int, word: str) -> str:
+    return f"{n} {word}{'s' if n > 1 else ''}"
 
 
 def today_cost(stats: dict) -> float:
@@ -57,6 +75,7 @@ def maybe_alert(settings: Settings, stats: dict, message: str) -> None:
 
 def run(settings: Settings | None = None) -> dict:
     settings = settings or Settings()
+    started = clock()
     stats = load_json(settings.stats_path, {"historique": []})
     ideas: list[dict] = load_json(settings.ideas_path, [])
     rejected: list[dict] = load_json(settings.rejected_path, [])
@@ -124,41 +143,94 @@ def run(settings: Settings | None = None) -> dict:
         log.warning("Tri préalable indisponible (%s), classement heuristique utilisé.", exc)
         refs = [c["ref"] for c in candidates]
     items = merge_triage(candidates, refs, settings.always_keep, settings.max_articles_per_run)
-    run_info["sujets_analyses"] = len(items)
-    run_info["regions_analysees"] = dict(Counter(it.get("region", "monde") for it in items).most_common())
+    # Mode test : un seul lot (la réponse simulée renverrait sinon les mêmes idées à chaque lot).
+    batches = split_batches(items, 1 if settings.dry_run else settings.analysis_batches)
 
-    # 3. Analyse par Claude
-    try:
-        result = analyze(settings, items, recent_ideas_for_prompt(ideas))
-    except anthropic.AuthenticationError:
-        run_info["statut"] = "erreur : clé API Claude invalide"
-        maybe_alert(settings, stats, "la clé API Claude est invalide ou absente (secret ANTHROPIC_API_KEY).")
-        return _finish(settings, stats, ideas, rejected, seen, run_info, failed=True)
-    except anthropic.PermissionDeniedError as exc:
-        run_info["statut"] = f"erreur : accès refusé ({exc.message[:120]})"
-        maybe_alert(settings, stats, f"accès refusé par l'API Claude : {exc.message[:200]}")
-        return _finish(settings, stats, ideas, rejected, seen, run_info, failed=True)
-    except (anthropic.APIError, RuntimeError, json.JSONDecodeError) as exc:
-        msg = getattr(exc, "message", None) or str(exc)
-        if "credit" in msg.lower() or "billing" in msg.lower():
-            maybe_alert(settings, stats, "crédit API Claude épuisé : recharge ton compte sur platform.claude.com.")
-        run_info["statut"] = f"erreur : {msg[:160]}"
-        log.error("Analyse impossible : %s", msg)
-        return _finish(settings, stats, ideas, rejected, seen, run_info, failed=True)
-
+    # 3. Analyse par Claude, lot après lot. Chaque lot voit les idées des lots précédents (ajoutées à `ideas`).
     price_in, price_out = settings.price()
-    cost = triage_cost + (
-        result.input_tokens * price_in + result.cache_read_tokens * price_in * 0.1 + result.output_tokens * price_out
-    ) / 1_000_000
-    run_info.update(
-        modele=result.model,
-        tokens_entree=result.input_tokens + result.cache_read_tokens,
-        tokens_sortie=result.output_tokens,
-        cout_usd=round(cost, 4),
-    )
+    spent = triage_cost
+    tokens_in = tokens_out = reinforced = 0
+    new_ideas: list[dict] = []
+    newly_rejected: list[dict] = []
+    analysed: list[dict] = []
+    lots: list[dict] = []
+    stop = ""  # raison de l'arrêt des lots restants
+    fatal: tuple[str, str] | None = None  # (statut, alerte) : clé invalide, accès refusé, crédit épuisé
+    last_error = ""
+    model = ""
+    for batch in batches:
+        lot = {"sujets": len(batch), "idees": 0, "cout_usd": 0.0, "statut": "non analysé"}
+        lots.append(lot)
+        if stop:
+            lot["statut"] = f"non analysé ({stop})"
+            continue
+        existing = recent_ideas_for_prompt(ideas)
+        if clock() - started > BATCH_DEADLINE_S:
+            stop = "échéance"
+        elif not settings.dry_run and settings.daily_cost_limit_usd > 0 and (
+            today_cost(stats) + spent + batch_max_cost(settings, batch, existing) > settings.daily_cost_limit_usd
+        ):
+            stop = "plafond"
+        if stop:
+            log.warning("Lots restants non analysés : %s.", stop)
+            lot["statut"] = f"non analysé ({stop})"
+            continue
+        try:
+            result = analyze(settings, batch, existing, max_tokens=BATCH_MAX_TOKENS)
+        except anthropic.AuthenticationError:
+            fatal = ("erreur : clé API Claude invalide", "la clé API Claude est invalide ou absente (secret ANTHROPIC_API_KEY).")
+        except anthropic.PermissionDeniedError as exc:
+            fatal = (f"erreur : accès refusé ({exc.message[:120]})", f"accès refusé par l'API Claude : {exc.message[:200]}")
+        except (anthropic.APIError, RuntimeError, json.JSONDecodeError) as exc:
+            msg = getattr(exc, "message", None) or str(exc)
+            log.error("Analyse d'un lot impossible : %s", msg)
+            last_error = msg
+            if "credit" in msg.lower() or "billing" in msg.lower():
+                fatal = (f"erreur : {msg[:160]}", "crédit API Claude épuisé : recharge ton compte sur platform.claude.com.")
+            else:
+                lot["statut"] = f"échec : {msg[:120]}"
+                continue
+        if fatal:
+            stop = "arrêt"
+            lot["statut"] = fatal[0].replace("erreur", "échec", 1)
+            continue
 
-    # 4. Traitement : éthique, déduplication, notes
-    new_ideas, newly_rejected, reinforced = process_analysis(result.data, items, ideas, settings.max_budget_eur)
+        cost = (result.input_tokens * price_in + result.cache_read_tokens * price_in * 0.1
+                + result.output_tokens * price_out) / 1_000_000
+        spent += cost
+        tokens_in += result.input_tokens + result.cache_read_tokens
+        tokens_out += result.output_tokens
+        model = result.model
+        # 4. Traitement : éthique, déduplication, notes
+        batch_new, batch_rejected, batch_reinforced = process_analysis(result.data, batch, ideas, settings.max_budget_eur)
+        new_ideas += batch_new
+        newly_rejected += batch_rejected
+        reinforced += batch_reinforced
+        analysed += batch
+        lot.update(idees=len(batch_new), cout_usd=round(cost, 4), statut="ok")
+
+    run_info["lots"] = lots
+    run_info["sujets_analyses"] = len(analysed)
+    run_info["regions_analysees"] = dict(Counter(it.get("region", "monde") for it in analysed).most_common())
+    run_info["cout_usd"] = round(spent, 4)
+    if fatal:
+        maybe_alert(settings, stats, fatal[1])
+    failed_lots = sum(1 for lot in lots if lot["statut"] != "ok")
+    if not analysed:
+        if fatal:
+            run_info["statut"] = fatal[0]
+        elif stop == "plafond" and not last_error:
+            run_info["statut"] = "plafond quotidien atteint"
+            maybe_alert(settings, stats, f"plafond de dépense quotidien ({settings.daily_cost_limit_usd} $) atteint, analyse en pause jusqu'à demain.")
+            return _finish(settings, stats, ideas, rejected, seen, run_info)
+        else:
+            reason = last_error or (f"aucun lot analysé ({stop})" if stop else "aucun sujet à analyser")
+            run_info["statut"] = f"erreur : {reason[:160]}"
+        return _finish(settings, stats, ideas, rejected, seen, run_info, failed=True)
+    if failed_lots:
+        run_info["statut"] = f"partiel : {_plural(failed_lots, 'lot')} sur {len(lots)} en échec ou non analysé{'s' if failed_lots > 1 else ''}"
+
+    run_info.update(modele=model, tokens_entree=tokens_in, tokens_sortie=tokens_out)
     rejected = (newly_rejected + rejected)[:200]
     run_info.update(idees_nouvelles=len(new_ideas), idees_ecartees=len(newly_rejected), renforcements=reinforced)
     if new_ideas and not settings.dry_run:
@@ -167,13 +239,16 @@ def run(settings: Settings | None = None) -> dict:
         except Exception as exc:  # la vérification est un bonus : elle ne doit jamais faire échouer le bilan
             log.warning("Recherche de sources supplémentaires impossible : %s", exc)
 
-    # Les articles analysés ne seront plus renvoyés à Claude.
-    for it in items:
+    # Les articles analysés ne seront plus renvoyés à Claude. Ceux des lots non analysés restent libres :
+    # ils pourront revenir le lendemain s'ils sont encore assez récents.
+    skipped = {aid for batch, lot in zip(batches, lots) if lot["statut"] != "ok" for it in batch for aid in it["ids"]}
+    for it in analysed:
         for aid in it["ids"]:
             seen[aid] = now_iso()
     # Les articles écartés par le tri sont aussi marqués (sinon le lot grossirait sans fin).
     for a in fresh:
-        seen.setdefault(a.id, now_iso())
+        if a.id not in skipped:
+            seen.setdefault(a.id, now_iso())
 
     # 5. Notification Discord (uniquement si des idées pertinentes sont trouvées)
     to_notify = [i for i in new_ideas if i["note_globale"] >= settings.min_score_notify]

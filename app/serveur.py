@@ -33,7 +33,7 @@ STATUTS = ["nouvelle", "a_etudier", "en_cours", "lancee", "abandonnee"]
 SETTINGS = {
     "FAB_MIN_SCORE_NOTIFY": "6.0",
     "FAB_MODEL": "claude-opus-5-5",
-    "FAB_DAILY_COST_LIMIT_USD": "2",
+    "FAB_DAILY_COST_LIMIT_USD": "2.5",
 }
 ALLOWED_MODELS = {"claude-opus-5-5", "claude-sonnet-5-5"}
 

@@ -254,9 +254,13 @@ def send_daily_report(
         return 0
     below_text = _below_text(below or [], threshold)
     rejected_text = _rejected_text(rejected or [])
+    lots = run_info.get("lots") or []
+    ko = sum(1 for lot in lots if lot.get("statut") != "ok")
     stats = (
         f"{run_info.get('sujets_analyses', 0)} sujets analysés sur {run_info.get('articles_nouveaux', 0)} nouveaux articles"
-        f" · {run_info.get('idees_nouvelles', 0)} idée(s) trouvée(s) · {run_info.get('idees_ecartees', 0)} écartée(s)"
+        + (f" · {len(lots)} lot{'s' if len(lots) > 1 else ''}" if lots else "")
+        + (f" · ⚠️ {ko} lot{'s' if ko > 1 else ''} sur {len(lots)} en échec ou non analysé{'s' if ko > 1 else ''}" if ko else "")
+        + f" · {run_info.get('idees_nouvelles', 0)} idée(s) trouvée(s) · {run_info.get('idees_ecartees', 0)} écartée(s)"
         + (f" · coût {run_info['cout_usd']:.2f} $" if run_info.get("cout_usd") else "")
     )
     if ideas:

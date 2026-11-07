@@ -53,7 +53,8 @@ Contraintes STRICTES :
    SaaS ou une plateforme, multiplié par le nombre de mois de construction (au moins un mois). Le reste du budget = les vrais frais
    (domaine, hébergement, API et services payants, publicité, contenus, juridique, stock, local, matériel, assurances, etc.).
 5. Le lien entre l'événement et l'idée doit être direct et concret. Pas d'idées génériques qui existeraient sans l'événement.
-6. Qualité plutôt que quantité : 0 à 8 idées par lot. Zéro idée est une réponse parfaitement acceptable si rien n'est vraiment exploitable.
+6. Vise 3 à 6 idées par lot quand les actualités le permettent, 8 au plus. N'invente rien : si le lot est pauvre, moins d'idées (voire aucune)
+   reste acceptable. Le lien direct avec l'événement et la qualité restent exigés.
 
 Filtre éthique (obligatoire) — mets ethique.acceptable = false et explique pourquoi si l'idée :
 - profite de la détresse de victimes (prix abusifs, revente spéculative de produits de première nécessité, arnaques aux dons) ;
@@ -212,7 +213,7 @@ def build_user_message(items: list[dict], existing: list[dict]) -> str:
     )
 
 
-def analyze(settings: Settings, items: list[dict], existing: list[dict]) -> AnalysisResult:
+def analyze(settings: Settings, items: list[dict], existing: list[dict], max_tokens: int = 32000) -> AnalysisResult:
     if settings.dry_run:
         fixture = ROOT / "tests" / "fixtures" / "claude_response.json"
         log.info("Mode DRY_RUN : réponse simulée lue dans %s", fixture)
@@ -222,7 +223,7 @@ def analyze(settings: Settings, items: list[dict], existing: list[dict]) -> Anal
     system = SYSTEM_PROMPT
     request = dict(
         model=settings.model,
-        max_tokens=64000,
+        max_tokens=max_tokens,
         system=[{"type": "text", "text": system, "cache_control": {"type": "ephemeral"}}],
         thinking={"type": "adaptive"},
         output_config={"effort": settings.effort, "format": {"type": "json_schema", "schema": idea_schema()}},
@@ -251,7 +252,7 @@ def analyze(settings: Settings, items: list[dict], existing: list[dict]) -> Anal
         details = getattr(response, "stop_details", None)
         raise RuntimeError(f"Claude a refusé d'analyser ce lot : {details}")
     if response.stop_reason == "max_tokens":
-        raise RuntimeError("Réponse de Claude tronquée (max_tokens atteint) : réduire FAB_MAX_ARTICLES.")
+        raise RuntimeError("Réponse de Claude tronquée (max_tokens atteint) : réduire FAB_MAX_ARTICLES ou augmenter FAB_ANALYSIS_BATCHES.")
 
     text = next((b.text for b in response.content if b.type == "text"), "")
     data = json.loads(text)

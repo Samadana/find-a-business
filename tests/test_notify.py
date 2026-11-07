@@ -92,3 +92,14 @@ def test_default_notify_threshold_is_6(monkeypatch):
     assert Settings().min_score_notify == 6.0
     assert inspect.signature(notify.send_daily_report).parameters["threshold"].default == 6.0
     assert notify.color_for(6.0) == notify.color_for(7.9) != notify.color_for(5.9)
+
+
+def test_daily_report_shows_batches_and_partial_warning(monkeypatch):
+    texts = []
+    monkeypatch.setattr(notify, "_post", lambda url, payload, att=None: texts.append(payload["content"]) or True)
+    lots = [{"statut": "ok"}, {"statut": "échec : panne"}, {"statut": "ok"}]
+    notify.send_daily_report("https://discord/x", [], {"sujets_analyses": 160, "lots": lots}, "")
+    assert "3 lots" in texts[0] and "⚠️ 1 lot sur 3 en échec ou non analysé" in texts[0]
+    texts.clear()
+    notify.send_daily_report("https://discord/x", [], {"sujets_analyses": 240, "lots": [{"statut": "ok"}] * 3}, "")
+    assert "3 lots" in texts[0] and "⚠️" not in texts[0]
